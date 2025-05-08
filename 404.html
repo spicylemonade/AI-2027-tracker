@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AI 2027 Tracker - Redirecting...</title>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // https://github.com/rafgraph/spa-github-pages
+      // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
+
+      var l = window.location;
+      var repoName = "AI-2027-tracker"; // Your repository name
+      var repoPath = "/" + repoName + "/";
+
+      // Check if the current path starts with the repository path
+      if (l.pathname.startsWith(repoPath)) {
+        var relativePath = l.pathname.substring(repoPath.length);
+        var search = l.search;
+        var hash = l.hash;
+
+        // Construct the new URL with the path as a query parameter `p`
+        // and preserve existing query parameters and hash
+        var targetUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+                        repoPath + '?p=/' + relativePath.split('?')[0] +
+                        (search ? (search.startsWith('?') ? '&' + search.slice(1) : '&' + search) : '') + 
+                        hash;
+        l.replace(targetUrl);
+      } else {
+        // If the path doesn't start with the repo path (e.g. custom domain or root access)
+        // This logic might need adjustment for custom domains.
+        // For now, attempt a direct redirect to index.html with path info.
+        var directPath = l.pathname.startsWith('/') ? l.pathname : '/' + l.pathname;
+        l.replace(
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          '/?p=' + directPath.split('?')[0] +
+          (l.search ? '&' + l.search.slice(1) : '') +
+          l.hash
+        );
+        console.warn("404.html: Path did not start with expected repo path. Attempting direct redirect. Path:", l.pathname, "RepoPath:", repoPath);
+      }
+    </script>
+    <!-- Fill with enough characters to be > 512 bytes for older IE versions -->
+    <!-- ... (spaces or comments) ... -->
+  </head>
+  <body>
+    If you are not redirected automatically, please <a href="/AI-2027-tracker/">click here to go to the homepage</a>.
+    <p style="visibility: hidden;">
+      This space is intentionally left blank and filled with invisible text to ensure this file is larger than 512 bytes. This is a workaround for older versions of Internet Explorer which might display a generic error page instead of this custom 404 page if the file is too small. Repeating this sentence multiple times to increase byte count. This space is intentionally left blank and filled with invisible text to ensure this file is larger than 512 bytes. This space is intentionally left blank and filled with invisible text to ensure this file is larger than 512 bytes. This space is intentionally left blank and filled with invisible text to ensure this file is larger than 512 bytes. This space is intentionally left blank and filled with invisible text to ensure this file is larger than 512 bytes.
+    </p>
+  </body>
+</html> 
