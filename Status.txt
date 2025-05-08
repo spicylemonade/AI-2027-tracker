@@ -1,0 +1,6 @@
+Confirmed Accurate
+Partially Accurate
+Inaccurate / Debunked
+In Progress / Monitoring
+Pending Evaluation
+Too Early to Tell / Not Yet Assessable
