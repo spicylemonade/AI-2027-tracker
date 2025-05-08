@@ -1,6 +1,7 @@
 import './index.css';
 import React, { useState, useEffect, useMemo, useRef, forwardRef } from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route, useNavigate, useParams, useLocation } from 'react-router-dom';
 import predictionsData from './data/predictions.json';
 import blogPostsData from './data/blogPosts.json';
 import ReactMarkdown from 'react-markdown';
@@ -217,7 +218,7 @@ const TimelinePredictionCard = ({ prediction, setCurrentPage, setSelectedPredict
 
   const handleReadMore = () => {
     setSelectedPredictionId(prediction.id);
-    setCurrentPage('predictionDetail');
+    setCurrentPage('predictionDetail', { id: prediction.id });
   };
 
   return (
@@ -255,7 +256,7 @@ const TimelinePredictionCard = ({ prediction, setCurrentPage, setSelectedPredict
 const PredictionCard = ({ prediction, setCurrentPage, setSelectedPredictionId }) => {
   const handleReadMore = () => {
     setSelectedPredictionId(prediction.id);
-    setCurrentPage('predictionDetail');
+    setCurrentPage('predictionDetail', { id: prediction.id });
   };
 
   return (
@@ -288,7 +289,7 @@ const PredictionCard = ({ prediction, setCurrentPage, setSelectedPredictionId })
 const BlogCard = ({ post, setCurrentPage, setSelectedPostId }) => {
     const handleReadMore = () => {
         setSelectedPostId(post.id);
-        setCurrentPage('blogPost');
+        setCurrentPage('blogPost', { id: post.id });
     };
     return (
         <Card className="flex flex-col h-full">
@@ -375,12 +376,14 @@ const HomePage = ({ predictions, posts, setCurrentPage, setSelectedPredictionId,
           <Card>
             <CardHeader><CardTitle>Overall Accuracy</CardTitle></CardHeader>
             <CardContent>
-              <div className="relative mx-auto h-20 w-20 sm:h-24 sm:w-24">
-                <svg viewBox="0 0 36 36" className="h-full w-full">
-                  <path className="text-gray-200" strokeWidth="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                  <path className={colors.accentGreen} strokeWidth="3" strokeDasharray={`${overallAccuracy}, 100`} strokeLinecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                  <text x="18" y="20.35" className={`text-xs fill-current ${colors.textPrimary} font-semibold`} textAnchor="middle">{overallAccuracy}%</text>
-                </svg>
+              <div className="flex items-center justify-center h-32"> {/* Center content and set height */}
+                <div className="relative h-20 w-20 sm:h-24 sm:w-24 flex items-center justify-center">
+                  <svg viewBox="0 0 36 36" className="h-full w-full">
+                    <path className="text-gray-200" strokeWidth="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    <path className={colors.accentGreen} strokeWidth="3" strokeDasharray={`${overallAccuracy}, 100`} strokeLinecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    <text x="18" y="21" className={`fill-current ${colors.textPrimary} font-semibold`} textAnchor="middle" style={{ fontSize: '10px' }}>{overallAccuracy}%</text>
+                  </svg>
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -631,14 +634,15 @@ const AllPredictionsPage = ({ predictions, setCurrentPage, setSelectedPrediction
 // PredictionDetailPage, AboutPage remain largely the same as previous version,
 // but will benefit from the updated Card, Button, Input component styling, and use imported data.
 
-const PredictionDetailPage = ({ predictionId, predictions, setCurrentPage }) => {
-  const prediction = predictions.find(p => p.id === predictionId);
+const PredictionDetailPage = ({ predictions, setCurrentPage }) => {
+  const { id } = useParams();
+  const prediction = predictions.find(p => p.id === id);
 
   if (!prediction) {
     return (
       <div className={`container mx-auto p-6 text-center ${colors.textPrimary}`}>
         <h1 className="text-xl font-semibold text-red-600">Prediction not found.</h1>
-        <Button onClick={() => setCurrentPage('allPredictions')} className="mt-4">Back to All Predictions</Button>
+        <button onClick={() => setCurrentPage('allPredictions')} className="mt-4">Back to All Predictions</button>
       </div>
     );
   }
@@ -735,47 +739,49 @@ const BlogPage = ({ posts, setCurrentPage, setSelectedPostId }) => {
 };
 
 // --- Updated BlogPostPage ---
-const BlogPostPage = ({ postId, posts, setCurrentPage }) => {
-    const post = posts.find(p => p.id === postId);
-    if (!post) {
-        return (
-            <div className={`container mx-auto p-6 text-center ${colors.textPrimary}`}>
-                <h1 className="text-xl font-semibold text-red-600">Blog post not found.</h1>
-                <Button onClick={() => setCurrentPage('blog')} className="mt-4">Back to Blog</Button>
-            </div>
-        );
-    }
+const BlogPostPage = ({ posts, setCurrentPage }) => {
+  const { id } = useParams();
+  const post = posts.find(p => p.id === id);
 
+  if (!post) {
     return (
-        <div className={`container mx-auto px-4 sm:px-6 py-8 ${colors.textPrimary} max-w-4xl`}> 
-             <button onClick={() => setCurrentPage('blog')} className={`mb-6 ${colors.accentGreen} hover:underline font-semibold text-sm`}>
-                &larr; Back to Blog
-            </button>
-            <Card>
-                <CardHeader className={`border-b ${colors.borderMuted}`}>
-                    <CardTitle className="text-3xl sm:text-4xl">{post.title}</CardTitle>
-                    <CardDescription className="mt-2 text-xs">
-                        By <span className="font-semibold">{post.author}</span> on <span className="font-semibold">{formatDate(post.date)}</span>
-                    </CardDescription>
-                    {post.tags && post.tags.length > 0 && (
-                        <div className="mt-3">
-                            {post.tags.map(tag => (
-                                <span key={tag} className={`mr-1.5 mb-1.5 inline-block bg-gray-100 ${colors.textPrimary} text-xs font-medium px-2 py-0.5 rounded-md border ${colors.borderMuted}`}>
-                                    {tag}
-                                </span>
-                            ))}
-                        </div>
-                    )}
-                </CardHeader>
-                {/* Use ReactMarkdown with prose styling and GFM plugin */}
-                <CardContent className="pt-6">
-                    <div className="prose prose-sm sm:prose-base max-w-none">
-                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content || ''}</ReactMarkdown>
-                    </div>
-                </CardContent>
-            </Card>
-        </div>
+      <div className={`container mx-auto p-6 text-center ${colors.textPrimary}`}>
+        <h1 className="text-xl font-semibold text-red-600">Blog post not found.</h1>
+        <button onClick={() => setCurrentPage('blog')} className="mt-4">Back to Blog</button>
+      </div>
     );
+  }
+
+  return (
+    <div className={`container mx-auto px-4 sm:px-6 py-8 ${colors.textPrimary} max-w-4xl`}> 
+      <button onClick={() => setCurrentPage('blog')} className={`mb-6 ${colors.accentGreen} hover:underline font-semibold text-sm`}>
+        &larr; Back to Blog
+      </button>
+      <Card>
+        <CardHeader className={`border-b ${colors.borderMuted}`}>
+          <CardTitle className="text-3xl sm:text-4xl">{post.title}</CardTitle>
+          <CardDescription className="mt-2 text-xs">
+            By <span className="font-semibold">{post.author}</span> on <span className="font-semibold">{formatDate(post.date)}</span>
+          </CardDescription>
+          {post.tags && post.tags.length > 0 && (
+            <div className="mt-3">
+              {post.tags.map(tag => (
+                <span key={tag} className={`mr-1.5 mb-1.5 inline-block bg-gray-100 ${colors.textPrimary} text-xs font-medium px-2 py-0.5 rounded-md border ${colors.borderMuted}`}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </CardHeader>
+        {/* Use ReactMarkdown with prose styling and GFM plugin */}
+        <CardContent className="pt-6">
+          <div className="prose prose-sm sm:prose-base max-w-none">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content || ''}</ReactMarkdown>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
 };
 
 
@@ -813,7 +819,7 @@ const AboutPage = () => {
            
           <section>
             <h2 className="font-serif text-xl font-semibold mb-1.5" style={{ fontFamily: 'Georgia, Times, serif' }}>Contact & Feedback</h2>
-            <p>We welcome feedback and suggestions. Please reach out via Github issues.</p>
+            <p>We welcome feedback and suggestions. Please reach out via Github issues or @spicey_lemonade on twitter/X.</p>
           </section>
         </CardContent>
       </Card>
@@ -821,62 +827,115 @@ const AboutPage = () => {
   );
 };
 
-
-const App = () => {
-  const [currentPage, setCurrentPage] = useState('home');
+const AppContent = () => {
   const [selectedPredictionId, setSelectedPredictionId] = useState(null);
   const [selectedPostId, setSelectedPostId] = useState(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // Dynamically get unique timeline segments from imported data
-   const uniqueTimelineSegments = useMemo(() => {
-      // Get all segment values, including potential null/undefined/empty
-      const allSegments = predictionsData.map(p => p.timelineSegment);
+  const uniqueTimelineSegments = useMemo(() => {
+    const allSegments = predictionsData.map(p => p.timelineSegment);
+    const validSegments = allSegments.filter(segment => segment && typeof segment === 'string' && segment.trim() !== '');
+    const segmentsSet = new Set(validSegments);
+    const sortOrder = [ "Mid 2025", "Late 2025", "Early 2026", "Mid 2026", "Late 2026", "January 2027", "February 2027", "March 2027", "April 2027", "May 2027", "June 2027", "July 2027", "August 2027", "September 2027", "October 2027" ];
+    return Array.from(segmentsSet).sort((a, b) => {
+      const indexA = sortOrder.indexOf(a);
+      const indexB = sortOrder.indexOf(b);
+      if (indexA === -1 && indexB === -1) return a.localeCompare(b);
+      if (indexA === -1) return 1;
+      if (indexB === -1) return -1;
+      return indexA - indexB;
+    });
+  }, []); // predictionsData is constant, so empty dependency array is fine
 
-      // Filter out null, undefined, and empty strings
-      const validSegments = allSegments.filter(segment => segment && typeof segment === 'string' && segment.trim() !== '');
-
-      const segmentsSet = new Set(validSegments);
-      const sortOrder = [ "Mid 2025", "Late 2025", "Early 2026", "Mid 2026", "Late 2026", "January 2027", "February 2027", "March 2027", "April 2027", "May 2027", "June 2027", "July 2027", "August 2027", "September 2027", "October 2027" ];
-      
-      return Array.from(segmentsSet).sort((a, b) => {
-        const indexA = sortOrder.indexOf(a);
-        const indexB = sortOrder.indexOf(b);
-        // Existing sort logic (should be fine once segments are guaranteed to be valid strings)
-        if (indexA === -1 && indexB === -1) return a.localeCompare(b);
-        if (indexA === -1) return 1;
-        if (indexB === -1) return -1;
-        return indexA - indexB;
-      });
-   }, [predictionsData]);
-
+  const setCurrentPage = (page, params = {}) => {
+    switch (page) {
+      case 'home':
+        navigate('/');
+        break;
+      case 'timeline':
+        navigate('/timeline');
+        break;
+      case 'allPredictions':
+        navigate('/predictions');
+        break;
+      case 'predictionDetail':
+        if (params.id) {
+            navigate(`/prediction/${params.id}`);
+        } else {
+            console.error("Attempted to navigate to prediction detail without an ID.");
+            navigate('/predictions'); // Fallback to a safe page
+        }
+        break;
+      case 'blog':
+        navigate('/blog');
+        break;
+      case 'blogPost':
+        if (params.id) {
+            navigate(`/blog/${params.id}`);
+        } else {
+            console.error("Attempted to navigate to blog post detail without an ID.");
+            navigate('/blog'); // Fallback to a safe page
+        }
+        break;
+      case 'about':
+        navigate('/about');
+        break;
+      default:
+        navigate('/');
+    }
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
     document.body.className = `${colors.background} font-sans ${colors.textPrimary}`;
-  }, [currentPage]);
+  }, [location.pathname]);
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'home': return <HomePage predictions={predictionsData} posts={blogPostsData} setCurrentPage={setCurrentPage} setSelectedPredictionId={setSelectedPredictionId} setSelectedPostId={setSelectedPostId} />;
-      case 'timeline': return <TimelinePage predictions={predictionsData} setCurrentPage={setCurrentPage} setSelectedPredictionId={setSelectedPredictionId} orderedTimelineSegments={uniqueTimelineSegments} />;
-      case 'allPredictions': return <AllPredictionsPage predictions={predictionsData} setCurrentPage={setCurrentPage} setSelectedPredictionId={setSelectedPredictionId} orderedTimelineSegments={uniqueTimelineSegments} />;
-      case 'predictionDetail': return <PredictionDetailPage predictionId={selectedPredictionId} predictions={predictionsData} setCurrentPage={setCurrentPage} />;
-      case 'blog': return <BlogPage posts={blogPostsData} setCurrentPage={setCurrentPage} setSelectedPostId={setSelectedPostId} />;
-      case 'blogPost': return <BlogPostPage postId={selectedPostId} posts={blogPostsData} setCurrentPage={setCurrentPage} />;
-      case 'about': return <AboutPage />;
-      default: return <HomePage predictions={predictionsData} posts={blogPostsData} setCurrentPage={setCurrentPage} setSelectedPredictionId={setSelectedPredictionId} setSelectedPostId={setSelectedPostId} />;
+  // Effect to handle redirection from 404.html for SPA routing on GitHub Pages
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const redirectPath = params.get('p');
+
+    if (redirectPath) {
+      // Preserve other query parameters and the hash
+      params.delete('p'); // Remove the 'p' parameter itself
+      let newSearch = params.toString();
+      if (newSearch) {
+        newSearch = '?' + newSearch;
+      }
+      
+      // Navigate to the intended path, appending original search (minus 'p') and hash
+      navigate(redirectPath + newSearch + location.hash, { replace: true });
     }
-  };
+  }, [location.search, location.hash, navigate]); // Depend on location to re-check if URL changes
 
   return (
-    <div className="flex flex-col min-h-screen"> {/* Ensure footer sticks to bottom */}
+    <div className="flex flex-col min-h-screen">
       <Navbar setCurrentPage={setCurrentPage} />
-      <main className="flex-grow">{renderPage()}</main> {/* Allow main content to grow */}
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<HomePage predictions={predictionsData} posts={blogPostsData} setCurrentPage={setCurrentPage} setSelectedPredictionId={setSelectedPredictionId} setSelectedPostId={setSelectedPostId} />} />
+          <Route path="/timeline" element={<TimelinePage predictions={predictionsData} setCurrentPage={setCurrentPage} setSelectedPredictionId={setSelectedPredictionId} orderedTimelineSegments={uniqueTimelineSegments} />} />
+          <Route path="/predictions" element={<AllPredictionsPage predictions={predictionsData} setCurrentPage={setCurrentPage} setSelectedPredictionId={setSelectedPredictionId} orderedTimelineSegments={uniqueTimelineSegments} />} />
+          <Route path="/prediction/:id" element={<PredictionDetailPage predictions={predictionsData} setCurrentPage={setCurrentPage} />} />
+          <Route path="/blog" element={<BlogPage posts={blogPostsData} setCurrentPage={setCurrentPage} setSelectedPostId={setSelectedPostId} />} />
+          <Route path="/blog/:id" element={<BlogPostPage posts={blogPostsData} setCurrentPage={setCurrentPage} />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
+      </main>
       <Footer />
     </div>
   );
 };
 
+const App = () => {
+  return (
+    <BrowserRouter basename="/AI-2027-tracker">
+      <AppContent />
+    </BrowserRouter>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

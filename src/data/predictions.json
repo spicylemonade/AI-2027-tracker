@@ -1,166 +1,318 @@
 [
-  {
-    "id": "P001",
-    "text": "The world sees its first glimpse of AI agents.",
-    "originalScenario": "Mid 2025: Stumbling Agents",
-    "predictedDate": "Mid 2025",
-    "categories": ["Agent Capabilities", "Market Introduction"],
-    "timelineSegment": "Mid 2025",
-    "status": "Confirmed Accurate", "accuracyScore": 100, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": "2025-05-08", "analystCommentary": []
-  },
-  {
-    "id": "P002",
-    "text": "Advertisements for computer-using agents emphasize the term \"personal assistant\".",
-    "originalScenario": "Mid 2025: Stumbling Agents",
-    "predictedDate": "Mid 2025",
-    "categories": ["Agent Capabilities", "Marketing"],
-    "timelineSegment": "Mid 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
-  },
-  {
-    "id": "P003",
-    "text": "AI personal assistants can be prompted with tasks like \"order me a burrito on DoorDash\".",
-    "originalScenario": "Mid 2025: Stumbling Agents",
-    "predictedDate": "Mid 2025",
-    "categories": ["Agent Capabilities", "Use Cases"],
-    "timelineSegment": "Mid 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
-  },
-  {
-    "id": "P004",
-    "text": "AI personal assistants can be prompted with tasks like \"open my budget spreadsheet and sum this month's expenses.\"",
-    "originalScenario": "Mid 2025: Stumbling Agents",
-    "predictedDate": "Mid 2025",
-    "categories": ["Agent Capabilities", "Use Cases"],
-    "timelineSegment": "Mid 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
-  },
-  {
-    "id": "P005",
-    "text": "AI personal assistants will check in with users as needed, for example, to ask to confirm purchases.",
-    "originalScenario": "Mid 2025: Stumbling Agents",
-    "predictedDate": "Mid 2025",
-    "categories": ["Agent Capabilities", "User Interaction"],
-    "timelineSegment": "Mid 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
-  },
-  {
-    "id": "P006",
-    "text": "AI agents (personal assistants), though more advanced than previous iterations like Operator, struggle to get widespread usage.",
-    "originalScenario": "Mid 2025: Stumbling Agents",
-    "predictedDate": "Mid 2025",
-    "categories": ["Agent Capabilities", "Market Adoption"],
-    "timelineSegment": "Mid 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
-  },
-  {
-    "id": "P007",
-    "text": "More specialized coding agents are beginning to transform their professions.",
-    "originalScenario": "Mid 2025: Stumbling Agents",
-    "predictedDate": "Mid 2025",
-    "categories": ["Agent Capabilities", "Workforce Impact", "Coding"],
-    "timelineSegment": "Mid 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
-  },
-  {
-    "id": "P008",
-    "text": "More specialized research agents are beginning to transform their professions.",
-    "originalScenario": "Mid 2025: Stumbling Agents",
-    "predictedDate": "Mid 2025",
-    "categories": ["Agent Capabilities", "Workforce Impact", "R&D"],
-    "timelineSegment": "Mid 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
-  },
-  {
-    "id": "P009",
-    "text": "In 2025, AIs function more like employees than the AIs of 2024 which could only follow specific instructions.",
-    "originalScenario": "Mid 2025: Stumbling Agents",
-    "predictedDate": "2025",
-    "categories": ["Agent Capabilities", "Evolution"],
-    "timelineSegment": "Mid 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
-  },
-  {
-    "id": "P010",
-    "text": "Coding AIs increasingly look like autonomous agents rather than mere assistants.",
-    "originalScenario": "Mid 2025: Stumbling Agents",
-    "predictedDate": "Mid 2025",
-    "categories": ["Agent Capabilities", "Coding", "Autonomy"],
-    "timelineSegment": "Mid 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
-  },
-  {
-    "id": "P011",
-    "text": "Coding AIs take instructions via Slack or Teams.",
-    "originalScenario": "Mid 2025: Stumbling Agents",
-    "predictedDate": "Mid 2025",
-    "categories": ["Agent Capabilities", "Coding", "User Interface"],
-    "timelineSegment": "Mid 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
-  },
-  {
-    "id": "P012",
-    "text": "Coding AIs make substantial code changes on their own, sometimes saving hours or even days.",
-    "originalScenario": "Mid 2025: Stumbling Agents",
-    "predictedDate": "Mid 2025",
-    "categories": ["Agent Capabilities", "Coding", "Productivity"],
-    "timelineSegment": "Mid 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
-  },
-  {
-    "id": "P013",
-    "text": "Research agents spend half an hour scouring the Internet to answer user questions.",
-    "originalScenario": "Mid 2025: Stumbling Agents",
-    "predictedDate": "Mid 2025",
-    "categories": ["Agent Capabilities", "R&D", "Performance"],
-    "timelineSegment": "Mid 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
-  },
-  {
-    "id": "P014",
-    "text": "AI agents in practice are unreliable.",
-    "originalScenario": "Mid 2025: Stumbling Agents",
-    "predictedDate": "Mid 2025",
-    "categories": ["Agent Capabilities", "Reliability"],
-    "timelineSegment": "Mid 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
-  },
-  {
-    "id": "P015",
-    "text": "AI twitter is full of stories about tasks bungled by AI agents in some particularly hilarious way.",
-    "originalScenario": "Mid 2025: Stumbling Agents",
-    "predictedDate": "Mid 2025",
-    "categories": ["Social Impact", "Public Perception"],
-    "timelineSegment": "Mid 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
-  },
-  {
-    "id": "P016",
-    "text": "The better AI agents are expensive.",
-    "originalScenario": "Mid 2025: Stumbling Agents",
-    "predictedDate": "Mid 2025",
-    "categories": ["Agent Capabilities", "Economics", "Pricing"],
-    "timelineSegment": "Mid 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
-  },
-  {
-    "id": "P017",
-    "text": "The best performing AI agents cost hundreds of dollars a month.",
-    "originalScenario": "Mid 2025: Stumbling Agents",
-    "predictedDate": "Mid 2025",
-    "categories": ["Agent Capabilities", "Economics", "Pricing"],
-    "timelineSegment": "Mid 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
-  },
-  {
-    "id": "P018",
-    "text": "Many companies find ways to fit AI agents into their workflows despite unreliability and cost.",
-    "originalScenario": "Mid 2025: Stumbling Agents",
-    "predictedDate": "Mid 2025",
-    "categories": ["Market Adoption", "Business Impact"],
-    "timelineSegment": "Mid 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
-  },
+    {
+        "id": "P001",
+        "text": "The world sees its first glimpse of AI agents.",
+        "originalScenario": "Mid 2025: Stumbling Agents",
+        "predictedDate": "Mid 2025",
+        "categories": ["Agent Capabilities", "Market Introduction"],
+        "timelineSegment": "Mid 2025",
+        "status": "Confirmed Accurate",
+        "accuracyScore": 100,
+        "qualitativeAccuracy": "Public launches of Devin, Alexa+, UI-TARS-1.5 and Claude-Plays-Pokémon give the 'first glimpse'.",
+        "actualOutcome": "Multiple autonomous agents shipped between Feb–Apr 2025.",
+        "supportingEvidence": [
+          { "text": "TechCrunch: Alexa+ grocery & task demos", "url": "https://techcrunch.com/2025/02/26/amazon-alexa-can-do-your-grocery-shopping-too/" },
+          { "text": "TechCrunch: Devin 2.0 launch", "url": "https://techcrunch.com/2025/04/03/devin-the-viral-coding-ai-agent-gets-a-new-pay-as-you-go-plan/" }
+        ],
+        "lastEvaluated": "2025-05-08",
+        "analystCommentary": [ { "date": "2025-05-08", "comment": "Prediction fully met." } ]
+      },
+      {
+        "id": "P002",
+        "text": "Advertisements for computer-using agents emphasize the term \"personal assistant\".",
+        "originalScenario": "Mid 2025: Stumbling Agents",
+        "predictedDate": "Mid 2025",
+        "categories": ["Agent Capabilities", "Marketing"],
+        "timelineSegment": "Mid 2025",
+        "status": "Confirmed Accurate",
+        "accuracyScore": 100,
+        "qualitativeAccuracy": "Launch copy for Alexa+ and Gemini's A2A protocol use the phrase \"personal AI assistant\".",
+        "actualOutcome": "'Personal assistant' framing dominates ads and keynotes.",
+        "supportingEvidence": [
+          { "text": "Alexa+ press release", "url": "https://techcrunch.com/2025/02/26/amazon-alexa-can-do-your-grocery-shopping-too/" }
+        ],
+        "lastEvaluated": "2025-05-08",
+        "analystCommentary": []
+      },
+      {
+        "id": "P003",
+        "text": "AI personal assistants can be prompted with tasks like \"order me a burrito on DoorDash\".",
+        "originalScenario": "Mid 2025: Stumbling Agents",
+        "predictedDate": "Mid 2025",
+        "categories": ["Agent Capabilities", "Use Cases"],
+        "timelineSegment": "Mid 2025",
+        "status": "Confirmed Accurate",
+        "accuracyScore": 100,
+        "qualitativeAccuracy": "Alexa+ and Kea voice-bots place food-delivery orders via natural-language prompts.",
+        "actualOutcome": "Users can request DoorDash/UberEats entirely by voice.",
+        "supportingEvidence": [
+          { "text": "TechCrunch: Alexa+ grocery & food-ordering", "url": "https://techcrunch.com/2025/02/26/amazon-alexa-can-do-your-grocery-shopping-too/" }
+        ],
+        "lastEvaluated": "2025-05-08",
+        "analystCommentary": []
+      },
+      {
+        "id": "P004",
+        "text": "AI personal assistants can be prompted with tasks like \"open my budget spreadsheet and sum this month's expenses.\"",
+        "originalScenario": "Mid 2025: Stumbling Agents",
+        "predictedDate": "Mid 2025",
+        "categories": ["Agent Capabilities", "Use Cases"],
+        "timelineSegment": "Mid 2025",
+        "status": "Confirmed Accurate",
+        "accuracyScore": 100,
+        "qualitativeAccuracy": "Microsoft 365 Copilot in Excel performs expense-summation commands.",
+        "actualOutcome": "Feature live for Personal, Family, and Pro users.",
+        "supportingEvidence": [
+          { "text": "Microsoft Blog: Copilot now in Personal & Family", "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/16/copilot-is-now-included-in-microsoft-365-personal-and-family/" }
+        ],
+        "lastEvaluated": "2025-05-08",
+        "analystCommentary": []
+      },
+      {
+        "id": "P005",
+        "text": "AI personal assistants will check in with users as needed, for example, to ask to confirm purchases.",
+        "originalScenario": "Mid 2025: Stumbling Agents",
+        "predictedDate": "Mid 2025",
+        "categories": ["Agent Capabilities", "User Interaction"],
+        "timelineSegment": "Mid 2025",
+        "status": "Confirmed Accurate",
+        "accuracyScore": 100,
+        "qualitativeAccuracy": "Alexa requires 4-digit Voice Code or spoken confirmation for purchases.",
+        "supportingEvidence": [
+          { "text": "Amazon Help: Require a Voice Code for Purchases", "url": "https://www.amazon.com/gp/help/customer/display.html?nodeId=GAA2RYUEDNT5ZSNK" }
+        ],
+        "actualOutcome": "Confirmation prompts embedded in checkout flow.",
+        "lastEvaluated": "2025-05-08",
+        "analystCommentary": []
+      },
+      {
+        "id": "P006",
+        "text": "AI agents (personal assistants), though more advanced than previous iterations like Operator, struggle to get widespread usage.",
+        "originalScenario": "Mid 2025: Stumbling Agents",
+        "predictedDate": "Mid 2025",
+        "categories": ["Agent Capabilities", "Market Adoption"],
+        "timelineSegment": "Mid 2025",
+        "status": "Confirmed Accurate",
+        "accuracyScore": 100,
+        "qualitativeAccuracy": "Humane AI Pin discontinued; Alexa+ user base small; shows limited mainstream traction.",
+        "supportingEvidence": [
+          { "text": "The Sun: Alexa+ missing promised features", "url": "https://www.the-sun.com/tech/14161781/amazon-alexa-update-missing-features/" }
+        ],
+        "actualOutcome": "Early consumer devices struggled to retain users.",
+        "lastEvaluated": "2025-05-08",
+        "analystCommentary": []
+      },
+      {
+        "id": "P007",
+        "text": "More specialized coding agents are beginning to transform their professions.",
+        "originalScenario": "Mid 2025: Stumbling Agents",
+        "predictedDate": "Mid 2025",
+        "categories": ["Agent Capabilities", "Workforce Impact", "Coding"],
+        "timelineSegment": "Mid 2025",
+        "status": "Too Early to Tell / Not Yet Assessable",
+        "accuracyScore": null,
+        "qualitativeAccuracy": null,
+        "actualOutcome": null,
+        "supportingEvidence": [
+          { "text": "TechCrunch: Devin 2.0 productivity claims", "url": "https://techcrunch.com/2025/04/03/devin-the-viral-coding-ai-agent-gets-a-new-pay-as-you-go-plan/" },
+          { "text": "Reuters: Apple × Anthropic coding platform", "url": "https://www.reuters.com/business/retail-consumer/apple-partnering-with-startup-anthropic-ai-powered-coding-platform-bloomberg-2025-05-02/" }
+        ],
+        "lastEvaluated": "2025-05-08",
+        "analystCommentary": []
+      },
+      {
+        "id": "P008",
+        "text": "More specialized research agents are beginning to transform their professions.",
+        "originalScenario": "Mid 2025: Stumbling Agents",
+        "predictedDate": "Mid 2025",
+        "categories": ["Agent Capabilities", "Workforce Impact", "R&D"],
+        "timelineSegment": "Mid 2025",
+        "status": "Too Early to Tell / Not Yet Assessable",
+        "accuracyScore": null,
+        "qualitativeAccuracy": null,
+        "actualOutcome": null,
+        "supportingEvidence": [
+          { "text": "OpenAI: Introducing Deep Research", "url": "https://openai.com/index/introducing-deep-research/" },
+          { "text": "Perplexity: Deep Research launch", "url": "https://www.perplexity.ai/hub/blog/introducing-perplexity-deep-research" }
+        ],
+        "lastEvaluated": "2025-05-08",
+        "analystCommentary": []
+      },
+      {
+        "id": "P009",
+        "text": "In 2025, AIs function more like employees than the AIs of 2024 which could only follow specific instructions.",
+        "originalScenario": "Mid 2025: Stumbling Agents",
+        "predictedDate": "2025",
+        "categories": ["Agent Capabilities", "Evolution"],
+        "timelineSegment": "Mid 2025",
+        "status": "Confirmed Accurate",
+        "accuracyScore": 100,
+        "qualitativeAccuracy": "Consultancies (PwC, McKinsey, BCG) describe 'AI employees' handling autonomous workflows.",
+        "actualOutcome": null,
+        "supportingEvidence": [
+          { "text": "Business Insider: AI boom reshaping consultancies", "url": "https://www.businessinsider.com/consulting-ai-mckinsey-bcg-deloitte-pwc-kpmg-chatbots-ai-tools-2025-4" }
+        ],
+        "lastEvaluated": "2025-05-08",
+        "analystCommentary": []
+      },
+      {
+        "id": "P010",
+        "text": "Coding AIs increasingly look like autonomous agents rather than mere assistants.",
+        "originalScenario": "Mid 2025: Stumbling Agents",
+        "predictedDate": "Mid 2025",
+        "categories": ["Agent Capabilities", "Coding", "Autonomy"],
+        "timelineSegment": "Mid 2025",
+        "status": "Confirmed Accurate",
+        "accuracyScore": 100,
+        "qualitativeAccuracy": "Devin, Claude Code CLI, OpenAI Codex CLI, Cursor IDE, Windsurf's Cascade act as autonomous coders.",
+        "actualOutcome": null,
+        "supportingEvidence": [
+          { "text": "Anthropic: Claude Code best practices", "url": "https://www.anthropic.com/engineering/claude-code-best-practices" },
+          { "text": "OpenAI Codex CLI repo", "url": "https://github.com/openai/codex" }
+        ],
+        "lastEvaluated": "2025-05-08",
+        "analystCommentary": []
+      },
+      {
+        "id": "P011",
+        "text": "Coding AIs take instructions via Slack or Teams.",
+        "originalScenario": "Mid 2025: Stumbling Agents",
+        "predictedDate": "Mid 2025",
+        "categories": ["Agent Capabilities", "Coding", "User Interface"],
+        "timelineSegment": "Mid 2025",
+        "status": "Too Early to Tell / Not Yet Assessable",
+        "accuracyScore": null,
+        "qualitativeAccuracy": null,
+        "actualOutcome": null,
+        "supportingEvidence": [
+          { "text": "Business Insider: Salesforce sellers using Agentforce in Slack", "url": "https://www.businessinsider.com/salesforce-sellers-ai-for-improving-client-research-meetings-2025-5" }
+        ],
+        "lastEvaluated": "2025-05-08",
+        "analystCommentary": []
+      },
+      {
+        "id": "P012",
+        "text": "Coding AIs make substantial code changes on their own, sometimes saving hours or even days.",
+        "originalScenario": "Mid 2025: Stumbling Agents",
+        "predictedDate": "Mid 2025",
+        "categories": ["Agent Capabilities", "Coding", "Productivity"],
+        "timelineSegment": "Mid 2025",
+        "status": "Confirmed Accurate",
+        "accuracyScore": 100,
+        "qualitativeAccuracy": "Devin 2.0 and Windsurf's Cascade patch bugs and ship PRs that normally take hours.",
+        "actualOutcome": null,
+        "supportingEvidence": [
+          { "text": "TechCrunch: Devin 2.0 launch", "url": "https://techcrunch.com/2025/04/03/devin-the-viral-coding-ai-agent-gets-a-new-pay-as-you-go-plan/" },
+          { "text": "Windsurf: Cascade agent overview", "url": "https://windsurf.com/" }
+        ],
+        "lastEvaluated": "2025-05-08",
+        "analystCommentary": []
+      },
+      {
+        "id": "P013",
+        "text": "Research agents spend half an hour scouring the Internet to answer user questions.",
+        "originalScenario": "Mid 2025: Stumbling Agents",
+        "predictedDate": "Mid 2025",
+        "categories": ["Agent Capabilities", "R&D", "Performance"],
+        "timelineSegment": "Mid 2025",
+        "status": "Confirmed Accurate",
+        "accuracyScore": 100,
+        "qualitativeAccuracy": "Deep Research agents routinely spend 5-30 min compiling multi-source briefs.",
+        "actualOutcome": null,
+        "supportingEvidence": [
+          { "text": "OpenAI: Deep Research usage update", "url": "https://openai.com/index/introducing-deep-research/" }
+        ],
+        "lastEvaluated": "2025-05-08",
+        "analystCommentary": []
+      },
+      {
+        "id": "P014",
+        "text": "AI agents in practice are unreliable.",
+        "originalScenario": "Mid 2025: Stumbling Agents",
+        "predictedDate": "Mid 2025",
+        "categories": ["Agent Capabilities", "Reliability"],
+        "timelineSegment": "Mid 2025",
+        "status": "Confirmed Accurate",
+        "accuracyScore": 100,
+        "qualitativeAccuracy": "Compound-error math and viral 'gibberlink' video show reliability issues.",
+        "actualOutcome": null,
+        "supportingEvidence": [
+          { "text": "Business Insider: Agents error rates", "url": "https://www.businessinsider.com/ai-agents-errors-hallucinations-compound-risk-2025-4" },
+          { "text": "Decrypt: Viral AI agents abandon human speech", "url": "https://decrypt.co/307780/ai-agents-ditch-human-talk-switch-to-gibberlink-in-viral-video" }
+        ],
+        "lastEvaluated": "2025-05-08",
+        "analystCommentary": []
+      },
+      {
+        "id": "P015",
+        "text": "AI twitter is full of stories about tasks bungled by AI agents in some particularly hilarious way.",
+        "originalScenario": "Mid 2025: Stumbling Agents",
+        "predictedDate": "Mid 2025",
+        "categories": ["Social Impact", "Public Perception"],
+        "timelineSegment": "Mid 2025",
+        "status": "Confirmed Accurate",
+        "accuracyScore": 100,
+        "qualitativeAccuracy": "Hashtag #AgentFail trends; Decrypt reports viral agent-gone-rogue clips.",
+        "actualOutcome": null,
+        "supportingEvidence": [
+          { "text": "Decrypt: viral AI agent video", "url": "https://decrypt.co/307780/ai-agents-ditch-human-talk-switch-to-gibberlink-in-viral-video" }
+        ],
+        "lastEvaluated": "2025-05-08",
+        "analystCommentary": []
+      },
+      {
+        "id": "P016",
+        "text": "The better AI agents are expensive.",
+        "originalScenario": "Mid 2025: Stumbling Agents",
+        "predictedDate": "Mid 2025",
+        "categories": ["Agent Capabilities", "Economics", "Pricing"],
+        "timelineSegment": "Mid 2025",
+        "status": "Confirmed Accurate",
+        "accuracyScore": 100,
+        "qualitativeAccuracy": null,
+        "actualOutcome": null,
+        "supportingEvidence": [
+          { "text": "Medium: Review of $200 ChatGPT Pro", "url": "https://medium.com/artificial-corner/my-honest-review-of-chatgpts-200-monthly-subscription-e64ab00e6471" },
+          { "text": "TechCrunch: Claude $200 Max plan", "url": "https://techcrunch.com/2025/04/09/anthropic-rolls-out-a-200-per-month-claude-subscription/" }
+        ],
+        "lastEvaluated": "2025-05-08",
+        "analystCommentary": []
+      },
+      {
+        "id": "P017",
+        "text": "The best performing AI agents cost hundreds of dollars a month.",
+        "originalScenario": "Mid 2025: Stumbling Agents",
+        "predictedDate": "Mid 2025",
+        "categories": ["Agent Capabilities", "Economics", "Pricing"],
+        "timelineSegment": "Mid 2025",
+        "status": "Too Early to Tell / Not Yet Assessable",
+        "accuracyScore": null,
+        "qualitativeAccuracy": "",
+        "actualOutcome": null,
+        "supportingEvidence": [
+          { "text": "TechCrunch: $20 k/mo specialized agents rumor", "url": "https://techcrunch.com/2025/03/05/openai-reportedly-plans-to-charge-up-to-20000-a-month-for-specialized-ai-agents/" }
+        ],
+        "lastEvaluated": "2025-05-08",
+        "analystCommentary": []
+      },
+      {
+        "id": "P018",
+        "text": "Many companies find ways to fit AI agents into their workflows despite unreliability and cost.",
+        "originalScenario": "Mid 2025: Stumbling Agents",
+        "predictedDate": "Mid 2025",
+        "categories": ["Market Adoption", "Business Impact"],
+        "timelineSegment": "Mid 2025",
+        "status": "Confirmed Accurate",
+        "accuracyScore": 100,
+        "qualitativeAccuracy": "PwC's Agent OS and Big-Four pilots show enterprises embedding agents despite reliability & cost.",
+        "actualOutcome": null,
+        "supportingEvidence": [
+          { "text": "PwC press release: Agent OS", "url": "https://www.pwc.com/us/en/about-us/newsroom/press-releases/pwc-launches-ai-agent-operating-system-enterprises.html" },
+          { "text": "Business Insider: Consulting firms' AI adoption", "url": "https://www.businessinsider.com/consulting-ai-mckinsey-bcg-deloitte-pwc-kpmg-chatbots-ai-tools-2025-4" }
+        ],
+        "lastEvaluated": "2025-05-08",
+        "analystCommentary": []
+      },
   {
     "id": "P019",
     "text": "OpenBrain is building the biggest datacenters the world has ever seen.",
@@ -1508,7 +1660,7 @@
   },
   {
     "id": "P169",
-    "text": "The new AI system is dubbed Agent-4.",
+    "text": "The new AI system emmerges with capabilities of Agent-4.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
     "categories": ["AI Models", "OpenBrain"],
