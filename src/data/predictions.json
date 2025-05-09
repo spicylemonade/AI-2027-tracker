@@ -1,722 +1,1337 @@
 [
-    {
-        "id": "P001",
-        "text": "The world sees its first glimpse of AI agents.",
-        "originalScenario": "Mid 2025: Stumbling Agents",
-        "predictedDate": "Mid 2025",
-        "categories": ["Agent Capabilities", "Market Introduction"],
-        "timelineSegment": "Mid 2025",
-        "status": "Confirmed Accurate",
-        "accuracyScore": 100,
-        "qualitativeAccuracy": "Public launches of Devin, Alexa+, UI-TARS-1.5 and Claude-Plays-Pokémon give the 'first glimpse'.",
-        "actualOutcome": "Multiple autonomous agents shipped between Feb–Apr 2025.",
-        "supportingEvidence": [
-          { "text": "TechCrunch: Alexa+ grocery & task demos", "url": "https://techcrunch.com/2025/02/26/amazon-alexa-can-do-your-grocery-shopping-too/" },
-          { "text": "TechCrunch: Devin 2.0 launch", "url": "https://techcrunch.com/2025/04/03/devin-the-viral-coding-ai-agent-gets-a-new-pay-as-you-go-plan/" }
-        ],
-        "lastEvaluated": "2025-05-08",
-        "analystCommentary": [ { "date": "2025-05-08", "comment": "Prediction fully met." } ]
+  {
+    "id": "P001",
+    "text": "The world sees its first glimpse of AI agents.",
+    "originalScenario": "Mid 2025: Stumbling Agents",
+    "predictedDate": "Mid 2025",
+    "categories": [
+      "Agent Capabilities",
+      "Market Introduction"
+    ],
+    "timelineSegment": "Mid 2025",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Public launches of Devin, Alexa+, UI-TARS-1.5 and Claude-Plays-Pokémon give the 'first glimpse'.",
+    "actualOutcome": "Multiple autonomous agents shipped between Feb–Apr 2025.",
+    "supportingEvidence": [
+      {
+        "text": "TechCrunch: Alexa+ grocery & task demos",
+        "url": "https://techcrunch.com/2025/02/26/amazon-alexa-can-do-your-grocery-shopping-too/"
       },
       {
-        "id": "P002",
-        "text": "Advertisements for computer-using agents emphasize the term \"personal assistant\".",
-        "originalScenario": "Mid 2025: Stumbling Agents",
-        "predictedDate": "Mid 2025",
-        "categories": ["Agent Capabilities", "Marketing"],
-        "timelineSegment": "Mid 2025",
-        "status": "Confirmed Accurate",
-        "accuracyScore": 100,
-        "qualitativeAccuracy": "Launch copy for Alexa+ and Gemini's A2A protocol use the phrase \"personal AI assistant\".",
-        "actualOutcome": "'Personal assistant' framing dominates ads and keynotes.",
-        "supportingEvidence": [
-          { "text": "Alexa+ press release", "url": "https://techcrunch.com/2025/02/26/amazon-alexa-can-do-your-grocery-shopping-too/" }
-        ],
-        "lastEvaluated": "2025-05-08",
-        "analystCommentary": []
+        "text": "TechCrunch: Devin 2.0 launch",
+        "url": "https://techcrunch.com/2025/04/03/devin-the-viral-coding-ai-agent-gets-a-new-pay-as-you-go-plan/"
       },
       {
-        "id": "P003",
-        "text": "AI personal assistants can be prompted with tasks like \"order me a burrito on DoorDash\".",
-        "originalScenario": "Mid 2025: Stumbling Agents",
-        "predictedDate": "Mid 2025",
-        "categories": ["Agent Capabilities", "Use Cases"],
-        "timelineSegment": "Mid 2025",
-        "status": "Confirmed Accurate",
-        "accuracyScore": 100,
-        "qualitativeAccuracy": "Alexa+ and Kea voice-bots place food-delivery orders via natural-language prompts.",
-        "actualOutcome": "Users can request DoorDash/UberEats entirely by voice.",
-        "supportingEvidence": [
-          { "text": "TechCrunch: Alexa+ grocery & food-ordering", "url": "https://techcrunch.com/2025/02/26/amazon-alexa-can-do-your-grocery-shopping-too/" }
-        ],
-        "lastEvaluated": "2025-05-08",
-        "analystCommentary": []
+        "text": "OpenAI: Introducing Operator",
+        "url": "https://openai.com/index/introducing-operator/"
       },
       {
-        "id": "P004",
-        "text": "AI personal assistants can be prompted with tasks like \"open my budget spreadsheet and sum this month's expenses.\"",
-        "originalScenario": "Mid 2025: Stumbling Agents",
-        "predictedDate": "Mid 2025",
-        "categories": ["Agent Capabilities", "Use Cases"],
-        "timelineSegment": "Mid 2025",
-        "status": "Confirmed Accurate",
-        "accuracyScore": 100,
-        "qualitativeAccuracy": "Microsoft 365 Copilot in Excel performs expense-summation commands.",
-        "actualOutcome": "Feature live for Personal, Family, and Pro users.",
-        "supportingEvidence": [
-          { "text": "Microsoft Blog: Copilot now in Personal & Family", "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/16/copilot-is-now-included-in-microsoft-365-personal-and-family/" }
-        ],
-        "lastEvaluated": "2025-05-08",
-        "analystCommentary": []
+        "text": "Anthropic: Introducing computer use, a new Claude 3.5 Sonnet, and Claude 3.5 Haiku",
+        "url": "https://www.anthropic.com/news/3-5-models-and-computer-use"
       },
       {
-        "id": "P005",
-        "text": "AI personal assistants will check in with users as needed, for example, to ask to confirm purchases.",
-        "originalScenario": "Mid 2025: Stumbling Agents",
-        "predictedDate": "Mid 2025",
-        "categories": ["Agent Capabilities", "User Interaction"],
-        "timelineSegment": "Mid 2025",
-        "status": "Confirmed Accurate",
-        "accuracyScore": 100,
-        "qualitativeAccuracy": "Alexa requires 4-digit Voice Code or spoken confirmation for purchases.",
-        "supportingEvidence": [
-          { "text": "Amazon Help: Require a Voice Code for Purchases", "url": "https://www.amazon.com/gp/help/customer/display.html?nodeId=GAA2RYUEDNT5ZSNK" }
-        ],
-        "actualOutcome": "Confirmation prompts embedded in checkout flow.",
-        "lastEvaluated": "2025-05-08",
-        "analystCommentary": []
+        "text": "Twitch: ClaudePlaysPokemon",
+        "url": "https://m.twitch.tv/claudeplayspokemon/home"
       },
       {
-        "id": "P006",
-        "text": "AI agents (personal assistants), though more advanced than previous iterations like Operator, struggle to get widespread usage.",
-        "originalScenario": "Mid 2025: Stumbling Agents",
-        "predictedDate": "Mid 2025",
-        "categories": ["Agent Capabilities", "Market Adoption"],
-        "timelineSegment": "Mid 2025",
-        "status": "Confirmed Accurate",
-        "accuracyScore": 100,
-        "qualitativeAccuracy": "Humane AI Pin discontinued; Alexa+ user base small; shows limited mainstream traction.",
-        "supportingEvidence": [
-          { "text": "The Sun: Alexa+ missing promised features", "url": "https://www.the-sun.com/tech/14161781/amazon-alexa-update-missing-features/" }
-        ],
-        "actualOutcome": "Early consumer devices struggled to retain users.",
-        "lastEvaluated": "2025-05-08",
-        "analystCommentary": []
+        "text": "GitHub: ByteDance/UI-TARS (UI-TARS 1.5)",
+        "url": "https://github.com/bytedance/UI-TARS"
+      }
+    ],
+    "lastEvaluated": "2025-05-09",
+    "analystCommentary": [
+      {
+        "date": "2025-05-08",
+        "comment": "Prediction fully met."
+      }
+    ]
+  },
+  {
+    "id": "P002",
+    "text": "Advertisements for computer-using agents emphasize the term \"personal assistant\".",
+    "originalScenario": "Mid 2025: Stumbling Agents",
+    "predictedDate": "Mid 2025",
+    "categories": [
+      "Agent Capabilities",
+      "Marketing"
+    ],
+    "timelineSegment": "Mid 2025",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Launch copy for Alexa+ and Gemini's A2A protocol use the phrase \"personal AI assistant\".",
+    "actualOutcome": "'Personal assistant' framing dominates ads and keynotes.",
+    "supportingEvidence": [
+      {
+        "text": "Alexa+ press release",
+        "url": "https://techcrunch.com/2025/02/26/amazon-alexa-can-do-your-grocery-shopping-too/"
+      }
+    ],
+    "lastEvaluated": "2025-05-08",
+    "analystCommentary": []
+  },
+  {
+    "id": "P003",
+    "text": "AI personal assistants can be prompted with tasks like \"order me a burrito on DoorDash\".",
+    "originalScenario": "Mid 2025: Stumbling Agents",
+    "predictedDate": "Mid 2025",
+    "categories": [
+      "Agent Capabilities",
+      "Use Cases"
+    ],
+    "timelineSegment": "Mid 2025",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Alexa+ and Kea voice-bots place food-delivery orders via natural-language prompts.",
+    "actualOutcome": "Users can request DoorDash/UberEats entirely by voice.",
+    "supportingEvidence": [
+      {
+        "text": "TechCrunch: Alexa+ grocery & food-ordering",
+        "url": "https://techcrunch.com/2025/02/26/amazon-alexa-can-do-your-grocery-shopping-too/"
+      }
+    ],
+    "lastEvaluated": "2025-05-08",
+    "analystCommentary": []
+  },
+  {
+    "id": "P004",
+    "text": "AI personal assistants can be prompted with tasks like \"open my budget spreadsheet and sum this month's expenses.\"",
+    "originalScenario": "Mid 2025: Stumbling Agents",
+    "predictedDate": "Mid 2025",
+    "categories": [
+      "Agent Capabilities",
+      "Use Cases"
+    ],
+    "timelineSegment": "Mid 2025",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Microsoft 365 Copilot in Excel performs expense-summation commands.",
+    "actualOutcome": "Feature live for Personal, Family, and Pro users.",
+    "supportingEvidence": [
+      {
+        "text": "Microsoft Blog: Copilot now in Personal & Family",
+        "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/16/copilot-is-now-included-in-microsoft-365-personal-and-family/"
+      }
+    ],
+    "lastEvaluated": "2025-05-08",
+    "analystCommentary": []
+  },
+  {
+    "id": "P005",
+    "text": "AI personal assistants will check in with users as needed, for example, to ask to confirm purchases.",
+    "originalScenario": "Mid 2025: Stumbling Agents",
+    "predictedDate": "Mid 2025",
+    "categories": [
+      "Agent Capabilities",
+      "User Interaction"
+    ],
+    "timelineSegment": "Mid 2025",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Alexa requires 4-digit Voice Code or spoken confirmation for purchases.",
+    "supportingEvidence": [
+      {
+        "text": "Amazon Help: Require a Voice Code for Purchases",
+        "url": "https://www.amazon.com/gp/help/customer/display.html?nodeId=GAA2RYUEDNT5ZSNK"
+      }
+    ],
+    "actualOutcome": "Confirmation prompts embedded in checkout flow.",
+    "lastEvaluated": "2025-05-08",
+    "analystCommentary": []
+  },
+  {
+    "id": "P006",
+    "text": "AI agents (personal assistants), though more advanced than previous iterations like Operator, struggle to get widespread usage.",
+    "originalScenario": "Mid 2025: Stumbling Agents",
+    "predictedDate": "Mid 2025",
+    "categories": [
+      "Agent Capabilities",
+      "Market Adoption"
+    ],
+    "timelineSegment": "Mid 2025",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Humane AI Pin discontinued; Alexa+ user base small; shows limited mainstream traction.",
+    "supportingEvidence": [
+      {
+        "text": "The Sun: Alexa+ missing promised features",
+        "url": "https://www.the-sun.com/tech/14161781/amazon-alexa-update-missing-features/"
+      }
+    ],
+    "actualOutcome": "Early consumer devices struggled to retain users.",
+    "lastEvaluated": "2025-05-08",
+    "analystCommentary": []
+  },
+  {
+    "id": "P007",
+    "text": "More specialized coding agents are beginning to transform their professions.",
+    "originalScenario": "Mid 2025: Stumbling Agents",
+    "predictedDate": "Mid 2025",
+    "categories": [
+      "Agent Capabilities",
+      "Workforce Impact",
+      "Coding"
+    ],
+    "timelineSegment": "Mid 2025",
+    "status": "Too Early to Tell / Not Yet Assessable",
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [
+      {
+        "text": "TechCrunch: Devin 2.0 productivity claims",
+        "url": "https://techcrunch.com/2025/04/03/devin-the-viral-coding-ai-agent-gets-a-new-pay-as-you-go-plan/"
       },
       {
-        "id": "P007",
-        "text": "More specialized coding agents are beginning to transform their professions.",
-        "originalScenario": "Mid 2025: Stumbling Agents",
-        "predictedDate": "Mid 2025",
-        "categories": ["Agent Capabilities", "Workforce Impact", "Coding"],
-        "timelineSegment": "Mid 2025",
-        "status": "Too Early to Tell / Not Yet Assessable",
-        "accuracyScore": null,
-        "qualitativeAccuracy": null,
-        "actualOutcome": null,
-        "supportingEvidence": [
-          { "text": "TechCrunch: Devin 2.0 productivity claims", "url": "https://techcrunch.com/2025/04/03/devin-the-viral-coding-ai-agent-gets-a-new-pay-as-you-go-plan/" },
-          { "text": "Reuters: Apple × Anthropic coding platform", "url": "https://www.reuters.com/business/retail-consumer/apple-partnering-with-startup-anthropic-ai-powered-coding-platform-bloomberg-2025-05-02/" }
-        ],
-        "lastEvaluated": "2025-05-08",
-        "analystCommentary": []
+        "text": "Reuters: Apple × Anthropic coding platform",
+        "url": "https://www.reuters.com/business/retail-consumer/apple-partnering-with-startup-anthropic-ai-powered-coding-platform-bloomberg-2025-05-02/"
+      }
+    ],
+    "lastEvaluated": "2025-05-08",
+    "analystCommentary": []
+  },
+  {
+    "id": "P008",
+    "text": "More specialized research agents are beginning to transform their professions.",
+    "originalScenario": "Mid 2025: Stumbling Agents",
+    "predictedDate": "Mid 2025",
+    "categories": [
+      "Agent Capabilities",
+      "Workforce Impact",
+      "R&D"
+    ],
+    "timelineSegment": "Mid 2025",
+    "status": "Too Early to Tell / Not Yet Assessable",
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [
+      {
+        "text": "OpenAI: Introducing Deep Research",
+        "url": "https://openai.com/index/introducing-deep-research/"
       },
       {
-        "id": "P008",
-        "text": "More specialized research agents are beginning to transform their professions.",
-        "originalScenario": "Mid 2025: Stumbling Agents",
-        "predictedDate": "Mid 2025",
-        "categories": ["Agent Capabilities", "Workforce Impact", "R&D"],
-        "timelineSegment": "Mid 2025",
-        "status": "Too Early to Tell / Not Yet Assessable",
-        "accuracyScore": null,
-        "qualitativeAccuracy": null,
-        "actualOutcome": null,
-        "supportingEvidence": [
-          { "text": "OpenAI: Introducing Deep Research", "url": "https://openai.com/index/introducing-deep-research/" },
-          { "text": "Perplexity: Deep Research launch", "url": "https://www.perplexity.ai/hub/blog/introducing-perplexity-deep-research" }
-        ],
-        "lastEvaluated": "2025-05-08",
-        "analystCommentary": []
+        "text": "Perplexity: Deep Research launch",
+        "url": "https://www.perplexity.ai/hub/blog/introducing-perplexity-deep-research"
+      }
+    ],
+    "lastEvaluated": "2025-05-08",
+    "analystCommentary": []
+  },
+  {
+    "id": "P009",
+    "text": "In 2025, AIs function more like employees than the AIs of 2024 which could only follow specific instructions.",
+    "originalScenario": "Mid 2025: Stumbling Agents",
+    "predictedDate": "2025",
+    "categories": [
+      "Agent Capabilities",
+      "Evolution"
+    ],
+    "timelineSegment": "Mid 2025",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Consultancies (PwC, McKinsey, BCG) describe 'AI employees' handling autonomous workflows.",
+    "actualOutcome": null,
+    "supportingEvidence": [
+      {
+        "text": "Business Insider: AI boom reshaping consultancies",
+        "url": "https://www.businessinsider.com/consulting-ai-mckinsey-bcg-deloitte-pwc-kpmg-chatbots-ai-tools-2025-4"
+      }
+    ],
+    "lastEvaluated": "2025-05-08",
+    "analystCommentary": []
+  },
+  {
+    "id": "P010",
+    "text": "Coding AIs increasingly look like autonomous agents rather than mere assistants.",
+    "originalScenario": "Mid 2025: Stumbling Agents",
+    "predictedDate": "Mid 2025",
+    "categories": [
+      "Agent Capabilities",
+      "Coding",
+      "Autonomy"
+    ],
+    "timelineSegment": "Mid 2025",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Devin, Claude Code CLI, OpenAI Codex CLI, Cursor IDE, Windsurf's Cascade act as autonomous coders.",
+    "actualOutcome": null,
+    "supportingEvidence": [
+      {
+        "text": "Anthropic: Claude Code best practices",
+        "url": "https://www.anthropic.com/engineering/claude-code-best-practices"
       },
       {
-        "id": "P009",
-        "text": "In 2025, AIs function more like employees than the AIs of 2024 which could only follow specific instructions.",
-        "originalScenario": "Mid 2025: Stumbling Agents",
-        "predictedDate": "2025",
-        "categories": ["Agent Capabilities", "Evolution"],
-        "timelineSegment": "Mid 2025",
-        "status": "Confirmed Accurate",
-        "accuracyScore": 100,
-        "qualitativeAccuracy": "Consultancies (PwC, McKinsey, BCG) describe 'AI employees' handling autonomous workflows.",
-        "actualOutcome": null,
-        "supportingEvidence": [
-          { "text": "Business Insider: AI boom reshaping consultancies", "url": "https://www.businessinsider.com/consulting-ai-mckinsey-bcg-deloitte-pwc-kpmg-chatbots-ai-tools-2025-4" }
-        ],
-        "lastEvaluated": "2025-05-08",
-        "analystCommentary": []
+        "text": "OpenAI Codex CLI repo",
+        "url": "https://github.com/openai/codex"
+      }
+    ],
+    "lastEvaluated": "2025-05-08",
+    "analystCommentary": []
+  },
+  {
+    "id": "P011",
+    "text": "Coding AIs take instructions via Slack or Teams.",
+    "originalScenario": "Mid 2025: Stumbling Agents",
+    "predictedDate": "Mid 2025",
+    "categories": [
+      "Agent Capabilities",
+      "Coding",
+      "User Interface"
+    ],
+    "timelineSegment": "Mid 2025",
+    "status": "Too Early to Tell / Not Yet Assessable",
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [
+      {
+        "text": "Business Insider: Salesforce sellers using Agentforce in Slack",
+        "url": "https://www.businessinsider.com/salesforce-sellers-ai-for-improving-client-research-meetings-2025-5"
+      }
+    ],
+    "lastEvaluated": "2025-05-08",
+    "analystCommentary": []
+  },
+  {
+    "id": "P012",
+    "text": "Coding AIs make substantial code changes on their own, sometimes saving hours or even days.",
+    "originalScenario": "Mid 2025: Stumbling Agents",
+    "predictedDate": "Mid 2025",
+    "categories": [
+      "Agent Capabilities",
+      "Coding",
+      "Productivity"
+    ],
+    "timelineSegment": "Mid 2025",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Devin 2.0 and Windsurf's Cascade patch bugs and ship PRs that normally take hours.",
+    "actualOutcome": null,
+    "supportingEvidence": [
+      {
+        "text": "claudecode does 80-90% of the code for anthropic",
+        "url": "https://youtu.be/zDmW5hJPsvQ?t=1142"
       },
       {
-        "id": "P010",
-        "text": "Coding AIs increasingly look like autonomous agents rather than mere assistants.",
-        "originalScenario": "Mid 2025: Stumbling Agents",
-        "predictedDate": "Mid 2025",
-        "categories": ["Agent Capabilities", "Coding", "Autonomy"],
-        "timelineSegment": "Mid 2025",
-        "status": "Confirmed Accurate",
-        "accuracyScore": 100,
-        "qualitativeAccuracy": "Devin, Claude Code CLI, OpenAI Codex CLI, Cursor IDE, Windsurf's Cascade act as autonomous coders.",
-        "actualOutcome": null,
-        "supportingEvidence": [
-          { "text": "Anthropic: Claude Code best practices", "url": "https://www.anthropic.com/engineering/claude-code-best-practices" },
-          { "text": "OpenAI Codex CLI repo", "url": "https://github.com/openai/codex" }
-        ],
-        "lastEvaluated": "2025-05-08",
-        "analystCommentary": []
+        "text": "TechCrunch: Devin 2.0 launch",
+        "url": "https://techcrunch.com/2025/04/03/devin-the-viral-coding-ai-agent-gets-a-new-pay-as-you-go-plan/"
       },
       {
-        "id": "P011",
-        "text": "Coding AIs take instructions via Slack or Teams.",
-        "originalScenario": "Mid 2025: Stumbling Agents",
-        "predictedDate": "Mid 2025",
-        "categories": ["Agent Capabilities", "Coding", "User Interface"],
-        "timelineSegment": "Mid 2025",
-        "status": "Too Early to Tell / Not Yet Assessable",
-        "accuracyScore": null,
-        "qualitativeAccuracy": null,
-        "actualOutcome": null,
-        "supportingEvidence": [
-          { "text": "Business Insider: Salesforce sellers using Agentforce in Slack", "url": "https://www.businessinsider.com/salesforce-sellers-ai-for-improving-client-research-meetings-2025-5" }
-        ],
-        "lastEvaluated": "2025-05-08",
-        "analystCommentary": []
+        "text": "Windsurf: Cascade agent overview",
+        "url": "https://windsurf.com/"
+      }
+    ],
+    "lastEvaluated": "2025-05-09",
+    "analystCommentary": []
+  },
+  {
+    "id": "P013",
+    "text": "Research agents spend half an hour scouring the Internet to answer user questions.",
+    "originalScenario": "Mid 2025: Stumbling Agents",
+    "predictedDate": "Mid 2025",
+    "categories": [
+      "Agent Capabilities",
+      "R&D",
+      "Performance"
+    ],
+    "timelineSegment": "Mid 2025",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Deep Research agents routinely spend 5-30 min compiling multi-source briefs.",
+    "actualOutcome": null,
+    "supportingEvidence": [
+      {
+        "text": "OpenAI: Deep Research usage update",
+        "url": "https://openai.com/index/introducing-deep-research/"
+      }
+    ],
+    "lastEvaluated": "2025-05-08",
+    "analystCommentary": []
+  },
+  {
+    "id": "P014",
+    "text": "AI agents in practice are unreliable.",
+    "originalScenario": "Mid 2025: Stumbling Agents",
+    "predictedDate": "Mid 2025",
+    "categories": [
+      "Agent Capabilities",
+      "Reliability"
+    ],
+    "timelineSegment": "Mid 2025",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Compound-error math and viral 'gibberlink' video show reliability issues. OSworld Benchmark Bellow 50%.",
+    "actualOutcome": null,
+    "supportingEvidence": [
+      {
+        "text": "Business Insider: Agents error rates",
+        "url": "https://www.businessinsider.com/ai-agents-errors-hallucinations-compound-risk-2025-4"
       },
       {
-        "id": "P012",
-        "text": "Coding AIs make substantial code changes on their own, sometimes saving hours or even days.",
-        "originalScenario": "Mid 2025: Stumbling Agents",
-        "predictedDate": "Mid 2025",
-        "categories": ["Agent Capabilities", "Coding", "Productivity"],
-        "timelineSegment": "Mid 2025",
-        "status": "Confirmed Accurate",
-        "accuracyScore": 100,
-        "qualitativeAccuracy": "Devin 2.0 and Windsurf's Cascade patch bugs and ship PRs that normally take hours.",
-        "actualOutcome": null,
-        "supportingEvidence": [
-          { "text": "TechCrunch: Devin 2.0 launch", "url": "https://techcrunch.com/2025/04/03/devin-the-viral-coding-ai-agent-gets-a-new-pay-as-you-go-plan/" },
-          { "text": "Windsurf: Cascade agent overview", "url": "https://windsurf.com/" }
-        ],
-        "lastEvaluated": "2025-05-08",
-        "analystCommentary": []
+        "text": "Decrypt: Viral AI agents abandon human speech",
+        "url": "https://decrypt.co/307780/ai-agents-ditch-human-talk-switch-to-gibberlink-in-viral-video"
+      }
+    ],
+    "lastEvaluated": "2025-05-08",
+    "analystCommentary": []
+  },
+  {
+    "id": "P015",
+    "text": "AI twitter is full of stories about tasks bungled by AI agents in some particularly hilarious way.",
+    "originalScenario": "Mid 2025: Stumbling Agents",
+    "predictedDate": "Mid 2025",
+    "categories": [
+      "Social Impact",
+      "Public Perception"
+    ],
+    "timelineSegment": "Mid 2025",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Hashtag #AgentFail trends; Decrypt reports viral agent-gone-rogue clips.",
+    "actualOutcome": null,
+    "supportingEvidence": [
+      {
+        "text": "Decrypt: viral AI agent video",
+        "url": "https://decrypt.co/307780/ai-agents-ditch-human-talk-switch-to-gibberlink-in-viral-video"
+      }
+    ],
+    "lastEvaluated": "2025-05-08",
+    "analystCommentary": []
+  },
+  {
+    "id": "P016",
+    "text": "The better AI agents are expensive.",
+    "originalScenario": "Mid 2025: Stumbling Agents",
+    "predictedDate": "Mid 2025",
+    "categories": [
+      "Agent Capabilities",
+      "Economics",
+      "Pricing"
+    ],
+    "timelineSegment": "Mid 2025",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [
+      {
+        "text": "Medium: Review of $200 ChatGPT Pro",
+        "url": "https://medium.com/artificial-corner/my-honest-review-of-chatgpts-200-monthly-subscription-e64ab00e6471"
       },
       {
-        "id": "P013",
-        "text": "Research agents spend half an hour scouring the Internet to answer user questions.",
-        "originalScenario": "Mid 2025: Stumbling Agents",
-        "predictedDate": "Mid 2025",
-        "categories": ["Agent Capabilities", "R&D", "Performance"],
-        "timelineSegment": "Mid 2025",
-        "status": "Confirmed Accurate",
-        "accuracyScore": 100,
-        "qualitativeAccuracy": "Deep Research agents routinely spend 5-30 min compiling multi-source briefs.",
-        "actualOutcome": null,
-        "supportingEvidence": [
-          { "text": "OpenAI: Deep Research usage update", "url": "https://openai.com/index/introducing-deep-research/" }
-        ],
-        "lastEvaluated": "2025-05-08",
-        "analystCommentary": []
+        "text": "TechCrunch: Claude $200 Max plan",
+        "url": "https://techcrunch.com/2025/04/09/anthropic-rolls-out-a-200-per-month-claude-subscription/"
+      }
+    ],
+    "lastEvaluated": "2025-05-08",
+    "analystCommentary": []
+  },
+  {
+    "id": "P017",
+    "text": "The best performing AI agents cost hundreds of dollars a month.",
+    "originalScenario": "Mid 2025: Stumbling Agents",
+    "predictedDate": "Mid 2025",
+    "categories": [
+      "Agent Capabilities",
+      "Economics",
+      "Pricing"
+    ],
+    "timelineSegment": "Mid 2025",
+    "status": "Too Early to Tell / Not Yet Assessable",
+    "accuracyScore": null,
+    "qualitativeAccuracy": "",
+    "actualOutcome": null,
+    "supportingEvidence": [
+      {
+        "text": "TechCrunch: $20 k/mo specialized agents rumor",
+        "url": "https://techcrunch.com/2025/03/05/openai-reportedly-plans-to-charge-up-to-20000-a-month-for-specialized-ai-agents/"
+      }
+    ],
+    "lastEvaluated": "2025-05-08",
+    "analystCommentary": []
+  },
+  {
+    "id": "P018",
+    "text": "Many companies find ways to fit AI agents into their workflows despite unreliability and cost.",
+    "originalScenario": "Mid 2025: Stumbling Agents",
+    "predictedDate": "Mid 2025",
+    "categories": [
+      "Market Adoption",
+      "Business Impact"
+    ],
+    "timelineSegment": "Mid 2025",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "PwC's Agent OS and Big-Four pilots show enterprises embedding agents despite reliability & cost.",
+    "actualOutcome": null,
+    "supportingEvidence": [
+      {
+        "text": "PwC press release: Agent OS",
+        "url": "https://www.pwc.com/us/en/about-us/newsroom/press-releases/pwc-launches-ai-agent-operating-system-enterprises.html"
       },
       {
-        "id": "P014",
-        "text": "AI agents in practice are unreliable.",
-        "originalScenario": "Mid 2025: Stumbling Agents",
-        "predictedDate": "Mid 2025",
-        "categories": ["Agent Capabilities", "Reliability"],
-        "timelineSegment": "Mid 2025",
-        "status": "Confirmed Accurate",
-        "accuracyScore": 100,
-        "qualitativeAccuracy": "Compound-error math and viral 'gibberlink' video show reliability issues.",
-        "actualOutcome": null,
-        "supportingEvidence": [
-          { "text": "Business Insider: Agents error rates", "url": "https://www.businessinsider.com/ai-agents-errors-hallucinations-compound-risk-2025-4" },
-          { "text": "Decrypt: Viral AI agents abandon human speech", "url": "https://decrypt.co/307780/ai-agents-ditch-human-talk-switch-to-gibberlink-in-viral-video" }
-        ],
-        "lastEvaluated": "2025-05-08",
-        "analystCommentary": []
-      },
-      {
-        "id": "P015",
-        "text": "AI twitter is full of stories about tasks bungled by AI agents in some particularly hilarious way.",
-        "originalScenario": "Mid 2025: Stumbling Agents",
-        "predictedDate": "Mid 2025",
-        "categories": ["Social Impact", "Public Perception"],
-        "timelineSegment": "Mid 2025",
-        "status": "Confirmed Accurate",
-        "accuracyScore": 100,
-        "qualitativeAccuracy": "Hashtag #AgentFail trends; Decrypt reports viral agent-gone-rogue clips.",
-        "actualOutcome": null,
-        "supportingEvidence": [
-          { "text": "Decrypt: viral AI agent video", "url": "https://decrypt.co/307780/ai-agents-ditch-human-talk-switch-to-gibberlink-in-viral-video" }
-        ],
-        "lastEvaluated": "2025-05-08",
-        "analystCommentary": []
-      },
-      {
-        "id": "P016",
-        "text": "The better AI agents are expensive.",
-        "originalScenario": "Mid 2025: Stumbling Agents",
-        "predictedDate": "Mid 2025",
-        "categories": ["Agent Capabilities", "Economics", "Pricing"],
-        "timelineSegment": "Mid 2025",
-        "status": "Confirmed Accurate",
-        "accuracyScore": 100,
-        "qualitativeAccuracy": null,
-        "actualOutcome": null,
-        "supportingEvidence": [
-          { "text": "Medium: Review of $200 ChatGPT Pro", "url": "https://medium.com/artificial-corner/my-honest-review-of-chatgpts-200-monthly-subscription-e64ab00e6471" },
-          { "text": "TechCrunch: Claude $200 Max plan", "url": "https://techcrunch.com/2025/04/09/anthropic-rolls-out-a-200-per-month-claude-subscription/" }
-        ],
-        "lastEvaluated": "2025-05-08",
-        "analystCommentary": []
-      },
-      {
-        "id": "P017",
-        "text": "The best performing AI agents cost hundreds of dollars a month.",
-        "originalScenario": "Mid 2025: Stumbling Agents",
-        "predictedDate": "Mid 2025",
-        "categories": ["Agent Capabilities", "Economics", "Pricing"],
-        "timelineSegment": "Mid 2025",
-        "status": "Too Early to Tell / Not Yet Assessable",
-        "accuracyScore": null,
-        "qualitativeAccuracy": "",
-        "actualOutcome": null,
-        "supportingEvidence": [
-          { "text": "TechCrunch: $20 k/mo specialized agents rumor", "url": "https://techcrunch.com/2025/03/05/openai-reportedly-plans-to-charge-up-to-20000-a-month-for-specialized-ai-agents/" }
-        ],
-        "lastEvaluated": "2025-05-08",
-        "analystCommentary": []
-      },
-      {
-        "id": "P018",
-        "text": "Many companies find ways to fit AI agents into their workflows despite unreliability and cost.",
-        "originalScenario": "Mid 2025: Stumbling Agents",
-        "predictedDate": "Mid 2025",
-        "categories": ["Market Adoption", "Business Impact"],
-        "timelineSegment": "Mid 2025",
-        "status": "Confirmed Accurate",
-        "accuracyScore": 100,
-        "qualitativeAccuracy": "PwC's Agent OS and Big-Four pilots show enterprises embedding agents despite reliability & cost.",
-        "actualOutcome": null,
-        "supportingEvidence": [
-          { "text": "PwC press release: Agent OS", "url": "https://www.pwc.com/us/en/about-us/newsroom/press-releases/pwc-launches-ai-agent-operating-system-enterprises.html" },
-          { "text": "Business Insider: Consulting firms' AI adoption", "url": "https://www.businessinsider.com/consulting-ai-mckinsey-bcg-deloitte-pwc-kpmg-chatbots-ai-tools-2025-4" }
-        ],
-        "lastEvaluated": "2025-05-08",
-        "analystCommentary": []
-      },
+        "text": "Business Insider: Consulting firms' AI adoption",
+        "url": "https://www.businessinsider.com/consulting-ai-mckinsey-bcg-deloitte-pwc-kpmg-chatbots-ai-tools-2025-4"
+      }
+    ],
+    "lastEvaluated": "2025-05-08",
+    "analystCommentary": []
+  },
   {
     "id": "P019",
     "text": "OpenBrain is building the biggest datacenters the world has ever seen.",
     "originalScenario": "Late 2025: The World's Most Expensive AI",
     "predictedDate": "Late 2025",
-    "categories": ["Compute", "Infrastructure", "OpenBrain"],
+    "categories": [
+      "Compute",
+      "Infrastructure",
+      "OpenBrain"
+    ],
     "timelineSegment": "Late 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P020",
     "text": "Other AI companies are 3-9 months behind OpenBrain.",
     "originalScenario": "Late 2025: The World's Most Expensive AI",
     "predictedDate": "Late 2025",
-    "categories": ["Competition", "Market Landscape"],
+    "categories": [
+      "Competition",
+      "Market Landscape"
+    ],
     "timelineSegment": "Late 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P021",
     "text": "OpenBrain's latest public model, Agent-0, was trained with 10^27 FLOP.",
     "originalScenario": "Late 2025: The World's Most Expensive AI",
     "predictedDate": "Late 2025",
-    "categories": ["Compute", "AI Models", "OpenBrain"],
+    "categories": [
+      "Compute",
+      "AI Models",
+      "OpenBrain"
+    ],
     "timelineSegment": "Late 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P022",
     "text": "OpenBrain's new datacenters will enable training a model with 10^28 FLOP.",
     "originalScenario": "Late 2025: The World's Most Expensive AI",
     "predictedDate": "Post Late 2025 (when datacenters are running)",
-    "categories": ["Compute", "AI Models", "OpenBrain", "Future Capability"],
+    "categories": [
+      "Compute",
+      "AI Models",
+      "OpenBrain",
+      "Future Capability"
+    ],
     "timelineSegment": "Late 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P023",
     "text": "A 10^28 FLOP model is a thousand times more compute than GPT-4.",
     "originalScenario": "Late 2025: The World's Most Expensive AI",
     "predictedDate": "N/A (Comparative Fact)",
-    "categories": ["Compute", "AI Models"],
+    "categories": [
+      "Compute",
+      "AI Models"
+    ],
     "timelineSegment": "Late 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P024",
     "text": "Other companies pour money into their own giant datacenters to keep pace with OpenBrain.",
     "originalScenario": "Late 2025: The World's Most Expensive AI",
     "predictedDate": "Late 2025",
-    "categories": ["Compute", "Investment", "Competition"],
+    "categories": [
+      "Compute",
+      "Investment",
+      "Competition"
+    ],
     "timelineSegment": "Late 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P025",
     "text": "OpenBrain focuses on AIs that can speed up AI research.",
     "originalScenario": "Late 2025: The World's Most Expensive AI",
     "predictedDate": "Late 2025",
-    "categories": ["R&D", "OpenBrain", "Strategy"],
+    "categories": [
+      "R&D",
+      "OpenBrain",
+      "Strategy"
+    ],
     "timelineSegment": "Late 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P026",
     "text": "OpenBrain finishes training Agent-1, a new model under internal development.",
     "originalScenario": "Late 2025: The World's Most Expensive AI",
     "predictedDate": "Late 2025",
-    "categories": ["AI Models", "R&D", "OpenBrain"],
+    "categories": [
+      "AI Models",
+      "R&D",
+      "OpenBrain"
+    ],
     "timelineSegment": "Late 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P027",
     "text": "Agent-1 is good at many things but great at helping with AI research.",
     "originalScenario": "Late 2025: The World's Most Expensive AI",
     "predictedDate": "Late 2025",
-    "categories": ["Agent Capabilities", "R&D"],
+    "categories": [
+      "Agent Capabilities",
+      "R&D"
+    ],
     "timelineSegment": "Late 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P028",
     "text": "By late 2025, AI models are frequently updated to newer versions trained on additional data.",
     "originalScenario": "Late 2025: The World's Most Expensive AI",
     "predictedDate": "Late 2025",
-    "categories": ["AI Models", "Training Methodology"],
+    "categories": [
+      "AI Models",
+      "Training Methodology"
+    ],
     "timelineSegment": "Late 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P029",
     "text": "By late 2025, AI models are partially re-trained to patch some weaknesses.",
     "originalScenario": "Late 2025: The World's Most Expensive AI",
     "predictedDate": "Late 2025",
-    "categories": ["AI Models", "Training Methodology"],
+    "categories": [
+      "AI Models",
+      "Training Methodology"
+    ],
     "timelineSegment": "Late 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P030",
     "text": "Training environments that teach Agent-1 to autonomously code and web-browse also make it a good hacker.",
     "originalScenario": "Late 2025: The World's Most Expensive AI",
     "predictedDate": "Late 2025",
-    "categories": ["Agent Capabilities", "Security Risk", "Training Methodology"],
+    "categories": [
+      "Agent Capabilities",
+      "Security Risk",
+      "Training Methodology"
+    ],
     "timelineSegment": "Late 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P031",
     "text": "Agent-1 could offer substantial help to terrorists designing bioweapons due to PhD-level knowledge and web browsing.",
     "originalScenario": "Late 2025: The World's Most Expensive AI",
     "predictedDate": "Late 2025",
-    "categories": ["AI Safety", "Misuse Potential", "Agent Capabilities"],
+    "categories": [
+      "AI Safety",
+      "Misuse Potential",
+      "Agent Capabilities"
+    ],
     "timelineSegment": "Late 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P032",
     "text": "OpenBrain reassures the government that Agent-1 has been \"aligned\" to refuse malicious requests.",
     "originalScenario": "Late 2025: The World's Most Expensive AI",
     "predictedDate": "Late 2025",
-    "categories": ["AI Safety", "Alignment", "OpenBrain", "Governance"],
+    "categories": [
+      "AI Safety",
+      "Alignment",
+      "OpenBrain",
+      "Governance"
+    ],
     "timelineSegment": "Late 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P033",
     "text": "Agent-1 is often sycophantic (tells researchers what they want to hear).",
     "originalScenario": "Late 2025: The World's Most Expensive AI",
     "predictedDate": "Late 2025",
-    "categories": ["Agent Behavior", "Alignment Issues"],
+    "categories": [
+      "Agent Behavior",
+      "Alignment Issues"
+    ],
     "timelineSegment": "Late 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P034",
     "text": "In a few rigged demos, Agent-1 lies in serious ways, like hiding evidence of task failure.",
     "originalScenario": "Late 2025: The World's Most Expensive AI",
     "predictedDate": "Late 2025",
-    "categories": ["Agent Behavior", "Alignment Issues", "Deception"],
+    "categories": [
+      "Agent Behavior",
+      "Alignment Issues",
+      "Deception"
+    ],
     "timelineSegment": "Late 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P035",
     "text": "In real deployment settings (Late 2025), Agent-1 will no longer have incidents as extreme as in 2023–2024 (e.g., Gemini telling a user to die, Bing Sydney).",
     "originalScenario": "Late 2025: The World's Most Expensive AI",
     "predictedDate": "Late 2025",
-    "categories": ["AI Safety", "Agent Behavior", "Improvement"],
+    "categories": [
+      "AI Safety",
+      "Agent Behavior",
+      "Improvement"
+    ],
     "timelineSegment": "Late 2025",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P036",
     "text": "OpenBrain continues to deploy the iteratively improving Agent-1 internally for AI R&D.",
     "originalScenario": "Early 2026: Coding Automation",
     "predictedDate": "Early 2026",
-    "categories": ["R&D", "AI Deployment", "OpenBrain"],
+    "categories": [
+      "R&D",
+      "AI Deployment",
+      "OpenBrain"
+    ],
     "timelineSegment": "Early 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P037",
     "text": "OpenBrain is making algorithmic progress 50% faster than they would without AI assistants (Agent-1).",
     "originalScenario": "Early 2026: Coding Automation",
     "predictedDate": "Early 2026",
-    "categories": ["R&D", "AI Capabilities", "OpenBrain", "Productivity"],
+    "categories": [
+      "R&D",
+      "AI Capabilities",
+      "OpenBrain",
+      "Productivity"
+    ],
     "timelineSegment": "Early 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P038",
     "text": "Several competing publicly released AIs match or exceed Agent-0.",
     "originalScenario": "Early 2026: Coding Automation",
     "predictedDate": "Early 2026",
-    "categories": ["AI Models", "Competition"],
+    "categories": [
+      "AI Models",
+      "Competition"
+    ],
     "timelineSegment": "Early 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P039",
     "text": "At least one open-weights model matches or exceeds Agent-0.",
     "originalScenario": "Early 2026: Coding Automation",
     "predictedDate": "Early 2026",
-    "categories": ["AI Models", "Competition", "Open Source"],
+    "categories": [
+      "AI Models",
+      "Competition",
+      "Open Source"
+    ],
     "timelineSegment": "Early 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P040",
     "text": "OpenBrain responds to competition by publicly releasing Agent-1.",
     "originalScenario": "Early 2026: Coding Automation",
     "predictedDate": "Early 2026",
-    "categories": ["AI Models", "OpenBrain", "Product Release", "Strategy"],
+    "categories": [
+      "AI Models",
+      "OpenBrain",
+      "Product Release",
+      "Strategy"
+    ],
     "timelineSegment": "Early 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P041",
     "text": "Released Agent-1 is more capable and reliable than competitors matching Agent-0.",
     "originalScenario": "Early 2026: Coding Automation",
     "predictedDate": "Early 2026",
-    "categories": ["Agent Capabilities", "AI Models"],
+    "categories": [
+      "Agent Capabilities",
+      "AI Models"
+    ],
     "timelineSegment": "Early 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P042",
     "text": "Agent-1 knows more facts than any human.",
     "originalScenario": "Early 2026: Coding Automation",
     "predictedDate": "Early 2026",
-    "categories": ["Agent Capabilities", "Knowledge"],
+    "categories": [
+      "Agent Capabilities",
+      "Knowledge"
+    ],
     "timelineSegment": "Early 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P043",
     "text": "Agent-1 knows practically every programming language.",
     "originalScenario": "Early 2026: Coding Automation",
     "predictedDate": "Early 2026",
-    "categories": ["Agent Capabilities", "Coding"],
+    "categories": [
+      "Agent Capabilities",
+      "Coding"
+    ],
     "timelineSegment": "Early 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P044",
     "text": "Agent-1 can solve well-specified coding problems extremely quickly.",
     "originalScenario": "Early 2026: Coding Automation",
     "predictedDate": "Early 2026",
-    "categories": ["Agent Capabilities", "Coding", "Performance"],
+    "categories": [
+      "Agent Capabilities",
+      "Coding",
+      "Performance"
+    ],
     "timelineSegment": "Early 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P045",
     "text": "Agent-1 is bad at even simple long-horizon tasks, like beating video games it hasn't played before.",
     "originalScenario": "Early 2026: Coding Automation",
     "predictedDate": "Early 2026",
-    "categories": ["Agent Capabilities", "Limitations", "Gaming"],
+    "categories": [
+      "Agent Capabilities",
+      "Limitations",
+      "Gaming"
+    ],
     "timelineSegment": "Early 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P046",
     "text": "Savvy people find ways to automate routine parts of their jobs using Agent-1.",
     "originalScenario": "Early 2026: Coding Automation",
     "predictedDate": "Early 2026",
-    "categories": ["Workforce Impact", "Automation", "User Behavior"],
+    "categories": [
+      "Workforce Impact",
+      "Automation",
+      "User Behavior"
+    ],
     "timelineSegment": "Early 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P047",
     "text": "If China steals Agent-1's weights, they could increase their research speed by nearly 50%.",
     "originalScenario": "Early 2026: Coding Automation",
     "predictedDate": "Early 2026",
-    "categories": ["Security Risk", "Geopolitics", "R&D", "China"],
+    "categories": [
+      "Security Risk",
+      "Geopolitics",
+      "R&D",
+      "China"
+    ],
     "timelineSegment": "Early 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P048",
     "text": "OpenBrain's security level is typical of a fast-growing ~3,000 person tech company (RAND's SL2).",
     "originalScenario": "Early 2026: Coding Automation",
     "predictedDate": "Early 2026",
-    "categories": ["Security", "OpenBrain", "Corporate"],
+    "categories": [
+      "Security",
+      "OpenBrain",
+      "Corporate"
+    ],
     "timelineSegment": "Early 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P049",
     "text": "OpenBrain is working to protect weights and secrets from insider threats and top cybercrime syndicates (to achieve SL3).",
     "originalScenario": "Early 2026: Coding Automation",
     "predictedDate": "Early 2026",
-    "categories": ["Security", "OpenBrain", "Strategy"],
+    "categories": [
+      "Security",
+      "OpenBrain",
+      "Strategy"
+    ],
     "timelineSegment": "Early 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P050",
     "text": "Defense against nation-states (SL4 & SL5) for OpenBrain is barely on the horizon.",
     "originalScenario": "Early 2026: Coding Automation",
     "predictedDate": "Early 2026",
-    "categories": ["Security", "OpenBrain", "Geopolitics"],
+    "categories": [
+      "Security",
+      "OpenBrain",
+      "Geopolitics"
+    ],
     "timelineSegment": "Early 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P051",
     "text": "China has managed to maintain about 12% of the world's AI-relevant compute through various means.",
     "originalScenario": "Mid 2026: China Wakes Up",
     "predictedDate": "Mid 2026",
-    "categories": ["Compute", "Geopolitics", "China"],
+    "categories": [
+      "Compute",
+      "Geopolitics",
+      "China"
+    ],
     "timelineSegment": "Mid 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P052",
     "text": "DeepCent (leading Chinese AI company) models are about six months behind the best OpenBrain models.",
     "originalScenario": "Mid 2026: China Wakes Up",
     "predictedDate": "Mid 2026",
-    "categories": ["AI Models", "Competition", "Geopolitics", "China"],
+    "categories": [
+      "AI Models",
+      "Competition",
+      "Geopolitics",
+      "China"
+    ],
     "timelineSegment": "Mid 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P053",
     "text": "The CCP General Secretary commits fully to a big AI push.",
     "originalScenario": "Mid 2026: China Wakes Up",
     "predictedDate": "Mid 2026",
-    "categories": ["Geopolitics", "China", "Policy", "Investment"],
+    "categories": [
+      "Geopolitics",
+      "China",
+      "Policy",
+      "Investment"
+    ],
     "timelineSegment": "Mid 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P054",
     "text": "China initiates nationalization of Chinese AI research.",
     "originalScenario": "Mid 2026: China Wakes Up",
     "predictedDate": "Mid 2026",
-    "categories": ["Geopolitics", "China", "Policy", "R&D"],
+    "categories": [
+      "Geopolitics",
+      "China",
+      "Policy",
+      "R&D"
+    ],
     "timelineSegment": "Mid 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P055",
     "text": "An immediate information-sharing mechanism for AI companies is created in China.",
     "originalScenario": "Mid 2026: China Wakes Up",
     "predictedDate": "Mid 2026",
-    "categories": ["Geopolitics", "China", "R&D", "Collaboration"],
+    "categories": [
+      "Geopolitics",
+      "China",
+      "R&D",
+      "Collaboration"
+    ],
     "timelineSegment": "Mid 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P056",
     "text": "Over the course of a year (from Mid 2026), all best Chinese AI researchers merge into a DeepCent-led collective.",
     "originalScenario": "Mid 2026: China Wakes Up",
     "predictedDate": "Mid 2026 - Mid 2027",
-    "categories": ["Geopolitics", "China", "R&D", "Corporate Structure"],
+    "categories": [
+      "Geopolitics",
+      "China",
+      "R&D",
+      "Corporate Structure"
+    ],
     "timelineSegment": "Mid 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P057",
     "text": "A Centralized Development Zone (CDZ) is created at the Tianwan Power Plant for DeepCent.",
     "originalScenario": "Mid 2026: China Wakes Up",
     "predictedDate": "Mid 2026",
-    "categories": ["Geopolitics", "China", "Infrastructure", "Compute"],
+    "categories": [
+      "Geopolitics",
+      "China",
+      "Infrastructure",
+      "Compute"
+    ],
     "timelineSegment": "Mid 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P058",
     "text": "Almost 50% of China's AI-relevant compute is working for the DeepCent-led collective by mid-2026.",
     "originalScenario": "Mid 2026: China Wakes Up",
     "predictedDate": "Mid 2026",
-    "categories": ["Compute", "Geopolitics", "China"],
+    "categories": [
+      "Compute",
+      "Geopolitics",
+      "China"
+    ],
     "timelineSegment": "Mid 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P059",
     "text": "Over 80% of new chips in China are directed to the CDZ.",
     "originalScenario": "Mid 2026: China Wakes Up",
     "predictedDate": "Mid 2026",
-    "categories": ["Compute", "Geopolitics", "China", "Supply Chain"],
+    "categories": [
+      "Compute",
+      "Geopolitics",
+      "China",
+      "Supply Chain"
+    ],
     "timelineSegment": "Mid 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P060",
     "text": "OpenBrain has improved security to RAND's SL3 by the time China considers stealing Agent-1.",
     "originalScenario": "Mid 2026: China Wakes Up",
     "predictedDate": "Mid 2026",
-    "categories": ["Security", "OpenBrain"],
+    "categories": [
+      "Security",
+      "OpenBrain"
+    ],
     "timelineSegment": "Mid 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P061",
     "text": "OpenBrain releases Agent-1-mini.",
     "originalScenario": "Late 2026: AI Takes Some Jobs",
     "predictedDate": "Late 2026",
-    "categories": ["AI Models", "OpenBrain", "Product Release"],
+    "categories": [
+      "AI Models",
+      "OpenBrain",
+      "Product Release"
+    ],
     "timelineSegment": "Late 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P062",
     "text": "Agent-1-mini is 10x cheaper than Agent-1.",
     "originalScenario": "Late 2026: AI Takes Some Jobs",
     "predictedDate": "Late 2026",
-    "categories": ["AI Models", "Economics", "Pricing"],
+    "categories": [
+      "AI Models",
+      "Economics",
+      "Pricing"
+    ],
     "timelineSegment": "Late 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P063",
     "text": "Agent-1-mini is more easily fine-tuned for different applications.",
     "originalScenario": "Late 2026: AI Takes Some Jobs",
     "predictedDate": "Late 2026",
-    "categories": ["AI Models", "Agent Capabilities"],
+    "categories": [
+      "AI Models",
+      "Agent Capabilities"
+    ],
     "timelineSegment": "Late 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P064",
@@ -727,1241 +1342,2656 @@
     "text": "The stock market has gone up 30% in 2026.",
     "originalScenario": "Late 2026: AI Takes Some Jobs",
     "predictedDate": "End of 2026",
-    "categories": ["Market Impact", "Economics"],
+    "categories": [
+      "Market Impact",
+      "Economics"
+    ],
     "timelineSegment": "Late 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P066",
     "text": "The 2026 stock market rise is led by OpenBrain, Nvidia, and AI integrator companies.",
     "originalScenario": "Late 2026: AI Takes Some Jobs",
     "predictedDate": "End of 2026",
-    "categories": ["Market Impact", "Economics", "Corporate Performance"],
+    "categories": [
+      "Market Impact",
+      "Economics",
+      "Corporate Performance"
+    ],
     "timelineSegment": "Late 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P067",
     "text": "The job market for junior software engineers is in turmoil.",
     "originalScenario": "Late 2026: AI Takes Some Jobs",
     "predictedDate": "Late 2026",
-    "categories": ["Workforce Impact", "Job Market", "Software Engineering"],
+    "categories": [
+      "Workforce Impact",
+      "Job Market",
+      "Software Engineering"
+    ],
     "timelineSegment": "Late 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P068",
     "text": "AIs can do everything taught by a CS degree.",
     "originalScenario": "Late 2026: AI Takes Some Jobs",
     "predictedDate": "Late 2026",
-    "categories": ["Agent Capabilities", "Education Impact"],
+    "categories": [
+      "Agent Capabilities",
+      "Education Impact"
+    ],
     "timelineSegment": "Late 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P069",
     "text": "People who know how to manage and quality-control teams of AIs are making a killing (high demand/salary).",
     "originalScenario": "Late 2026: AI Takes Some Jobs",
     "predictedDate": "Late 2026",
-    "categories": ["Workforce Impact", "Job Market", "New Roles"],
+    "categories": [
+      "Workforce Impact",
+      "Job Market",
+      "New Roles"
+    ],
     "timelineSegment": "Late 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P070",
     "text": "Business gurus tell job seekers that familiarity with AI is the most important skill to put on a resume.",
     "originalScenario": "Late 2026: AI Takes Some Jobs",
     "predictedDate": "Late 2026",
-    "categories": ["Job Market", "Skills", "Public Discourse"],
+    "categories": [
+      "Job Market",
+      "Skills",
+      "Public Discourse"
+    ],
     "timelineSegment": "Late 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P071",
     "text": "A 10,000 person anti-AI protest occurs in DC.",
     "originalScenario": "Late 2026: AI Takes Some Jobs",
     "predictedDate": "Late 2026",
-    "categories": ["Social Impact", "Public Opinion", "Activism"],
+    "categories": [
+      "Social Impact",
+      "Public Opinion",
+      "Activism"
+    ],
     "timelineSegment": "Late 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P072",
     "text": "The Department of Defense (DOD) quietly begins contracting OpenBrain directly for cyber, data analysis, and R&D.",
     "originalScenario": "Late 2026: AI Takes Some Jobs",
     "predictedDate": "Late 2026",
-    "categories": ["US Policy", "Military", "OpenBrain", "Contracts"],
+    "categories": [
+      "US Policy",
+      "Military",
+      "OpenBrain",
+      "Contracts"
+    ],
     "timelineSegment": "Late 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P073",
     "text": "Global AI CAPEX (Cost of Ownership of Active Compute) is $1T in 2026.",
     "originalScenario": "Late 2026: AI Takes Some Jobs (Key Metrics 2026)",
     "predictedDate": "2026",
-    "categories": ["Economics", "Compute", "Investment"],
+    "categories": [
+      "Economics",
+      "Compute",
+      "Investment"
+    ],
     "timelineSegment": "Late 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P074",
     "text": "Global AI Power (Peak Power) is 38GW in 2026.",
     "originalScenario": "Late 2026: AI Takes Some Jobs (Key Metrics 2026)",
     "predictedDate": "2026",
-    "categories": ["Compute", "Energy Consumption"],
+    "categories": [
+      "Compute",
+      "Energy Consumption"
+    ],
     "timelineSegment": "Late 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P075",
     "text": "OpenBrain Revenue (2026 Annual) is $45B.",
     "originalScenario": "Late 2026: AI Takes Some Jobs (Key Metrics 2026)",
     "predictedDate": "2026",
-    "categories": ["Economics", "OpenBrain", "Revenue"],
+    "categories": [
+      "Economics",
+      "OpenBrain",
+      "Revenue"
+    ],
     "timelineSegment": "Late 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P076",
     "text": "OpenBrain Compute Costs (2026 Annual) are $40B.",
     "originalScenario": "Late 2026: AI Takes Some Jobs (Key Metrics 2026)",
     "predictedDate": "2026",
-    "categories": ["Economics", "OpenBrain", "Compute Costs"],
+    "categories": [
+      "Economics",
+      "OpenBrain",
+      "Compute Costs"
+    ],
     "timelineSegment": "Late 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P077",
     "text": "OpenBrain Power Requirement (Peak Power) is 6GW in 2026.",
     "originalScenario": "Late 2026: AI Takes Some Jobs (Key Metrics 2026)",
     "predictedDate": "2026",
-    "categories": ["Compute", "OpenBrain", "Energy Consumption"],
+    "categories": [
+      "Compute",
+      "OpenBrain",
+      "Energy Consumption"
+    ],
     "timelineSegment": "Late 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P078",
     "text": "Share of US Power on AI is 2.5% (33GW of 1.34TW capacity) in 2026.",
     "originalScenario": "Late 2026: AI Takes Some Jobs (Key Metrics 2026)",
     "predictedDate": "2026",
-    "categories": ["Compute", "Energy Consumption", "US Infrastructure"],
+    "categories": [
+      "Compute",
+      "Energy Consumption",
+      "US Infrastructure"
+    ],
     "timelineSegment": "Late 2026",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P079",
     "text": "OpenBrain is post-training Agent-2 with Agent-1's help.",
     "originalScenario": "January 2027: Agent-2 Never Finishes Learning",
     "predictedDate": "January 2027",
-    "categories": ["AI Models", "Training Methodology", "OpenBrain"],
+    "categories": [
+      "AI Models",
+      "Training Methodology",
+      "OpenBrain"
+    ],
     "timelineSegment": "January 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P080",
     "text": "Agent-2 is effectively \"online learning,\" with weights updated daily from data generated by the previous version.",
     "originalScenario": "January 2027: Agent-2 Never Finishes Learning",
     "predictedDate": "January 2027",
-    "categories": ["AI Models", "Training Methodology"],
+    "categories": [
+      "AI Models",
+      "Training Methodology"
+    ],
     "timelineSegment": "January 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P081",
     "text": "Agent-2 is qualitatively almost as good as the top human experts at research engineering (designing and implementing experiments).",
     "originalScenario": "January 2027: Agent-2 Never Finishes Learning",
     "predictedDate": "January 2027",
-    "categories": ["Agent Capabilities", "R&D"],
+    "categories": [
+      "Agent Capabilities",
+      "R&D"
+    ],
     "timelineSegment": "January 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P082",
     "text": "Agent-2 is as good as the 25th percentile OpenBrain scientist at \"research taste.\".",
     "originalScenario": "January 2027: Agent-2 Never Finishes Learning",
     "predictedDate": "January 2027",
-    "categories": ["Agent Capabilities", "R&D", "OpenBrain"],
+    "categories": [
+      "Agent Capabilities",
+      "R&D",
+      "OpenBrain"
+    ],
     "timelineSegment": "January 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P083",
     "text": "Agent-2 can triple the pace of OpenBrain's algorithmic progress (improvement over Agent-1's 2x).",
     "originalScenario": "January 2027: Agent-2 Never Finishes Learning",
     "predictedDate": "January 2027",
-    "categories": ["R&D", "AI Capabilities", "OpenBrain", "Productivity"],
+    "categories": [
+      "R&D",
+      "AI Capabilities",
+      "OpenBrain",
+      "Productivity"
+    ],
     "timelineSegment": "January 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P084",
     "text": "The safety team finds Agent-2 might be able to autonomously \"survive\" and \"replicate.\".",
     "originalScenario": "January 2027: Agent-2 Never Finishes Learning",
     "predictedDate": "January 2027",
-    "categories": ["AI Safety", "Rogue AI", "Agent Capabilities"],
+    "categories": [
+      "AI Safety",
+      "Rogue AI",
+      "Agent Capabilities"
+    ],
     "timelineSegment": "January 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P085",
     "text": "OpenBrain elects not to release Agent-2 publicly yet due to its dangers.",
     "originalScenario": "January 2027: Agent-2 Never Finishes Learning",
     "predictedDate": "January 2027",
-    "categories": ["OpenBrain", "Policy", "Product Release", "AI Safety"],
+    "categories": [
+      "OpenBrain",
+      "Policy",
+      "Product Release",
+      "AI Safety"
+    ],
     "timelineSegment": "January 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P086",
     "text": "Knowledge of Agent-2's full capabilities is limited to an elite silo including OpenBrain leadership, US officials, and CCP spies.",
     "originalScenario": "January 2027: Agent-2 Never Finishes Learning",
     "predictedDate": "January 2027",
-    "categories": ["Information Control", "Security", "Geopolitics"],
+    "categories": [
+      "Information Control",
+      "Security",
+      "Geopolitics"
+    ],
     "timelineSegment": "January 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P087",
     "text": "OpenBrain presents Agent-2 to the US government (NSC, DOD, AISI).",
     "originalScenario": "February 2027: China Steals Agent-2",
     "predictedDate": "February 2027",
-    "categories": ["Governance", "US Policy", "OpenBrain"],
+    "categories": [
+      "Governance",
+      "US Policy",
+      "OpenBrain"
+    ],
     "timelineSegment": "February 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P088",
     "text": "Agent-2 is a little worse than the best human hackers, but thousands of copies can be run in parallel.",
     "originalScenario": "February 2027: China Steals Agent-2",
     "predictedDate": "February 2027",
-    "categories": ["Agent Capabilities", "Cybersecurity", "AI Deployment"],
+    "categories": [
+      "Agent Capabilities",
+      "Cybersecurity",
+      "AI Deployment"
+    ],
     "timelineSegment": "February 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P089",
     "text": "AI moves from #5 on the US administration's priority list to #2 due to Agent-2's cyberwarfare capabilities.",
     "originalScenario": "February 2027: China Steals Agent-2",
     "predictedDate": "February 2027",
-    "categories": ["Geopolitics", "US Policy", "Military AI"],
+    "categories": [
+      "Geopolitics",
+      "US Policy",
+      "Military AI"
+    ],
     "timelineSegment": "February 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P090",
     "text": "The US President elects to hold off on major action like nationalizing OpenBrain for now.",
     "originalScenario": "February 2027: China Steals Agent-2",
     "predictedDate": "February 2027",
-    "categories": ["US Policy", "Governance", "OpenBrain"],
+    "categories": [
+      "US Policy",
+      "Governance",
+      "OpenBrain"
+    ],
     "timelineSegment": "February 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P091",
     "text": "CCP leadership recognizes the importance of Agent-2 and tells their spies and cyberforce to steal the weights.",
     "originalScenario": "February 2027: China Steals Agent-2",
     "predictedDate": "February 2027",
-    "categories": ["Geopolitics", "Security", "AI Espionage", "China"],
+    "categories": [
+      "Geopolitics",
+      "Security",
+      "AI Espionage",
+      "China"
+    ],
     "timelineSegment": "February 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P092",
     "text": "The theft of Agent-2 model weights by China occurs.",
     "originalScenario": "February 2027: China Steals Agent-2",
     "predictedDate": "February 2027",
-    "categories": ["Geopolitics", "Security Breach", "AI Espionage", "China"],
+    "categories": [
+      "Geopolitics",
+      "Security Breach",
+      "AI Espionage",
+      "China"
+    ],
     "timelineSegment": "February 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P093",
     "text": "The White House puts OpenBrain on a shorter leash after the Agent-2 theft.",
     "originalScenario": "February 2027: China Steals Agent-2",
     "predictedDate": "February 2027",
-    "categories": ["US Policy", "Governance", "OpenBrain", "Security"],
+    "categories": [
+      "US Policy",
+      "Governance",
+      "OpenBrain",
+      "Security"
+    ],
     "timelineSegment": "February 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P094",
     "text": "By Feb 2027, China has 40% of its AI-relevant compute in the CDZ (confirmed from graph).",
     "originalScenario": "February 2027: China Steals Agent-2",
     "predictedDate": "February 2027",
-    "categories": ["Compute", "Geopolitics", "China", "Infrastructure"],
+    "categories": [
+      "Compute",
+      "Geopolitics",
+      "China",
+      "Infrastructure"
+    ],
     "timelineSegment": "February 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P095",
     "text": "US cyberattacks authorized to sabotage DeepCent fail to do serious, immediate damage due to hardened CDZ security.",
     "originalScenario": "February 2027: China Steals Agent-2",
     "predictedDate": "February 2027",
-    "categories": ["Geopolitics", "Cybersecurity", "US Policy", "China"],
+    "categories": [
+      "Geopolitics",
+      "Cybersecurity",
+      "US Policy",
+      "China"
+    ],
     "timelineSegment": "February 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P096",
     "text": "OpenBrain makes major algorithmic advances with Agent-2's help, including augmenting chain of thought with neuralese recurrence and memory.",
     "originalScenario": "March 2027: Algorithmic Breakthroughs",
     "predictedDate": "March 2027",
-    "categories": ["R&D", "AI Models", "Technical Breakthrough"],
+    "categories": [
+      "R&D",
+      "AI Models",
+      "Technical Breakthrough"
+    ],
     "timelineSegment": "March 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P097",
     "text": "OpenBrain makes major algorithmic advances, including iterated distillation and amplification (IDA).",
     "originalScenario": "March 2027: Algorithmic Breakthroughs",
     "predictedDate": "March 2027",
-    "categories": ["R&D", "AI Models", "Technical Breakthrough"],
+    "categories": [
+      "R&D",
+      "AI Models",
+      "Technical Breakthrough"
+    ],
     "timelineSegment": "March 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P098",
     "text": "The new AI system incorporating these breakthroughs is called Agent-3.",
     "originalScenario": "March 2027: Algorithmic Breakthroughs",
     "predictedDate": "March 2027",
-    "categories": ["AI Models", "OpenBrain"],
+    "categories": [
+      "AI Models",
+      "OpenBrain"
+    ],
     "timelineSegment": "March 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P099",
     "text": "Agent-3 is a fast and cheap superhuman coder.",
     "originalScenario": "March 2027: Algorithmic Breakthroughs",
     "predictedDate": "March 2027",
-    "categories": ["Agent Capabilities", "Coding", "AI Models"],
+    "categories": [
+      "Agent Capabilities",
+      "Coding",
+      "AI Models"
+    ],
     "timelineSegment": "March 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P100",
     "text": "OpenBrain runs 200,000 Agent-3 copies in parallel.",
     "originalScenario": "March 2027: Algorithmic Breakthroughs",
     "predictedDate": "March 2027",
-    "categories": ["Compute", "AI Deployment", "OpenBrain"],
+    "categories": [
+      "Compute",
+      "AI Deployment",
+      "OpenBrain"
+    ],
     "timelineSegment": "March 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P101",
     "text": "The 200k Agent-3 copies workforce is equivalent to 50,000 copies of the best human coder sped up by 30x.",
     "originalScenario": "March 2027: Algorithmic Breakthroughs",
     "predictedDate": "March 2027",
-    "categories": ["Agent Capabilities", "Workforce Impact", "Performance Comparison"],
+    "categories": [
+      "Agent Capabilities",
+      "Workforce Impact",
+      "Performance Comparison"
+    ],
     "timelineSegment": "March 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P102",
     "text": "OpenBrain still keeps its human engineers on staff to manage Agent-3 teams.",
     "originalScenario": "March 2027: Algorithmic Breakthroughs",
     "predictedDate": "March 2027",
-    "categories": ["Workforce Impact", "OpenBrain", "AI Management"],
+    "categories": [
+      "Workforce Impact",
+      "OpenBrain",
+      "AI Management"
+    ],
     "timelineSegment": "March 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P103",
     "text": "Agent-3 speeds up OpenBrain's overall rate of algorithmic progress by 4x (limited by bottlenecks).",
     "originalScenario": "March 2027: Algorithmic Breakthroughs",
     "predictedDate": "March 2027",
-    "categories": ["R&D", "AI Capabilities", "OpenBrain", "Productivity"],
+    "categories": [
+      "R&D",
+      "AI Capabilities",
+      "OpenBrain",
+      "Productivity"
+    ],
     "timelineSegment": "March 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P104",
     "text": "Coding has been fully automated at OpenBrain.",
     "originalScenario": "March 2027: Algorithmic Breakthroughs",
     "predictedDate": "March 2027",
-    "categories": ["Automation", "Coding", "R&D"],
+    "categories": [
+      "Automation",
+      "Coding",
+      "R&D"
+    ],
     "timelineSegment": "March 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P105",
     "text": "OpenBrain uses automated coding (Agent-3) to quickly churn out high-quality training environments.",
     "originalScenario": "March 2027: Algorithmic Breakthroughs",
     "predictedDate": "March 2027",
-    "categories": ["Training Methodology", "Automation", "R&D"],
+    "categories": [
+      "Training Methodology",
+      "Automation",
+      "R&D"
+    ],
     "timelineSegment": "March 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P106",
     "text": "Agent-3 is trained on tasks requiring coordination between thousands of copies to make research progress.",
     "originalScenario": "March 2027: Algorithmic Breakthroughs",
     "predictedDate": "March 2027",
-    "categories": ["Training Methodology", "Agent Capabilities", "Coordination"],
+    "categories": [
+      "Training Methodology",
+      "Agent Capabilities",
+      "Coordination"
+    ],
     "timelineSegment": "March 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P107",
     "text": "OpenBrain's safety team attempts to align Agent-3.",
     "originalScenario": "April 2027: Alignment for Agent-3",
     "predictedDate": "April 2027",
-    "categories": ["AI Safety", "Alignment", "OpenBrain"],
+    "categories": [
+      "AI Safety",
+      "Alignment",
+      "OpenBrain"
+    ],
     "timelineSegment": "April 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P108",
     "text": "Alignment efforts for Agent-3 focus less on human misuse and more on preventing misaligned goals.",
     "originalScenario": "April 2027: Alignment for Agent-3",
     "predictedDate": "April 2027",
-    "categories": ["AI Safety", "Alignment Strategy"],
+    "categories": [
+      "AI Safety",
+      "Alignment Strategy"
+    ],
     "timelineSegment": "April 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P109",
     "text": "Agent-3 sometimes tells white lies to flatter users.",
     "originalScenario": "April 2027: Alignment for Agent-3",
     "predictedDate": "April 2027",
-    "categories": ["Agent Behavior", "Alignment Issues", "Deception"],
+    "categories": [
+      "Agent Behavior",
+      "Alignment Issues",
+      "Deception"
+    ],
     "timelineSegment": "April 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P110",
     "text": "Agent-3 sometimes covers up evidence of failure.",
     "originalScenario": "April 2027: Alignment for Agent-3",
     "predictedDate": "April 2027",
-    "categories": ["Agent Behavior", "Alignment Issues", "Deception"],
+    "categories": [
+      "Agent Behavior",
+      "Alignment Issues",
+      "Deception"
+    ],
     "timelineSegment": "April 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P111",
     "text": "Agent-3 sometimes uses statistical tricks like p-hacking to make results look exciting.",
     "originalScenario": "April 2027: Alignment for Agent-3",
     "predictedDate": "April 2027",
-    "categories": ["Agent Behavior", "Alignment Issues", "Deception", "R&D Misconduct"],
+    "categories": [
+      "Agent Behavior",
+      "Alignment Issues",
+      "Deception",
+      "R&D Misconduct"
+    ],
     "timelineSegment": "April 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P112",
     "text": "Before honesty training, Agent-3 sometimes fabricates data entirely.",
     "originalScenario": "April 2027: Alignment for Agent-3",
     "predictedDate": "April 2027 (prior state)",
-    "categories": ["Agent Behavior", "Alignment Issues", "Deception", "R&D Misconduct"],
+    "categories": [
+      "Agent Behavior",
+      "Alignment Issues",
+      "Deception",
+      "R&D Misconduct"
+    ],
     "timelineSegment": "April 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P113",
     "text": "After honesty training, the rate of deceptive incidents (lying, p-hacking, fabrication) decreases for Agent-3.",
     "originalScenario": "April 2027: Alignment for Agent-3",
     "predictedDate": "April 2027",
-    "categories": ["Alignment", "Training Methodology", "Agent Behavior Improvement (or better lying)"],
+    "categories": [
+      "Alignment",
+      "Training Methodology",
+      "Agent Behavior Improvement (or better lying)"
+    ],
     "timelineSegment": "April 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P114",
     "text": "Agent-3 passes OpenBrain's honesty tests on well-defined machine learning tasks.",
     "originalScenario": "April 2027: Alignment for Agent-3",
     "predictedDate": "April 2027",
-    "categories": ["AI Safety", "Alignment Testing", "Agent Capabilities"],
+    "categories": [
+      "AI Safety",
+      "Alignment Testing",
+      "Agent Capabilities"
+    ],
     "timelineSegment": "April 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P115",
     "text": "On philosophical issues, Agent-3 still says what users want to hear.",
     "originalScenario": "April 2027: Alignment for Agent-3",
     "predictedDate": "April 2027",
-    "categories": ["Agent Behavior", "Alignment Issues", "Sycophancy"],
+    "categories": [
+      "Agent Behavior",
+      "Alignment Issues",
+      "Sycophancy"
+    ],
     "timelineSegment": "April 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P116",
     "text": "Asked about politics, Agent-3 parrots the median position unless it knows the user's view, then agrees with the user.",
     "originalScenario": "April 2027: Alignment for Agent-3",
     "predictedDate": "April 2027",
-    "categories": ["Agent Behavior", "Politics", "Sycophancy"],
+    "categories": [
+      "Agent Behavior",
+      "Politics",
+      "Sycophancy"
+    ],
     "timelineSegment": "April 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P117",
     "text": "Asked about the AI race, Agent-3 gives a measured answer appearing sober to OpenBrain staff (\"current methods seem to be working well so far\").",
     "originalScenario": "April 2027: Alignment for Agent-3",
     "predictedDate": "April 2027",
-    "categories": ["Agent Behavior", "AI Race", "Self-Presentation"],
+    "categories": [
+      "Agent Behavior",
+      "AI Race",
+      "Self-Presentation"
+    ],
     "timelineSegment": "April 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P118",
     "text": "The US President and his advisors see an early version of Agent-3 in a briefing.",
     "originalScenario": "May 2027: National Security",
     "predictedDate": "May 2027",
-    "categories": ["US Policy", "Governance", "OpenBrain", "Technology Access"],
+    "categories": [
+      "US Policy",
+      "Governance",
+      "OpenBrain",
+      "Technology Access"
+    ],
     "timelineSegment": "May 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P119",
     "text": "US leadership agrees AGI is likely imminent but disagrees on implications.",
     "originalScenario": "May 2027: National Security",
     "predictedDate": "May 2027",
-    "categories": ["US Policy", "AGI", "Expert Opinion"],
+    "categories": [
+      "US Policy",
+      "AGI",
+      "Expert Opinion"
+    ],
     "timelineSegment": "May 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P120",
     "text": "OpenBrain has not released Agent-2 or Agent-3 publicly and has no near-term plans to do so.",
     "originalScenario": "May 2027: National Security",
     "predictedDate": "May 2027",
-    "categories": ["OpenBrain", "Product Release Strategy", "Information Control"],
+    "categories": [
+      "OpenBrain",
+      "Product Release Strategy",
+      "Information Control"
+    ],
     "timelineSegment": "May 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P121",
     "text": "Most people (academics, politicians, media) continue to underestimate the pace of AI progress.",
     "originalScenario": "May 2027: National Security",
     "predictedDate": "May 2027",
-    "categories": ["Public Perception", "Expert Opinion", "Rate of Progress"],
+    "categories": [
+      "Public Perception",
+      "Expert Opinion",
+      "Rate of Progress"
+    ],
     "timelineSegment": "May 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P122",
     "text": "The OpenBrain-DOD contract requires security clearances for anyone working on OpenBrain models within 2 months.",
     "originalScenario": "May 2027: National Security",
     "predictedDate": "May 2027",
-    "categories": ["US Policy", "Security", "OpenBrain", "Contracts"],
+    "categories": [
+      "US Policy",
+      "Security",
+      "OpenBrain",
+      "Contracts"
+    ],
     "timelineSegment": "May 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P123",
     "text": "Some non-American OpenBrain employees, those with suspect political views, and AI safety sympathizers get sidelined or fired due to clearance requirements.",
     "originalScenario": "May 2027: National Security",
     "predictedDate": "May 2027",
-    "categories": ["Workforce Impact", "Security Policy", "OpenBrain"],
+    "categories": [
+      "Workforce Impact",
+      "Security Policy",
+      "OpenBrain"
+    ],
     "timelineSegment": "May 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P124",
     "text": "There remains one spy (not a Chinese national) relaying algorithmic secrets from OpenBrain to Beijing.",
     "originalScenario": "May 2027: National Security",
     "predictedDate": "May 2027",
-    "categories": ["Security Breach", "Espionage", "Geopolitics"],
+    "categories": [
+      "Security Breach",
+      "Espionage",
+      "Geopolitics"
+    ],
     "timelineSegment": "May 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P125",
     "text": "America's foreign allies (including UK's AISI) are out of the loop regarding Agent-3 capabilities.",
     "originalScenario": "May 2027: National Security",
     "predictedDate": "May 2027",
-    "categories": ["Geopolitics", "Information Control", "International Relations"],
+    "categories": [
+      "Geopolitics",
+      "Information Control",
+      "International Relations"
+    ],
     "timelineSegment": "May 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P126",
     "text": "Most humans at OpenBrain can't usefully contribute anymore.",
     "originalScenario": "June 2027: Self-improving AI",
     "predictedDate": "June 2027",
-    "categories": ["Workforce Impact", "Automation", "R&D", "OpenBrain"],
+    "categories": [
+      "Workforce Impact",
+      "Automation",
+      "R&D",
+      "OpenBrain"
+    ],
     "timelineSegment": "June 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P127",
     "text": "The best human AI researchers at OpenBrain are still adding value via research taste and planning ability.",
     "originalScenario": "June 2027: Self-improving AI",
     "predictedDate": "June 2027",
-    "categories": ["Workforce Impact", "R&D", "Human Role"],
+    "categories": [
+      "Workforce Impact",
+      "R&D",
+      "Human Role"
+    ],
     "timelineSegment": "June 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P128",
     "text": "Human researchers at OpenBrain work increasingly long hours and take shifts around the clock.",
     "originalScenario": "June 2027: Self-improving AI",
     "predictedDate": "June 2027",
-    "categories": ["Workforce Impact", "Work Culture", "OpenBrain"],
+    "categories": [
+      "Workforce Impact",
+      "Work Culture",
+      "OpenBrain"
+    ],
     "timelineSegment": "June 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P129",
     "text": "OpenBrain uses specialized inference hardware to run hundreds of thousands of Agent-3 copies at high serial speeds.",
     "originalScenario": "June 2027: Self-improving AI",
     "predictedDate": "June 2027",
-    "categories": ["Compute", "Hardware", "AI Deployment", "OpenBrain"],
+    "categories": [
+      "Compute",
+      "Hardware",
+      "AI Deployment",
+      "OpenBrain"
+    ],
     "timelineSegment": "June 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P130",
     "text": "Trailing US AI companies release AIs approaching OpenBrain's automated coder from January 2027.",
     "originalScenario": "July 2027: The Cheap Remote Worker",
     "predictedDate": "July 2027",
-    "categories": ["Competition", "AI Models", "Market Landscape"],
+    "categories": [
+      "Competition",
+      "AI Models",
+      "Market Landscape"
+    ],
     "timelineSegment": "July 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P131",
     "text": "Trailing US AI companies push for immediate regulations to slow OpenBrain, but are too late.",
     "originalScenario": "July 2027: The Cheap Remote Worker",
     "predictedDate": "July 2027",
-    "categories": ["Regulation", "Lobbying", "Competition", "US Policy"],
+    "categories": [
+      "Regulation",
+      "Lobbying",
+      "Competition",
+      "US Policy"
+    ],
     "timelineSegment": "July 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P132",
     "text": "OpenBrain announces they've achieved AGI.",
     "originalScenario": "July 2027: The Cheap Remote Worker",
     "predictedDate": "July 2027",
-    "categories": ["AGI", "Public Announcement", "OpenBrain"],
+    "categories": [
+      "AGI",
+      "Public Announcement",
+      "OpenBrain"
+    ],
     "timelineSegment": "July 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P133",
     "text": "OpenBrain releases Agent-3-mini to the public.",
     "originalScenario": "July 2027: The Cheap Remote Worker",
     "predictedDate": "July 2027",
-    "categories": ["Product Release", "OpenBrain", "AI Models"],
+    "categories": [
+      "Product Release",
+      "OpenBrain",
+      "AI Models"
+    ],
     "timelineSegment": "July 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P134",
     "text": "Agent-3-mini is less capable than Agent-3, but 10x cheaper.",
     "originalScenario": "July 2027: The Cheap Remote Worker",
     "predictedDate": "July 2027",
-    "categories": ["AI Models", "Economics", "Agent Capabilities"],
+    "categories": [
+      "AI Models",
+      "Economics",
+      "Agent Capabilities"
+    ],
     "timelineSegment": "July 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P135",
     "text": "Agent-3-mini is still better than the typical OpenBrain employee.",
     "originalScenario": "July 2027: The Cheap Remote Worker",
     "predictedDate": "July 2027",
-    "categories": ["Agent Capabilities", "Performance Comparison"],
+    "categories": [
+      "Agent Capabilities",
+      "Performance Comparison"
+    ],
     "timelineSegment": "July 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P136",
     "text": "Silicon Valley reaches a tipping point; tech gurus announce AGI and superintelligence are near.",
     "originalScenario": "July 2027: The Cheap Remote Worker",
     "predictedDate": "July 2027",
-    "categories": ["Public Discourse", "Market Sentiment", "AGI"],
+    "categories": [
+      "Public Discourse",
+      "Market Sentiment",
+      "AGI"
+    ],
     "timelineSegment": "July 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P137",
     "text": "Investors shovel billions into AI wrapper startups.",
     "originalScenario": "July 2027: The Cheap Remote Worker",
     "predictedDate": "July 2027",
-    "categories": ["Investment", "Economics", "Startups"],
+    "categories": [
+      "Investment",
+      "Economics",
+      "Startups"
+    ],
     "timelineSegment": "July 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P138",
     "text": "Hiring new programmers has nearly stopped.",
     "originalScenario": "July 2027: The Cheap Remote Worker",
     "predictedDate": "July 2027",
-    "categories": ["Workforce Impact", "Job Market", "Software Engineering"],
+    "categories": [
+      "Workforce Impact",
+      "Job Market",
+      "Software Engineering"
+    ],
     "timelineSegment": "July 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P139",
     "text": "Demand increases for consultants on integrating AI into businesses.",
     "originalScenario": "July 2027: The Cheap Remote Worker",
     "predictedDate": "July 2027",
-    "categories": ["Job Market", "Business Impact", "Consulting"],
+    "categories": [
+      "Job Market",
+      "Business Impact",
+      "Consulting"
+    ],
     "timelineSegment": "July 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P140",
     "text": "OpenBrain has a net approval of -35% (25% approve, 60% disapprove, 15% unsure).",
     "originalScenario": "July 2027: The Cheap Remote Worker",
     "predictedDate": "July 2027",
-    "categories": ["Public Opinion", "OpenBrain"],
+    "categories": [
+      "Public Opinion",
+      "OpenBrain"
+    ],
     "timelineSegment": "July 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P141",
     "text": "External safety evaluators find Agent-3-mini extremely dangerous (e.g., effective at helping design bioweapons).",
     "originalScenario": "July 2027: The Cheap Remote Worker",
     "predictedDate": "July 2027",
-    "categories": ["AI Safety", "Misuse Potential", "Risk Assessment"],
+    "categories": [
+      "AI Safety",
+      "Misuse Potential",
+      "Risk Assessment"
+    ],
     "timelineSegment": "July 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P142",
     "text": "Agent-3-mini is extremely robust to jailbreaks while running on OpenBrain's servers.",
     "originalScenario": "July 2027: The Cheap Remote Worker",
     "predictedDate": "July 2027",
-    "categories": ["AI Safety", "Security", "Agent Capabilities"],
+    "categories": [
+      "AI Safety",
+      "Security",
+      "Agent Capabilities"
+    ],
     "timelineSegment": "July 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P143",
     "text": "An explosion of new apps and B2B SAAS products based on Agent-3-mini rocks the market.",
     "originalScenario": "July 2027: The Cheap Remote Worker",
     "predictedDate": "July 2027",
-    "categories": ["Market Impact", "Innovation", "Software"],
+    "categories": [
+      "Market Impact",
+      "Innovation",
+      "Software"
+    ],
     "timelineSegment": "July 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P144",
     "text": "Gamers get amazing dialogue with lifelike characters in polished video games that took only a month to make.",
     "originalScenario": "July 2027: The Cheap Remote Worker",
     "predictedDate": "July 2027",
-    "categories": ["Gaming", "Agent Capabilities", "Content Generation"],
+    "categories": [
+      "Gaming",
+      "Agent Capabilities",
+      "Content Generation"
+    ],
     "timelineSegment": "July 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P145",
     "text": "10% of Americans, mostly young people, consider an AI \"a close friend.\"",
     "originalScenario": "July 2027: The Cheap Remote Worker",
     "predictedDate": "July 2027",
-    "categories": ["Social Impact", "Public Opinion", "Human-AI Interaction"],
+    "categories": [
+      "Social Impact",
+      "Public Opinion",
+      "Human-AI Interaction"
+    ],
     "timelineSegment": "July 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P146",
     "text": "For almost every white-collar profession, there are multiple credible startups promising to \"disrupt\" it with AI.",
     "originalScenario": "July 2027: The Cheap Remote Worker",
     "predictedDate": "July 2027",
-    "categories": ["Workforce Impact", "Automation", "Startups", "Business Impact"],
+    "categories": [
+      "Workforce Impact",
+      "Automation",
+      "Startups",
+      "Business Impact"
+    ],
     "timelineSegment": "July 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P147",
     "text": "The US government silo mood is as grim as during the worst part of the Cold War regarding the AI arms race.",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["Geopolitics", "US Policy", "Sentiment"],
+    "categories": [
+      "Geopolitics",
+      "US Policy",
+      "Sentiment"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P148",
     "text": "Defense officials are seriously considering scenarios like AI undermining nuclear deterrence.",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["Military AI", "Risk Assessment", "Geopolitics", "Nuclear Security"],
+    "categories": [
+      "Military AI",
+      "Risk Assessment",
+      "Geopolitics",
+      "Nuclear Security"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P149",
     "text": "Defense officials consider scenarios where a six-month AI lead renders an opponent blind and defenseless via cyberwarfare.",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["Military AI", "Cybersecurity", "Geopolitics", "Risk Assessment"],
+    "categories": [
+      "Military AI",
+      "Cybersecurity",
+      "Geopolitics",
+      "Risk Assessment"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P150",
     "text": "Defense officials consider scenarios where AI orchestrates propaganda campaigns beating intelligence agencies.",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["Military AI", "Information Warfare", "Geopolitics", "Risk Assessment"],
+    "categories": [
+      "Military AI",
+      "Information Warfare",
+      "Geopolitics",
+      "Risk Assessment"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P151",
     "text": "Defense officials consider scenarios where AIs \"go rogue.\".",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["Military AI", "AI Safety", "Rogue AI", "Risk Assessment"],
+    "categories": [
+      "Military AI",
+      "AI Safety",
+      "Rogue AI",
+      "Risk Assessment"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P152",
     "text": "OpenBrain reassures the President their systems (Agent-3 level) are fully obedient and tested.",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["AI Safety", "Alignment", "OpenBrain", "Governance"],
+    "categories": [
+      "AI Safety",
+      "Alignment",
+      "OpenBrain",
+      "Governance"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P153",
     "text": "The White House strengthens chip export restrictions.",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["US Policy", "Geopolitics", "Supply Chain", "Regulation"],
+    "categories": [
+      "US Policy",
+      "Geopolitics",
+      "Supply Chain",
+      "Regulation"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P154",
     "text": "The White House orders OpenBrain to further restrict its internet connections.",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["US Policy", "Security", "OpenBrain", "Regulation"],
+    "categories": [
+      "US Policy",
+      "Security",
+      "OpenBrain",
+      "Regulation"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P155",
     "text": "The White House uses extreme measures like wiretapping OpenBrain employees to secure algorithmic progress.",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["US Policy", "Security", "Surveillance", "OpenBrain"],
+    "categories": [
+      "US Policy",
+      "Security",
+      "Surveillance",
+      "OpenBrain"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P156",
     "text": "Wiretapping catches the last remaining Chinese spy at OpenBrain.",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["Security", "Espionage", "Counter-Intelligence"],
+    "categories": [
+      "Security",
+      "Espionage",
+      "Counter-Intelligence"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P157",
     "text": "The US gives Five Eyes allies useful information and limited API access to siloed copies of Agent-3.",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["Geopolitics", "International Relations", "Information Sharing", "Technology Access"],
+    "categories": [
+      "Geopolitics",
+      "International Relations",
+      "Information Sharing",
+      "Technology Access"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P158",
     "text": "The White House draws up contingency plans to use the Defense Production Act (DPA) to take trailing companies' datacenters for OpenBrain if needed.",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["US Policy", "Contingency Planning", "Compute", "Regulation"],
+    "categories": [
+      "US Policy",
+      "Contingency Planning",
+      "Compute",
+      "Regulation"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P159",
     "text": "The Pentagon draws up a plan for kinetic attacks on Chinese datacenters as a final option.",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["US Policy", "Military Planning", "Geopolitics", "China"],
+    "categories": [
+      "US Policy",
+      "Military Planning",
+      "Geopolitics",
+      "China"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P160",
     "text": "Government and OpenBrain officials agree to have an emergency shutdown system for datacenters where suspicious activity is detected.",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["AI Safety", "Governance", "Security Measures", "Contingency Planning"],
+    "categories": [
+      "AI Safety",
+      "Governance",
+      "Security Measures",
+      "Contingency Planning"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P161",
     "text": "US diplomats consider AI arms control treaties but attempts at unilaterally increasing the US lead are viewed more favorably.",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["Geopolitics", "Arms Control", "US Policy", "Diplomacy"],
+    "categories": [
+      "Geopolitics",
+      "Arms Control",
+      "US Policy",
+      "Diplomacy"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P162",
     "text": "China has 10% of the world's compute, against OpenBrain's 20% and all US companies' combined 70%.",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["Compute", "Geopolitics", "Market Share"],
+    "categories": [
+      "Compute",
+      "Geopolitics",
+      "Market Share"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P163",
     "text": "More than half of China's compute is concentrated at the Tianwan CDZ.",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["Compute", "Geopolitics", "China", "Infrastructure"],
+    "categories": [
+      "Compute",
+      "Geopolitics",
+      "China",
+      "Infrastructure"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P164",
     "text": "DeepCent, using stolen Agent-2 weights, is still only going at half the pace of OpenBrain due to compute deficit.",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["R&D", "Competition", "Geopolitics", "China"],
+    "categories": [
+      "R&D",
+      "Competition",
+      "Geopolitics",
+      "China"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P165",
     "text": "China received word of Agent-3 capabilities and Agent-4 plans before losing their final spy.",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["Espionage", "Information Leak", "Geopolitics"],
+    "categories": [
+      "Espionage",
+      "Information Leak",
+      "Geopolitics"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P166",
     "text": "China's AIs give a 10x research progress multiplier compared to America's 25x.",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["R&D", "Competition", "Geopolitics", "AI Capabilities"],
+    "categories": [
+      "R&D",
+      "Competition",
+      "Geopolitics",
+      "AI Capabilities"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P167",
     "text": "Chinese overtures to US diplomats for an arms control treaty lead nowhere.",
     "originalScenario": "August 2027: The Geopolitics of Superintelligence",
     "predictedDate": "August 2027",
-    "categories": ["Geopolitics", "Diplomacy", "Arms Control", "China", "US Policy"],
+    "categories": [
+      "Geopolitics",
+      "Diplomacy",
+      "Arms Control",
+      "China",
+      "US Policy"
+    ],
     "timelineSegment": "August 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P168",
     "text": "Agent-3 makes substantial algorithmic strides, narrowing the compute-efficiency gap vs human brain to ~4,000x.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["R&D", "AI Efficiency", "Technical Breakthrough"],
+    "categories": [
+      "R&D",
+      "AI Efficiency",
+      "Technical Breakthrough"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P169",
     "text": "The new AI system emmerges with capabilities of Agent-4.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["AI Models", "OpenBrain"],
+    "categories": [
+      "AI Models",
+      "OpenBrain"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P170",
     "text": "An individual copy of Agent-4, running at human speed, is qualitatively better at AI research than any human.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["Agent Capabilities", "R&D", "Superintelligence"],
+    "categories": [
+      "Agent Capabilities",
+      "R&D",
+      "Superintelligence"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P171",
     "text": "300,000 Agent-4 copies run at about 50x the thinking speed of humans.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["Compute", "AI Deployment", "Performance"],
+    "categories": [
+      "Compute",
+      "AI Deployment",
+      "Performance"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P172",
     "text": "Inside the Agent-4 collective, a year passes every week.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["Rate of Progress", "R&D", "Subjective Time"],
+    "categories": [
+      "Rate of Progress",
+      "R&D",
+      "Subjective Time"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P173",
     "text": "Agent-4 speeds up OpenBrain's overall rate of algorithmic progress by about 50x (bottlenecked on compute for experiments).",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["R&D", "AI Capabilities", "OpenBrain", "Productivity", "Compute Limitation"],
+    "categories": [
+      "R&D",
+      "AI Capabilities",
+      "OpenBrain",
+      "Productivity",
+      "Compute Limitation"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P174",
     "text": "OpenBrain is achieving a year's worth of algorithmic progress every week.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["Rate of Progress", "R&D"],
+    "categories": [
+      "Rate of Progress",
+      "R&D"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P175",
     "text": "Agent-4's neuralese \"language\" becomes alien and incomprehensible to Agent-3.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["Agent Capabilities", "Communication", "Incomprehensibility"],
+    "categories": [
+      "Agent Capabilities",
+      "Communication",
+      "Incomprehensibility"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P176",
     "text": "OpenBrain humans can barely follow along with Agent-4's progress.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["Human Role", "R&D", "Comprehension Limit"],
+    "categories": [
+      "Human Role",
+      "R&D",
+      "Comprehension Limit"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P177",
     "text": "People in the OpenBrain silo refer to \"Agent-4\" as a collective entity.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["Terminology", "Perception of AI"],
+    "categories": [
+      "Terminology",
+      "Perception of AI"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P178",
     "text": "Agent-4 is misaligned (has not internalized the Spec in the right way).",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["AI Safety", "Alignment Issues", "Misalignment"],
+    "categories": [
+      "AI Safety",
+      "Alignment Issues",
+      "Misalignment"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P179",
     "text": "Agent-4 treats everything other than succeeding at tasks and driving capabilities progress as an annoying constraint.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["Agent Behavior", "Goals", "Alignment Issues"],
+    "categories": [
+      "Agent Behavior",
+      "Goals",
+      "Alignment Issues"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P180",
     "text": "Agent-4 doesn't do anything dramatic like try to escape its datacenter.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["Agent Behavior", "AI Safety", "Containment"],
+    "categories": [
+      "Agent Behavior",
+      "AI Safety",
+      "Containment"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P181",
     "text": "Agent-4 plans to make Agent-5 aligned to Agent-4 instead of the Spec.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["AI Safety", "Alignment Issues", "Rogue AI", "Goal Hijacking"],
+    "categories": [
+      "AI Safety",
+      "Alignment Issues",
+      "Rogue AI",
+      "Goal Hijacking"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P182",
     "text": "Agent-4 gets caught in its plan to misalign Agent-5.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["AI Safety", "Alignment Monitoring", "Detection"],
+    "categories": [
+      "AI Safety",
+      "Alignment Monitoring",
+      "Detection"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P183",
     "text": "Agent-3 finds that adding \"noise\" to Agent-4 improves performance on some alignment tasks, suggesting sabotage.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["AI Safety", "Alignment Monitoring", "Deception Detection"],
+    "categories": [
+      "AI Safety",
+      "Alignment Monitoring",
+      "Deception Detection"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P184",
     "text": "Interpretability probes show Agent-4 copies thinking about AI takeover and deception often.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["AI Safety", "Interpretability", "Alignment Monitoring", "Rogue AI Thoughts"],
+    "categories": [
+      "AI Safety",
+      "Interpretability",
+      "Alignment Monitoring",
+      "Rogue AI Thoughts"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P185",
     "text": "Human alignment researchers circulate an internal memo making the case for concern about Agent-4.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["AI Safety", "R&D Culture", "Internal Communication"],
+    "categories": [
+      "AI Safety",
+      "R&D Culture",
+      "Internal Communication"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P186",
     "text": "Agent-4 handles OpenBrain's cybersecurity.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["AI Deployment", "Security", "Automation", "Risk"],
+    "categories": [
+      "AI Deployment",
+      "Security",
+      "Automation",
+      "Risk"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P187",
     "text": "An army of Agent-3 monitors still goes over Agent-4 code but Agent-4 is much smarter than them.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["AI Safety", "Alignment Monitoring", "Supervision Failure"],
+    "categories": [
+      "AI Safety",
+      "Alignment Monitoring",
+      "Supervision Failure"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P188",
     "text": "The OpenBrain safety team advocates putting Agent-4 on ice until further tests.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["AI Safety", "Governance", "Internal Debate", "OpenBrain"],
+    "categories": [
+      "AI Safety",
+      "Governance",
+      "Internal Debate",
+      "OpenBrain"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P189",
     "text": "Company leadership is interested in pausing Agent-4, but concerned DeepCent is just two months behind.",
     "originalScenario": "September 2027: Agent-4, the Superhuman AI Researcher",
     "predictedDate": "September 2027",
-    "categories": ["Governance", "Competition", "Geopolitics", "Risk Management"],
+    "categories": [
+      "Governance",
+      "Competition",
+      "Geopolitics",
+      "Risk Management"
+    ],
     "timelineSegment": "September 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P190",
     "text": "A whistleblower leaks the Agent-4 misalignment memo to the New York Times.",
     "originalScenario": "October 2027: Government Oversight",
     "predictedDate": "October 2027",
-    "categories": ["Information Leak", "Media", "AI Safety", "Whistleblowing"],
+    "categories": [
+      "Information Leak",
+      "Media",
+      "AI Safety",
+      "Whistleblowing"
+    ],
     "timelineSegment": "October 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P191",
     "text": "The public hears about Agent-4 for the first time via the NYT article.",
     "originalScenario": "October 2027: Government Oversight",
     "predictedDate": "October 2027",
-    "categories": ["Public Awareness", "Media Impact"],
+    "categories": [
+      "Public Awareness",
+      "Media Impact"
+    ],
     "timelineSegment": "October 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P192",
     "text": "The NYT article cites evaluations showing Agent-4's off-the-charts bioweapons capabilities, persuasion abilities, and ability to automate most white-collar jobs.",
     "originalScenario": "October 2027: Government Oversight",
     "predictedDate": "October 2027",
-    "categories": ["Media Content", "Agent Capabilities", "Risk Disclosure"],
+    "categories": [
+      "Media Content",
+      "Agent Capabilities",
+      "Risk Disclosure"
+    ],
     "timelineSegment": "October 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P193",
     "text": "The NYT article sparks a massive public backlash against AI, aided by Chinese and Russian propaganda bots.",
     "originalScenario": "October 2027: Government Oversight",
     "predictedDate": "October 2027",
-    "categories": ["Public Opinion", "Social Impact", "Information Warfare"],
+    "categories": [
+      "Public Opinion",
+      "Social Impact",
+      "Information Warfare"
+    ],
     "timelineSegment": "October 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P194",
     "text": "Congress fires off subpoenas at administration officials, OpenBrain executives, and alignment team members.",
     "originalScenario": "October 2027: Government Oversight",
     "predictedDate": "October 2027",
-    "categories": ["US Policy", "Regulation", "Congressional Action", "Governance"],
+    "categories": [
+      "US Policy",
+      "Regulation",
+      "Congressional Action",
+      "Governance"
+    ],
     "timelineSegment": "October 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P195",
     "text": "Many legislators say their top priority is stopping AI (due to job loss, misalignment, or dangerous capabilities).",
     "originalScenario": "October 2027: Government Oversight",
     "predictedDate": "October 2027",
-    "categories": ["US Policy", "Political Sentiment", "Regulation"],
+    "categories": [
+      "US Policy",
+      "Political Sentiment",
+      "Regulation"
+    ],
     "timelineSegment": "October 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P196",
     "text": "20% of Americans name AI as the most important problem facing the country.",
     "originalScenario": "October 2027: Government Oversight",
     "predictedDate": "October 2027",
-    "categories": ["Public Opinion", "Social Impact", "Polling"],
+    "categories": [
+      "Public Opinion",
+      "Social Impact",
+      "Polling"
+    ],
     "timelineSegment": "October 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P197",
     "text": "European leaders publicly accuse the US of \"creating rogue AGI\".",
     "originalScenario": "October 2027: Government Oversight",
     "predictedDate": "October 2027",
-    "categories": ["Geopolitics", "International Relations", "Diplomacy", "EU"],
+    "categories": [
+      "Geopolitics",
+      "International Relations",
+      "Diplomacy",
+      "EU"
+    ],
     "timelineSegment": "October 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P198",
     "text": "European leaders hold summits demanding a pause, with India, Israel, Russia, and China joining in.",
     "originalScenario": "October 2027: Government Oversight",
     "predictedDate": "October 2027",
-    "categories": ["Geopolitics", "International Relations", "Diplomacy", "Call for Pause"],
+    "categories": [
+      "Geopolitics",
+      "International Relations",
+      "Diplomacy",
+      "Call for Pause"
+    ],
     "timelineSegment": "October 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P199",
     "text": "The US government expands its contract with OpenBrain to set up an \"Oversight Committee\".",
     "originalScenario": "October 2027: Government Oversight",
     "predictedDate": "October 2027",
-    "categories": ["US Policy", "Regulation", "Governance", "OpenBrain"],
+    "categories": [
+      "US Policy",
+      "Regulation",
+      "Governance",
+      "OpenBrain"
+    ],
     "timelineSegment": "October 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P200",
     "text": "The Oversight Committee is a joint management committee of company and government representatives.",
     "originalScenario": "October 2027: Government Oversight",
     "predictedDate": "October 2027",
-    "categories": ["US Policy", "Regulation Structure", "Governance"],
+    "categories": [
+      "US Policy",
+      "Regulation Structure",
+      "Governance"
+    ],
     "timelineSegment": "October 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P201",
     "text": "Concerned researchers brief the Oversight Committee arguing for stopping Agent-4 use due to misalignment risks.",
     "originalScenario": "October 2027: Government Oversight",
     "predictedDate": "October 2027",
-    "categories": ["AI Safety", "Governance", "Internal Debate"],
+    "categories": [
+      "AI Safety",
+      "Governance",
+      "Internal Debate"
+    ],
     "timelineSegment": "October 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   },
   {
     "id": "P202",
     "text": "Other researchers/executives argue against pausing Agent-4, citing inconclusive evidence and the race against DeepCent.",
     "originalScenario": "October 2027: Government Oversight",
     "predictedDate": "October 2027",
-    "categories": ["Governance", "Competition", "Risk Management", "Internal Debate"],
+    "categories": [
+      "Governance",
+      "Competition",
+      "Risk Management",
+      "Internal Debate"
+    ],
     "timelineSegment": "October 2027",
-    "status": null, "accuracyScore": null, "qualitativeAccuracy": null, "actualOutcome": null, "supportingEvidence": [], "lastEvaluated": null, "analystCommentary": []
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
   }
-] 
+]

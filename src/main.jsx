@@ -135,41 +135,80 @@ const Progress = ({ value, className = '' }) => (
 
 // --- Components ---
 
-const Navbar = ({ setCurrentPage }) => {
+const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
   const navItems = [
-    { name: 'Home', page: 'home' }, { name: 'Timeline', page: 'timeline' },
-    { name: 'Predictions', page: 'allPredictions' }, { name: 'Blog', page: 'blog' },
-    { name: 'About', page: 'about' },
+    { name: 'Home', page: '/' }, 
+    { name: 'Timeline', page: '/timeline' },
+    { name: 'Predictions', page: '/predictions' }, 
+    { name: 'Blog', page: '/blog' },
+    { name: 'About', page: '/about' },
   ];
 
+  const handleNavClick = (path) => {
+    navigate(path);
+    setIsMobileMenuOpen(false);
+  };
+  
   return (
     <nav className={`sticky top-0 z-20 flex items-center justify-between border-b ${colors.borderMuted} ${colors.navbarBackground} px-4 sm:px-6 py-3.5`}>
       <h1 
-        className="font-serif text-lg sm:text-xl font-bold tracking-tight cursor-pointer" // Slightly reduced size
-        onClick={() => setCurrentPage('home')}
+        className="font-serif text-lg sm:text-xl font-bold tracking-tight cursor-pointer" 
+        onClick={() => handleNavClick('/')}
         style={{ fontFamily: 'Georgia, Times, serif' }}
       >
         <span className={colors.textPrimary}>AI 2027</span>&nbsp;
         <span className={colors.accentGreen}>Tracker</span>
       </h1>
-      <div className="hidden md:flex items-center space-x-5"> {/* Reduced space */}
+      {/* Desktop Menu */}
+      <div className="hidden md:flex items-center space-x-5"> 
         {navItems.map((item) => (
           <button
             key={item.page}
-            onClick={() => setCurrentPage(item.page)}
-            className={`font-medium text-xs sm:text-sm ${colors.textPrimary} transition hover:${colors.accentGreen}`} // Reduced size
+            onClick={() => handleNavClick(item.page)}
+            className={`font-medium text-xs sm:text-sm ${colors.textPrimary} transition hover:${colors.accentGreen}`}
           >
             {item.name}
           </button>
         ))}
       </div>
-       {/* Mobile Menu Button - Placeholder */}
-      <Button variant="outline" size="sm" className="md:hidden px-2 py-1"> 
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-        </svg>
-        <span className="sr-only">Menu</span>
-      </Button>
+      {/* Mobile Menu Button */}
+      <div className="md:hidden">
+        <Button 
+            variant="outline" 
+            size="sm" 
+            className="px-2 py-1" 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+            {isMobileMenuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /> 
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            )}
+          </svg>
+          <span className="sr-only">Menu</span>
+        </Button>
+      </div>
+
+      {/* Mobile Menu Panel */}
+      {isMobileMenuOpen && (
+        <div className={`md:hidden absolute top-full left-0 right-0 ${colors.navbarBackground} border-b ${colors.borderMuted} shadow-lg py-2 z-30`}>
+          <div className="flex flex-col space-y-1 px-4">
+            {navItems.map((item) => (
+              <button
+                key={item.page}
+                onClick={() => handleNavClick(item.page)}
+                className={`block w-full text-left py-2 px-3 rounded-md text-sm font-medium ${colors.textPrimary} hover:bg-gray-100 hover:${colors.accentGreen} transition`}
+              >
+                {item.name}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
@@ -827,7 +866,26 @@ const AboutPage = () => {
   );
 };
 
+// --- Google Analytics Hook ---
+function useGoogleAnalytics() {
+  useEffect(() => {
+    if (!window.gtagScriptLoaded) {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-7EBD7JJMBS';
+      document.head.appendChild(script);
+      window.gtagScriptLoaded = true;
+    }
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-7EBD7JJMBS');
+  }, []);
+}
+
 const AppContent = () => {
+  useGoogleAnalytics();
   const [selectedPredictionId, setSelectedPredictionId] = useState(null);
   const [selectedPostId, setSelectedPostId] = useState(null);
   const navigate = useNavigate();
@@ -849,42 +907,28 @@ const AppContent = () => {
     });
   }, []); // predictionsData is constant, so empty dependency array is fine
 
-  const setCurrentPage = (page, params = {}) => {
-    switch (page) {
-      case 'home':
-        navigate('/');
-        break;
-      case 'timeline':
-        navigate('/timeline');
-        break;
-      case 'allPredictions':
-        navigate('/predictions');
-        break;
-      case 'predictionDetail':
-        if (params.id) {
-            navigate(`/prediction/${params.id}`);
-        } else {
-            console.error("Attempted to navigate to prediction detail without an ID.");
-            navigate('/predictions'); // Fallback to a safe page
-        }
-        break;
-      case 'blog':
-        navigate('/blog');
-        break;
-      case 'blogPost':
-        if (params.id) {
-            navigate(`/blog/${params.id}`);
-        } else {
-            console.error("Attempted to navigate to blog post detail without an ID.");
-            navigate('/blog'); // Fallback to a safe page
-        }
-        break;
-      case 'about':
-        navigate('/about');
-        break;
-      default:
-        navigate('/');
+  const setCurrentPage = (pageOrPath, params = {}) => {
+    let path = pageOrPath;
+    // Check if it's a page key or a direct path
+    if (!pageOrPath.startsWith('/')) { 
+      switch (pageOrPath) {
+        case 'home': path = '/'; break;
+        case 'timeline': path = '/timeline'; break;
+        case 'allPredictions': path = '/predictions'; break;
+        case 'predictionDetail': 
+          path = params.id ? `/prediction/${params.id}` : '/predictions'; 
+          if (!params.id) console.error("Attempted to navigate to prediction detail without an ID via page key.");
+          break;
+        case 'blog': path = '/blog'; break;
+        case 'blogPost': 
+          path = params.id ? `/blog/${params.id}` : '/blog'; 
+          if (!params.id) console.error("Attempted to navigate to blog post detail without an ID via page key.");
+          break;
+        case 'about': path = '/about'; break;
+        default: path = '/';
+      }
     }
+    navigate(path);
   };
 
   useEffect(() => {
@@ -912,7 +956,7 @@ const AppContent = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar setCurrentPage={setCurrentPage} />
+      <Navbar />
       <main className="flex-grow">
         <Routes>
           <Route path="/" element={<HomePage predictions={predictionsData} posts={blogPostsData} setCurrentPage={setCurrentPage} setSelectedPredictionId={setSelectedPredictionId} setSelectedPostId={setSelectedPostId} />} />
