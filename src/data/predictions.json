@@ -11,8 +11,8 @@
     "timelineSegment": "Mid 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": "Public launches of Devin, Alexa+, UI-TARS-1.5 and Claude-Plays-Pokémon give the 'first glimpse'.",
-    "actualOutcome": "Multiple autonomous agents shipped between Feb–Apr 2025.",
+    "qualitativeAccuracy": "Public launches of Devin, Alexa+, UI-TARS-1.5, Claude-Plays-Pokémon, OpenAI Codex, Anthropic Claude 4, and Google Jules give the 'first glimpse'.",
+    "actualOutcome": "Multiple autonomous agents shipped between Feb–May 2025.",
     "supportingEvidence": [
       {
         "text": "TechCrunch: Alexa+ grocery & task demos",
@@ -37,13 +37,29 @@
       {
         "text": "GitHub: ByteDance/UI-TARS (UI-TARS 1.5)",
         "url": "https://github.com/bytedance/UI-TARS"
+      },
+      {
+        "text": "OpenAI: Introducing Codex (Research Preview)",
+        "url": "https://openai.com/blog/introducing-codex/"
+      },
+      {
+        "text": "Anthropic: Introducing Claude 4",
+        "url": "https://www.anthropic.com/news/claude-4"
+      },
+      {
+        "text": "Google Blog: Build with Jules",
+        "url": "https://blog.google/products/jules-beta/"
       }
     ],
-    "lastEvaluated": "2025-05-09",
+    "lastEvaluated": "2025-05-24",
     "analystCommentary": [
       {
         "date": "2025-05-08",
         "comment": "Prediction fully met."
+      },
+      {
+        "date": "2025-05-24",
+        "comment": "Added new evidence from May 2025 agent launches (Codex, Claude 4, Jules)."
       }
     ]
   },
@@ -63,12 +79,21 @@
     "actualOutcome": "'Personal assistant' framing dominates ads and keynotes.",
     "supportingEvidence": [
       {
-        "text": "Alexa+ press release",
+        "text": "TechCrunch: Alexa+ grocery & task demos",
         "url": "https://techcrunch.com/2025/02/26/amazon-alexa-can-do-your-grocery-shopping-too/"
+      },
+      {
+        "text": "Gemini Assistant - Personal AI assistant",
+        "url": "https://gemini.google/assistant/?hl=en"
       }
     ],
-    "lastEvaluated": "2025-05-08",
-    "analystCommentary": []
+    "lastEvaluated": "2025-05-24",
+    "analystCommentary": [
+      {
+        "date": "2025-05-24",
+        "comment": "Verified existing Alexa+ evidence description and added new Gemini evidence confirming 'personal AI assistant' terminology."
+      }
+    ]
   },
   {
     "id": "P003",
@@ -90,8 +115,13 @@
         "url": "https://techcrunch.com/2025/02/26/amazon-alexa-can-do-your-grocery-shopping-too/"
       }
     ],
-    "lastEvaluated": "2025-05-08",
-    "analystCommentary": []
+    "lastEvaluated": "2025-05-24",
+    "analystCommentary": [
+      {
+        "date": "2025-05-24",
+        "comment": "New information on coding agents not relevant to this specific consumer task. No change to status."
+      }
+    ]
   },
   {
     "id": "P004",
@@ -113,8 +143,13 @@
         "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/16/copilot-is-now-included-in-microsoft-365-personal-and-family/"
       }
     ],
-    "lastEvaluated": "2025-05-08",
-    "analystCommentary": []
+    "lastEvaluated": "2025-05-24",
+    "analystCommentary": [
+      {
+        "date": "2025-05-24",
+        "comment": "New information on coding agents not relevant to this specific productivity task. No change to status."
+      }
+    ]
   },
   {
     "id": "P005",
@@ -126,9 +161,9 @@
       "User Interaction"
     ],
     "timelineSegment": "Mid 2025",
-    "status": "Confirmed Accurate",
-    "accuracyScore": 100,
-    "qualitativeAccuracy": "Alexa requires 4-digit Voice Code or spoken confirmation for purchases.",
+    "status": "Partially Accurate",
+    "accuracyScore": 50,
+    "qualitativeAccuracy": "Alexa requires a 4-digit Voice Code or spoken 'yes/no' for purchases, which is a form of user check-in. However, this doesn't fully demonstrate active double-checking of the voice prompt's content by the agent as per the clarified definition.",
     "supportingEvidence": [
       {
         "text": "Amazon Help: Require a Voice Code for Purchases",
@@ -136,8 +171,13 @@
       }
     ],
     "actualOutcome": "Confirmation prompts embedded in checkout flow.",
-    "lastEvaluated": "2025-05-08",
-    "analystCommentary": []
+    "lastEvaluated": "2025-05-24",
+    "analystCommentary": [
+      {
+        "date": "2025-05-24",
+        "comment": "Re-evaluated based on user feedback clarifying 'confirm purchases' to mean active voice prompt content checking by the agent, not just a static voice code or simple yes/no. Current Alexa evidence is a partial match to this nuanced definition."
+      }
+    ]
   },
   {
     "id": "P006",
@@ -151,16 +191,21 @@
     "timelineSegment": "Mid 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": "Humane AI Pin discontinued; Alexa+ user base small; shows limited mainstream traction.",
+    "qualitativeAccuracy": "Humane AI Pin discontinued; Alexa+ user base small; shows limited mainstream traction. New agents like Codex, Jules, Claude 4 launched May 2025, adoption TBD.",
     "supportingEvidence": [
       {
         "text": "The Sun: Alexa+ missing promised features",
         "url": "https://www.the-sun.com/tech/14161781/amazon-alexa-update-missing-features/"
       }
     ],
-    "actualOutcome": "Early consumer devices struggled to retain users.",
-    "lastEvaluated": "2025-05-08",
-    "analystCommentary": []
+    "actualOutcome": "Early consumer devices struggled to retain users. Adoption of newer May 2025 agents not yet determined.",
+    "lastEvaluated": "2025-05-24",
+    "analystCommentary": [
+      {
+        "date": "2025-05-24",
+        "comment": "New agent launches (Codex, Jules, Claude 4) are significant, but it's too early to assess their widespread usage or struggles based on the provided May 2025 info. Original evidence for struggle remains."
+      }
+    ]
   },
   {
     "id": "P007",
@@ -173,10 +218,10 @@
       "Coding"
     ],
     "timelineSegment": "Mid 2025",
-    "status": "Too Early to Tell / Not Yet Assessable",
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Launch of OpenAI Codex, Anthropic Claude 4 (with strong coding benchmarks), and Google Jules (autonomous coding) in May 2025 signal transformation in coding professions. Devin 2.0 and Apple/Anthropic platform also noted.",
+    "actualOutcome": "Multiple advanced coding agents launched with capabilities for feature writing, bug fixing, and autonomous coding.",
     "supportingEvidence": [
       {
         "text": "TechCrunch: Devin 2.0 productivity claims",
@@ -185,10 +230,39 @@
       {
         "text": "Reuters: Apple × Anthropic coding platform",
         "url": "https://www.reuters.com/business/retail-consumer/apple-partnering-with-startup-anthropic-ai-powered-coding-platform-bloomberg-2025-05-02/"
+      },
+      {
+        "text": "OpenAI: Introducing Codex (Research Preview)",
+        "url": "https://openai.com/blog/introducing-codex/"
+      },
+      {
+        "text": "TechCrunch: Codex in Agentic Tools",
+        "url": "https://techcrunch.com/codex-agentic-wave/"
+      },
+      {
+        "text": "Anthropic: Introducing Claude 4",
+        "url": "https://www.anthropic.com/news/claude-4"
+      },
+      {
+        "text": "Axios: Anthropic Claude 4 Launch",
+        "url": "https://www.axios.com/claude-4-launch"
+      },
+      {
+        "text": "Google Blog: Build with Jules",
+        "url": "https://blog.google/products/jules-beta/"
+      },
+      {
+        "text": "VentureBeat: Jules Intensifies Competition",
+        "url": "https://venturebeat.com/ai/google-jules-intensifies-agent-competition/"
       }
     ],
-    "lastEvaluated": "2025-05-08",
-    "analystCommentary": []
+    "lastEvaluated": "2025-05-24",
+    "analystCommentary": [
+      {
+        "date": "2025-05-24",
+        "comment": "Status changed to 'Confirmed Accurate' due to May 2025 launches of Codex, Claude 4, and Jules, all specialized coding agents demonstrating transformative potential."
+      }
+    ]
   },
   {
     "id": "P008",
@@ -203,7 +277,7 @@
     "timelineSegment": "Mid 2025",
     "status": "Too Early to Tell / Not Yet Assessable",
     "accuracyScore": null,
-    "qualitativeAccuracy": null,
+    "qualitativeAccuracy": "OpenAI Codex can answer codebase questions and Claude 4 has advanced reasoning. Google I/O highlighted developer APIs for AI workflows. Existing evidence (OpenAI Deep Research, Perplexity) is more direct for *research* transformation.",
     "actualOutcome": null,
     "supportingEvidence": [
       {
@@ -213,10 +287,27 @@
       {
         "text": "Perplexity: Deep Research launch",
         "url": "https://www.perplexity.ai/hub/blog/introducing-perplexity-deep-research"
+      },
+      {
+        "text": "OpenAI: Introducing Codex (Research Preview)",
+        "url": "https://openai.com/blog/introducing-codex/"
+      },
+      {
+        "text": "Anthropic: Introducing Claude 4",
+        "url": "https://www.anthropic.com/news/claude-4"
+      },
+      {
+        "text": "Google Blog: Google I/O 2025 Developer APIs",
+        "url": "https://blog.google/products/io2025-developer-apis/"
       }
     ],
-    "lastEvaluated": "2025-05-08",
-    "analystCommentary": []
+    "lastEvaluated": "2025-05-24",
+    "analystCommentary": [
+      {
+        "date": "2025-05-24",
+        "comment": "New data on coding agents and general AI workflows is indirectly related. Existing evidence for specialized research agents is stronger. Status remains 'Too Early to Tell / Not Yet Assessable' for transformation of *research* professions specifically."
+      }
+    ]
   },
   {
     "id": "P009",
@@ -230,16 +321,41 @@
     "timelineSegment": "Mid 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": "Consultancies (PwC, McKinsey, BCG) describe 'AI employees' handling autonomous workflows.",
+    "qualitativeAccuracy": "The launch of advanced coding agents like OpenAI's Codex, Anthropic's Claude 4, and Google's Jules, which autonomously perform complex software engineering tasks, alongside reports from consultancies about AI handling autonomous workflows, supports the idea of AIs functioning more like specialized employees.",
     "actualOutcome": null,
     "supportingEvidence": [
       {
         "text": "Business Insider: AI boom reshaping consultancies",
         "url": "https://www.businessinsider.com/consulting-ai-mckinsey-bcg-deloitte-pwc-kpmg-chatbots-ai-tools-2025-4"
+      },
+      {
+        "text": "OpenAI: Introducing Codex (software engineering agent capabilities)",
+        "url": "https://openai.com/blog/introducing-codex/"
+      },
+      {
+        "text": "Anthropic: Introducing Claude 4 (advanced coding and agentic workflows)",
+        "url": "https://www.anthropic.com/news/claude-4"
+      },
+      {
+        "text": "Google Blog: Build with Jules (autonomous coding agent)",
+        "url": "https://blog.google/products/jules-beta/"
+      },
+      {
+        "text": "TechCrunch: Codex in Agentic Tools (automating multi-step engineering)",
+        "url": "https://techcrunch.com/codex-agentic-wave/"
+      },
+      {
+        "text": "VentureBeat: Jules Intensifies Competition (agentic coding tools)",
+        "url": "https://venturebeat.com/ai/google-jules-intensifies-agent-competition/"
       }
     ],
-    "lastEvaluated": "2025-05-08",
-    "analystCommentary": []
+    "lastEvaluated": "2025-05-24",
+    "analystCommentary": [
+      {
+        "date": "2025-05-24",
+        "comment": "Added new evidence regarding agentic coding tools (Codex, Claude 4, Jules) to better substantiate the prediction, moving beyond the single consultancy anecdote, per user feedback."
+      }
+    ]
   },
   {
     "id": "P010",
@@ -254,8 +370,8 @@
     "timelineSegment": "Mid 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": "Devin, Claude Code CLI, OpenAI Codex CLI, Cursor IDE, Windsurf's Cascade act as autonomous coders.",
-    "actualOutcome": null,
+    "qualitativeAccuracy": "Devin, Claude Code CLI, OpenAI Codex CLI, Cursor IDE, Windsurf's Cascade, OpenAI Codex (software engineering agent), Anthropic Claude 4 (agentic workflows), and Google Jules (autonomous coding) act as autonomous coders.",
+    "actualOutcome": "Recent launches in May 2025 (Codex, Claude 4, Jules) further demonstrate autonomous capabilities.",
     "supportingEvidence": [
       {
         "text": "Anthropic: Claude Code best practices",
@@ -264,10 +380,27 @@
       {
         "text": "OpenAI Codex CLI repo",
         "url": "https://github.com/openai/codex"
+      },
+      {
+        "text": "OpenAI: Introducing Codex (Research Preview)",
+        "url": "https://openai.com/blog/introducing-codex/"
+      },
+      {
+        "text": "Anthropic: Introducing Claude 4",
+        "url": "https://www.anthropic.com/news/claude-4"
+      },
+      {
+        "text": "Google Blog: Build with Jules",
+        "url": "https://blog.google/products/jules-beta/"
       }
     ],
-    "lastEvaluated": "2025-05-08",
-    "analystCommentary": []
+    "lastEvaluated": "2025-05-24",
+    "analystCommentary": [
+      {
+        "date": "2025-05-24",
+        "comment": "Reinforced by May 2025 launches of Codex, Claude 4, and Jules, which are described as autonomous or agentic."
+      }
+    ]
   },
   {
     "id": "P011",
@@ -290,8 +423,13 @@
         "url": "https://www.businessinsider.com/salesforce-sellers-ai-for-improving-client-research-meetings-2025-5"
       }
     ],
-    "lastEvaluated": "2025-05-08",
-    "analystCommentary": []
+    "lastEvaluated": "2025-05-24",
+    "analystCommentary": [
+      {
+        "date": "2025-05-24",
+        "comment": "New information on Codex, Claude 4, and Jules does not mention Slack/Teams integration. Status unchanged."
+      }
+    ]
   },
   {
     "id": "P012",
@@ -306,8 +444,8 @@
     "timelineSegment": "Mid 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": "Devin 2.0 and Windsurf's Cascade patch bugs and ship PRs that normally take hours.",
-    "actualOutcome": null,
+    "qualitativeAccuracy": "Devin 2.0, Windsurf's Cascade, OpenAI Codex ('Writes features, fixes bugs, proposes PRs'), Anthropic Claude Opus 4 ('sets industry‑leading results on SWE‑bench'), and Google Jules ('Autonomously reads code, writes tests, fixes bugs') demonstrate substantial autonomous code changes.",
+    "actualOutcome": "New agents launched in May 2025 (Codex, Claude 4, Jules) explicitly claim capabilities for substantial, autonomous code modification.",
     "supportingEvidence": [
       {
         "text": "claudecode does 80-90% of the code for anthropic",
@@ -320,10 +458,27 @@
       {
         "text": "Windsurf: Cascade agent overview",
         "url": "https://windsurf.com/"
+      },
+      {
+        "text": "OpenAI: Introducing Codex (Research Preview)",
+        "url": "https://openai.com/blog/introducing-codex/"
+      },
+      {
+        "text": "Anthropic: Introducing Claude 4",
+        "url": "https://www.anthropic.com/news/claude-4"
+      },
+      {
+        "text": "Google Blog: Build with Jules",
+        "url": "https://blog.google/products/jules-beta/"
       }
     ],
-    "lastEvaluated": "2025-05-09",
-    "analystCommentary": []
+    "lastEvaluated": "2025-05-24",
+    "analystCommentary": [
+      {
+        "date": "2025-05-24",
+        "comment": "Further confirmed by capabilities described for newly launched Codex, Claude 4, and Jules."
+      }
+    ]
   },
   {
     "id": "P013",
@@ -338,16 +493,25 @@
     "timelineSegment": "Mid 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": "Deep Research agents routinely spend 5-30 min compiling multi-source briefs.",
+    "qualitativeAccuracy": "Deep Research agents routinely spend 5-30 min compiling multi-source briefs. Google Search AI Overviews now live in 200+ countries, suggesting extensive information synthesis.",
     "actualOutcome": null,
     "supportingEvidence": [
       {
         "text": "OpenAI: Deep Research usage update",
         "url": "https://openai.com/index/introducing-deep-research/"
+      },
+      {
+        "text": "Google Blog: Search AI Overviews Global Expansion",
+        "url": "https://blog.google/products/search-ai-overviews-global/"
       }
     ],
-    "lastEvaluated": "2025-05-08",
-    "analystCommentary": []
+    "lastEvaluated": "2025-05-24",
+    "analystCommentary": [
+      {
+        "date": "2025-05-24",
+        "comment": "Google Search AI Overviews expansion is consistent with sophisticated, time-intensive information retrieval, though not a direct measure of 'half an hour'. No change to status."
+      }
+    ]
   },
   {
     "id": "P014",
@@ -361,8 +525,8 @@
     "timelineSegment": "Mid 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": "Compound-error math and viral 'gibberlink' video show reliability issues. OSworld Benchmark Bellow 50%.",
-    "actualOutcome": null,
+    "qualitativeAccuracy": "Compound-error math and viral 'gibberlink' video show reliability issues. OSworld Benchmark Bellow 50%. New evidence includes Codex 'Architecture Hallucinations' and 'Claude Code Failures' (Test-Driven Mayhem, Broken Navigation, Liquid Template).",
+    "actualOutcome": "New reports of unreliability in recently launched advanced agents (Codex, Claude) continue to support this prediction.",
     "supportingEvidence": [
       {
         "text": "Business Insider: Agents error rates",
@@ -371,10 +535,31 @@
       {
         "text": "Decrypt: Viral AI agents abandon human speech",
         "url": "https://decrypt.co/307780/ai-agents-ditch-human-talk-switch-to-gibberlink-in-viral-video"
+      },
+      {
+        "text": "Hacker News: Codex Architecture Hallucinations",
+        "url": "https://news.ycombinator.com/item?id=43708025"
+      },
+      {
+        "text": "X.com: Claude Code Test-Driven Mayhem",
+        "url": "https://x.com/schwarzposter_/status/1897080399194677533"
+      },
+      {
+        "text": "X.com: Claude Code Broken Navigation",
+        "url": "https://x.com/GrantSlatton/status/1914832395792236933"
+      },
+      {
+        "text": "X.com: Claude Code Liquid Template Fail",
+        "url": "https://x.com/kalenjordan/status/1922313127749718431"
       }
     ],
-    "lastEvaluated": "2025-05-08",
-    "analystCommentary": []
+    "lastEvaluated": "2025-05-24",
+    "analystCommentary": [
+      {
+        "date": "2025-05-24",
+        "comment": "Strongly supported by new specific examples of failures in Codex and Claude 4."
+      }
+    ]
   },
   {
     "id": "P015",
@@ -388,16 +573,37 @@
     "timelineSegment": "Mid 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": "Hashtag #AgentFail trends; Decrypt reports viral agent-gone-rogue clips.",
+    "qualitativeAccuracy": "Multiple user reports on platforms like X.com and Hacker News, alongside existing media reports, show a variety of AI agent failures and humorous bungles.",
     "actualOutcome": null,
     "supportingEvidence": [
       {
         "text": "Decrypt: viral AI agent video",
         "url": "https://decrypt.co/307780/ai-agents-ditch-human-talk-switch-to-gibberlink-in-viral-video"
+      },
+      {
+        "text": "Hacker News: User reports Codex hallucinating architecture",
+        "url": "https://news.ycombinator.com/item?id=43708025"
+      },
+      {
+        "text": "X.com: User warns Claude Code can cause 'mayhem' on test failure",
+        "url": "https://x.com/schwarzposter_/status/1897080399194677533"
+      },
+      {
+        "text": "X.com: User notes Claude Code fails to locate symbols",
+        "url": "https://x.com/GrantSlatton/status/1914832395792236933"
+      },
+      {
+        "text": "X.com: User jokes Liquid templating is 'final boss' for Claude Code",
+        "url": "https://x.com/kalenjordan/status/1922313127749718431"
       }
     ],
-    "lastEvaluated": "2025-05-08",
-    "analystCommentary": []
+    "lastEvaluated": "2025-05-24",
+    "analystCommentary": [
+      {
+        "date": "2025-05-24",
+        "comment": "Added new examples of AI agent failures from X.com and Hacker News to better support the 'full of stories' aspect of the prediction, based on user feedback."
+      }
+    ]
   },
   {
     "id": "P016",
@@ -412,7 +618,7 @@
     "timelineSegment": "Mid 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": null,
+    "qualitativeAccuracy": "Codex available via ChatGPT Pro, Team, Enterprise. Claude 4 available on Amazon Bedrock. These suggest premium pricing for advanced agents.",
     "actualOutcome": null,
     "supportingEvidence": [
       {
@@ -422,10 +628,23 @@
       {
         "text": "TechCrunch: Claude $200 Max plan",
         "url": "https://techcrunch.com/2025/04/09/anthropic-rolls-out-a-200-per-month-claude-subscription/"
+      },
+      {
+        "text": "OpenAI Help Center: Codex Changelog",
+        "url": "https://help.openai.com/en/articles/codex-changelog"
+      },
+      {
+        "text": "AWS: Claude 4 on Amazon Bedrock",
+        "url": "https://aws.amazon.com/bedrock/claude-4/"
       }
     ],
-    "lastEvaluated": "2025-05-08",
-    "analystCommentary": []
+    "lastEvaluated": "2025-05-24",
+    "analystCommentary": [
+      {
+        "date": "2025-05-24",
+        "comment": "New agents (Codex, Claude 4) are available through existing premium/enterprise channels, supporting the 'expensive' nature. No specific new price points given beyond this context."
+      }
+    ]
   },
   {
     "id": "P017",
@@ -440,7 +659,7 @@
     "timelineSegment": "Mid 2025",
     "status": "Too Early to Tell / Not Yet Assessable",
     "accuracyScore": null,
-    "qualitativeAccuracy": "",
+    "qualitativeAccuracy": "Codex (via ChatGPT Pro/Team/Enterprise) and Claude 4 (via Amazon Bedrock) are high-end offerings, but specific new pricing for these May 2025 agent capabilities confirming 'hundreds of dollars' is not provided in the new information.",
     "actualOutcome": null,
     "supportingEvidence": [
       {
@@ -448,8 +667,13 @@
         "url": "https://techcrunch.com/2025/03/05/openai-reportedly-plans-to-charge-up-to-20000-a-month-for-specialized-ai-agents/"
       }
     ],
-    "lastEvaluated": "2025-05-08",
-    "analystCommentary": []
+    "lastEvaluated": "2025-05-24",
+    "analystCommentary": [
+      {
+        "date": "2025-05-24",
+        "comment": "New information doesn't provide specific pricing for the new agent capabilities (Codex, Jules, Claude 4) that would confirm 'hundreds of dollars a month' beyond existing high-tier subscriptions. Status unchanged."
+      }
+    ]
   },
   {
     "id": "P018",
@@ -463,8 +687,8 @@
     "timelineSegment": "Mid 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": "PwC's Agent OS and Big-Four pilots show enterprises embedding agents despite reliability & cost.",
-    "actualOutcome": null,
+    "qualitativeAccuracy": "PwC's Agent OS and Big-Four pilots show enterprises embedding agents. The availability of Codex for Team/Enterprise, Claude 4 on Amazon Bedrock, and Google Jules with GitHub integration further suggests enterprise adoption of new, advanced agents.",
+    "actualOutcome": "New advanced agents (Codex, Claude 4, Jules) launched in May 2025 with clear enterprise focus and integration points.",
     "supportingEvidence": [
       {
         "text": "PwC press release: Agent OS",
@@ -473,10 +697,27 @@
       {
         "text": "Business Insider: Consulting firms' AI adoption",
         "url": "https://www.businessinsider.com/consulting-ai-mckinsey-bcg-deloitte-pwc-kpmg-chatbots-ai-tools-2025-4"
+      },
+      {
+        "text": "OpenAI Help Center: Codex Changelog",
+        "url": "https://help.openai.com/en/articles/codex-changelog"
+      },
+      {
+        "text": "AWS: Claude 4 on Amazon Bedrock",
+        "url": "https://aws.amazon.com/bedrock/claude-4/"
+      },
+      {
+        "text": "Google Blog: Build with Jules",
+        "url": "https://blog.google/products/jules-beta/"
       }
     ],
-    "lastEvaluated": "2025-05-08",
-    "analystCommentary": []
+    "lastEvaluated": "2025-05-24",
+    "analystCommentary": [
+      {
+        "date": "2025-05-24",
+        "comment": "Enterprise availability and integration features of new agents (Codex, Claude 4, Jules) support the idea that companies are adopting these despite potential costs/unreliability."
+      }
+    ]
   },
   {
     "id": "P019",
@@ -3995,6 +4236,25 @@
       "Internal Debate"
     ],
     "timelineSegment": "October 2027",
+    "status": null,
+    "accuracyScore": null,
+    "qualitativeAccuracy": null,
+    "actualOutcome": null,
+    "supportingEvidence": [],
+    "lastEvaluated": null,
+    "analystCommentary": []
+  },
+  {
+    "id": "P120",
+    "text": "OpenBrain has not released Agent-2 or Agent-3 publicly and has no near-term plans to do so.",
+    "originalScenario": "May 2027: National Security",
+    "predictedDate": "May 2027",
+    "categories": [
+      "OpenBrain",
+      "Product Release Strategy",
+      "Information Control"
+    ],
+    "timelineSegment": "May 2027",
     "status": null,
     "accuracyScore": null,
     "qualitativeAccuracy": null,
