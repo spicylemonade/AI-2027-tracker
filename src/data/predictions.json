@@ -48,7 +48,7 @@
       },
       {
         "text": "Google Blog: Build with Jules",
-        "url": "https://blog.google/products/jules-beta/"
+        "url": "https://blog.google/technology/google-labs/jules/"
       }
     ],
     "lastEvaluated": "2025-05-24",
@@ -75,7 +75,7 @@
     "timelineSegment": "Mid 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": "Launch copy for Alexa+ and Gemini's A2A protocol use the phrase \"personal AI assistant\".",
+    "qualitativeAccuracy": "Launch copy for Alexa+, Gemini's A2A protocol, and Project Astra use the phrase \"personal AI assistant\".",
     "actualOutcome": "'Personal assistant' framing dominates ads and keynotes.",
     "supportingEvidence": [
       {
@@ -85,13 +85,17 @@
       {
         "text": "Gemini Assistant - Personal AI assistant",
         "url": "https://gemini.google/assistant/?hl=en"
+      },
+      {
+        "text": "YouTube: Project Astra Demo",
+        "url": "https://www.youtube.com/watch?v=JcDBFAm9PPI&pp=ygUMZ2VtaW5pIGFzdHJh"
       }
     ],
     "lastEvaluated": "2025-05-24",
     "analystCommentary": [
       {
         "date": "2025-05-24",
-        "comment": "Verified existing Alexa+ evidence description and added new Gemini evidence confirming 'personal AI assistant' terminology."
+        "comment": "Verified existing Alexa+ evidence description and added new Gemini and Project Astra demo evidence confirming 'personal AI assistant' terminology."
       }
     ]
   },
@@ -253,11 +257,11 @@
       },
       {
         "text": "Google Blog: Build with Jules",
-        "url": "https://blog.google/products/jules-beta/"
+        "url": "https://blog.google/technology/google-labs/jules/"
       },
       {
         "text": "VentureBeat: Jules Intensifies Competition",
-        "url": "https://venturebeat.com/ai/google-jules-intensifies-agent-competition/"
+        "url": "https://venturebeat.com/ai/googles-jules-aims-to-out-code-codex-in-battle-for-the-ai-developer-stack/"
       }
     ],
     "lastEvaluated": "2025-05-24",
@@ -301,8 +305,8 @@
         "url": "https://www.anthropic.com/news/claude-4"
       },
       {
-        "text": "Google Blog: Google I/O 2025 Developer APIs",
-        "url": "https://blog.google/products/io2025-developer-apis/"
+        "text": "Google Blog: Google AI Developer Updates I/O 2025",
+        "url": "https://blog.google/technology/developers/google-ai-developer-updates-io-2025/"
       }
     ],
     "lastEvaluated": "2025-05-24",
@@ -345,12 +349,8 @@
         "url": "https://blog.google/products/jules-beta/"
       },
       {
-        "text": "TechCrunch: Codex in Agentic Tools (automating multi-step engineering)",
-        "url": "https://techcrunch.com/codex-agentic-wave/"
-      },
-      {
-        "text": "VentureBeat: Jules Intensifies Competition (agentic coding tools)",
-        "url": "https://venturebeat.com/ai/google-jules-intensifies-agent-competition/"
+        "text": "VentureBeat: Jules aims to out-code Codex in battle for AI developer stack",
+        "url": "https://venturebeat.com/ai/googles-jules-aims-to-out-code-codex-in-battle-for-the-ai-developer-stack/"
       }
     ],
     "lastEvaluated": "2025-05-24",
@@ -395,7 +395,7 @@
       },
       {
         "text": "Google Blog: Build with Jules",
-        "url": "https://blog.google/products/jules-beta/"
+        "url": "https://blog.google/technology/google-labs/jules/"
       }
     ],
     "lastEvaluated": "2025-05-24",
@@ -461,7 +461,7 @@
       },
       {
         "text": "Windsurf: Cascade agent overview",
-        "url": "https://windsurf.com/"
+        "url": "https://windsurf.com/cascade"
       },
       {
         "text": "OpenAI: Introducing Codex (Research Preview)",
@@ -473,7 +473,7 @@
       },
       {
         "text": "Google Blog: Build with Jules",
-        "url": "https://blog.google/products/jules-beta/"
+        "url": "https://blog.google/technology/google-labs/jules/"
       }
     ],
     "lastEvaluated": "2025-05-24",
@@ -505,15 +505,15 @@
         "url": "https://openai.com/index/introducing-deep-research/"
       },
       {
-        "text": "Google Blog: Search AI Overviews Global Expansion",
-        "url": "https://blog.google/products/search-ai-overviews-global/"
+        "text": "YouTube: Claude 4 Research Capabilities Demo",
+        "url": "https://youtu.be/oqUclC3gqKs"
       }
     ],
     "lastEvaluated": "2025-05-24",
     "analystCommentary": [
       {
         "date": "2025-05-24",
-        "comment": "Google Search AI Overviews expansion is consistent with sophisticated, time-intensive information retrieval, though not a direct measure of 'half an hour'. No change to status."
+        "comment": "Claude 4's demonstrated ability to process 800+ sources and work for extended periods aligns with the prediction of time-intensive research capabilities. No change to status."
       }
     ]
   },
@@ -559,10 +559,7 @@
     ],
     "lastEvaluated": "2025-05-24",
     "analystCommentary": [
-      {
-        "date": "2025-05-24",
-        "comment": "Strongly supported by new specific examples of failures in Codex and Claude 4."
-      }
+    
     ]
   },
   {
@@ -632,22 +629,11 @@
       {
         "text": "TechCrunch: Claude $200 Max plan",
         "url": "https://techcrunch.com/2025/04/09/anthropic-rolls-out-a-200-per-month-claude-subscription/"
-      },
-      {
-        "text": "OpenAI Help Center: Codex Changelog",
-        "url": "https://help.openai.com/en/articles/codex-changelog"
-      },
-      {
-        "text": "AWS: Claude 4 on Amazon Bedrock",
-        "url": "https://aws.amazon.com/bedrock/claude-4/"
       }
     ],
     "lastEvaluated": "2025-05-24",
     "analystCommentary": [
-      {
-        "date": "2025-05-24",
-        "comment": "New agents (Codex, Claude 4) are available through existing premium/enterprise channels, supporting the 'expensive' nature. No specific new price points given beyond this context."
-      }
+     
     ]
   },
   {
@@ -705,22 +691,11 @@
       {
         "text": "OpenAI Help Center: Codex Changelog",
         "url": "https://help.openai.com/en/articles/codex-changelog"
-      },
-      {
-        "text": "AWS: Claude 4 on Amazon Bedrock",
-        "url": "https://aws.amazon.com/bedrock/claude-4/"
-      },
-      {
-        "text": "Google Blog: Build with Jules",
-        "url": "https://blog.google/products/jules-beta/"
       }
     ],
     "lastEvaluated": "2025-05-24",
     "analystCommentary": [
-      {
-        "date": "2025-05-24",
-        "comment": "Enterprise availability and integration features of new agents (Codex, Claude 4, Jules) support the idea that companies are adopting these despite potential costs/unreliability."
-      }
+    
     ]
   },
   {
