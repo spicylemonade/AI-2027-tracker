@@ -4222,24 +4222,5 @@
     "supportingEvidence": [],
     "lastEvaluated": null,
     "analystCommentary": []
-  },
-  {
-    "id": "P120",
-    "text": "OpenBrain has not released Agent-2 or Agent-3 publicly and has no near-term plans to do so.",
-    "originalScenario": "May 2027: National Security",
-    "predictedDate": "May 2027",
-    "categories": [
-      "OpenBrain",
-      "Product Release Strategy",
-      "Information Control"
-    ],
-    "timelineSegment": "May 2027",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
   }
 ]
