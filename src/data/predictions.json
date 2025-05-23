@@ -489,11 +489,20 @@
       "OpenBrain"
     ],
     "timelineSegment": "Late 2025",
-    "status": null,
-    "accuracyScore": null,
+    "status": "In Progress / Monitoring",
+    "accuracyScore": "100",
     "qualitativeAccuracy": null,
     "actualOutcome": null,
-    "supportingEvidence": [],
+    "supportingEvidence": [
+      {
+        "text": "OpenAI: Announcing The Stargate Project",
+        "url": "https://openai.com/index/announcing-the-stargate-project/"
+      },
+      {
+        "text": "Sam Altman (X): The first Stargate datacenter is underway",
+        "url": "https://x.com/sama/status/1920205473610944568"
+      }
+    ],
     "lastEvaluated": null,
     "analystCommentary": []
   },

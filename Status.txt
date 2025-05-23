@@ -2,5 +2,5 @@ Confirmed Accurate
 Partially Accurate
 Inaccurate / Debunked
 In Progress / Monitoring
-Pending Evaluation
+Pending
 Too Early to Tell / Not Yet Assessable
