@@ -161,21 +161,25 @@
       "User Interaction"
     ],
     "timelineSegment": "Mid 2025",
-    "status": "Partially Accurate",
-    "accuracyScore": 50,
-    "qualitativeAccuracy": "Alexa requires a 4-digit Voice Code or spoken 'yes/no' for purchases, which is a form of user check-in. However, this doesn't fully demonstrate active double-checking of the voice prompt's content by the agent as per the clarified definition.",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Multiple AI agents now demonstrate active user check-ins: OpenAI Codex confirms code changes with users, while Google's Project Astra (Gemini) can call agencies and get back to users when needed.",
     "supportingEvidence": [
       {
-        "text": "Amazon Help: Require a Voice Code for Purchases",
-        "url": "https://www.amazon.com/gp/help/customer/display.html?nodeId=GAA2RYUEDNT5ZSNK"
+        "text": "OpenAI Codex Documentation",
+        "url": "https://openai.com/codex/"
+      },
+      {
+        "text": "Google Project Astra Demo",
+        "url": "https://www.youtube.com/watch?v=JcDBFAm9PPI"
       }
     ],
-    "actualOutcome": "Confirmation prompts embedded in checkout flow.",
+    "actualOutcome": "AI agents now actively check back with users for confirmation of changes and follow-up information.",
     "lastEvaluated": "2025-05-24",
     "analystCommentary": [
       {
         "date": "2025-05-24",
-        "comment": "Re-evaluated based on user feedback clarifying 'confirm purchases' to mean active voice prompt content checking by the agent, not just a static voice code or simple yes/no. Current Alexa evidence is a partial match to this nuanced definition."
+        "comment": "Updated status based on multiple examples of AI agents implementing user confirmation checks: Codex for code changes and Project Astra for agency follow-ups."
       }
     ]
   },
