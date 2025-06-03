@@ -283,9 +283,9 @@
       "R&D"
     ],
     "timelineSegment": "Mid 2025",
-    "status": "Too Early to Tell / Not Yet Assessable",
-    "accuracyScore": null,
-    "qualitativeAccuracy": "OpenAI Codex can answer codebase questions and Claude 4 has advanced reasoning. Google I/O highlighted developer APIs for AI workflows. Existing evidence (OpenAI Deep Research, Perplexity) is more direct for *research* transformation.",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "OpenAI Codex can answer codebase questions and Claude 4 has advanced reasoning. Google I/O highlighted developer APIs for AI workflows. Existing evidence (OpenAI Deep Research, Perplexity) is more direct for *research* transformation. Companies like microsoft are using AI to write code.",
     "actualOutcome": null,
     "supportingEvidence": [
       {
@@ -307,9 +307,13 @@
       {
         "text": "Google Blog: Google AI Developer Updates I/O 2025",
         "url": "https://blog.google/technology/developers/google-ai-developer-updates-io-2025/"
+      },
+      {
+        "text": "The Verge: Microsoft reports 30% of code written by AI",
+        "url": "https://www.theverge.com/news/658584/up-to-30-percent-of-some-microsoft-code-is-now-written-by-ai"
       }
     ],
-    "lastEvaluated": "2025-05-24",
+    "lastEvaluated": "2025-05-31",
     "analystCommentary": [
       {
         "date": "2025-05-24",
@@ -417,17 +421,21 @@
       "User Interface"
     ],
     "timelineSegment": "Mid 2025",
-    "status": "Too Early to Tell / Not Yet Assessable",
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "The launch of Droids, a software development agent that can use Slack, Notion, and GitHub, suggests that coding AIs can take instructions via Slack or Teams.",
+    "actualOutcome": "Droids, a software development agent that can use Slack, Notion, and GitHub, was launched in May 2025.",
     "supportingEvidence": [
       {
         "text": "Business Insider: Salesforce sellers using Agentforce in Slack",
         "url": "https://www.businessinsider.com/salesforce-sellers-ai-for-improving-client-research-meetings-2025-5"
+      },
+      {
+        "text": "Introducing Droids -- the world's first software development agents. Can use Slack, Notion, and GitHub.",
+        "url": "https://x.com/FactoryAI/status/1927754706014630357"
       }
     ],
-    "lastEvaluated": "2025-05-24",
+    "lastEvaluated": "2025-05-31",
     "analystCommentary": [
       {
         "date": "2025-05-24",
@@ -647,17 +655,25 @@
       "Pricing"
     ],
     "timelineSegment": "Mid 2025",
-    "status": "Too Early to Tell / Not Yet Assessable",
-    "accuracyScore": null,
-    "qualitativeAccuracy": "Codex (via ChatGPT Pro/Team/Enterprise) and Claude 4 (via Amazon Bedrock) are high-end offerings, but specific new pricing for these May 2025 agent capabilities confirming 'hundreds of dollars' is not provided in the new information.",
-    "actualOutcome": null,
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Manus AI and Anthropic both offer agents for $199/month, which is hundreds of dollars a month.",
+    "actualOutcome":null,
     "supportingEvidence": [
       {
         "text": "TechCrunch: $20 k/mo specialized agents rumor",
         "url": "https://techcrunch.com/2025/03/05/openai-reportedly-plans-to-charge-up-to-20000-a-month-for-specialized-ai-agents/"
+      },
+      {
+        "text": "Manus AI: $199/month agent pricing",
+        "url": "https://manus.im/app"
+      },
+      {
+        "text": "Anthropic: Claude Max pricing starts at $100",
+        "url": "https://www.anthropic.com/pricing"
       }
     ],
-    "lastEvaluated": "2025-05-24",
+    "lastEvaluated": "2025-05-31",
     "analystCommentary": [
       {
         "date": "2025-05-24",
