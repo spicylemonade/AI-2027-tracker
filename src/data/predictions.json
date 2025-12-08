@@ -1224,20 +1224,56 @@
     ],
     "timelineSegment": "Late 2025",
     "status": "Confirmed Accurate",
-    "accuracyScore": 80,
-    "qualitativeAccuracy": "Qualitatively accurate pattern. Frontier labs publish safety policies and commitments (AI Seoul Summit commitments; METR's survey of common elements; company safety frameworks) which emphasize refusing dangerous requests and satisfying government expectations. They regularly show 'look, it refuses bad prompts' demos, both to users and in policy-facing documents. The pattern ('we promise it's aligned and refuses harmful tasks') is exactly how labs talk to governments.",
-    "actualOutcome": "Frontier labs (OpenAI, Anthropic, Google) publish safety policies emphasizing refusal of dangerous requests and regularly demonstrate alignment through 'refusal demos' in policy-facing documents and public communications.",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Very accurate with extensive concrete evidence. OpenAI explicitly states they 'post-trained GPT-4 to refuse malicious cybersecurity requests' and reports models 'refused direct exploit and keylogger requests' in testing. Anthropic's ASL-2 deployment measures explicitly include training models to refuse dangerous CBRN requests, and their Transparency Hub reports training Claude to refuse malicious coding tasks with 'close to 100%' safety scores. Frontier labs signed AI Seoul Summit commitments to assess dangerous capabilities and share results with governments. Google cites 'rigorous safety tests' including by UK AI Security Institute. The pattern ('we promise it's aligned and refuses harmful tasks') is exactly how labs communicate with governments.",
+    "actualOutcome": "Frontier labs explicitly train models to refuse malicious requests and actively communicate this to governments. OpenAI post-trained models to refuse cybersecurity exploits, Anthropic trains Claude to refuse CBRN and malicious coding requests (ASL-2/ASL-3 measures), and Google conducts government-linked safety testing. Labs regularly publish refusal test results as evidence of alignment.",
     "supportingEvidence": [
       {
+        "text": "AI Seoul Summit: Frontier AI Safety Commitments",
+        "url": "https://www.gov.uk/government/publications/frontier-ai-safety-commitments-ai-seoul-summit-2024/frontier-ai-safety-commitments-ai-seoul-summit-2024"
+      },
+      {
         "text": "METR: Common Elements of Frontier AI Safety Policies",
-        "url": "https://metr.org/assets/common-elements-nov-2024.pdf"
+        "url": "https://metr.org/common-elements"
+      },
+      {
+        "text": "OpenAI: Our Approach to Frontier Risk",
+        "url": "https://openai.com/global-affairs/our-approach-to-frontier-risk/"
+      },
+      {
+        "text": "OpenAI: Disrupting malicious uses of AI (Oct 2025)",
+        "url": "https://cdn.openai.com/threat-intelligence-reports/7d662b68-952f-4dfd-a2f2-fe55b041cc4a/disrupting-malicious-uses-of-ai-october-2025.pdf"
+      },
+      {
+        "text": "OpenAI: GPT-5 Safe-Completions paper",
+        "url": "https://openai.com/index/gpt-5-safe-completions/"
+      },
+      {
+        "text": "Anthropic: Responsible Scaling Policy",
+        "url": "https://www.anthropic.com/responsible-scaling-policy"
+      },
+      {
+        "text": "Anthropic: Activating ASL-3 protections",
+        "url": "https://www.anthropic.com/news/activating-asl3-protections"
+      },
+      {
+        "text": "Anthropic: Transparency Hub (malicious coding tests)",
+        "url": "https://www.anthropic.com/transparency"
+      },
+      {
+        "text": "TIME: Google DeepMind Gemini safety testing with UK AISI",
+        "url": "https://time.com/7313320/google-deepmind-gemini-ai-safety-pledge/"
+      },
+      {
+        "text": "NIST: Managing Misuse Risk for Dual-Use Foundation Models",
+        "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.800-1.ipd2.pdf"
       }
     ],
     "lastEvaluated": "2025-12-07",
     "analystCommentary": [
       {
         "date": "2025-12-07",
-        "comment": "The pattern matches exactly - labs reassure governments that their models are aligned to refuse malicious requests, even if the specific 'Agent-1' naming doesn't match."
+        "comment": "Upgraded to 100% with extensive concrete evidence. Labs explicitly describe training models to refuse malicious requests (cybersecurity exploits, CBRN tasks, malicious coding) and actively communicate refusal test results to governments as proof of alignment. This is exactly the pattern predicted."
       }
     ]
   },
