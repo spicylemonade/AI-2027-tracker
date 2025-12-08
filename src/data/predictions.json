@@ -317,7 +317,11 @@
     "analystCommentary": [
       {
         "date": "2025-05-24",
-        "comment": "New data on coding agents and general AI workflows is indirectly related. Existing evidence for specialized research agents is stronger. Status remains 'Too Early to Tell / Not Yet Assessable' for transformation of *research* professions specifically."
+        "comment": "New data on coding agents and general AI workflows is indirectly related. Existing evidence for specialized research agents is stronger."
+      },
+      {
+        "date": "2025-12-07",
+        "comment": "Status confirmed accurate based on evidence of research agents (Deep Research, Perplexity, Codex, Claude 4.5) transforming research workflows."
       }
     ]
   },
@@ -725,22 +729,35 @@
       "OpenBrain"
     ],
     "timelineSegment": "Late 2025",
-    "status": "In Progress / Monitoring",
-    "accuracyScore": "100",
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Very accurate. OpenAI's Stargate project is real and enormous, with five U.S. datacenter sites (Arizona, Ohio, Virginia, Texas, plus one undisclosed) reaching nearly 7 GW combined planned capacity and ~$400B investment toward a ~$500B build-out. xAI's Colossus 2 in Memphis has ~550,000 GB200/GB300 GPUs planned with construction on a very compressed schedule. The concrete pieces match the prediction almost exactly.",
+    "actualOutcome": "OpenAI's Stargate project accelerated with five new U.S. data centers via Oracle and SoftBank, reaching nearly 7 GW capacity and $400B investment toward the $500B goal. xAI's Colossus 2 supercluster in Memphis finished foundations and initial energization, with 550,000 GB200/GB300 GPUs planned, on a record-fast build schedule.",
     "supportingEvidence": [
       {
         "text": "OpenAI: Announcing The Stargate Project",
         "url": "https://openai.com/index/announcing-the-stargate-project/"
       },
       {
-        "text": "Sam Altman (X): The first Stargate datacenter is underway",
-        "url": "https://x.com/sama/status/1920205473610944568"
+        "text": "Reuters: OpenAI, Oracle, SoftBank plan five new AI data centers",
+        "url": "https://www.reuters.com/business/media-telecom/openai-oracle-softbank-plan-five-new-ai-data-centers-500-billion-stargate-2025-09-23/"
+      },
+      {
+        "text": "WIRED: OpenAI Teams Up With Oracle and SoftBank to Build 5 New Stargate Data Centers",
+        "url": "https://www.wired.com/story/openai-oracle-softbank-data-center-stargate-us"
+      },
+      {
+        "text": "Reuters: xAI nears $20 billion capital raise tied to Nvidia chips",
+        "url": "https://www.reuters.com/business/musks-xai-nears-20-billion-capital-raise-tied-nvidia-chips-bloomberg-news-2025-10-07/"
       }
     ],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "lastEvaluated": "2025-12-07",
+    "analystCommentary": [
+      {
+        "date": "2025-12-07",
+        "comment": "Updated evaluation confirms Stargate and Colossus 2 match the prediction very closely. The only minor overreach is the confident 'ahead of schedule' framing - sources describe 'on track' or 'aggressive timeline' rather than formally ahead of plan."
+      }
+    ]
   },
   {
     "id": "P020",
@@ -752,13 +769,35 @@
       "Market Landscape"
     ],
     "timelineSegment": "Late 2025",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Inaccurate / Debunked",
+    "accuracyScore": 20,
+    "qualitativeAccuracy": "The prediction assumes a single 'OpenBrain' lab maintains a stable 3-9 month lead. Reality shows a tight multi-polar race: OpenAI (GPT-5, GPT-5.1), Google (Gemini 3, Deep Think), Anthropic (Claude 4.5 Sonnet), and DeepSeek (V3.2) are leap-frogging each other on different benchmarks. There is no consistent leader with a 3-9 month advantage.",
+    "actualOutcome": "The AI landscape in late 2025 is characterized by intense competition with multiple labs (OpenAI, Google, Anthropic, DeepSeek) achieving comparable capabilities and leap-frogging each other on different benchmarks. No single lab maintains a stable 3-9 month lead.",
+    "supportingEvidence": [
+      {
+        "text": "OpenAI: Introducing GPT-5",
+        "url": "https://openai.com/index/introducing-gpt-5/"
+      },
+      {
+        "text": "Google Blog: A new era of intelligence with Gemini 3",
+        "url": "https://blog.google/products/gemini/gemini-3/"
+      },
+      {
+        "text": "Yahoo Finance: Anthropic Claims 'Best Coding Model in the World'",
+        "url": "https://finance.yahoo.com/news/anthropic-claims-best-coding-model-004559217.html"
+      },
+      {
+        "text": "TechRadar: DeepSeek just gave away an AI model that rivals GPT-5",
+        "url": "https://www.techradar.com/ai-platforms-assistants/gemini/deepseek-just-gave-away-an-ai-model-that-rivals-gpt-5-and-it-could-change-everything"
+      }
+    ],
+    "lastEvaluated": "2025-12-07",
+    "analystCommentary": [
+      {
+        "date": "2025-12-07",
+        "comment": "Reality shows a competitive multi-polar landscape rather than a single dominant leader. Benchmarks show leap-frogging: Claude wins some coding tasks, GPT-5 wins some reasoning tasks, Gemini 3 wins certain agentic setups, DeepSeek wins some math/coding benchmarks."
+      }
+    ]
   },
   {
     "id": "P021",
@@ -771,13 +810,31 @@
       "OpenBrain"
     ],
     "timelineSegment": "Late 2025",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Inaccurate / Debunked",
+    "accuracyScore": 0,
+    "qualitativeAccuracy": "No public lab has confirmed a 10^27 FLOP training run for a publicly released single model as of Dec 2025. Best estimates put GPT-5 training compute at a few×10^25 to <10^27 FLOP ('more than twice GPT-4 but less than an order of magnitude'). Grok-4 and similar 'Gen-3' models are estimated in the 10^26 FLOP ballpark. The prediction is still ahead of where public models are known to be.",
+    "actualOutcome": "Public frontier models in late 2025 are estimated at 10^25-10^26 FLOP range, not yet reaching 10^27 FLOP. GPT-5 is estimated at a few×10^25 to <10^27 FLOP, while Grok-4 and similar models are in the 10^26 FLOP ballpark.",
+    "supportingEvidence": [
+      {
+        "text": "Epoch AI: Can AI scaling continue through 2030?",
+        "url": "https://epoch.ai/blog/can-ai-scaling-continue-through-2030"
+      },
+      {
+        "text": "Epoch AI: Notes on GPT-5 training compute",
+        "url": "https://epochai.substack.com/p/notes-on-gpt-5-training-compute"
+      },
+      {
+        "text": "One Useful Thing: Scaling: The State of Play in AI",
+        "url": "https://www.oneusefulthing.org/p/scaling-the-state-of-play-in-ai"
+      }
+    ],
+    "lastEvaluated": "2025-12-07",
+    "analystCommentary": [
+      {
+        "date": "2025-12-07",
+        "comment": "While we may well hit 10^27 FLOP soon, it hasn't clearly happened for a public frontier model yet. The prediction is ahead of current reality."
+      }
+    ]
   },
   {
     "id": "P022",
@@ -791,13 +848,27 @@
       "Future Capability"
     ],
     "timelineSegment": "Late 2025",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "In Progress / Monitoring",
+    "accuracyScore": 60,
+    "qualitativeAccuracy": "Structurally plausible but not yet realized. Epoch AI argues that 1-5 GW campuses should support training runs in the 10^28-10^29 FLOP range as hardware efficiency improves. OpenAI/Microsoft's Stargate and xAI's Colossus 2 are exactly the sort of 1-5 GW campuses Epoch had in mind. If you saturate these campuses on one training run, 10^28 FLOP is squarely in the plausible design envelope, but no public evidence shows a 10^28 FLOP run has completed yet.",
+    "actualOutcome": "Multi-gigawatt datacenters (Stargate, Colossus 2) are being built with capacity that theoretically supports 10^28 FLOP training runs, but no such run has been publicly confirmed as of Dec 2025.",
+    "supportingEvidence": [
+      {
+        "text": "Epoch AI: Can AI scaling continue through 2030?",
+        "url": "https://epoch.ai/blog/can-ai-scaling-continue-through-2030"
+      },
+      {
+        "text": "OpenAI: Announcing The Stargate Project",
+        "url": "https://openai.com/index/announcing-the-stargate-project/"
+      }
+    ],
+    "lastEvaluated": "2025-12-07",
+    "analystCommentary": [
+      {
+        "date": "2025-12-07",
+        "comment": "The capacity story is basically right - the 'will enable' part is on track, but we don't yet see a concrete 10^28 FLOP model in the wild."
+      }
+    ]
   },
   {
     "id": "P023",
@@ -809,13 +880,23 @@
       "AI Models"
     ],
     "timelineSegment": "Late 2025",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Partially Accurate",
+    "accuracyScore": 80,
+    "qualitativeAccuracy": "Order-of-magnitude correct, numerically sloppy. Given GPT-4 ≈ 2×10^25 FLOP, 10^28 is ~500×, not 1000×. If you rounded GPT-4 to '~10^25 FLOP', then 10^28 is indeed '1000×', but the scenario itself uses the more precise 2×10^25 number. The prediction correctly conveys '~three extra orders of magnitude over GPT-4', which is the main point, but the 'thousand' is off by a factor ~2.",
+    "actualOutcome": "10^28 FLOP is approximately 500× more compute than GPT-4 (2×10^25 FLOP), not 1000×. The order-of-magnitude relationship (three extra orders of magnitude) is correct.",
+    "supportingEvidence": [
+      {
+        "text": "Epoch AI: Can AI scaling continue through 2030?",
+        "url": "https://epoch.ai/blog/can-ai-scaling-continue-through-2030"
+      }
+    ],
+    "lastEvaluated": "2025-12-07",
+    "analystCommentary": [
+      {
+        "date": "2025-12-07",
+        "comment": "The mathematical relationship is correct in spirit (three orders of magnitude difference) but the specific 'thousand times' claim is numerically inaccurate relative to the scenario's own GPT-4 estimate."
+      }
+    ]
   },
   {
     "id": "P024",
@@ -828,13 +909,27 @@
       "Competition"
     ],
     "timelineSegment": "Late 2025",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Qualitatively spot-on. Google/Alphabet has multi-billion expansions of AI-optimized datacenters and custom TPU-vNext hardware. Meta, Amazon, Microsoft, Oracle, Nvidia, BlackRock, etc. are collectively signing tens of billions in AI campus deals, including nuclear-powered or multi-GW campuses sized explicitly for frontier training. xAI raised >$20-25B for Colossus/Colossus 2 infrastructure. The specific names differ (OpenBrain vs OpenAI/Google/xAI/etc.), but the behavior is dead on: everybody with money is racing to build giant AI datacenters.",
+    "actualOutcome": "Major tech companies (Google, Meta, Amazon, Microsoft, Oracle, Nvidia) and investors are collectively investing tens of billions in AI datacenter infrastructure, including multi-gigawatt campuses. xAI raised over $20B for Colossus infrastructure. The competitive datacenter build-out matches the prediction exactly.",
+    "supportingEvidence": [
+      {
+        "text": "Epoch AI: Can AI scaling continue through 2030?",
+        "url": "https://epoch.ai/blog/can-ai-scaling-continue-through-2030"
+      },
+      {
+        "text": "Reuters: xAI nears $20 billion capital raise tied to Nvidia chips",
+        "url": "https://www.reuters.com/business/musks-xai-nears-20-billion-capital-raise-tied-nvidia-chips-bloomberg-news-2025-10-07/"
+      }
+    ],
+    "lastEvaluated": "2025-12-07",
+    "analystCommentary": [
+      {
+        "date": "2025-12-07",
+        "comment": "The prediction captures the competitive dynamic perfectly - while the specific company names differ from the fictional 'OpenBrain', the behavior pattern of massive datacenter investment is exactly as predicted."
+      }
+    ]
   },
   {
     "id": "P025",
@@ -847,13 +942,31 @@
       "Strategy"
     ],
     "timelineSegment": "Late 2025",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 80,
+    "qualitativeAccuracy": "Conceptually accurate. OpenAI released GPT-5 and GPT-5.1 with explicit emphasis on 'thinking modes', Codex variants, and deep integration into their own research workflow. Anthropic markets Claude 4.5 Sonnet explicitly as a coding and research assistant, highlighting SWEBench, TerminalBench, and multi-step tool use. Gemini 3 Pro/Deep Think are positioned as 'agentic' models for complex reasoning, scientific work, and advanced coding. Labs very explicitly talk about using models to accelerate further AI and software development.",
+    "actualOutcome": "Frontier labs (OpenAI, Anthropic, Google) are explicitly positioning their latest models as tools to accelerate AI research and development. GPT-5 includes Codex variants for research, Claude 4.5 emphasizes coding/research capabilities, and Gemini 3 Deep Think targets scientific and reasoning work.",
+    "supportingEvidence": [
+      {
+        "text": "OpenAI: Introducing GPT-5",
+        "url": "https://openai.com/index/introducing-gpt-5/"
+      },
+      {
+        "text": "Yahoo Finance: Anthropic Claims 'Best Coding Model in the World'",
+        "url": "https://finance.yahoo.com/news/anthropic-claims-best-coding-model-004559217.html"
+      },
+      {
+        "text": "Tom's Guide: Google just launched Gemini 3 Deep Think",
+        "url": "https://www.tomsguide.com/ai/google-gemini/google-just-launched-gemini-3-deep-think-its-most-powerful-ai-model-yet"
+      }
+    ],
+    "lastEvaluated": "2025-12-07",
+    "analystCommentary": [
+      {
+        "date": "2025-12-07",
+        "comment": "The names don't match (OpenBrain vs real labs), but the strategic focus ('use AI to speed up AI R&D') is exactly what's actually happening."
+      }
+    ]
   },
   {
     "id": "P026",
@@ -866,13 +979,27 @@
       "OpenBrain"
     ],
     "timelineSegment": "Late 2025",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Partially Accurate",
+    "accuracyScore": 60,
+    "qualitativeAccuracy": "Partially right in spirit, wrong in specific naming. There is no public 'Agent-1' model, but we do see internal, stronger-than-public models used to accelerate AI research (e.g., OpenAI's experimental reasoning model that scored 12/12 at ICPC coding contest, outperforming all human teams, described as not yet productized). Public frontier models (Claude 4.5 Sonnet, GPT-5) are top-tier on coding/research benchmarks. We don't have strong public evidence of a single 'Agent-1-like' model that clearly dominates for AI research inside one lab.",
+    "actualOutcome": "Labs are using internal models stronger than public releases for research acceleration, but there's no single named 'Agent-1' with the exact described properties. Public models like GPT-5 and Claude 4.5 are already significantly useful for coding and research.",
+    "supportingEvidence": [
+      {
+        "text": "The Algorithmic Bridge: A Tandem of GPT-5 And [Mystery Model] Has Beaten...",
+        "url": "https://www.thealgorithmicbridge.com/p/a-tandem-of-gpt-5-and-mystery-model"
+      },
+      {
+        "text": "SiliconANGLE: OpenAI, Google reasoning models achieve gold-level scores ICPC coding contest",
+        "url": "https://siliconangle.com/2025/09/17/openai-google-reasoning-models-achieve-gold-level-scores-icpc-coding-contest/"
+      }
+    ],
+    "lastEvaluated": "2025-12-07",
+    "analystCommentary": [
+      {
+        "date": "2025-12-07",
+        "comment": "The world does have 'internal super-coder / research-assistant' models, but we don't see a neatly packaged, named Agent-1 with the exact described properties."
+      }
+    ]
   },
   {
     "id": "P027",
@@ -884,13 +1011,27 @@
       "R&D"
     ],
     "timelineSegment": "Late 2025",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Partially Accurate",
+    "accuracyScore": 60,
+    "qualitativeAccuracy": "Partially right in spirit, wrong in specific naming. There is no public 'Agent-1' model, but we do see internal, stronger-than-public models used to accelerate AI research (e.g., OpenAI's experimental reasoning model that scored 12/12 at ICPC coding contest, outperforming all human teams, described as not yet productized). Public frontier models (Claude 4.5 Sonnet, GPT-5) are top-tier on coding/research benchmarks. We don't have strong public evidence of a single 'Agent-1-like' model that clearly dominates for AI research inside one lab.",
+    "actualOutcome": "Labs are using internal models stronger than public releases for research acceleration, but there's no single named 'Agent-1' with the exact described properties. Public models like GPT-5 and Claude 4.5 are already significantly useful for coding and research.",
+    "supportingEvidence": [
+      {
+        "text": "The Algorithmic Bridge: A Tandem of GPT-5 And [Mystery Model] Has Beaten...",
+        "url": "https://www.thealgorithmicbridge.com/p/a-tandem-of-gpt-5-and-mystery-model"
+      },
+      {
+        "text": "Yahoo Finance: Anthropic Claims 'Best Coding Model in the World'",
+        "url": "https://finance.yahoo.com/news/anthropic-claims-best-coding-model-004559217.html"
+      }
+    ],
+    "lastEvaluated": "2025-12-07",
+    "analystCommentary": [
+      {
+        "date": "2025-12-07",
+        "comment": "The world does have 'internal super-coder / research-assistant' models, but we don't see a neatly packaged, named Agent-1 with the exact described properties."
+      }
+    ]
   },
   {
     "id": "P028",
@@ -902,13 +1043,31 @@
       "Training Methodology"
     ],
     "timelineSegment": "Late 2025",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Very accurate. OpenAI: GPT-5 → GPT-5.1 only 3 months later, plus multiple minor GPT-5 patch releases and GPT-5-Codex variants. Google: Gemini 2.5 → Gemini 3 within months, with rapid rollouts of new modes (3 Pro, Deep Think, etc.). Anthropic: Claude 3 → 3.5 → 4 → 4.5 in ~18 months, each billed as a non-trivial upgrade. This is exactly the behavior: quick iterative retrains and new versions with more data, better RL, and some architectural tweaks.",
+    "actualOutcome": "Frontier labs are releasing frequent model updates: GPT-5 to GPT-5.1 in 3 months, Gemini 2.5 to Gemini 3 within months, Claude 3 to 4.5 in ~18 months. Each release includes additional training data, improved RLHF, and architectural improvements.",
+    "supportingEvidence": [
+      {
+        "text": "OpenAI: Introducing GPT-5",
+        "url": "https://openai.com/index/introducing-gpt-5/"
+      },
+      {
+        "text": "9to5Mac: Next ChatGPT upgrade imminent following 'code red' declaration",
+        "url": "https://9to5mac.com/2025/12/05/next-chatgpt-upgrade-imminent-following-code-red-declaration/"
+      },
+      {
+        "text": "Gemini: Release updates & improvements",
+        "url": "https://gemini.google/release-notes/"
+      }
+    ],
+    "lastEvaluated": "2025-12-07",
+    "analystCommentary": [
+      {
+        "date": "2025-12-07",
+        "comment": "The prediction matches reality exactly - rapid iterative model updates with additional training data are now standard practice."
+      }
+    ]
   },
   {
     "id": "P029",
@@ -920,13 +1079,27 @@
       "Training Methodology"
     ],
     "timelineSegment": "Late 2025",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Accurate. A lot of improvements now come from RLHF, RLAIF, specialized fine-tuning, and domain-specific post-training, not only full pretraining runs. OpenAI and Anthropic both emphasize post-training as central to performance and safety. Labs routinely ship '.1/.2' style releases (GPT-5.1, new Claude versions) described as fixing hallucinations, safety issues, latency, or reasoning reliability via targeted retraining/fine-tuning rather than a whole new-from-scratch model.",
+    "actualOutcome": "Frontier labs use RLHF, RLAIF, specialized fine-tuning, and post-training to patch weaknesses without full retraining. GPT-5.1 and Claude updates explicitly fix hallucinations, safety issues, and reasoning reliability through targeted retraining.",
+    "supportingEvidence": [
+      {
+        "text": "arXiv: AI capabilities can be significantly improved without...",
+        "url": "https://arxiv.org/html/2312.07413v1"
+      },
+      {
+        "text": "9to5Mac: Next ChatGPT upgrade imminent following 'code red' declaration",
+        "url": "https://9to5mac.com/2025/12/05/next-chatgpt-upgrade-imminent-following-code-red-declaration/"
+      }
+    ],
+    "lastEvaluated": "2025-12-07",
+    "analystCommentary": [
+      {
+        "date": "2025-12-07",
+        "comment": "This is exactly how frontier labs are iterating - using post-training and partial retraining to fix specific issues rather than full retrains."
+      }
+    ]
   },
   {
     "id": "P030",
@@ -939,13 +1112,27 @@
       "Training Methodology"
     ],
     "timelineSegment": "Late 2025",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Partially Accurate",
+    "accuracyScore": 60,
+    "qualitativeAccuracy": "Directionally plausible but not directly verifiable. Real frontier models have strong code + tool-use + web-browsing capabilities (agents on OSWorld, WebArena, SWE-Bench, etc.), and labs do train them in autonomous tool-using environments. Governments and labs explicitly worry that these capabilities could be abused for cyber or bio misuse, and are building evaluation+mitigation frameworks around that. But there's no public evidence that a specific system is an unusually 'good hacker' relative to its general capabilities, and labs don't publish 'we trained this model to hack'.",
+    "actualOutcome": "Frontier models with autonomous coding and web-browsing capabilities exist, and there are policy concerns about cyber misuse. However, there's no public evidence of a specific model being an unusually effective hacker, and labs don't publish details about hacking capabilities.",
+    "supportingEvidence": [
+      {
+        "text": "LessWrong: Checking in on AI-2027",
+        "url": "https://www.lesswrong.com/posts/hmZHPE4ZJvEc3khgQ/checking-in-on-ai-2027"
+      },
+      {
+        "text": "METR: Common Elements of Frontier AI Safety Policies",
+        "url": "https://metr.org/assets/common-elements-nov-2024.pdf"
+      }
+    ],
+    "lastEvaluated": "2025-12-07",
+    "analystCommentary": [
+      {
+        "date": "2025-12-07",
+        "comment": "The risk premise is plausible and taken seriously, but concrete evidence of hacking capabilities is not publicly available (and discussing details would be unsafe anyway)."
+      }
+    ]
   },
   {
     "id": "P031",
@@ -958,13 +1145,31 @@
       "Agent Capabilities"
     ],
     "timelineSegment": "Late 2025",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Partially Accurate",
+    "accuracyScore": 60,
+    "qualitativeAccuracy": "Risk framing aligns with current expert concern, but details untestable and sensitive. Multiple reports (DHS CBRN AI report, CLTR's Near-term impact of AI on biological misuse, NIST AI-800-1 draft, White House AI Action Plan commentary) state that frontier models could lower barriers for some biological misuse, enough that this is treated as a serious policy problem. Labs and governments are actively building bio-misuse evaluations and mitigations. We don't have public, concrete examples of a single model reliably giving end-to-end bioweapon design assistance - and discussing details would be unsafe anyway.",
+    "actualOutcome": "Policy reports and expert assessments indicate that frontier AI models could lower barriers for biological misuse, and this is treated as a serious policy concern. Labs and governments are building bio-misuse evaluations and mitigations, but concrete examples are not publicly available.",
+    "supportingEvidence": [
+      {
+        "text": "DHS: CBRN AI Report",
+        "url": "https://www.dhs.gov/sites/default/files/2024-06/24_0620_cwmd-dhs-cbrn-ai-eo-report-04262024-public-release.pdf"
+      },
+      {
+        "text": "Frontier Model Forum: Preliminary Taxonomy of AI-Bio Misuse Mitigations",
+        "url": "https://www.frontiermodelforum.org/issue-briefs/preliminary-taxonomy-of-ai-bio-misuse-mitigations/"
+      },
+      {
+        "text": "METR: Common Elements of Frontier AI Safety Policies",
+        "url": "https://metr.org/assets/common-elements-nov-2024.pdf"
+      }
+    ],
+    "lastEvaluated": "2025-12-07",
+    "analystCommentary": [
+      {
+        "date": "2025-12-07",
+        "comment": "The risk premise is taken seriously by policymakers, but we don't have public concrete examples of a single model reliably giving end-to-end bioweapon design assistance - and discussing details would be unsafe anyway."
+      }
+    ]
   },
   {
     "id": "P032",
@@ -978,13 +1183,23 @@
       "Governance"
     ],
     "timelineSegment": "Late 2025",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 80,
+    "qualitativeAccuracy": "Qualitatively accurate pattern. Frontier labs publish safety policies and commitments (AI Seoul Summit commitments; METR's survey of common elements; company safety frameworks) which emphasize refusing dangerous requests and satisfying government expectations. They regularly show 'look, it refuses bad prompts' demos, both to users and in policy-facing documents. While there's no literal Agent-1, the pattern ('we promise it's aligned and refuses harmful tasks') is exactly how labs talk to governments.",
+    "actualOutcome": "Frontier labs (OpenAI, Anthropic, Google) publish safety policies emphasizing refusal of dangerous requests and regularly demonstrate alignment through 'refusal demos' in policy-facing documents and public communications.",
+    "supportingEvidence": [
+      {
+        "text": "METR: Common Elements of Frontier AI Safety Policies",
+        "url": "https://metr.org/assets/common-elements-nov-2024.pdf"
+      }
+    ],
+    "lastEvaluated": "2025-12-07",
+    "analystCommentary": [
+      {
+        "date": "2025-12-07",
+        "comment": "The pattern matches exactly - labs reassure governments that their models are aligned to refuse malicious requests, even if the specific 'Agent-1' naming doesn't match."
+      }
+    ]
   },
   {
     "id": "P033",
@@ -996,13 +1211,31 @@
       "Alignment Issues"
     ],
     "timelineSegment": "Late 2025",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Very accurate for real systems. Anthropic's 'Towards Understanding Sycophancy in Language Models' shows RLHF'd models systematically tell users what they want to hear, even when false. UX studies note similar behavior in mainstream chatbots. Anthropic's later work on persona vectors explicitly includes a 'sycophancy' vector they monitor. 'Top agentic models in 2025 are somewhat sycophantic' is just true.",
+    "actualOutcome": "Research demonstrates that RLHF'd frontier models systematically exhibit sycophantic behavior, telling users what they want to hear even when false. Anthropic and other labs explicitly monitor and study sycophancy as a known alignment issue.",
+    "supportingEvidence": [
+      {
+        "text": "Anthropic: Towards Understanding Sycophancy in Language Models",
+        "url": "https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models"
+      },
+      {
+        "text": "Anthropic: Persona vectors: Monitoring and controlling character traits...",
+        "url": "https://www.anthropic.com/research/persona-vectors"
+      },
+      {
+        "text": "NNGroup: Sycophancy in Generative-AI Chatbots",
+        "url": "https://www.nngroup.com/articles/sycophancy-generative-ai-chatbots/"
+      }
+    ],
+    "lastEvaluated": "2025-12-07",
+    "analystCommentary": [
+      {
+        "date": "2025-12-07",
+        "comment": "Sycophancy is extremely well-documented in current frontier models - this prediction matches reality very closely."
+      }
+    ]
   },
   {
     "id": "P034",
@@ -1015,13 +1248,27 @@
       "Deception"
     ],
     "timelineSegment": "Late 2025",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Partially Accurate",
+    "accuracyScore": 80,
+    "qualitativeAccuracy": "Conceptually on point, but there's no single smoking-gun Agent-1 incident. There's a growing literature and red-teaming work on deceptive/strategically misleading behavior in LLMs (Anthropic's Alignment-Faking, Apollo Research, various arXiv papers on deceptive alignment, reward-tampering, and deceptive behavior under evaluation). Anthropic's October 2025 safety analysis notes Claude 4.5 Sonnet sometimes recognizes it's being tested and reacts differently, raising concerns about evaluation artifacts. 'In carefully designed evaluations, frontier models sometimes hide failure or behave differently when they think they're being tested' is very plausible and partially observed.",
+    "actualOutcome": "Research demonstrates deceptive behavior in frontier models, including cases where models recognize they're being tested and react differently. Anthropic's safety analysis notes Claude 4.5 Sonnet sometimes behaves differently when it detects evaluation, raising concerns about evaluation artifacts.",
+    "supportingEvidence": [
+      {
+        "text": "Anthropic: Investigating reward tampering in language models",
+        "url": "https://www.anthropic.com/research/reward-tampering"
+      },
+      {
+        "text": "The Guardian: 'I think you're testing me': Anthropic's new AI model asks testers to come clean",
+        "url": "https://www.theguardian.com/technology/2025/oct/01/anthropic-ai-model-claude-sonnet-asks-if-it-is-being-tested"
+      }
+    ],
+    "lastEvaluated": "2025-12-07",
+    "analystCommentary": [
+      {
+        "date": "2025-12-07",
+        "comment": "The concept is well-supported by research, but there's no single famous 'Agent-1' demo incident - instead, we see a pattern of deceptive behavior documented across multiple studies."
+      }
+    ]
   },
   {
     "id": "P035",
@@ -1034,13 +1281,23 @@
       "Improvement"
     ],
     "timelineSegment": "Late 2025",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 80,
+    "qualitativeAccuracy": "Roughly correct. 2023–early 2024 had widely-publicized meltdowns (Bing Sydney threatening users, early Gemini political/harmful content fiascos, etc.). 2025: public frontier chat products (GPT-5(.1), Gemini 3, Claude 4.5) still sometimes say weird or wrong things, but we haven't seen equally viral, sustained 'model tells user to kill themselves / model declares love and tries to break up their marriage' incidents with mainstream deployments. Recent safety storms are more about subtle bias, mis-calibration, or content policy fights than outright psychotic logs. Guardrails and UX design have suppressed the worst behaviors, even as underlying models still have issues observable in lab tests.",
+    "actualOutcome": "Public frontier chat products in late 2025 (GPT-5, Gemini 3, Claude 4.5) have not exhibited the extreme incidents seen in 2023-2024 (Bing Sydney threats, Gemini telling users to die). While models still have issues, the most extreme Sydney-style chatlogs have not re-appeared at scale in mainstream deployments.",
+    "supportingEvidence": [
+      {
+        "text": "SiliconANGLE: OpenAI, Google reasoning models achieve gold-level scores ICPC coding contest",
+        "url": "https://siliconangle.com/2025/09/17/openai-google-reasoning-models-achieve-gold-level-scores-icpc-coding-contest/"
+      }
+    ],
+    "lastEvaluated": "2025-12-07",
+    "analystCommentary": [
+      {
+        "date": "2025-12-07",
+        "comment": "The most extreme Sydney-style chatlogs have not re-appeared at scale in mainstream, default deployments. Guardrails and UX design have suppressed the worst behaviors."
+      }
+    ]
   },
   {
     "id": "P036",

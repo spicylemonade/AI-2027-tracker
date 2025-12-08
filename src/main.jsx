@@ -70,7 +70,6 @@ const getStatusClasses = (status, isDarkMode) => {
     case 'Inaccurate / Debunked': return `${isDarkMode ? 'bg-red-800/50 text-red-300 border-red-700' : 'bg-red-100 text-red-700 border-red-300'}`;
     case 'In Progress / Monitoring': return `${isDarkMode ? 'bg-blue-700/50 text-blue-300 border-blue-600' : 'bg-blue-100 text-blue-700 border-blue-300'}`;
     case 'Pending Evaluation': return `${isDarkMode ? 'bg-slate-700 text-slate-400 border-slate-600' : 'bg-gray-100 text-gray-600 border-gray-300'}`;
-    case 'Too Early to Tell / Not Yet Assessable': return `${isDarkMode ? 'bg-purple-700/50 text-purple-300 border-purple-600' : 'bg-purple-100 text-purple-700 border-purple-300'}`;
     default: return `${isDarkMode ? 'bg-slate-700 text-slate-400 border-slate-600' : 'bg-gray-100 text-gray-600 border-gray-300'}`;
   }
 };
