@@ -21,7 +21,7 @@ const lightColors = {
   hoverBgAccentGreen: 'hover:bg-emerald-800',
   borderMuted: 'border-gray-300', 
   cardBackground: 'bg-white',
-  navbarBackground: 'bg-[#F8F5F2]/90 backdrop-blur-md',
+  navbarBackground: 'bg-[#F8F5F2]/80 backdrop-blur-lg shadow-sm',
   footerBackground: 'bg-gray-100',
   // Specific for Tailwind prose dark mode (these are base colors, dark mode will invert)
   proseText: 'text-gray-700', // Example, adjust as needed
@@ -30,18 +30,18 @@ const lightColors = {
 };
 
 const darkColors = {
-  background: 'bg-slate-900',      // Dark background
-  textPrimary: 'text-slate-200',   // Light text
-  textSecondary: 'text-slate-400', // Muted light text
+  background: 'bg-neutral-900',      // Dark background
+  textPrimary: 'text-neutral-200',   // Light text
+  textSecondary: 'text-neutral-400', // Muted light text
   accentGreen: 'text-emerald-500', // Slightly brighter green for dark bg
   bgAccentGreen: 'bg-emerald-600',
   hoverBgAccentGreen: 'hover:bg-emerald-700',
-  borderMuted: 'border-slate-700', // Darker border
-  cardBackground: 'bg-slate-800',  // Dark card background
-  navbarBackground: 'bg-slate-900/90 backdrop-blur-md', // Dark navbar
-  footerBackground: 'bg-slate-800', // Dark footer
-  proseText: 'text-slate-300',
-  proseHeadings: 'text-slate-100',
+  borderMuted: 'border-neutral-700', // Darker border
+  cardBackground: 'bg-neutral-800',  // Dark card background
+  navbarBackground: 'bg-neutral-900/80 backdrop-blur-lg shadow-sm', // Dark navbar
+  footerBackground: 'bg-neutral-800', // Dark footer
+  proseText: 'text-neutral-300',
+  proseHeadings: 'text-neutral-100',
   proseLinks: 'text-emerald-400',
 };
 
@@ -69,8 +69,8 @@ const getStatusClasses = (status, isDarkMode) => {
     case 'Partially Accurate': return `${isDarkMode ? 'bg-yellow-700/50 text-yellow-300 border-yellow-600' : 'bg-yellow-100 text-yellow-700 border-yellow-300'}`;
     case 'Inaccurate / Debunked': return `${isDarkMode ? 'bg-red-800/50 text-red-300 border-red-700' : 'bg-red-100 text-red-700 border-red-300'}`;
     case 'In Progress / Monitoring': return `${isDarkMode ? 'bg-blue-700/50 text-blue-300 border-blue-600' : 'bg-blue-100 text-blue-700 border-blue-300'}`;
-    case 'Pending Evaluation': return `${isDarkMode ? 'bg-slate-700 text-slate-400 border-slate-600' : 'bg-gray-100 text-gray-600 border-gray-300'}`;
-    default: return `${isDarkMode ? 'bg-slate-700 text-slate-400 border-slate-600' : 'bg-gray-100 text-gray-600 border-gray-300'}`;
+    case 'Pending Evaluation': return `${isDarkMode ? 'bg-neutral-700 text-neutral-400 border-neutral-600' : 'bg-gray-100 text-gray-600 border-gray-300'}`;
+    default: return `${isDarkMode ? 'bg-neutral-700 text-neutral-400 border-neutral-600' : 'bg-gray-100 text-gray-600 border-gray-300'}`;
   }
 };
 
@@ -89,10 +89,11 @@ const SearchIcon = () => (
 
 
 // --- Reusable UI Components (Styled with Tailwind) ---
-const Card = forwardRef(({ children, className = '' }, ref) => {
+const Card = forwardRef(({ children, className = '', hoverable = false }, ref) => {
   const { activeColors } = useTheme();
+  const hoverEffects = hoverable ? 'transition-all duration-300 hover:shadow-lg hover:-tranneutral-y-1' : '';
   return (
-    <div ref={ref} className={`${activeColors.cardBackground} rounded-xl shadow-sm border ${activeColors.borderMuted} ${className}`}>
+    <div ref={ref} className={`${activeColors.cardBackground} rounded-xl shadow-sm border ${activeColors.borderMuted} ${hoverEffects} ${className}`}>
     {children}
   </div>
 );
@@ -115,12 +116,12 @@ const CardContent = ({ children, className = '' }) => <div className={`p-4 sm:p-
 const Button = ({ children, variant = 'primary', size = 'md', className = '', onClick, asChild = false, href, target, rel }) => {
   const { activeColors } = useTheme();
   const sizeClasses = size === 'lg' ? 'px-6 py-3 text-base' : size === 'sm' ? 'px-3 py-1.5 text-xs' : 'px-4 py-2 text-sm';
-  const baseClasses = `font-semibold rounded-lg transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 ${sizeClasses} inline-flex items-center justify-center`; // Added inline-flex and justify-center
+  const baseClasses = `font-semibold rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-95 ${sizeClasses} inline-flex items-center justify-center`; // Added inline-flex and justify-center
   let variantClasses = '';
 
   switch (variant) {
     case 'outline':
-      variantClasses = `border ${activeColors.borderMuted} ${activeColors.textPrimary} hover:bg-gray-100 dark:hover:bg-slate-700 focus:ring-gray-400 dark:focus:ring-slate-500`;
+      variantClasses = `border ${activeColors.borderMuted} ${activeColors.textPrimary} hover:bg-gray-100 dark:hover:bg-neutral-700 focus:ring-gray-400 dark:focus:ring-neutral-500`;
       break;
     case 'primary': 
     default:
@@ -146,7 +147,7 @@ const Button = ({ children, variant = 'primary', size = 'md', className = '', on
 // Modified Input to handle 'select' type better for styling consistency
 const Input = ({ type = 'text', placeholder, value, onChange, className = '', children, as }) => {
   const { activeColors } = useTheme();
-  const commonClasses = `w-full p-2.5 border ${activeColors.borderMuted} rounded-lg text-sm ${activeColors.textPrimary} bg-transparent dark:bg-slate-700 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 placeholder:text-gray-400 dark:placeholder:text-slate-500`;
+  const commonClasses = `w-full p-2.5 border ${activeColors.borderMuted} rounded-lg text-sm ${activeColors.textPrimary} bg-transparent dark:bg-neutral-700 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 placeholder:text-gray-400 dark:placeholder:text-neutral-500 transition-shadow duration-200`;
   if (as === 'select') {
     return (
       <select value={value} onChange={onChange} className={`${commonClasses} ${className} appearance-none`}>
@@ -169,8 +170,11 @@ const Input = ({ type = 'text', placeholder, value, onChange, className = '', ch
 const Progress = ({ value, className = '' }) => {
   const { activeColors } = useTheme();
   return (
-    <div className={`w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2.5 ${className}`}>
-      <div className={`${activeColors.bgAccentGreen} h-2.5 rounded-full`} style={{ width: `${value}%` }}></div>
+    <div className={`w-full bg-gray-200 dark:bg-neutral-700 rounded-full h-2.5 overflow-hidden ${className}`}>
+      <div 
+        className={`${activeColors.bgAccentGreen} h-2.5 rounded-full transition-all duration-1000 ease-out`} 
+        style={{ width: `${value}%` }}
+      ></div>
   </div>
 );
 };
@@ -223,7 +227,7 @@ const Navbar = () => {
         {/* Theme Toggle Button */}
         <button 
           onClick={toggleTheme} 
-          className={`p-1.5 rounded-md ${activeColors.textSecondary} hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors`}
+          className={`p-1.5 rounded-md ${activeColors.textSecondary} hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors`}
           aria-label="Toggle theme"
         >
           {isDarkMode ? (
@@ -277,7 +281,7 @@ const Navbar = () => {
               <button
                 key={item.page}
                 onClick={() => handleNavClick(item.page)}
-                className={`block w-full text-left py-2 px-3 rounded-md text-sm font-medium ${activeColors.textPrimary} hover:bg-gray-100 dark:hover:bg-slate-700 hover:${activeColors.accentGreen} transition`}
+                className={`block w-full text-left py-2 px-3 rounded-md text-sm font-medium ${activeColors.textPrimary} hover:bg-gray-100 dark:hover:bg-neutral-700 hover:${activeColors.accentGreen} transition`}
               >
                 {item.name}
               </button>
@@ -342,7 +346,7 @@ const TimelinePredictionCard = ({ prediction, setCurrentPage, setSelectedPredict
     // Add ref and dynamic classes for animation
     <Card 
       ref={cardRef}
-      className={`flex flex-col transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+      className={`flex flex-col transition-all duration-700 ease-out ${isVisible ? 'opacity-100 tranneutral-y-0' : 'opacity-0 tranneutral-y-4'}`}
     >
       <CardHeader className="flex-1 !p-3 sm:!p-4"> {/* Reduced padding */}
         <CardTitle size="sm" className="line-clamp-2 !text-sm sm:!text-base">{prediction.text}</CardTitle> {/* Smaller title, tighter clamp */}
@@ -379,7 +383,7 @@ const PredictionCard = ({ prediction, setCurrentPage, setSelectedPredictionId })
   };
 
   return (
-    <Card className="flex flex-col h-full">
+    <Card className="flex flex-col h-full" hoverable={true}>
       <CardHeader className="flex-1">
         <CardTitle className="line-clamp-3 text-base">{prediction.text}</CardTitle>
         <CardDescription className="mt-1.5 text-xs">{prediction.predictedDate} - {prediction.originalScenario}</CardDescription>
@@ -413,7 +417,7 @@ const BlogCard = ({ post, setCurrentPage, setSelectedPostId }) => {
         navigate(`/blog/${post.id}`);
     };
     return (
-        <Card className="flex flex-col h-full">
+        <Card className="flex flex-col h-full" hoverable={true}>
             <CardHeader className="flex-1">
                 <CardTitle className="text-lg">{post.title}</CardTitle>
                 <CardDescription className="mt-1 text-xs">By {post.author} on {formatDate(post.date)}</CardDescription>
@@ -455,23 +459,25 @@ const HomePage = ({ predictions, posts }) => {
   return (
     <div className={`container mx-auto px-4 sm:px-6 py-8 ${activeColors.textPrimary}`}>
       {/* HERO */}
-      <section className="mx-auto max-w-4xl space-y-4 py-12 text-center">
-        <h2 className={`font-serif text-4xl font-bold leading-tight ${activeColors.textPrimary} sm:text-5xl`} style={{ fontFamily: 'Georgia, Times, serif' }}>
-          AI 2027 Prediction Tracker
+      <section className="mx-auto max-w-4xl space-y-6 py-16 sm:py-24 text-center animate-fade-in-up">
+        <h2 className={`font-serif text-4xl sm:text-6xl font-bold leading-tight ${activeColors.textPrimary} tracking-tight`} style={{ fontFamily: 'Georgia, Times, serif' }}>
+          AI 2027 <span className="text-emerald-700 dark:text-emerald-500">Prediction Tracker</span>
         </h2>
-        <p className={`mx-auto max-w-2xl text-lg ${activeColors.textSecondary}`}>
+        <p className={`mx-auto max-w-2xl text-lg sm:text-xl ${activeColors.textSecondary} leading-relaxed`}>
           Tracking the future of AI, one prediction at a time. How accurate is the 
-          <em className="mx-1 italic">AI 2027</em> scenario?
+          <em className="mx-1 font-serif italic">AI 2027</em> scenario?
         </p>
-        <Button 
-            asChild 
-            size="lg" 
-            className="rounded-xl"
-        >
-          <a href="https://www.ai-2027.com/" target="_blank" rel="noopener noreferrer">
-            View Original Scenario <ChevronRightIcon />
-          </a>
-        </Button>
+        <div className="pt-4">
+          <Button 
+              asChild 
+              size="lg" 
+              className="rounded-xl shadow-lg hover:shadow-xl transition-all hover:-tranneutral-y-0.5"
+          >
+            <a href="https://www.ai-2027.com/" target="_blank" rel="noopener noreferrer">
+              View Original Scenario <ChevronRightIcon />
+            </a>
+          </Button>
+        </div>
       </section>
 
       {/* DASHBOARD */}
@@ -494,7 +500,7 @@ const HomePage = ({ predictions, posts }) => {
               <div className="flex items-center justify-center h-32"> {/* Center content and set height */}
                 <div className="relative h-20 w-20 sm:h-24 sm:w-24 flex items-center justify-center">
                 <svg viewBox="0 0 36 36" className="h-full w-full">
-                    <path className="text-gray-200 dark:text-slate-700" strokeWidth="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    <path className="text-gray-200 dark:text-neutral-700" strokeWidth="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
                     <path className={`${activeColors.accentGreen}`} strokeWidth="3" strokeDasharray={`${overallAccuracy}, 100`} strokeLinecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
                     <text x="18" y="21" className={`fill-current ${activeColors.textPrimary} font-semibold`} textAnchor="middle" style={{ fontSize: '10px' }}>{overallAccuracy}%</text>
                 </svg>
@@ -817,7 +823,7 @@ const PredictionDetailPage = ({ predictions }) => {
               <h4 className="font-serif text-md font-semibold mb-2" style={{ fontFamily: 'Georgia, Times, serif' }}>Tracker's Log</h4>
               <div className="space-y-3">
                 {prediction.analystCommentary.map((entry, index) => (
-                  <div key={index} className={`p-3 ${isDarkMode ? 'bg-slate-700' : 'bg-gray-50'} rounded-lg border ${activeColors.borderMuted} text-xs`}>
+                  <div key={index} className={`p-3 ${isDarkMode ? 'bg-neutral-700' : 'bg-gray-50'} rounded-lg border ${activeColors.borderMuted} text-xs`}>
                     <p className={`${activeColors.textSecondary} font-medium`}>{formatDate(entry.date)}</p>
                     <p className={`mt-1 ${activeColors.textPrimary}`}>{entry.comment}</p>
                   </div>
@@ -883,7 +889,7 @@ const BlogPostPage = ({ posts }) => {
                     {post.tags && post.tags.length > 0 && (
                         <div className="mt-3">
                             {post.tags.map(tag => (
-                <span key={tag} className={`mr-1.5 mb-1.5 inline-block ${isDarkMode ? 'bg-slate-700' : 'bg-gray-100'} ${activeColors.textPrimary} text-xs font-medium px-2 py-0.5 rounded-md border ${activeColors.borderMuted}`}>
+                <span key={tag} className={`mr-1.5 mb-1.5 inline-block ${isDarkMode ? 'bg-neutral-700' : 'bg-gray-100'} ${activeColors.textPrimary} text-xs font-medium px-2 py-0.5 rounded-md border ${activeColors.borderMuted}`}>
                                     {tag}
                                 </span>
                             ))}
@@ -892,7 +898,7 @@ const BlogPostPage = ({ posts }) => {
                 </CardHeader>
         {/* Use ReactMarkdown with prose styling and GFM plugin */}
         <CardContent className="pt-6">
-          <div className={`prose prose-sm sm:prose-base max-w-none ${activeColors.isDarkMode ? 'prose-invert' : ''} dark:prose-headings:text-slate-100 dark:prose-p:text-slate-300 dark:prose-a:text-emerald-400 dark:prose-strong:text-slate-100 dark:prose-ul:text-slate-300 dark:prose-ol:text-slate-300 dark:prose-li:text-slate-300 dark:prose-blockquote:text-slate-400 dark:prose-code:text-slate-300 dark:prose-pre:bg-slate-700 dark:prose-th:text-slate-100 dark:prose-td:text-slate-300` }>
+          <div className={`prose prose-sm sm:prose-base max-w-none ${activeColors.isDarkMode ? 'prose-invert' : ''} dark:prose-headings:text-neutral-100 dark:prose-p:text-neutral-300 dark:prose-a:text-emerald-400 dark:prose-strong:text-neutral-100 dark:prose-ul:text-neutral-300 dark:prose-ol:text-neutral-300 dark:prose-li:text-neutral-300 dark:prose-blockquote:text-neutral-400 dark:prose-code:text-neutral-300 dark:prose-pre:bg-neutral-700 dark:prose-th:text-neutral-100 dark:prose-td:text-neutral-300` }>
             <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content || ''}</ReactMarkdown>
           </div>
                 </CardContent>
