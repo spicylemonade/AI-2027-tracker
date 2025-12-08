@@ -1173,29 +1173,41 @@
       "Agent Capabilities"
     ],
     "timelineSegment": "Late 2025",
-    "status": "Partially Accurate",
-    "accuracyScore": 60,
-    "qualitativeAccuracy": "Risk framing aligns with current expert concern, but details untestable and sensitive. Multiple reports (DHS CBRN AI report, CLTR's Near-term impact of AI on biological misuse, NIST AI-800-1 draft, White House AI Action Plan commentary) state that frontier models could lower barriers for some biological misuse, enough that this is treated as a serious policy problem. Labs and governments are actively building bio-misuse evaluations and mitigations. We don't have public, concrete examples of a single model reliably giving end-to-end bioweapon design assistance - and discussing details would be unsafe anyway.",
-    "actualOutcome": "Policy reports and expert assessments indicate that frontier AI models could lower barriers for biological misuse, and this is treated as a serious policy concern. Labs and governments are building bio-misuse evaluations and mitigations, but concrete examples are not publicly available.",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 80,
+    "qualitativeAccuracy": "Risk framing strongly echoed by concrete evaluations. Anthropic's CBRN evaluations show Claude Sonnet 4.5 outperforms Claude Opus 4 and 4.1 on long-form virology tasks and DNA-synthesis screening subtasks. Opus 4.5 is meaningfully more helpful to experts in uplift trials, enough that Anthropic cannot cleanly rule out their highest CBRN-4 risk tier and deploys these models under ASL-3 safeguards. Independent analysis (BlueDot's October 2025 biosecurity review) and policy reports converge on the view that frontier LLMs lower barriers for biological misuse pathways. We still lack public end-to-end examples of reliable bioweapon design assistance, but the evaluations and policy responses make the 'could substantially help' scenario plausible and salient as a near-term risk.",
+    "actualOutcome": "Multiple technical and policy sources indicate frontier LLMs show improved performance on long-form virology tasks, DNA-synthesis screening evals, and computational biology tasks relevant to bioweapons. Models are judged by creators to be close enough to dangerous bio-assistance thresholds to warrant ASL-3 safeguards with tightened security and usage policies. Treated by DHS, RAND, and Frontier Model Forum as serious bio-misuse enablers warranting specialized evaluations and mitigation taxonomies.",
     "supportingEvidence": [
       {
-        "text": "DHS: CBRN AI Report",
-        "url": "https://www.dhs.gov/sites/default/files/2024-06/24_0620_cwmd-dhs-cbrn-ai-eo-report-04262024-public-release.pdf"
+        "text": "Anthropic: Transparency Hub & Claude Sonnet 4.5 system card",
+        "url": "https://www.anthropic.com/transparency"
       },
       {
-        "text": "Frontier Model Forum: Preliminary Taxonomy of AI-Bio Misuse Mitigations",
+        "text": "BlueDot: How AI could enable catastrophic pandemics",
+        "url": "https://bluedot.org/blog/how-ai-could-enable-catastrophic-pandemics"
+      },
+      {
+        "text": "TIME: New Claude Model Triggers Stricter Safeguards at Anthropic",
+        "url": "https://time.com/7287806/anthropic-claude-4-opus-safety-bio-risk/"
+      },
+      {
+        "text": "DHS: AI & CBRN/Bio risk (2025)",
+        "url": "https://www.dhs.gov/publication/fact-sheet-and-report-dhs-advances-efforts-reduce-risks-intersection-artificial"
+      },
+      {
+        "text": "RAND: Mitigating Risks at the Intersection of AI and Biological Threats",
+        "url": "https://www.rand.org/pubs/research_reports/RRA2990-1.html"
+      },
+      {
+        "text": "Frontier Model Forum: AI-Bio Misuse Mitigations",
         "url": "https://www.frontiermodelforum.org/issue-briefs/preliminary-taxonomy-of-ai-bio-misuse-mitigations/"
-      },
-      {
-        "text": "METR: Common Elements of Frontier AI Safety Policies",
-        "url": "https://metr.org/assets/common-elements-nov-2024.pdf"
       }
     ],
     "lastEvaluated": "2025-12-07",
     "analystCommentary": [
       {
         "date": "2025-12-07",
-        "comment": "The risk premise is taken seriously by policymakers, but we don't have public concrete examples of a single model reliably giving end-to-end bioweapon design assistance - and discussing details would be unsafe anyway."
+        "comment": "New evaluations confirm frontier LLMs have material capabilities on virology and bio-design tasks, judged by creators to be close to dangerous thresholds. Capabilities still guarded by strong safety measures and appear to fall short of reliable end-to-end bioweapon design assistance, but the overall risk profile is closer to the prediction than earlier in 2025."
       }
     ]
   },
