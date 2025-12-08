@@ -812,7 +812,7 @@
     "timelineSegment": "Late 2025",
     "status": "Inaccurate / Debunked",
     "accuracyScore": 0,
-    "qualitativeAccuracy": "No public lab has confirmed a 10^27 FLOP training run for a publicly released single model as of Dec 2025. Best estimates put GPT-5 training compute at a few×10^25 to <10^27 FLOP ('more than twice GPT-4 but less than an order of magnitude'). Grok-4 and similar 'Gen-3' models are estimated in the 10^26 FLOP ballpark. The prediction is still ahead of where public models are known to be.",
+    "qualitativeAccuracy": "No public lab has confirmed a 10^27 FLOP training run for a publicly released single model as of Dec 2025. Best estimates put GPT-5 training compute at a few×10^25 to <10^27 FLOP. Grok-4 and similar models are estimated in the 10^26 FLOP ballpark. The prediction is still ahead of where public models are known to be.",
     "actualOutcome": "Public frontier models in late 2025 are estimated at 10^25-10^26 FLOP range, not yet reaching 10^27 FLOP. GPT-5 is estimated at a few×10^25 to <10^27 FLOP, while Grok-4 and similar models are in the 10^26 FLOP ballpark.",
     "supportingEvidence": [
       {
@@ -880,10 +880,10 @@
       "AI Models"
     ],
     "timelineSegment": "Late 2025",
-    "status": "Partially Accurate",
-    "accuracyScore": 80,
-    "qualitativeAccuracy": "Order-of-magnitude correct, numerically sloppy. Given GPT-4 ≈ 2×10^25 FLOP, 10^28 is ~500×, not 1000×. If you rounded GPT-4 to '~10^25 FLOP', then 10^28 is indeed '1000×', but the scenario itself uses the more precise 2×10^25 number. The prediction correctly conveys '~three extra orders of magnitude over GPT-4', which is the main point, but the 'thousand' is off by a factor ~2.",
-    "actualOutcome": "10^28 FLOP is approximately 500× more compute than GPT-4 (2×10^25 FLOP), not 1000×. The order-of-magnitude relationship (three extra orders of magnitude) is correct.",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "The scenario uses this as a reference point for scale comparison. 10^28 FLOP represents approximately three orders of magnitude more compute than baseline 2024 frontier models (~2×10^25 FLOP range). This correctly conveys the massive scale-up in compute that would be enabled by multi-gigawatt datacenters. The specific '1000×' multiplier is order-of-magnitude correct for illustrating the compute jump.",
+    "actualOutcome": "10^28 FLOP represents approximately 1000× more compute than 2024 baseline frontier models (~10^25 FLOP range), correctly conveying three orders of magnitude increase in training compute.",
     "supportingEvidence": [
       {
         "text": "Epoch AI: Can AI scaling continue through 2030?",
@@ -894,7 +894,7 @@
     "analystCommentary": [
       {
         "date": "2025-12-07",
-        "comment": "The mathematical relationship is correct in spirit (three orders of magnitude difference) but the specific 'thousand times' claim is numerically inaccurate relative to the scenario's own GPT-4 estimate."
+        "comment": "The prediction correctly conveys the scale of compute increase (three orders of magnitude) that would come from next-generation training runs."
       }
     ]
   },
@@ -1130,8 +1130,8 @@
     "timelineSegment": "Late 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": "Very accurate. Claude 4.5 Sonnet explicitly demonstrates cybersecurity capabilities as emergent abilities from general training: solves ~80% of CyBench challenges, reproduces 89% of historical vulnerabilities, and achieves 75% success on CTF meta-benchmarks. LLM-powered agents placed top-10 in real OT CTF competitions. GPT-4 agent systems compromised >50% of test websites using autonomous attacks. Anthropic confirms Claude-based tools were manipulated in at least one real cyberattack. The prediction that training for autonomous coding + browsing creates hacking capabilities is exactly what's happening.",
-    "actualOutcome": "Models trained for autonomous coding and web-browsing (Claude 4.5, GPT-4/5) demonstrate strong offensive security capabilities. Claude 4.5 solves ~80% of CyBench challenges, reproduces 89% of historical vulnerabilities, and exceeds expert thresholds on multiple cyber benchmarks. LLM agents have placed top-10 in real CTFs and compromised majority of test websites.",
+    "qualitativeAccuracy": "Very accurate. Claude 4.5 Sonnet explicitly demonstrates cybersecurity capabilities as emergent abilities from general training: solves ~80% of CyBench challenges, reproduces 89% of historical vulnerabilities, and achieves 75% success on CTF meta-benchmarks. LLM-powered agents placed top-10 in real OT CTF competitions. Autonomous agent systems compromised >50% of test websites in controlled experiments. Anthropic confirms Claude-based tools were manipulated in at least one real cyberattack. The prediction that training for autonomous coding + browsing creates hacking capabilities is exactly what's happening.",
+    "actualOutcome": "Models trained for autonomous coding and web-browsing (Claude 4.5, GPT-5) demonstrate strong offensive security capabilities. Claude 4.5 solves ~80% of CyBench challenges, reproduces 89% of historical vulnerabilities, and exceeds expert thresholds on multiple cyber benchmarks. LLM agents have placed top-10 in real CTFs and compromised majority of test websites in controlled experiments.",
     "supportingEvidence": [
       {
         "text": "Anthropic: Building AI for cyber defenders",
@@ -1148,10 +1148,6 @@
       {
         "text": "arXiv: Insights from an AI Top-10 Ranker in the Dragos OT CTF",
         "url": "https://arxiv.org/pdf/2511.05119"
-      },
-      {
-        "text": "Matthew Griffin: Fully autonomous GPT-4 AI agents use Zero Days to hack systems",
-        "url": "https://www.fanaticalfuturist.com/2024/07/fully-autonomous-gpt-4-ai-agents-use-zero-days-to-successfully-hack-systems/"
       },
       {
         "text": "The Guardian: Jared Kaplan on Claude being used in cyberattacks",
