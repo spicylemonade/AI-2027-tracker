@@ -927,7 +927,7 @@
     "analystCommentary": [
       {
         "date": "2025-12-07",
-        "comment": "The prediction captures the competitive dynamic perfectly - while the specific company names differ from the fictional 'OpenBrain', the behavior pattern of massive datacenter investment is exactly as predicted."
+        "comment": "The prediction captures the competitive dynamic perfectly - the behavior pattern of massive datacenter investment by multiple competing companies is exactly as predicted."
       }
     ]
   },
@@ -981,7 +981,7 @@
     "timelineSegment": "Late 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": "Accurate. Labs have trained internal models under development for research purposes. Claude Opus 4.5 crosses Anthropic's internal AI Research Evaluation Suite thresholds, beats every human candidate on Anthropic's 2-hour engineering test, and writes up to 90% of code for some internal teams. OpenAI has experimental reasoning models (12/12 ICPC, outperforming all humans). Multi-agent research systems show substantial gains. The prediction correctly anticipated frontier labs would have internal research-focused models. 'Agent-1' is a placeholder name.",
+    "qualitativeAccuracy": "Accurate. Labs have trained internal models under development for research purposes. Claude Opus 4.5 crosses Anthropic's internal AI Research Evaluation Suite thresholds, beats every human candidate on Anthropic's 2-hour engineering test, and writes up to 90% of code for some internal teams. OpenAI has experimental reasoning models (12/12 ICPC, outperforming all humans). Multi-agent research systems show substantial gains. The prediction correctly anticipated frontier labs would have internal research-focused models.",
     "actualOutcome": "Labs are using internal models specifically developed for research acceleration. Claude Opus 4.5 crosses internal AI-R&D thresholds, outperforms all human engineering candidates, and handles majority of code for some teams. OpenAI has mystery reasoning models for internal use.",
     "supportingEvidence": [
       {
@@ -1021,7 +1021,7 @@
     "timelineSegment": "Late 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": "Very accurate. Claude Opus 4.5 beats every human on Anthropic's engineering test and crosses internal AI Research Evaluation Suite thresholds (0.604 on Suite 2, above 0.6 rule-out threshold). Writes 90% of code for some Anthropic teams. Multi-agent Claude systems substantially outperform single agents on complex research tasks. OpenAI's mystery reasoning models dominate ICPC (12/12, beating all humans). The capability profile 'good at many things but great at helping with AI research' precisely matches reality. 'Agent-1' is a placeholder name.",
+    "qualitativeAccuracy": "Very accurate. Claude Opus 4.5 beats every human on Anthropic's engineering test and crosses internal AI Research Evaluation Suite thresholds (0.604 on Suite 2, above 0.6 rule-out threshold). Writes 90% of code for some Anthropic teams. Multi-agent Claude systems substantially outperform single agents on complex research tasks. OpenAI's mystery reasoning models dominate ICPC (12/12, beating all humans). The capability profile 'good at many things but great at helping with AI research' precisely matches reality.",
     "actualOutcome": "Frontier models demonstrate strong general capabilities with exceptional performance on AI research tasks. Claude Opus 4.5 crosses AI-R&D thresholds, outperforms all human engineers, and handles 90% of code for some teams. Multi-agent research systems show substantial gains over single agents.",
     "supportingEvidence": [
       {
@@ -1213,7 +1213,7 @@
     "timelineSegment": "Late 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 80,
-    "qualitativeAccuracy": "Qualitatively accurate pattern. Frontier labs publish safety policies and commitments (AI Seoul Summit commitments; METR's survey of common elements; company safety frameworks) which emphasize refusing dangerous requests and satisfying government expectations. They regularly show 'look, it refuses bad prompts' demos, both to users and in policy-facing documents. While there's no literal Agent-1, the pattern ('we promise it's aligned and refuses harmful tasks') is exactly how labs talk to governments.",
+    "qualitativeAccuracy": "Qualitatively accurate pattern. Frontier labs publish safety policies and commitments (AI Seoul Summit commitments; METR's survey of common elements; company safety frameworks) which emphasize refusing dangerous requests and satisfying government expectations. They regularly show 'look, it refuses bad prompts' demos, both to users and in policy-facing documents. The pattern ('we promise it's aligned and refuses harmful tasks') is exactly how labs talk to governments.",
     "actualOutcome": "Frontier labs (OpenAI, Anthropic, Google) publish safety policies emphasizing refusal of dangerous requests and regularly demonstrate alignment through 'refusal demos' in policy-facing documents and public communications.",
     "supportingEvidence": [
       {
