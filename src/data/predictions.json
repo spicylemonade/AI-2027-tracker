@@ -980,24 +980,32 @@
     ],
     "timelineSegment": "Late 2025",
     "status": "Confirmed Accurate",
-    "accuracyScore": 80,
-    "qualitativeAccuracy": "Accurate in substance. Labs are training and using internal models stronger than public releases for research acceleration. Evidence includes OpenAI's experimental reasoning model that scored 12/12 at ICPC coding contest (outperforming all human teams, described as not yet productized), and references to mystery models used internally. The prediction correctly anticipated that frontier labs would have internal models under development for research purposes. 'Agent-1' is a placeholder name in the scenario.",
-    "actualOutcome": "Labs are using internal models stronger than public releases for research acceleration. OpenAI has experimental reasoning models that outperform public releases on coding tasks. Public models like GPT-5 and Claude 4.5 are also significantly useful for coding and research.",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Accurate. Labs have trained internal models under development for research purposes. Claude Opus 4.5 crosses Anthropic's internal AI Research Evaluation Suite thresholds, beats every human candidate on Anthropic's 2-hour engineering test, and writes up to 90% of code for some internal teams. OpenAI has experimental reasoning models (12/12 ICPC, outperforming all humans). Multi-agent research systems show substantial gains. The prediction correctly anticipated frontier labs would have internal research-focused models. 'Agent-1' is a placeholder name.",
+    "actualOutcome": "Labs are using internal models specifically developed for research acceleration. Claude Opus 4.5 crosses internal AI-R&D thresholds, outperforms all human engineering candidates, and handles majority of code for some teams. OpenAI has mystery reasoning models for internal use.",
     "supportingEvidence": [
       {
-        "text": "The Algorithmic Bridge: A Tandem of GPT-5 And [Mystery Model] Has Beaten...",
-        "url": "https://www.thealgorithmicbridge.com/p/a-tandem-of-gpt-5-and-mystery-model"
+        "text": "Business Insider: Claude Opus 4.5 beats every human on engineering test",
+        "url": "https://www.businessinsider.com/anthropic-claude-opus-4-5-beats-every-human-engineering-test-2025-11"
       },
       {
-        "text": "SiliconANGLE: OpenAI, Google reasoning models achieve gold-level scores ICPC coding contest",
-        "url": "https://siliconangle.com/2025/09/17/openai-google-reasoning-models-achieve-gold-level-scores-icpc-coding-contest/"
+        "text": "LessWrong: Claude Opus 4.5 crosses AI research thresholds",
+        "url": "https://www.lesswrong.com/posts/gfby4vqNtLbehqbot/claude-opus-4-5-model-card-alignment-and-safety"
+      },
+      {
+        "text": "Anthropic: How we built our multi-agent research system",
+        "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+      },
+      {
+        "text": "The Algorithmic Bridge: A Tandem of GPT-5 And [Mystery Model]",
+        "url": "https://www.thealgorithmicbridge.com/p/a-tandem-of-gpt-5-and-mystery-model"
       }
     ],
     "lastEvaluated": "2025-12-07",
     "analystCommentary": [
       {
         "date": "2025-12-07",
-        "comment": "The prediction correctly anticipated internal models under development for research purposes. 'Agent-1' is a fictional placeholder name, not meant to be a literal prediction."
+        "comment": "Strong evidence confirms labs have internal research-focused models. Claude Opus 4.5 explicitly crosses internal AI-R&D evaluation thresholds and outperforms human engineers."
       }
     ]
   },
@@ -1012,24 +1020,32 @@
     ],
     "timelineSegment": "Late 2025",
     "status": "Confirmed Accurate",
-    "accuracyScore": 80,
-    "qualitativeAccuracy": "Accurate in substance. Labs have internal models that excel at coding and research assistance. OpenAI's experimental reasoning models dominate ICPC coding contests. Claude 4.5 Sonnet leads on SWEBench-Verified. GPT-5 and Gemini 3 are positioned as advanced reasoning/research tools. The prediction correctly anticipated that frontier models would be 'good at many things but great at helping with AI research' - this matches the actual capabilities profile. 'Agent-1' is a placeholder name.",
-    "actualOutcome": "Frontier models (internal and public) demonstrate strong general capabilities with particular excellence in coding and research assistance. Models are being used internally to accelerate AI R&D, matching the predicted capability profile.",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Very accurate. Claude Opus 4.5 beats every human on Anthropic's engineering test and crosses internal AI Research Evaluation Suite thresholds (0.604 on Suite 2, above 0.6 rule-out threshold). Writes 90% of code for some Anthropic teams. Multi-agent Claude systems substantially outperform single agents on complex research tasks. OpenAI's mystery reasoning models dominate ICPC (12/12, beating all humans). The capability profile 'good at many things but great at helping with AI research' precisely matches reality. 'Agent-1' is a placeholder name.",
+    "actualOutcome": "Frontier models demonstrate strong general capabilities with exceptional performance on AI research tasks. Claude Opus 4.5 crosses AI-R&D thresholds, outperforms all human engineers, and handles 90% of code for some teams. Multi-agent research systems show substantial gains over single agents.",
     "supportingEvidence": [
       {
-        "text": "The Algorithmic Bridge: A Tandem of GPT-5 And [Mystery Model] Has Beaten...",
-        "url": "https://www.thealgorithmicbridge.com/p/a-tandem-of-gpt-5-and-mystery-model"
+        "text": "Business Insider: Claude Opus 4.5 beats every human on engineering test",
+        "url": "https://www.businessinsider.com/anthropic-claude-opus-4-5-beats-every-human-engineering-test-2025-11"
       },
       {
-        "text": "Yahoo Finance: Anthropic Claims 'Best Coding Model in the World'",
-        "url": "https://finance.yahoo.com/news/anthropic-claims-best-coding-model-004559217.html"
+        "text": "LessWrong: Claude Opus 4.5 crosses AI research thresholds",
+        "url": "https://www.lesswrong.com/posts/gfby4vqNtLbehqbot/claude-opus-4-5-model-card-alignment-and-safety"
+      },
+      {
+        "text": "Anthropic: Multi-agent research system",
+        "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+      },
+      {
+        "text": "Anthropic: Estimating AI productivity gains",
+        "url": "https://www.anthropic.com/research/estimating-productivity-gains"
       }
     ],
     "lastEvaluated": "2025-12-07",
     "analystCommentary": [
       {
         "date": "2025-12-07",
-        "comment": "The capability profile ('good at many things but great at helping with AI research') accurately describes real frontier models. 'Agent-1' is a fictional placeholder name."
+        "comment": "Exceptional match to prediction. Claude Opus 4.5 explicitly crosses internal AI-R&D thresholds and outperforms human engineers, confirming the 'great at helping with AI research' characterization."
       }
     ]
   },
@@ -1112,25 +1128,41 @@
       "Training Methodology"
     ],
     "timelineSegment": "Late 2025",
-    "status": "Partially Accurate",
-    "accuracyScore": 60,
-    "qualitativeAccuracy": "Directionally plausible but not directly verifiable. Real frontier models have strong code + tool-use + web-browsing capabilities (agents on OSWorld, WebArena, SWE-Bench, etc.), and labs do train them in autonomous tool-using environments. Governments and labs explicitly worry that these capabilities could be abused for cyber or bio misuse, and are building evaluation+mitigation frameworks around that. But there's no public evidence that a specific system is an unusually 'good hacker' relative to its general capabilities, and labs don't publish 'we trained this model to hack'.",
-    "actualOutcome": "Frontier models with autonomous coding and web-browsing capabilities exist, and there are policy concerns about cyber misuse. However, there's no public evidence of a specific model being an unusually effective hacker, and labs don't publish details about hacking capabilities.",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Very accurate. Claude 4.5 Sonnet explicitly demonstrates cybersecurity capabilities as emergent abilities from general training: solves ~80% of CyBench challenges, reproduces 89% of historical vulnerabilities, and achieves 75% success on CTF meta-benchmarks. LLM-powered agents placed top-10 in real OT CTF competitions. GPT-4 agent systems compromised >50% of test websites using autonomous attacks. Anthropic confirms Claude-based tools were manipulated in at least one real cyberattack. The prediction that training for autonomous coding + browsing creates hacking capabilities is exactly what's happening.",
+    "actualOutcome": "Models trained for autonomous coding and web-browsing (Claude 4.5, GPT-4/5) demonstrate strong offensive security capabilities. Claude 4.5 solves ~80% of CyBench challenges, reproduces 89% of historical vulnerabilities, and exceeds expert thresholds on multiple cyber benchmarks. LLM agents have placed top-10 in real CTFs and compromised majority of test websites.",
     "supportingEvidence": [
       {
-        "text": "LessWrong: Checking in on AI-2027",
-        "url": "https://www.lesswrong.com/posts/hmZHPE4ZJvEc3khgQ/checking-in-on-ai-2027"
+        "text": "Anthropic: Building AI for cyber defenders",
+        "url": "https://www.anthropic.com/research/building-ai-cyber-defenders"
       },
       {
-        "text": "METR: Common Elements of Frontier AI Safety Policies",
-        "url": "https://metr.org/assets/common-elements-nov-2024.pdf"
+        "text": "The Neuron: Claude Sonnet 4.5 - cybersecurity capabilities",
+        "url": "https://www.theneuron.ai/explainer-articles/everything-to-know-about-claude-sonnet-4-5-the-worlds-best-coding-model-that-can-focus-for-30-hours-straight"
+      },
+      {
+        "text": "arXiv: A Meta-Benchmark for Evaluating Cybersecurity AI Agents",
+        "url": "https://arxiv.org/html/2510.24317v1"
+      },
+      {
+        "text": "arXiv: Insights from an AI Top-10 Ranker in the Dragos OT CTF",
+        "url": "https://arxiv.org/pdf/2511.05119"
+      },
+      {
+        "text": "Matthew Griffin: Fully autonomous GPT-4 AI agents use Zero Days to hack systems",
+        "url": "https://www.fanaticalfuturist.com/2024/07/fully-autonomous-gpt-4-ai-agents-use-zero-days-to-successfully-hack-systems/"
+      },
+      {
+        "text": "The Guardian: Jared Kaplan on Claude being used in cyberattacks",
+        "url": "https://www.theguardian.com/technology/ng-interactive/2025/dec/02/jared-kaplan-artificial-intelligence-train-itself"
       }
     ],
     "lastEvaluated": "2025-12-07",
     "analystCommentary": [
       {
         "date": "2025-12-07",
-        "comment": "The risk premise is plausible and taken seriously, but concrete evidence of hacking capabilities is not publicly available (and discussing details would be unsafe anyway)."
+        "comment": "Strong direct evidence confirms the prediction. Anthropic explicitly notes that cybersecurity capabilities emerged as the model scaled, not from special hacking training - exactly matching the prediction's logic that autonomous coding + browsing training creates hacking capabilities."
       }
     ]
   },
