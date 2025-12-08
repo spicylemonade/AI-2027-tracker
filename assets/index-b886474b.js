@@ -97,7 +97,7 @@ OpenAI's GPT-5.1 introduced distinct modes in November. GPT-5.1 Thinking impleme
 
 Google's Gemini 3 Deep Think achieved 41% on "Humanity's Last Exam," a benchmark designed to test absolute limits. Gemini 3 also introduced Generative UI, dynamically creating interactive widgets in response to queries.
 
-The gap between proprietary and open-weights models essentially vanished. Alibaba's Qwen-3-Max rivals GPT-4 and Gemini. Mistral released Mistral Large 3 in December under an Apache 2.0 license.
+The gap between proprietary and open-weights models essentially vanished. Deepseek's deepseek v3.2  rivals GPT-5 and Gemini 3.
 
 ## Embodiment and Infrastructure
 
