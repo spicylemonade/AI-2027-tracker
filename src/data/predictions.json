@@ -1224,9 +1224,9 @@
     ],
     "timelineSegment": "Late 2025",
     "status": "Confirmed Accurate",
-    "accuracyScore": 100,
-    "qualitativeAccuracy": "Very accurate with extensive concrete evidence. OpenAI explicitly states they 'post-trained GPT-4 to refuse malicious cybersecurity requests' and reports models 'refused direct exploit and keylogger requests' in testing. Anthropic's ASL-2 deployment measures explicitly include training models to refuse dangerous CBRN requests, and their Transparency Hub reports training Claude to refuse malicious coding tasks with 'close to 100%' safety scores. Frontier labs signed AI Seoul Summit commitments to assess dangerous capabilities and share results with governments. Google cites 'rigorous safety tests' including by UK AI Security Institute. The pattern ('we promise it's aligned and refuses harmful tasks') is exactly how labs communicate with governments.",
-    "actualOutcome": "Frontier labs explicitly train models to refuse malicious requests and actively communicate this to governments. OpenAI post-trained models to refuse cybersecurity exploits, Anthropic trains Claude to refuse CBRN and malicious coding requests (ASL-2/ASL-3 measures), and Google conducts government-linked safety testing. Labs regularly publish refusal test results as evidence of alignment.",
+    "accuracyScore": 80,
+    "qualitativeAccuracy": "Very accurate with extensive concrete evidence. OpenAI explicitly describes post-training models to refuse malicious cybersecurity requests and reports models 'refused direct exploit and keylogger requests' in testing. Anthropic's ASL-2/ASL-3 deployment measures explicitly include training models to refuse dangerous CBRN requests, and their Transparency Hub reports training Claude to refuse malicious coding tasks with 'close to 100%' safety scores. Frontier labs signed AI Seoul Summit commitments to assess dangerous capabilities and share results with governments. Google cites 'rigorous safety tests' including by UK AI Security Institute. The pattern ('we promise it's aligned and refuses harmful tasks') is exactly how labs communicate with governments.",
+    "actualOutcome": "Frontier labs explicitly train models to refuse malicious requests and actively communicate this to governments. OpenAI post-trains models to refuse cybersecurity exploits, Anthropic trains Claude to refuse CBRN and malicious coding requests (ASL-2/ASL-3 measures), and Google conducts government-linked safety testing. Labs regularly publish refusal test results as evidence of alignment.",
     "supportingEvidence": [
       {
         "text": "AI Seoul Summit: Frontier AI Safety Commitments",
@@ -1273,7 +1273,7 @@
     "analystCommentary": [
       {
         "date": "2025-12-07",
-        "comment": "Upgraded to 100% with extensive concrete evidence. Labs explicitly describe training models to refuse malicious requests (cybersecurity exploits, CBRN tasks, malicious coding) and actively communicate refusal test results to governments as proof of alignment. This is exactly the pattern predicted."
+        "comment": "Upgraded with extensive concrete evidence. Labs explicitly describe training models to refuse malicious requests (cybersecurity exploits, CBRN tasks, malicious coding) and actively communicate refusal test results to governments as proof of alignment. This is exactly the pattern predicted."
       }
     ]
   },
