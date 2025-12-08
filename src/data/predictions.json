@@ -979,10 +979,10 @@
       "OpenBrain"
     ],
     "timelineSegment": "Late 2025",
-    "status": "Partially Accurate",
-    "accuracyScore": 60,
-    "qualitativeAccuracy": "Partially right in spirit, wrong in specific naming. There is no public 'Agent-1' model, but we do see internal, stronger-than-public models used to accelerate AI research (e.g., OpenAI's experimental reasoning model that scored 12/12 at ICPC coding contest, outperforming all human teams, described as not yet productized). Public frontier models (Claude 4.5 Sonnet, GPT-5) are top-tier on coding/research benchmarks. We don't have strong public evidence of a single 'Agent-1-like' model that clearly dominates for AI research inside one lab.",
-    "actualOutcome": "Labs are using internal models stronger than public releases for research acceleration, but there's no single named 'Agent-1' with the exact described properties. Public models like GPT-5 and Claude 4.5 are already significantly useful for coding and research.",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 80,
+    "qualitativeAccuracy": "Accurate in substance. Labs are training and using internal models stronger than public releases for research acceleration. Evidence includes OpenAI's experimental reasoning model that scored 12/12 at ICPC coding contest (outperforming all human teams, described as not yet productized), and references to mystery models used internally. The prediction correctly anticipated that frontier labs would have internal models under development for research purposes. 'Agent-1' is a placeholder name in the scenario.",
+    "actualOutcome": "Labs are using internal models stronger than public releases for research acceleration. OpenAI has experimental reasoning models that outperform public releases on coding tasks. Public models like GPT-5 and Claude 4.5 are also significantly useful for coding and research.",
     "supportingEvidence": [
       {
         "text": "The Algorithmic Bridge: A Tandem of GPT-5 And [Mystery Model] Has Beaten...",
@@ -997,7 +997,7 @@
     "analystCommentary": [
       {
         "date": "2025-12-07",
-        "comment": "The world does have 'internal super-coder / research-assistant' models, but we don't see a neatly packaged, named Agent-1 with the exact described properties."
+        "comment": "The prediction correctly anticipated internal models under development for research purposes. 'Agent-1' is a fictional placeholder name, not meant to be a literal prediction."
       }
     ]
   },
@@ -1011,10 +1011,10 @@
       "R&D"
     ],
     "timelineSegment": "Late 2025",
-    "status": "Partially Accurate",
-    "accuracyScore": 60,
-    "qualitativeAccuracy": "Partially right in spirit, wrong in specific naming. There is no public 'Agent-1' model, but we do see internal, stronger-than-public models used to accelerate AI research (e.g., OpenAI's experimental reasoning model that scored 12/12 at ICPC coding contest, outperforming all human teams, described as not yet productized). Public frontier models (Claude 4.5 Sonnet, GPT-5) are top-tier on coding/research benchmarks. We don't have strong public evidence of a single 'Agent-1-like' model that clearly dominates for AI research inside one lab.",
-    "actualOutcome": "Labs are using internal models stronger than public releases for research acceleration, but there's no single named 'Agent-1' with the exact described properties. Public models like GPT-5 and Claude 4.5 are already significantly useful for coding and research.",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 80,
+    "qualitativeAccuracy": "Accurate in substance. Labs have internal models that excel at coding and research assistance. OpenAI's experimental reasoning models dominate ICPC coding contests. Claude 4.5 Sonnet leads on SWEBench-Verified. GPT-5 and Gemini 3 are positioned as advanced reasoning/research tools. The prediction correctly anticipated that frontier models would be 'good at many things but great at helping with AI research' - this matches the actual capabilities profile. 'Agent-1' is a placeholder name.",
+    "actualOutcome": "Frontier models (internal and public) demonstrate strong general capabilities with particular excellence in coding and research assistance. Models are being used internally to accelerate AI R&D, matching the predicted capability profile.",
     "supportingEvidence": [
       {
         "text": "The Algorithmic Bridge: A Tandem of GPT-5 And [Mystery Model] Has Beaten...",
@@ -1029,7 +1029,7 @@
     "analystCommentary": [
       {
         "date": "2025-12-07",
-        "comment": "The world does have 'internal super-coder / research-assistant' models, but we don't see a neatly packaged, named Agent-1 with the exact described properties."
+        "comment": "The capability profile ('good at many things but great at helping with AI research') accurately describes real frontier models. 'Agent-1' is a fictional placeholder name."
       }
     ]
   },
