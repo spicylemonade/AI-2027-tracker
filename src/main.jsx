@@ -1254,7 +1254,7 @@ const App = () => {
   const activeColors = isDarkMode ? darkColors : lightColors;
 
   return (
-    <BrowserRouter basename="/AI-2027-tracker">
+    <BrowserRouter basename="/">
       <ThemeContext.Provider value={{ isDarkMode, toggleTheme, activeColors, lightColors, darkColors }}>
         <AppContent />
       </ThemeContext.Provider>
