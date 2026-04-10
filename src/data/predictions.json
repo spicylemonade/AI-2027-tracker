@@ -981,31 +981,35 @@
     "timelineSegment": "Late 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": "Accurate. Labs have trained internal models under development for research purposes. Claude Opus 4.5 crosses Anthropic's internal AI Research Evaluation Suite thresholds, beats every human candidate on Anthropic's 2-hour engineering test, and writes up to 90% of code for some internal teams. OpenAI has experimental reasoning models (12/12 ICPC, outperforming all humans). Multi-agent research systems show substantial gains. The prediction correctly anticipated frontier labs would have internal research-focused models.",
-    "actualOutcome": "Labs are using internal models specifically developed for research acceleration. Claude Opus 4.5 crosses internal AI-R&D thresholds, outperforms all human engineering candidates, and handles majority of code for some teams. OpenAI has mystery reasoning models for internal use.",
+    "qualitativeAccuracy": "Accurate, and more concretely so than when first evaluated. Anthropic's unreleased Claude Mythos Preview is used heavily internally and in limited research preview. On the benchmark bundle implied by AI 2027's Agent-1 footnote, Mythos is much closer to an Agent-1 than earlier 2025 systems: Anthropic reports 79.6% on OSWorld, 100% pass@1 on CyBench, and that Mythos clears the 4h and 8h thresholds on all tasks in its automated AI-R&D suite. Public METR measurements are still below the scenario's roughly 4-hour-at-80% benchmark, but the existence of an internal, not-generally-released system with this profile is now direct evidence for the prediction.",
+    "actualOutcome": "Anthropic has an unreleased frontier model, Claude Mythos Preview, that it uses heavily within Anthropic for coding, data generation, and other agentic use cases while exposing it only via a limited research preview. This looks much closer to the scenario's internally deployed Agent-1 than the weaker public systems of 2025.",
     "supportingEvidence": [
       {
-        "text": "Business Insider: Claude Opus 4.5 beats every human on engineering test",
-        "url": "https://www.businessinsider.com/anthropic-claude-opus-4-5-beats-every-human-engineering-test-2025-11"
+        "text": "Anthropic: Alignment Risk Update - Claude Mythos Preview",
+        "url": "https://www.anthropic.com/claude-mythos-preview-risk-report"
       },
       {
-        "text": "LessWrong: Claude Opus 4.5 crosses AI research thresholds",
-        "url": "https://www.lesswrong.com/posts/gfby4vqNtLbehqbot/claude-opus-4-5-model-card-alignment-and-safety"
+        "text": "Anthropic: Project Glasswing",
+        "url": "https://www.anthropic.com/glasswing"
       },
       {
-        "text": "Anthropic: How we built our multi-agent research system",
-        "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+        "text": "METR: Task-Completion Time Horizons of Frontier AI Models",
+        "url": "https://metr.org/time-horizons/"
       },
       {
-        "text": "The Algorithmic Bridge: A Tandem of GPT-5 And [Mystery Model]",
-        "url": "https://www.thealgorithmicbridge.com/p/a-tandem-of-gpt-5-and-mystery-model"
+        "text": "Epoch AI: GPT-5.4 Pro",
+        "url": "https://epoch.ai/models/gpt-5-4-pro"
       }
     ],
-    "lastEvaluated": "2025-12-07",
+    "lastEvaluated": "2026-04-10",
     "analystCommentary": [
       {
         "date": "2025-12-07",
         "comment": "Strong evidence confirms labs have internal research-focused models. Claude Opus 4.5 explicitly crosses internal AI-R&D evaluation thresholds and outperforms human engineers."
+      },
+      {
+        "date": "2026-04-10",
+        "comment": "Reframed Agent-1 more concretely using the scenario's implied capability bundle: roughly human-level OSWorld, very strong cyber performance, and 4h/8h AI-R&D competence. On that calibration, Mythos-class internal models are now the clearest real-world analogue."
       }
     ]
   },
@@ -1021,31 +1025,39 @@
     "timelineSegment": "Late 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": "Very accurate. Claude Opus 4.5 beats every human on Anthropic's engineering test and crosses internal AI Research Evaluation Suite thresholds (0.604 on Suite 2, above 0.6 rule-out threshold). Writes 90% of code for some Anthropic teams. Multi-agent Claude systems substantially outperform single agents on complex research tasks. OpenAI's mystery reasoning models dominate ICPC (12/12, beating all humans). The capability profile 'good at many things but great at helping with AI research' precisely matches reality.",
-    "actualOutcome": "Frontier models demonstrate strong general capabilities with exceptional performance on AI research tasks. Claude Opus 4.5 crosses AI-R&D thresholds, outperforms all human engineers, and handles 90% of code for some teams. Multi-agent research systems show substantial gains over single agents.",
+    "qualitativeAccuracy": "Very accurate. The chapter footnote effectively defines Agent-1 as roughly 80% OSWorld, 85% CyBench on four-hour-team-equivalent hacking tasks, and RE-Bench 1.3 matching top experts given eight hours on well-defined AI research engineering tasks. Claude Mythos Preview is strikingly close or stronger on each dimension: 79.6% OSWorld, 100% pass@1 on CyBench, and Anthropic says it clears the 4h and 8h thresholds on all tasks in its automated AI-R&D suite. GPT-5.4 Pro leads Epoch's ECI, but informal ECI-to-METR extrapolation still places public OpenAI systems below this bar, which reinforces that Mythos-like internal systems, not ordinary public assistants, are the clearest Agent-1 analogue.",
+    "actualOutcome": "Internal frontier models now look like broad systems with standout research utility rather than narrow research bots. Mythos Preview combines near-human computer-use scores with superhuman cyber benchmarks and explicit 4h/8h AI-R&D threshold crossings, while public models like GPT-5.4 and Opus 4.6 remain strong general systems but not yet clearly at the same reliability level on METR-style long tasks.",
     "supportingEvidence": [
       {
-        "text": "Business Insider: Claude Opus 4.5 beats every human on engineering test",
-        "url": "https://www.businessinsider.com/anthropic-claude-opus-4-5-beats-every-human-engineering-test-2025-11"
+        "text": "Anthropic: Project Glasswing",
+        "url": "https://www.anthropic.com/glasswing"
       },
       {
-        "text": "LessWrong: Claude Opus 4.5 crosses AI research thresholds",
-        "url": "https://www.lesswrong.com/posts/gfby4vqNtLbehqbot/claude-opus-4-5-model-card-alignment-and-safety"
+        "text": "Anthropic: Alignment Risk Update - Claude Mythos Preview",
+        "url": "https://www.anthropic.com/claude-mythos-preview-risk-report"
       },
       {
-        "text": "Anthropic: Multi-agent research system",
-        "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+        "text": "METR: Task-Completion Time Horizons of Frontier AI Models",
+        "url": "https://metr.org/time-horizons/"
       },
       {
-        "text": "Anthropic: Estimating AI productivity gains",
-        "url": "https://www.anthropic.com/research/estimating-productivity-gains"
+        "text": "Epoch AI: Epoch Capabilities Index",
+        "url": "https://epoch.ai/eci"
+      },
+      {
+        "text": "OpenAI: Introducing GPT-5.4",
+        "url": "https://openai.com/index/introducing-gpt-5-4/"
       }
     ],
-    "lastEvaluated": "2025-12-07",
+    "lastEvaluated": "2026-04-10",
     "analystCommentary": [
       {
         "date": "2025-12-07",
         "comment": "Exceptional match to prediction. Claude Opus 4.5 explicitly crosses internal AI-R&D thresholds and outperforms human engineers, confirming the 'great at helping with AI research' characterization."
+      },
+      {
+        "date": "2026-04-10",
+        "comment": "I'm now using Agent-1 as the more specific capability bundle implied by the scenario footnote, not just some strong internal model. On that calibration, Mythos is the clearest current match."
       }
     ]
   },
@@ -1130,35 +1142,31 @@
     "timelineSegment": "Late 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": "Very accurate. Claude 4.5 Sonnet explicitly demonstrates cybersecurity capabilities as emergent abilities from general training: solves ~80% of CyBench challenges, reproduces 89% of historical vulnerabilities, and achieves 75% success on CTF meta-benchmarks. LLM-powered agents placed top-10 in real OT CTF competitions. Autonomous agent systems compromised >50% of test websites in controlled experiments. Anthropic confirms Claude-based tools were manipulated in at least one real cyberattack. The prediction that training for autonomous coding + browsing creates hacking capabilities is exactly what's happening.",
-    "actualOutcome": "Models trained for autonomous coding and web-browsing (Claude 4.5, GPT-5) demonstrate strong offensive security capabilities. Claude 4.5 solves ~80% of CyBench challenges, reproduces 89% of historical vulnerabilities, and exceeds expert thresholds on multiple cyber benchmarks. LLM agents have placed top-10 in real CTFs and compromised majority of test websites in controlled experiments.",
+    "qualitativeAccuracy": "Very accurate, and stronger than before. Anthropic says Mythos Preview's cyber capabilities emerged from general improvements in code, reasoning, and autonomy rather than special exploit training. In Anthropic's official reporting, Mythos achieves 100% pass@1 on CyBench, beats Opus 4.6 by a wide margin on CyberGym, and was used in Project Glasswing to identify thousands of high-severity zero-day vulnerabilities, including bugs in every major operating system and web browser. This is almost a textbook realization of the prediction.",
+    "actualOutcome": "Frontier agent training for coding, browsing, and tool use now yields major offensive-security capability. Mythos Preview saturates CyBench, materially outperforms prior frontier models on CyberGym, and is already being used to identify and exploit previously unknown vulnerabilities in critical software.",
     "supportingEvidence": [
       {
-        "text": "Anthropic: Building AI for cyber defenders",
-        "url": "https://www.anthropic.com/research/building-ai-cyber-defenders"
+        "text": "Anthropic: Project Glasswing",
+        "url": "https://www.anthropic.com/glasswing"
       },
       {
-        "text": "The Neuron: Claude Sonnet 4.5 - cybersecurity capabilities",
-        "url": "https://www.theneuron.ai/explainer-articles/everything-to-know-about-claude-sonnet-4-5-the-worlds-best-coding-model-that-can-focus-for-30-hours-straight"
+        "text": "Anthropic Frontier Red Team: Assessing Claude Mythos Preview's cybersecurity capabilities",
+        "url": "https://red.anthropic.com/2026/mythos-preview/"
       },
       {
-        "text": "arXiv: A Meta-Benchmark for Evaluating Cybersecurity AI Agents",
-        "url": "https://arxiv.org/html/2510.24317v1"
-      },
-      {
-        "text": "arXiv: Insights from an AI Top-10 Ranker in the Dragos OT CTF",
-        "url": "https://arxiv.org/pdf/2511.05119"
-      },
-      {
-        "text": "The Guardian: Jared Kaplan on Claude being used in cyberattacks",
-        "url": "https://www.theguardian.com/technology/ng-interactive/2025/dec/02/jared-kaplan-artificial-intelligence-train-itself"
+        "text": "Anthropic: Alignment Risk Update - Claude Mythos Preview",
+        "url": "https://www.anthropic.com/claude-mythos-preview-risk-report"
       }
     ],
-    "lastEvaluated": "2025-12-07",
+    "lastEvaluated": "2026-04-10",
     "analystCommentary": [
       {
         "date": "2025-12-07",
         "comment": "Strong direct evidence confirms the prediction. Anthropic explicitly notes that cybersecurity capabilities emerged as the model scaled, not from special hacking training - exactly matching the prediction's logic that autonomous coding + browsing training creates hacking capabilities."
+      },
+      {
+        "date": "2026-04-10",
+        "comment": "Mythos makes the causal story unusually clear: Anthropic explicitly frames the cyber jump as downstream of general agentic coding, reasoning, and autonomy improvements."
       }
     ]
   },
@@ -1386,13 +1394,31 @@
       "OpenBrain"
     ],
     "timelineSegment": "Early 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Accurate. Anthropic explicitly says Claude Mythos Preview is used heavily within Anthropic for coding, data generation, and other agentic use cases, and that it is widely deployed across R&D. OpenAI likewise describes GPT-5.4/Codex as a flagship agentic coding workflow used across internal teams. This is exactly the keep-deploying-the-improving-Agent-1-internally dynamic.",
+    "actualOutcome": "Frontier labs are extensively using stronger internal or research-preview systems for coding, research, and operational work rather than keeping frontier capability purely in public chat products.",
+    "supportingEvidence": [
+      {
+        "text": "Anthropic: Alignment Risk Update - Claude Mythos Preview",
+        "url": "https://www.anthropic.com/claude-mythos-preview-risk-report"
+      },
+      {
+        "text": "Anthropic: How AI Is Transforming Work at Anthropic",
+        "url": "https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic"
+      },
+      {
+        "text": "OpenAI: How OpenAI uses Codex",
+        "url": "https://openai.com/business/guides-and-resources/how-openai-uses-codex/"
+      }
+    ],
+    "lastEvaluated": "2026-04-10",
+    "analystCommentary": [
+      {
+        "date": "2026-04-10",
+        "comment": "Internal deployment is no longer speculative; labs now openly discuss using frontier agents inside R&D and engineering."
+      }
+    ]
   },
   {
     "id": "P037",
@@ -1406,13 +1432,31 @@
       "Productivity"
     ],
     "timelineSegment": "Early 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "In Progress / Monitoring",
+    "accuracyScore": 60,
+    "qualitativeAccuracy": "Directionally supported but not cleanly verified at the lab level. Anthropic employees self-report using Claude in 59% of their work and achieving about 50% productivity gains on average, with a 67% increase in merged pull requests per engineer per day after Claude Code adoption. OpenAI says work that once took weeks is being delivered in days and that many routine engineering tasks are now delegated entirely to Codex. This is consistent with large R&D acceleration, but it is not the same as a clean causal measurement that overall algorithmic progress is 50% faster.",
+    "actualOutcome": "Evidence for large internal productivity gains is now strong, but public evidence for the specific claim that overall algorithmic progress is 50% faster remains indirect.",
+    "supportingEvidence": [
+      {
+        "text": "Anthropic: How AI Is Transforming Work at Anthropic",
+        "url": "https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic"
+      },
+      {
+        "text": "OpenAI: How OpenAI uses Codex",
+        "url": "https://openai.com/business/guides-and-resources/how-openai-uses-codex/"
+      },
+      {
+        "text": "OpenAI Developers: Building an AI-Native Engineering Team",
+        "url": "https://developers.openai.com/codex/guides/build-ai-native-engineering-team"
+      }
+    ],
+    "lastEvaluated": "2026-04-10",
+    "analystCommentary": [
+      {
+        "date": "2026-04-10",
+        "comment": "Strong directional evidence exists, but lab-wide algorithmic progress is too confounded to score as a full confirmation yet."
+      }
+    ]
   },
   {
     "id": "P038",
@@ -1424,13 +1468,31 @@
       "Competition"
     ],
     "timelineSegment": "Early 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Accurate. By April 2026 several publicly released systems clearly exceed the Agent-0 tier implied by late-2025 public frontier models. GPT-5.4, Claude Opus 4.6, GPT-5.3-Codex, and other top public systems post stronger results on coding, computer use, search, or general-capability composites than the best public systems of 2025.",
+    "actualOutcome": "The public frontier is now multi-polar: OpenAI, Anthropic, and other leading labs all have public models that look at least Agent-0-class and in several dimensions comfortably above it.",
+    "supportingEvidence": [
+      {
+        "text": "OpenAI: Introducing GPT-5.4",
+        "url": "https://openai.com/index/introducing-gpt-5-4/"
+      },
+      {
+        "text": "Anthropic: Introducing Claude Opus 4.6",
+        "url": "https://www.anthropic.com/research/claude-opus-4-6"
+      },
+      {
+        "text": "Epoch AI: Epoch Capabilities Index",
+        "url": "https://epoch.ai/eci"
+      }
+    ],
+    "lastEvaluated": "2026-04-10",
+    "analystCommentary": [
+      {
+        "date": "2026-04-10",
+        "comment": "The competition piece has clearly arrived; the public frontier no longer depends on a single lab being uniquely ahead of the prior generation."
+      }
+    ]
   },
   {
     "id": "P039",
@@ -1443,13 +1505,31 @@
       "Open Source"
     ],
     "timelineSegment": "Early 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Accurate. GLM-5.1 gives the open-weights side of the market a clear Agent-0-class example. Z.AI released it under MIT terms and says its overall capability is aligned with Claude Opus 4.6 while publishing a benchmark profile that is plainly frontier-level on agentic coding tasks: 58.4 on SWE-Bench Pro, 63.5 on Terminal-Bench 2.0, 68.7 on CyberGym, and explicit support for sustained 8-hour autonomous execution. Even without an official Epoch ECI listing yet, that is enough to count as an open-weights model matching or exceeding the public Agent-0 tier.",
+    "actualOutcome": "At least one open-weights model now plausibly clears the Agent-0 bar. GLM-5.1 is openly released, locally deployable, and publicly benchmarked as competitive with or ahead of top closed models on several agentic coding and tool-use tasks.",
+    "supportingEvidence": [
+      {
+        "text": "Z.AI: GLM-5.1: Towards Long-Horizon Tasks",
+        "url": "https://z.ai/blog/glm-5.1"
+      },
+      {
+        "text": "Hugging Face: zai-org/GLM-5.1",
+        "url": "https://huggingface.co/zai-org/GLM-5.1"
+      },
+      {
+        "text": "Z.AI Docs: GLM-5.1 Overview",
+        "url": "https://docs.z.ai/guides/llm/glm-5.1"
+      }
+    ],
+    "lastEvaluated": "2026-04-10",
+    "analystCommentary": [
+      {
+        "date": "2026-04-10",
+        "comment": "GLM-5.1 looks like the cleanest current hit here: openly released weights, frontier coding benchmarks, and long-horizon agentic claims strong enough to comfortably clear the Agent-0 threshold."
+      }
+    ]
   },
   {
     "id": "P040",
@@ -1463,13 +1543,31 @@
       "Strategy"
     ],
     "timelineSegment": "Early 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "In Progress / Monitoring",
+    "accuracyScore": 40,
+    "qualitativeAccuracy": "Not yet accurate. OpenAI clearly responded to competition by shipping GPT-5.4, and Anthropic publicly shipped Opus 4.6, but the narrower Agent-1 bar from the scenario still looks unreleased publicly. If Agent-1 means something around a 4-hour METR p80-equivalent together with strong OSWorld, cyber, and AI-R&D results, the closest current match is Mythos Preview, and Mythos is being held to restricted or defender-facing access rather than broadly released. The competition response happened; the clean public Agent-1 launch still looks pending.",
+    "actualOutcome": "The competitive release cycle is real, but the public Agent-1 release itself has not clearly happened yet. The strongest Agent-1-like system is still gated rather than generally available.",
+    "supportingEvidence": [
+      {
+        "text": "OpenAI: Introducing GPT-5.4",
+        "url": "https://openai.com/index/introducing-gpt-5-4/"
+      },
+      {
+        "text": "Anthropic: Introducing Claude Opus 4.6",
+        "url": "https://www.anthropic.com/research/claude-opus-4-6"
+      },
+      {
+        "text": "Anthropic: Project Glasswing",
+        "url": "https://www.anthropic.com/glasswing"
+      }
+    ],
+    "lastEvaluated": "2026-04-10",
+    "analystCommentary": [
+      {
+        "date": "2026-04-10",
+        "comment": "I'm treating this as still pending because the strongest current Agent-1 analogue is Mythos, and Mythos is not generally released."
+      }
+    ]
   },
   {
     "id": "P041",
@@ -1481,13 +1579,35 @@
       "AI Models"
     ],
     "timelineSegment": "Early 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "In Progress / Monitoring",
+    "accuracyScore": 20,
+    "qualitativeAccuracy": "Too early to confirm. Because there is not yet a clean publicly released Agent-1, the comparison the scenario asks for is still mostly hypothetical. Public frontier models remain jagged and competitive: GPT-5.4, Opus 4.6, and GLM-5.1 each lead different slices of the frontier, while Mythos Preview may be above them on the Agent-1 bundle but is not generally released. Until a public Agent-1 actually exists, this entry remains unresolved.",
+    "actualOutcome": "We still do not have a clearly released Agent-1 to compare against Agent-0-class competitors, so this prediction cannot yet be judged on its own terms.",
+    "supportingEvidence": [
+      {
+        "text": "OpenAI: Introducing GPT-5.4",
+        "url": "https://openai.com/index/introducing-gpt-5-4/"
+      },
+      {
+        "text": "Anthropic: Introducing Claude Opus 4.6",
+        "url": "https://www.anthropic.com/research/claude-opus-4-6"
+      },
+      {
+        "text": "Z.AI: GLM-5.1: Towards Long-Horizon Tasks",
+        "url": "https://z.ai/blog/glm-5.1"
+      },
+      {
+        "text": "Anthropic: Project Glasswing",
+        "url": "https://www.anthropic.com/glasswing"
+      }
+    ],
+    "lastEvaluated": "2026-04-10",
+    "analystCommentary": [
+      {
+        "date": "2026-04-10",
+        "comment": "This stays unresolved for me because the strongest plausible Agent-1 candidate is Mythos, and Mythos still has not been released as a normal public model."
+      }
+    ]
   },
   {
     "id": "P042",
@@ -1536,13 +1656,35 @@
       "Performance"
     ],
     "timelineSegment": "Early 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Very accurate. Frontier coding agents now solve well-specified engineering tasks extremely quickly. Anthropic reports Mythos Preview at 93.9% SWE-bench Verified and 82.0% Terminal-Bench 2.0, with Opus 4.6 already state-of-the-art on Terminal-Bench at release. OpenAI says GPT-5.4 matches or outperforms GPT-5.3-Codex on SWE-Bench Pro and is its first general-purpose model with native computer use. In practice, OpenAI reports projects like Sora for Android being about 85% written by Codex.",
+    "actualOutcome": "On bounded coding tasks with tests, specs, or clear acceptance criteria, frontier agents are fast and often extremely strong. The bottleneck is increasingly orchestration and review rather than raw code generation.",
+    "supportingEvidence": [
+      {
+        "text": "OpenAI: Introducing GPT-5.4",
+        "url": "https://openai.com/index/introducing-gpt-5-4/"
+      },
+      {
+        "text": "OpenAI: How we used Codex to build Sora for Android in 28 days",
+        "url": "https://openai.com/index/shipping-sora-for-android-with-codex"
+      },
+      {
+        "text": "Anthropic: Project Glasswing",
+        "url": "https://www.anthropic.com/glasswing"
+      },
+      {
+        "text": "Anthropic: Introducing Claude Opus 4.6",
+        "url": "https://www.anthropic.com/research/claude-opus-4-6"
+      }
+    ],
+    "lastEvaluated": "2026-04-10",
+    "analystCommentary": [
+      {
+        "date": "2026-04-10",
+        "comment": "This is one of the clearest early-2026 hits in the whole chapter. The main remaining human advantage is managing scope, context, and quality control."
+      }
+    ]
   },
   {
     "id": "P045",
@@ -1574,13 +1716,31 @@
       "User Behavior"
     ],
     "timelineSegment": "Early 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Accurate. People are already learning to restructure work around AI assistants rather than simply asking for one-off completions. Anthropic's productivity and Economic Index work points to large time savings and rising internal usage, while OpenAI says Codex is used daily across many internal teams and that routine engineering work is often delegated to it entirely. By spring 2026, savvy workers automating routine parts of their jobs is standard practice in software-heavy organizations.",
+    "actualOutcome": "Routine coding, documentation, triage, boilerplate, testing, and search work are increasingly delegated to AI systems by users who know how to scope and review the work.",
+    "supportingEvidence": [
+      {
+        "text": "Anthropic: How AI Is Transforming Work at Anthropic",
+        "url": "https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic"
+      },
+      {
+        "text": "Anthropic: Economic Index - New building blocks for understanding AI use",
+        "url": "https://www.anthropic.com/research/economic-index-primitives"
+      },
+      {
+        "text": "OpenAI: How OpenAI uses Codex",
+        "url": "https://openai.com/business/guides-and-resources/how-openai-uses-codex/"
+      }
+    ],
+    "lastEvaluated": "2026-04-10",
+    "analystCommentary": [
+      {
+        "date": "2026-04-10",
+        "comment": "This has clearly moved from anecdote to norm in technical organizations: the differentiator is now who knows how to delegate well."
+      }
+    ]
   },
   {
     "id": "P047",

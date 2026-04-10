@@ -4,6 +4,14 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route, useNavigate, useParams, useLocation } from 'react-router-dom';
 import predictionsData from './data/predictions.json';
 import blogPostsData from './data/blogPosts.json';
+import {
+  DANIEL_CURVE_P80_SERIES,
+  ECI_EXTRAPOLATED_P80_POINTS,
+  METR_PROGRESS_DOMAIN,
+  METR_PROGRESS_SNAPSHOT,
+  PUBLISHED_METR_P80_POINTS,
+  TODAY_REFERENCE_DATE,
+} from './data/metrProgress';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -13,42 +21,36 @@ export const useTheme = () => useContext(ThemeContext);
 
 // --- Color Palettes ---
 const lightColors = {
-  background: 'bg-[#F8F5F2]', 
-  textPrimary: 'text-[#4A4441]', 
-  textSecondary: 'text-[#7d746f]',
-  accentGreen: 'text-emerald-700',
-  bgAccentGreen: 'bg-emerald-700',
-  hoverBgAccentGreen: 'hover:bg-emerald-800',
-  borderMuted: 'border-gray-300', 
+  background: 'bg-[#fafafa]',
+  textPrimary: 'text-[#1d1d1f]',
+  textSecondary: 'text-[#86868b]',
+  accentGreen: 'text-emerald-600',
+  bgAccentGreen: 'bg-emerald-600',
+  hoverBgAccentGreen: 'hover:bg-emerald-700',
+  borderMuted: 'border-[#d2d2d7]',
   cardBackground: 'bg-white',
-  navbarBackground: 'bg-[#F8F5F2]/80 backdrop-blur-lg shadow-sm',
-  footerBackground: 'bg-gray-100',
-  // Specific for Tailwind prose dark mode (these are base colors, dark mode will invert)
-  proseText: 'text-gray-700', // Example, adjust as needed
-  proseHeadings: 'text-gray-900',
+  navbarBackground: 'bg-[#fafafa]/80 backdrop-blur-xl border-b border-[#d2d2d7]/60',
+  footerBackground: 'bg-[#f5f5f7]',
+  proseText: 'text-[#1d1d1f]',
+  proseHeadings: 'text-[#1d1d1f]',
   proseLinks: 'text-emerald-600',
 };
 
 const darkColors = {
-  background: 'bg-neutral-900',      // Dark background
-  textPrimary: 'text-neutral-200',   // Light text
-  textSecondary: 'text-neutral-400', // Muted light text
-  accentGreen: 'text-emerald-500', // Slightly brighter green for dark bg
-  bgAccentGreen: 'bg-emerald-600',
-  hoverBgAccentGreen: 'hover:bg-emerald-700',
-  borderMuted: 'border-neutral-700', // Darker border
-  cardBackground: 'bg-neutral-800',  // Dark card background
-  navbarBackground: 'bg-neutral-900/80 backdrop-blur-lg shadow-sm', // Dark navbar
-  footerBackground: 'bg-neutral-800', // Dark footer
-  proseText: 'text-neutral-300',
-  proseHeadings: 'text-neutral-100',
+  background: 'bg-[#0a0a0a]',
+  textPrimary: 'text-[#f5f5f7]',
+  textSecondary: 'text-[#86868b]',
+  accentGreen: 'text-emerald-400',
+  bgAccentGreen: 'bg-emerald-500',
+  hoverBgAccentGreen: 'hover:bg-emerald-600',
+  borderMuted: 'border-[#38383d]',
+  cardBackground: 'bg-[#161617]',
+  navbarBackground: 'bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-[#38383d]/60',
+  footerBackground: 'bg-[#161617]',
+  proseText: 'text-[#f5f5f7]',
+  proseHeadings: 'text-[#f5f5f7]',
   proseLinks: 'text-emerald-400',
 };
-
-// Helper function to get current theme's colors
-// This is not strictly needed if components use useTheme and select colors directly,
-// but can be a utility if some logic needs to access colors outside components directly.
-// For now, we'll have components use `useTheme` to get the active color palette.
 
 // --- Helper Functions ---
 const formatDate = (dateString) => {
@@ -60,6 +62,39 @@ const formatDate = (dateString) => {
     return dateString; // Return original string if parsing fails
   }
 };
+
+const parseUtcDate = (dateString) => Date.parse(`${dateString}T00:00:00Z`);
+
+const formatCompactMetrHours = (hours) => {
+  if (hours < 1 / 60) {
+    return `${Math.round(hours * 3600)} sec`;
+  }
+
+  if (hours < 1) {
+    const minutes = hours * 60;
+    return `${minutes >= 10 ? minutes.toFixed(0) : minutes.toFixed(1)} min`;
+  }
+
+  if (hours < 24) {
+    return `${hours >= 10 ? hours.toFixed(1) : hours.toFixed(2).replace(/\.00$/, '').replace(/(\.\d)0$/, '$1')} h`;
+  }
+
+  const days = hours / 24;
+  return `${days >= 10 ? days.toFixed(1) : days.toFixed(2).replace(/\.00$/, '').replace(/(\.\d)0$/, '$1')} d`;
+};
+
+const formatMonthYear = (dateString) =>
+  new Date(`${dateString}T00:00:00Z`).toLocaleDateString('en-US', {
+    month: 'short',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
+
+const formatYear = (dateString) =>
+  new Date(`${dateString}T00:00:00Z`).toLocaleDateString('en-US', {
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
 
 const getStatusClasses = (status, isDarkMode) => {
   // Base classes that don't change with theme much
@@ -88,44 +123,42 @@ const SearchIcon = () => (
 );
 
 
-// --- Reusable UI Components (Styled with Tailwind) ---
+// --- Reusable UI Components ---
 const Card = forwardRef(({ children, className = '', hoverable = false }, ref) => {
   const { activeColors } = useTheme();
-  const hoverEffects = hoverable ? 'transition-all duration-300 hover:shadow-lg hover:-tranneutral-y-1' : '';
+  const hoverEffects = hoverable ? 'transition-all duration-300 hover:shadow-md hover:-translate-y-0.5' : '';
   return (
-    <div ref={ref} className={`${activeColors.cardBackground} rounded-xl shadow-sm border ${activeColors.borderMuted} ${hoverEffects} ${className}`}>
-    {children}
-  </div>
-);
+    <div ref={ref} className={`${activeColors.cardBackground} rounded-2xl border ${activeColors.borderMuted} ${hoverEffects} ${className}`}>
+      {children}
+    </div>
+  );
 });
-// Adjusted CardHeader padding for potentially more compact cards
-const CardHeader = ({ children, className = '' }) => <div className={`p-4 sm:p-5 ${className}`}>{children}</div>;
+const CardHeader = ({ children, className = '' }) => <div className={`px-5 pt-5 pb-3 sm:px-6 sm:pt-6 ${className}`}>{children}</div>;
 const CardTitle = ({ children, className = '', size = 'lg' }) => {
     const { activeColors } = useTheme();
-    const sizeClass = size === 'lg' ? 'text-lg' : 'text-base'; // Allow smaller title for compact cards
-    return <h3 className={`font-serif font-semibold ${activeColors.textPrimary} ${sizeClass} ${className}`} style={{ fontFamily: 'Georgia, Times, serif' }}>{children}</h3>;
+    const sizeClass = size === 'lg' ? 'text-base' : 'text-sm';
+    return <h3 className={`font-semibold tracking-tight ${activeColors.textPrimary} ${sizeClass} ${className}`}>{children}</h3>;
 };
 const CardDescription = ({ children, className = '' }) => {
     const { activeColors } = useTheme();
-    return <p className={`text-xs sm:text-sm ${activeColors.textSecondary} ${className}`}>{children}</p>;
+    return <p className={`text-[13px] leading-relaxed ${activeColors.textSecondary} ${className}`}>{children}</p>;
 };
-// Adjusted CardContent padding
-const CardContent = ({ children, className = '' }) => <div className={`p-4 sm:p-5 pt-0 ${className}`}>{children}</div>;
+const CardContent = ({ children, className = '' }) => <div className={`px-5 pb-5 sm:px-6 sm:pb-6 ${className}`}>{children}</div>;
 
 
 const Button = ({ children, variant = 'primary', size = 'md', className = '', onClick, asChild = false, href, target, rel }) => {
   const { activeColors } = useTheme();
-  const sizeClasses = size === 'lg' ? 'px-6 py-3 text-base' : size === 'sm' ? 'px-3 py-1.5 text-xs' : 'px-4 py-2 text-sm';
-  const baseClasses = `font-semibold rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-95 ${sizeClasses} inline-flex items-center justify-center`; // Added inline-flex and justify-center
+  const sizeClasses = size === 'lg' ? 'px-7 py-3 text-[15px]' : size === 'sm' ? 'px-3.5 py-1.5 text-xs' : 'px-5 py-2.5 text-[13px]';
+  const baseClasses = `font-medium rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-[0.97] ${sizeClasses} inline-flex items-center justify-center`;
   let variantClasses = '';
 
   switch (variant) {
     case 'outline':
-      variantClasses = `border ${activeColors.borderMuted} ${activeColors.textPrimary} hover:bg-gray-100 dark:hover:bg-neutral-700 focus:ring-gray-400 dark:focus:ring-neutral-500`;
+      variantClasses = `border ${activeColors.borderMuted} ${activeColors.textPrimary} hover:bg-black/[0.03] dark:hover:bg-white/[0.04] focus-visible:ring-neutral-400`;
       break;
     case 'primary': 
     default:
-      variantClasses = `${activeColors.bgAccentGreen} text-white ${activeColors.hoverBgAccentGreen} focus:ring-emerald-500`;
+      variantClasses = `${activeColors.bgAccentGreen} text-white ${activeColors.hoverBgAccentGreen} focus-visible:ring-emerald-500 shadow-sm`;
       break;
   }
   
@@ -147,7 +180,7 @@ const Button = ({ children, variant = 'primary', size = 'md', className = '', on
 // Modified Input to handle 'select' type better for styling consistency
 const Input = ({ type = 'text', placeholder, value, onChange, className = '', children, as }) => {
   const { activeColors } = useTheme();
-  const commonClasses = `w-full p-2.5 border ${activeColors.borderMuted} rounded-lg text-sm ${activeColors.textPrimary} bg-transparent dark:bg-neutral-700 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 placeholder:text-gray-400 dark:placeholder:text-neutral-500 transition-shadow duration-200`;
+  const commonClasses = `w-full px-3 py-2 border ${activeColors.borderMuted} rounded-xl text-[13px] ${activeColors.textPrimary} bg-transparent dark:bg-[#1c1c1e] focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500/60 placeholder:text-[#86868b] transition-all duration-200`;
   if (as === 'select') {
     return (
       <select value={value} onChange={onChange} className={`${commonClasses} ${className} appearance-none`}>
@@ -170,13 +203,13 @@ const Input = ({ type = 'text', placeholder, value, onChange, className = '', ch
 const Progress = ({ value, className = '' }) => {
   const { activeColors } = useTheme();
   return (
-    <div className={`w-full bg-gray-200 dark:bg-neutral-700 rounded-full h-2.5 overflow-hidden ${className}`}>
-      <div 
-        className={`${activeColors.bgAccentGreen} h-2.5 rounded-full transition-all duration-1000 ease-out`} 
+    <div className={`w-full rounded-full h-1.5 overflow-hidden bg-black/[0.06] dark:bg-white/[0.08] ${className}`}>
+      <div
+        className={`${activeColors.bgAccentGreen} h-1.5 rounded-full transition-all duration-1000 ease-out`}
         style={{ width: `${value}%` }}
-      ></div>
-  </div>
-);
+      />
+    </div>
+  );
 };
 
 // --- Components ---
@@ -200,24 +233,22 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`sticky top-0 z-20 flex items-center justify-between border-b ${activeColors.borderMuted} ${activeColors.navbarBackground} px-4 sm:px-6 py-3.5`}>
-      <h1 
-        className={`font-serif text-lg sm:text-xl font-bold tracking-tight cursor-pointer ${activeColors.textPrimary}`}
+    <nav className={`sticky top-0 z-20 flex items-center justify-between ${activeColors.navbarBackground} px-5 sm:px-8 py-3`}>
+      <h1
+        className={`text-[15px] font-semibold tracking-tight cursor-pointer ${activeColors.textPrimary}`}
         onClick={() => handleNavClick('/')}
-        style={{ fontFamily: 'Georgia, Times, serif' }}
       >
-        <span>AI 2027</span>&nbsp;
-        <span className={`${activeColors.accentGreen}`}>Tracker</span>
+        AI 2027 <span className={activeColors.accentGreen}>Tracker</span>
       </h1>
       
       <div className="flex items-center">
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-5 mr-4"> 
+        <div className="hidden md:flex items-center gap-5 mr-4">
         {navItems.map((item) => (
           <button
             key={item.page}
-              onClick={() => handleNavClick(item.page)}
-              className={`font-medium text-xs sm:text-sm ${activeColors.textPrimary} transition hover:${activeColors.accentGreen}`}
+            onClick={() => handleNavClick(item.page)}
+            className={`text-[13px] font-medium ${activeColors.textSecondary} transition-colors hover:${activeColors.textPrimary}`}
           >
             {item.name}
           </button>
@@ -284,15 +315,14 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Panel */}
       {isMobileMenuOpen && (
-        <div className={`md:hidden absolute top-full left-0 right-0 ${activeColors.navbarBackground} border-b ${activeColors.borderMuted} shadow-lg py-2 z-30`}>
-          <div className="flex flex-col space-y-1 px-4">
+        <div className={`md:hidden absolute top-full left-0 right-0 ${activeColors.cardBackground} border-b ${activeColors.borderMuted} py-2 z-30`} style={{ backdropFilter: 'blur(20px)' }}>
+          <div className="flex flex-col px-5">
             {navItems.map((item) => (
               <button
                 key={item.page}
                 onClick={() => handleNavClick(item.page)}
-                className={`block w-full text-left py-2 px-3 rounded-md text-sm font-medium ${activeColors.textPrimary} hover:bg-gray-100 dark:hover:bg-neutral-700 hover:${activeColors.accentGreen} transition`}
+                className={`w-full text-left py-2 text-[13px] font-medium ${activeColors.textSecondary} hover:${activeColors.textPrimary} transition-colors`}
               >
                 {item.name}
               </button>
@@ -301,12 +331,12 @@ const Navbar = () => {
               href="https://x.com/spicey_lemonade"
               target="_blank"
               rel="noopener noreferrer"
-              className={`block w-full text-left py-2 px-3 rounded-md text-sm font-medium ${activeColors.textPrimary} hover:bg-gray-100 dark:hover:bg-neutral-700 hover:${activeColors.accentGreen} transition flex items-center space-x-2`}
+              className={`flex items-center gap-2 py-2 text-[13px] font-medium ${activeColors.textSecondary}`}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
               </svg>
-              <span>@spicey_lemonade</span>
+              @spicey_lemonade
             </a>
           </div>
         </div>
@@ -318,15 +348,14 @@ const Navbar = () => {
 const Footer = () => {
   const { activeColors } = useTheme();
   return (
-    <footer className={`border-t ${activeColors.borderMuted} ${activeColors.footerBackground} py-8 text-center text-sm ${activeColors.textSecondary}`}>
-      <p>© {new Date().getFullYear()} AI 2027 Prediction Tracker.</p>
-      <p className="mt-1">Inspired by the AI 2027 scenario. For analytical purposes.</p>
+    <footer className={`border-t ${activeColors.borderMuted} ${activeColors.footerBackground} py-6 text-center`}>
+      <p className={`text-[12px] ${activeColors.textSecondary}`}>© {new Date().getFullYear()} AI 2027 Tracker &middot; For analytical purposes</p>
     </footer>
   );
 };
 
 // PredictionCard specifically for Timeline (more compact)
-const TimelinePredictionCard = ({ prediction, setCurrentPage, setSelectedPredictionId }) => {
+const TimelinePredictionCard = ({ prediction }) => {
   const cardRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const { activeColors, isDarkMode } = useTheme();
@@ -368,7 +397,7 @@ const TimelinePredictionCard = ({ prediction, setCurrentPage, setSelectedPredict
     // Add ref and dynamic classes for animation
     <Card 
       ref={cardRef}
-      className={`flex flex-col transition-all duration-700 ease-out ${isVisible ? 'opacity-100 tranneutral-y-0' : 'opacity-0 tranneutral-y-4'}`}
+      className={`flex flex-col transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
     >
       <CardHeader className="flex-1 !p-3 sm:!p-4"> {/* Reduced padding */}
         <CardTitle size="sm" className="line-clamp-2 !text-sm sm:!text-base">{prediction.text}</CardTitle> {/* Smaller title, tighter clamp */}
@@ -396,34 +425,32 @@ const TimelinePredictionCard = ({ prediction, setCurrentPage, setSelectedPredict
 
 
 // General PredictionCard (used on Homepage, AllPredictions)
-const PredictionCard = ({ prediction, setCurrentPage, setSelectedPredictionId }) => {
+const PredictionCard = ({ prediction }) => {
   const { activeColors, isDarkMode } = useTheme();
   const navigate = useNavigate();
 
-  const handleReadMore = () => {
-    navigate(`/prediction/${prediction.id}`);
-  };
-
   return (
-    <Card className="flex flex-col h-full" hoverable={true}>
+    <Card className="flex flex-col h-full group" hoverable={true}>
       <CardHeader className="flex-1">
-        <CardTitle className="line-clamp-3 text-base">{prediction.text}</CardTitle>
-        <CardDescription className="mt-1.5 text-xs">{prediction.predictedDate} - {prediction.originalScenario}</CardDescription>
+        <CardTitle className="line-clamp-3 text-[14px] leading-snug">{prediction.text}</CardTitle>
+        <CardDescription className="mt-2">{prediction.predictedDate}</CardDescription>
       </CardHeader>
       <CardContent>
-        <span className={`inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold border ${getStatusClasses(prediction.status, isDarkMode)}`}>
-           {prediction.status || 'Pending'} {/* Show pending if status is null */}
-        </span>
-        {prediction.accuracyScore !== null && (
-          <span className={`ml-2 inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold border bg-indigo-100 dark:bg-indigo-700/30 text-indigo-700 dark:text-indigo-300 border-indigo-300 dark:border-indigo-600`}>
-            Acc: {prediction.accuracyScore}%
+        <div className="flex flex-wrap items-center gap-1.5">
+          <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-medium border ${getStatusClasses(prediction.status, isDarkMode)}`}>
+            {prediction.status || 'Pending'}
           </span>
-        )}
-         <button 
-            onClick={handleReadMore}
-            className={`block mt-3 text-sm ${activeColors.accentGreen} hover:underline font-semibold`}
+          {prediction.accuracyScore !== null && (
+            <span className="inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-medium border border-[#d2d2d7] dark:border-[#38383d] text-[#86868b]">
+              {prediction.accuracyScore}%
+            </span>
+          )}
+        </div>
+        <button
+          onClick={() => navigate(`/prediction/${prediction.id}`)}
+          className={`mt-3 text-[13px] font-medium ${activeColors.accentGreen} hover:underline`}
         >
-            View Details &rarr;
+          Details &rarr;
         </button>
       </CardContent>
     </Card>
@@ -431,30 +458,190 @@ const PredictionCard = ({ prediction, setCurrentPage, setSelectedPredictionId })
 };
 
 
-const BlogCard = ({ post, setCurrentPage, setSelectedPostId }) => {
+const BlogCard = ({ post }) => {
     const { activeColors } = useTheme();
     const navigate = useNavigate();
 
-    const handleReadMore = () => {
-        navigate(`/blog/${post.id}`);
-    };
     return (
-        <Card className="flex flex-col h-full" hoverable={true}>
+        <Card className="flex flex-col h-full group" hoverable={true}>
             <CardHeader className="flex-1">
-                <CardTitle className="text-lg">{post.title}</CardTitle>
-                <CardDescription className="mt-1 text-xs">By {post.author} on {formatDate(post.date)}</CardDescription>
+                <CardTitle className="text-[14px] leading-snug">{post.title}</CardTitle>
+                <CardDescription className="mt-1.5">{post.author} &middot; {formatDate(post.date)}</CardDescription>
             </CardHeader>
             <CardContent>
-                <p className={`${activeColors.textPrimary} text-sm mb-3 line-clamp-3`}>{post.summary}</p>
+                <p className={`${activeColors.textSecondary} text-[13px] leading-relaxed mb-3 line-clamp-3`}>{post.summary}</p>
                 <button
-                    onClick={handleReadMore}
-                    className={`text-sm ${activeColors.accentGreen} hover:underline font-semibold`}
+                    onClick={() => navigate(`/blog/${post.id}`)}
+                    className={`text-[13px] font-medium ${activeColors.accentGreen} hover:underline`}
                 >
-                    Read More &rarr;
+                    Read &rarr;
                 </button>
             </CardContent>
         </Card>
     );
+};
+
+const MetrProgressChart = () => {
+  const { activeColors, isDarkMode } = useTheme();
+  const [showDanielCurve, setShowDanielCurve] = useState(true);
+  const [showPublishedMetr, setShowPublishedMetr] = useState(true);
+  const [showEciExtrapolations, setShowEciExtrapolations] = useState(true);
+
+  const c = useMemo(() => ({
+    bg: isDarkMode ? '#0a0a0a' : '#fafafa',
+    axis: isDarkMode ? '#38383d' : '#d2d2d7',
+    grid: isDarkMode ? '#1c1c1e' : '#f0f0f2',
+    curve: isDarkMode ? '#ff453a' : '#e63329',
+    published: isDarkMode ? '#64d2ff' : '#0071e3',
+    extrapolated: isDarkMode ? '#30d158' : '#28a745',
+    label: isDarkMode ? '#86868b' : '#86868b',
+    text: isDarkMode ? '#f5f5f7' : '#1d1d1f',
+    today: isDarkMode ? '#48484a' : '#c7c7cc',
+  }), [isDarkMode]);
+
+  const W = 880;
+  const H = 380;
+  const pad = { t: 16, r: 20, b: 44, l: 58 };
+  const iW = W - pad.l - pad.r;
+  const iH = H - pad.t - pad.b;
+
+  const xMin = parseUtcDate(METR_PROGRESS_DOMAIN.startDate);
+  const xMax = parseUtcDate(METR_PROGRESS_DOMAIN.endDate);
+  const yMinLog = Math.log10(METR_PROGRESS_DOMAIN.minHours);
+  const yMaxLog = Math.log10(METR_PROGRESS_DOMAIN.maxHours);
+
+  const sx = (d) => pad.l + (((parseUtcDate(d) - xMin) / (xMax - xMin)) * iW);
+  const sy = (h) => pad.t + ((1 - ((Math.log10(h) - yMinLog) / (yMaxLog - yMinLog))) * iH);
+  const linePath = (pts) => pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${sx(p.releaseDate)},${sy(p.hours)}`).join(' ');
+
+  const yTicks = [8 / 3600, 30 / 3600, 5 / 60, 0.5, 2, 8, 24, 96, 192];
+  const xTicks = ['2021-01-01', '2022-01-01', '2023-01-01', '2024-01-01', '2025-01-01', '2026-01-01', '2027-01-01'];
+  const todayX = sx(TODAY_REFERENCE_DATE);
+  const danielCurveTodayY = sy(METR_PROGRESS_SNAPSHOT.danielCurveToday.hours);
+
+  const toggles = [
+    { id: 'daniel', label: "Daniel's curve", color: c.curve, active: showDanielCurve, toggle: () => setShowDanielCurve(v => !v) },
+    { id: 'published', label: 'Published METR', color: c.published, active: showPublishedMetr, toggle: () => setShowPublishedMetr(v => !v) },
+    { id: 'extrapolated', label: 'ECI extrapolated', color: c.extrapolated, active: showEciExtrapolations, toggle: () => setShowEciExtrapolations(v => !v) },
+  ];
+
+  const StatBlock = ({ label, value, sub }) => (
+    <div className="flex-1 min-w-0">
+      <p className={`text-[11px] font-medium uppercase tracking-wider ${activeColors.textSecondary}`}>{label}</p>
+      <p className={`mt-1 text-2xl font-semibold tracking-tight ${activeColors.textPrimary}`}>{value}</p>
+      <p className={`mt-0.5 text-[12px] ${activeColors.textSecondary}`}>{sub}</p>
+    </div>
+  );
+
+  return (
+    <div className="space-y-6">
+      <div>
+        <h3 className={`text-xl font-semibold tracking-tight ${activeColors.textPrimary}`}>
+          Task-Horizon Progress
+        </h3>
+        <p className={`mt-1 text-[13px] leading-relaxed ${activeColors.textSecondary} max-w-2xl`}>
+          A general long-horizon progress chart combining published METR p80 results, Daniel&apos;s curve, and ECI-based extrapolations on the same log scale.
+        </p>
+      </div>
+
+      <div className="flex flex-wrap gap-1.5">
+        {toggles.map((t) => (
+          <button
+            key={t.id}
+            type="button"
+            onClick={t.toggle}
+            aria-pressed={t.active}
+            className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[12px] font-medium transition-all duration-200"
+            style={{
+              color: t.active ? t.color : (isDarkMode ? '#86868b' : '#86868b'),
+              backgroundColor: t.active ? (isDarkMode ? `${t.color}14` : `${t.color}0a`) : 'transparent',
+              border: `1px solid ${t.active ? `${t.color}40` : (isDarkMode ? '#38383d' : '#d2d2d7')}`,
+              opacity: t.active ? 1 : 0.7,
+            }}
+          >
+            <span className="h-[7px] w-[7px] rounded-full" style={{ backgroundColor: t.color, opacity: t.active ? 1 : 0.4 }} />
+            {t.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="overflow-hidden rounded-2xl" style={{ border: `1px solid ${isDarkMode ? '#38383d' : '#d2d2d7'}` }}>
+        <svg viewBox={`0 0 ${W} ${H}`} className="block h-auto w-full" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif' }}>
+          <rect width={W} height={H} fill={c.bg} />
+
+          {yTicks.map((tick) => (
+            <g key={tick}>
+              <line x1={pad.l} y1={sy(tick)} x2={W - pad.r} y2={sy(tick)} stroke={c.grid} strokeWidth="1" />
+              <text x={pad.l - 8} y={sy(tick) + 4} fill={c.label} fontSize="10" textAnchor="end" fontWeight="500">{formatCompactMetrHours(tick)}</text>
+            </g>
+          ))}
+
+          {xTicks.map((tick) => (
+            <g key={tick}>
+              <line x1={sx(tick)} y1={pad.t} x2={sx(tick)} y2={H - pad.b} stroke={c.grid} strokeWidth="1" />
+              <text x={sx(tick)} y={H - pad.b + 20} fill={c.label} fontSize="10" textAnchor="middle" fontWeight="500">{formatYear(tick)}</text>
+            </g>
+          ))}
+
+          <line x1={todayX} y1={pad.t} x2={todayX} y2={H - pad.b} stroke={c.today} strokeWidth="1" strokeDasharray="3 4" />
+          <text x={todayX} y={H - pad.b + 34} fill={c.label} fontSize="9" textAnchor="middle" fontWeight="600">TODAY</text>
+
+          {showDanielCurve && (
+            <>
+              <path d={linePath(DANIEL_CURVE_P80_SERIES)} fill="none" stroke={c.curve} strokeWidth="2.5" strokeLinecap="round" opacity="0.85" />
+              <circle cx={todayX} cy={danielCurveTodayY} r="4" fill={c.curve} />
+              <text
+                x={Math.min(todayX + 10, W - pad.r - 72)}
+                y={danielCurveTodayY - 10}
+                fill={c.curve}
+                fontSize="9"
+                fontWeight="600"
+                opacity="0.85"
+              >
+                Daniel&apos;s curve
+              </text>
+            </>
+          )}
+
+          {showPublishedMetr && (
+            <>
+              {PUBLISHED_METR_P80_POINTS.map((p) => (
+                <circle key={p.id} cx={sx(p.releaseDate)} cy={sy(p.hours)} r={p.showLabel ? 3.5 : 2.5} fill={c.published} opacity={p.showLabel ? 0.9 : 0.5} />
+              ))}
+              {PUBLISHED_METR_P80_POINTS.filter((p) => p.showLabel).map((p) => (
+                <text key={`${p.id}-l`} x={sx(p.releaseDate) + (p.labelDx || 0)} y={sy(p.hours) + (p.labelDy || 0)} fill={c.published} fontSize="9" fontWeight="600" opacity="0.85">{p.label}</text>
+              ))}
+            </>
+          )}
+
+          {showEciExtrapolations && ECI_EXTRAPOLATED_P80_POINTS.map((p) => {
+            const px = sx(p.releaseDate), py = sy(p.hours);
+            return (
+              <g key={p.id}>
+                <polygon points={`${px},${py - 5.5} ${px + 5.5},${py} ${px},${py + 5.5} ${px - 5.5},${py}`} fill={c.extrapolated} opacity="0.9" />
+                <text x={px + (p.labelDx || 0)} y={py + (p.labelDy || 0)} fill={c.extrapolated} fontSize="9" fontWeight="600" opacity="0.85">{p.label}</text>
+              </g>
+            );
+          })}
+
+          <text x={W / 2} y={H - 6} fill={c.label} fontSize="10" textAnchor="middle" fontWeight="500">Release date</text>
+          <text transform={`translate(14 ${H / 2}) rotate(-90)`} fill={c.label} fontSize="10" textAnchor="middle" fontWeight="500">p80 horizon (hours, log)</text>
+        </svg>
+      </div>
+
+      <div className="grid grid-cols-3 gap-4">
+        <StatBlock label="Daniel curve" value={formatCompactMetrHours(METR_PROGRESS_SNAPSHOT.danielCurveToday.hours)} sub={`${formatMonthYear(TODAY_REFERENCE_DATE)} level`} />
+        <StatBlock label="Best published" value={formatCompactMetrHours(METR_PROGRESS_SNAPSHOT.bestPublished.hours)} sub={METR_PROGRESS_SNAPSHOT.bestPublished.label} />
+        <StatBlock label="ECI extrap." value={formatCompactMetrHours(METR_PROGRESS_SNAPSHOT.mythosExtrapolation.hours)} sub={`${METR_PROGRESS_SNAPSHOT.mythosExtrapolation.label} · ECI ${METR_PROGRESS_SNAPSHOT.mythosExtrapolation.eci}`} />
+      </div>
+
+      <p className={`text-[11px] leading-relaxed ${activeColors.textSecondary}`}>
+        Published points from <a href="https://metr.org/time-horizons/" target="_blank" rel="noopener noreferrer" className="underline decoration-current/30 hover:decoration-current">METR Time Horizons</a>.
+        Extrapolations via <a href="https://epoch.ai/eci" target="_blank" rel="noopener noreferrer" className="underline decoration-current/30 hover:decoration-current">Epoch ECI</a> overlap fit.
+        Daniel&apos;s curve uses the piecewise decimal-year reconstruction you provided.
+      </p>
+    </div>
+  );
 };
 
 const HomePage = ({ predictions, posts }) => {
@@ -462,7 +649,7 @@ const HomePage = ({ predictions, posts }) => {
   const navigate = useNavigate();
 
   const recentlyEvaluated = predictions
-    .filter(p => p.lastEvaluated)
+    .filter(p => p.lastEvaluated && p.timelineSegment?.includes('2026'))
     .sort((a, b) => new Date(b.lastEvaluated) - new Date(a.lastEvaluated))
     .slice(0, 3);
 
@@ -479,93 +666,83 @@ const HomePage = ({ predictions, posts }) => {
   const evaluatedPercent = totalPredictions > 0 ? Math.round((evaluatedPredictionsCount / totalPredictions) * 100) : 0;
 
   return (
-    <div className={`container mx-auto px-4 sm:px-6 py-8 ${activeColors.textPrimary}`}>
+    <div className={`mx-auto max-w-5xl px-5 sm:px-8 py-8 ${activeColors.textPrimary}`}>
       {/* HERO */}
-      <section className="mx-auto max-w-4xl space-y-6 py-16 sm:py-24 text-center animate-fade-in-up">
-        <h2 className={`font-serif text-4xl sm:text-6xl font-bold leading-tight ${activeColors.textPrimary} tracking-tight`} style={{ fontFamily: 'Georgia, Times, serif' }}>
-          AI 2027 <span className="text-emerald-700 dark:text-emerald-500">Prediction Tracker</span>
+      <section className="mx-auto max-w-3xl space-y-5 py-20 sm:py-28 text-center animate-fade-in-up">
+        <h2 className={`text-4xl sm:text-5xl font-semibold tracking-tight leading-[1.1] ${activeColors.textPrimary}`}>
+          AI 2027 <span className={activeColors.accentGreen}>Tracker</span>
         </h2>
-        <p className={`mx-auto max-w-2xl text-lg sm:text-xl ${activeColors.textSecondary} leading-relaxed`}>
-          Tracking the future of AI, one prediction at a time. How accurate is the 
-          <em className="mx-1 font-serif italic">AI 2027</em> scenario?
+        <p className={`mx-auto max-w-xl text-[17px] leading-relaxed ${activeColors.textSecondary}`}>
+          How accurate is the <em>AI 2027</em> scenario? We track each prediction against reality.
         </p>
-        <div className="pt-4">
-          <Button 
-              asChild 
-              size="lg" 
-              className="rounded-xl shadow-lg hover:shadow-xl transition-all hover:-tranneutral-y-0.5"
-          >
+        <div className="pt-2">
+          <Button asChild size="lg">
             <a href="https://www.ai-2027.com/" target="_blank" rel="noopener noreferrer">
-              View Original Scenario <ChevronRightIcon />
+              Read the scenario <ChevronRightIcon />
             </a>
           </Button>
         </div>
       </section>
 
       {/* DASHBOARD */}
-      <section className="mx-auto mb-12 max-w-5xl">
-        <div className="grid gap-5 sm:grid-cols-3">
-          <Card>
-            <CardHeader><CardTitle>Total Predictions</CardTitle></CardHeader>
-            <CardContent><p className={`font-serif text-4xl font-semibold ${activeColors.textPrimary}`}>{totalPredictions}</p></CardContent>
-          </Card>
-          <Card>
-            <CardHeader><CardTitle>Evaluated</CardTitle></CardHeader>
-            <CardContent>
-              <Progress value={evaluatedPercent} className="mb-2 h-3" />
-              <p className={`text-sm ${activeColors.textSecondary}`}>{evaluatedPercent}% of predictions have been evaluated</p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader><CardTitle>Overall Accuracy</CardTitle></CardHeader>
-            <CardContent>
-              <div className="flex items-center justify-center h-32"> {/* Center content and set height */}
-                <div className="relative h-20 w-20 sm:h-24 sm:w-24 flex items-center justify-center">
+      <section className="mb-16">
+        <div className={`grid gap-px overflow-hidden rounded-2xl border ${activeColors.borderMuted}`} style={{ borderColor: isDarkMode ? '#38383d' : '#d2d2d7' }}>
+          <div className="grid sm:grid-cols-3 gap-px" style={{ backgroundColor: isDarkMode ? '#38383d' : '#d2d2d7' }}>
+            <div className={`${activeColors.cardBackground} p-6 text-center`}>
+              <p className={`text-[11px] font-medium uppercase tracking-wider ${activeColors.textSecondary}`}>Predictions</p>
+              <p className={`mt-2 text-3xl font-semibold tracking-tight ${activeColors.textPrimary}`}>{totalPredictions}</p>
+            </div>
+            <div className={`${activeColors.cardBackground} p-6 text-center`}>
+              <p className={`text-[11px] font-medium uppercase tracking-wider ${activeColors.textSecondary}`}>Evaluated</p>
+              <p className={`mt-2 text-3xl font-semibold tracking-tight ${activeColors.textPrimary}`}>{evaluatedPercent}%</p>
+              <Progress value={evaluatedPercent} className="mt-3 mx-auto max-w-[120px]" />
+            </div>
+            <div className={`${activeColors.cardBackground} p-6 text-center`}>
+              <p className={`text-[11px] font-medium uppercase tracking-wider ${activeColors.textSecondary}`}>Accuracy</p>
+              <div className="mt-2 mx-auto h-16 w-16 flex items-center justify-center">
                 <svg viewBox="0 0 36 36" className="h-full w-full">
-                    <path className="text-gray-200 dark:text-neutral-700" strokeWidth="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    <path className={`${activeColors.accentGreen}`} strokeWidth="3" strokeDasharray={`${overallAccuracy}, 100`} strokeLinecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                    <text x="18" y="21" className={`fill-current ${activeColors.textPrimary} font-semibold`} textAnchor="middle" style={{ fontSize: '10px' }}>{overallAccuracy}%</text>
+                  <path strokeWidth="3" stroke={isDarkMode ? '#38383d' : '#e5e5ea'} fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  <path strokeWidth="3" strokeDasharray={`${overallAccuracy}, 100`} strokeLinecap="round" stroke={isDarkMode ? '#30d158' : '#28a745'} fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  <text x="18" y="21" fill={isDarkMode ? '#f5f5f7' : '#1d1d1f'} textAnchor="middle" fontSize="9" fontWeight="600">{overallAccuracy}%</text>
                 </svg>
-                </div>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </section>
 
+      {/* METR CHART */}
+      <section className="mb-16">
+        <MetrProgressChart />
+      </section>
+
       {/* RECENTLY EVALUATED */}
-      <section className="mx-auto mb-12 max-w-5xl space-y-5">
-        <h3 className={`font-serif text-2xl font-semibold ${activeColors.textPrimary}`} style={{ fontFamily: 'Georgia, Times, serif' }}>
-          Recently Evaluated Predictions
+      <section className="mb-16">
+        <h3 className={`text-lg font-semibold tracking-tight ${activeColors.textPrimary} mb-5`}>
+          Recently evaluated
         </h3>
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-3">
           {recentlyEvaluated.map((item) => (
-            <PredictionCard 
-                key={item.id} 
-                prediction={item} 
-            />
+            <PredictionCard key={item.id} prediction={item} />
           ))}
         </div>
       </section>
 
       {/* FEATURED BLOG POSTS */}
-      <section className="mx-auto mb-12 max-w-5xl space-y-5">
-        <h3 className={`font-serif text-2xl font-semibold ${activeColors.textPrimary}`} style={{ fontFamily: 'Georgia, Times, serif' }}>
-          Featured Analysis
+      <section className="mb-16">
+        <h3 className={`text-lg font-semibold tracking-tight ${activeColors.textPrimary} mb-5`}>
+          Analysis
         </h3>
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2">
           {posts.slice(0,2).map((item) => (
-            <BlogCard 
-                key={item.id} 
-                post={item} 
-            />
+            <BlogCard key={item.id} post={item} />
           ))}
         </div>
       </section>
 
-      <section className="mt-10 py-6 border-t ${activeColors.borderMuted} flex flex-col sm:flex-row justify-center items-center gap-6">
-        <Button onClick={() => navigate('/timeline')} variant="outline">EXPLORE THE TIMELINE</Button>
-        <Button onClick={() => navigate('/predictions')}>VIEW ALL PREDICTIONS</Button>
+      <section className={`flex flex-col items-center justify-center gap-3 border-t py-10 sm:flex-row sm:gap-4 ${activeColors.borderMuted}`}>
+        <Button onClick={() => navigate('/timeline')} variant="outline">Timeline</Button>
+        <Button onClick={() => navigate('/predictions')}>All predictions</Button>
       </section>
     </div>
   );
@@ -601,12 +778,12 @@ const TimelinePage = ({ predictions, orderedTimelineSegments }) => {
 
     return (
         <div className={`container mx-auto px-4 sm:px-6 py-8 ${activeColors.textPrimary}`}>
-            <h1 className={`font-serif text-3xl sm:text-4xl font-bold mb-8 text-center ${activeColors.textPrimary}`} style={{ fontFamily: 'Georgia, Times, serif' }}>
+            <h1 className={`text-3xl sm:text-4xl font-semibold tracking-tight mb-8 text-center ${activeColors.textPrimary}`}>
                 Scenario Timeline
             </h1>
             
             <section className={`mb-10 p-4 sm:p-5 ${activeColors.cardBackground} rounded-xl shadow-sm border ${activeColors.borderMuted}`}>
-                <h3 className={`font-serif text-xl font-semibold ${activeColors.textPrimary} mb-4`} style={{ fontFamily: 'Georgia, Times, serif' }}>
+                <h3 className={`text-lg font-semibold tracking-tight ${activeColors.textPrimary} mb-4`}>
                     Timeline Overview
                 </h3>
                 <div className="flex overflow-x-auto space-x-4 sm:space-x-6 pb-2">
@@ -638,7 +815,7 @@ const TimelinePage = ({ predictions, orderedTimelineSegments }) => {
                 {orderedTimelineSegments.map(segment => (
                     predictionsBySegment[segment] && predictionsBySegment[segment].length > 0 && (
                         <section key={segment} id={segment.toLowerCase().replace(/\s+/g, '-')} className="pt-1">
-                            <h2 className={`text-xl sm:text-2xl font-serif font-semibold ${activeColors.textPrimary} mb-4 border-b-2 ${activeColors.borderMuted} pb-1.5`} style={{ fontFamily: 'Georgia, Times, serif' }}>{segment}</h2>
+                            <h2 className={`text-lg sm:text-xl font-semibold tracking-tight ${activeColors.textPrimary} mb-4 border-b ${activeColors.borderMuted} pb-2`}>{segment}</h2>
                             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4"> {/* Grid layout for cards */}
                                 {predictionsBySegment[segment].map(prediction => (
                                     <TimelinePredictionCard // Using the compact card
@@ -718,7 +895,7 @@ const AllPredictionsPage = ({ predictions, orderedTimelineSegments }) => {
 
   return (
     <div className={`container mx-auto px-4 sm:px-6 py-8 ${activeColors.textPrimary}`}>
-      <h1 className={`font-serif text-3xl sm:text-4xl font-bold mb-8 text-center ${activeColors.textPrimary}`} style={{ fontFamily: 'Georgia, Times, serif' }}>
+      <h1 className={`text-3xl sm:text-4xl font-semibold tracking-tight mb-8 text-center ${activeColors.textPrimary}`}>
         Prediction Hub
       </h1>
       
@@ -815,7 +992,7 @@ const PredictionDetailPage = ({ predictions }) => {
         </CardHeader>
         <CardContent className="text-sm space-y-5">
           <section>
-            <h4 className="font-serif text-md font-semibold mb-1.5" style={{ fontFamily: 'Georgia, Times, serif' }}>Core Information</h4>
+            <h4 className="text-sm font-semibold tracking-tight mb-1.5">Core Information</h4>
             <ul className="list-disc list-inside space-y-0.5 text-xs">
               <li><strong>Prediction ID:</strong> {prediction.id}</li>
               <li><strong>Categories:</strong> {prediction.categories?.join(', ') || 'N/A'}</li> {/* Handle potential null categories */}
@@ -823,7 +1000,7 @@ const PredictionDetailPage = ({ predictions }) => {
             </ul>
           </section>
           <section>
-            <h4 className="font-serif text-md font-semibold mb-1.5" style={{ fontFamily: 'Georgia, Times, serif' }}>Evaluation & Tracking</h4>
+            <h4 className="text-sm font-semibold tracking-tight mb-1.5">Evaluation &amp; Tracking</h4>
             {prediction.qualitativeAccuracy && <p className="mb-1"><strong>Qualitative Summary:</strong> {prediction.qualitativeAccuracy}</p>}
             {prediction.actualOutcome && <p className="mb-1"><strong>Actual Outcome:</strong> {prediction.actualOutcome}</p>}
             {prediction.supportingEvidence && prediction.supportingEvidence.length > 0 && (
@@ -842,7 +1019,7 @@ const PredictionDetailPage = ({ predictions }) => {
           </section>
           {prediction.analystCommentary && prediction.analystCommentary.length > 0 && (
             <section>
-              <h4 className="font-serif text-md font-semibold mb-2" style={{ fontFamily: 'Georgia, Times, serif' }}>Tracker's Log</h4>
+              <h4 className="text-sm font-semibold tracking-tight mb-2">Tracker&apos;s Log</h4>
               <div className="space-y-3">
                 {prediction.analystCommentary.map((entry, index) => (
                   <div key={index} className={`p-3 ${isDarkMode ? 'bg-neutral-700' : 'bg-gray-50'} rounded-lg border ${activeColors.borderMuted} text-xs`}>
@@ -855,7 +1032,7 @@ const PredictionDetailPage = ({ predictions }) => {
           )}
            {(!prediction.analystCommentary || prediction.analystCommentary.length === 0) && (
                <section>
-                   <h4 className="font-serif text-md font-semibold mb-2" style={{ fontFamily: 'Georgia, Times, serif' }}>Tracker's Log</h4>
+                   <h4 className="text-sm font-semibold tracking-tight mb-2">Tracker&apos;s Log</h4>
                    <p className="text-xs italic ${activeColors.textSecondary}">No commentary added yet.</p>
             </section>
           )}
@@ -869,7 +1046,7 @@ const BlogPage = ({ posts }) => {
     const { activeColors } = useTheme();
     return (
         <div className={`container mx-auto px-4 sm:px-6 py-8 ${activeColors.textPrimary}`}>
-            <h1 className={`font-serif text-3xl sm:text-4xl font-bold mb-8 text-center ${activeColors.textPrimary}`} style={{ fontFamily: 'Georgia, Times, serif' }}>
+            <h1 className={`text-3xl sm:text-4xl font-semibold tracking-tight mb-8 text-center ${activeColors.textPrimary}`}>
                 AI 2027 Tracker Blog
             </h1>
             {posts.length > 0 ? (
@@ -940,15 +1117,15 @@ const AboutPage = () => {
         </CardHeader>
         <CardContent className="text-sm space-y-5 leading-relaxed">
           <section>
-            <h2 className="font-serif text-xl font-semibold mb-1.5" style={{ fontFamily: 'Georgia, Times, serif' }}>Our Mission</h2>
+            <h2 className="text-lg font-semibold tracking-tight mb-1.5">Our Mission</h2>
             <p>The AI 2027 Prediction Tracker is dedicated to systematically tracking and evaluating the predictions made in the "AI 2027" scenario, a fictional yet thought-provoking narrative about the near-term future of artificial intelligence. Our goal is to provide a clear, data-driven perspective on how reality is unfolding compared to the scenario's projections.</p>
           </section>
           <section>
-            <h2 className="font-serif text-xl font-semibold mb-1.5" style={{ fontFamily: 'Georgia, Times, serif' }}>The "AI 2027" Scenario</h2>
+            <h2 className="text-lg font-semibold tracking-tight mb-1.5">The &ldquo;AI 2027&rdquo; Scenario</h2>
             <p>This tracker is based on the "AI 2027" scenario. We highly recommend reading the original work for context. A link is available on our homepage.</p>
           </section>
           <section>
-            <h2 className="font-serif text-xl font-semibold mb-1.5" style={{ fontFamily: 'Georgia, Times, serif' }}>Our Methodology</h2>
+            <h2 className="text-lg font-semibold tracking-tight mb-1.5">Our Methodology</h2>
              <p>Our process involves several key steps, detailed further in our methodology blog post:</p>
             <ul className="list-disc list-inside space-y-1 pl-4 mt-2">
               <li><strong>Prediction Extraction:</strong> We carefully extract specific, trackable, and falsifiable claims from the scenario text.</li>
@@ -959,12 +1136,12 @@ const AboutPage = () => {
             </ul>
           </section>
           <section>
-            <h2 className="font-serif text-xl font-semibold mb-1.5" style={{ fontFamily: 'Georgia, Times, serif' }}>Disclaimers</h2>
+            <h2 className="text-lg font-semibold tracking-tight mb-1.5">Disclaimers</h2>
             <p>This tracker is for informational and analytical purposes only and does not constitute financial or investment advice. Evaluating predictions about the future inherently involves subjective judgment, especially when assessing qualitative aspects or partial accuracy. Our assessments are based on publicly available information and may evolve as new data emerges.</p>
           </section>
            
           <section>
-            <h2 className="font-serif text-xl font-semibold mb-1.5" style={{ fontFamily: 'Georgia, Times, serif' }}>Contact & Feedback</h2>
+            <h2 className="text-lg font-semibold tracking-tight mb-1.5">Contact &amp; Feedback</h2>
             <p>We welcome feedback and suggestions. Please reach out via Github issues or @spicey_lemonade on twitter/X.</p>
           </section>
         </CardContent>
