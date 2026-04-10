@@ -638,7 +638,6 @@ const MetrProgressChart = () => {
       <p className={`text-[11px] leading-relaxed ${activeColors.textSecondary}`}>
         Published points from <a href="https://metr.org/time-horizons/" target="_blank" rel="noopener noreferrer" className="underline decoration-current/30 hover:decoration-current">METR Time Horizons</a>.
         Extrapolations via <a href="https://epoch.ai/eci" target="_blank" rel="noopener noreferrer" className="underline decoration-current/30 hover:decoration-current">Epoch ECI</a> overlap fit.
-        Daniel&apos;s curve uses the piecewise decimal-year reconstruction you provided.
       </p>
     </div>
   );
