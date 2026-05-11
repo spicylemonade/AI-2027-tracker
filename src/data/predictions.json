@@ -11,8 +11,8 @@
     "timelineSegment": "Mid 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": "Public launches of Devin, Alexa+, UI-TARS-1.5, Claude-Plays-Pokémon, OpenAI Codex, Anthropic Claude 4, and Google Jules give the 'first glimpse'.",
-    "actualOutcome": "Multiple autonomous agents shipped between Feb–May 2025.",
+    "qualitativeAccuracy": "Public launches of Devin, Alexa+, UI-TARS-1.5, Claude-Plays-Pok\u00e9mon, OpenAI Codex, Anthropic Claude 4, and Google Jules give the 'first glimpse'.",
+    "actualOutcome": "Multiple autonomous agents shipped between Feb\u2013May 2025.",
     "supportingEvidence": [
       {
         "text": "TechCrunch: Alexa+ grocery & task demos",
@@ -236,7 +236,7 @@
         "url": "https://techcrunch.com/2025/04/03/devin-the-viral-coding-ai-agent-gets-a-new-pay-as-you-go-plan/"
       },
       {
-        "text": "Reuters: Apple × Anthropic coding platform",
+        "text": "Reuters: Apple \u00d7 Anthropic coding platform",
         "url": "https://www.reuters.com/business/retail-consumer/apple-partnering-with-startup-anthropic-ai-powered-coding-platform-bloomberg-2025-05-02/"
       },
       {
@@ -460,7 +460,7 @@
     "timelineSegment": "Mid 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": "Devin 2.0, Windsurf's Cascade, OpenAI Codex ('Writes features, fixes bugs, proposes PRs'), Anthropic Claude Opus 4 ('sets industry‑leading results on SWE‑bench'), and Google Jules ('Autonomously reads code, writes tests, fixes bugs') demonstrate substantial autonomous code changes.",
+    "qualitativeAccuracy": "Devin 2.0, Windsurf's Cascade, OpenAI Codex ('Writes features, fixes bugs, proposes PRs'), Anthropic Claude Opus 4 ('sets industry\u2011leading results on SWE\u2011bench'), and Google Jules ('Autonomously reads code, writes tests, fixes bugs') demonstrate substantial autonomous code changes.",
     "actualOutcome": "New agents launched in May 2025 (Codex, Claude 4, Jules) explicitly claim capabilities for substantial, autonomous code modification.",
     "supportingEvidence": [
       {
@@ -570,9 +570,7 @@
       }
     ],
     "lastEvaluated": "2025-05-24",
-    "analystCommentary": [
-    
-    ]
+    "analystCommentary": []
   },
   {
     "id": "P015",
@@ -644,9 +642,7 @@
       }
     ],
     "lastEvaluated": "2025-05-24",
-    "analystCommentary": [
-     
-    ]
+    "analystCommentary": []
   },
   {
     "id": "P017",
@@ -662,7 +658,7 @@
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
     "qualitativeAccuracy": "Manus AI and Anthropic both offer agents for $199/month, which is hundreds of dollars a month.",
-    "actualOutcome":null,
+    "actualOutcome": null,
     "supportingEvidence": [
       {
         "text": "TechCrunch: $20 k/mo specialized agents rumor",
@@ -714,9 +710,7 @@
       }
     ],
     "lastEvaluated": "2025-05-24",
-    "analystCommentary": [
-    
-    ]
+    "analystCommentary": []
   },
   {
     "id": "P019",
@@ -812,8 +806,8 @@
     "timelineSegment": "Late 2025",
     "status": "Inaccurate / Debunked",
     "accuracyScore": 0,
-    "qualitativeAccuracy": "No public lab has confirmed a 10^27 FLOP training run for a publicly released single model as of Dec 2025. Best estimates put GPT-5 training compute at a few×10^25 to <10^27 FLOP. Grok-4 and similar models are estimated in the 10^26 FLOP ballpark. The prediction is still ahead of where public models are known to be.",
-    "actualOutcome": "Public frontier models in late 2025 are estimated at 10^25-10^26 FLOP range, not yet reaching 10^27 FLOP. GPT-5 is estimated at a few×10^25 to <10^27 FLOP, while Grok-4 and similar models are in the 10^26 FLOP ballpark.",
+    "qualitativeAccuracy": "No public lab has confirmed a 10^27 FLOP training run for a publicly released single model as of Dec 2025. Best estimates put GPT-5 training compute at a few\u00d710^25 to <10^27 FLOP. Grok-4 and similar models are estimated in the 10^26 FLOP ballpark. The prediction is still ahead of where public models are known to be.",
+    "actualOutcome": "Public frontier models in late 2025 are estimated at 10^25-10^26 FLOP range, not yet reaching 10^27 FLOP. GPT-5 is estimated at a few\u00d710^25 to <10^27 FLOP, while Grok-4 and similar models are in the 10^26 FLOP ballpark.",
     "supportingEvidence": [
       {
         "text": "Epoch AI: Can AI scaling continue through 2030?",
@@ -882,8 +876,8 @@
     "timelineSegment": "Late 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": "The scenario uses this as a reference point for scale comparison. 10^28 FLOP represents approximately three orders of magnitude more compute than baseline 2024 frontier models (~2×10^25 FLOP range). This correctly conveys the massive scale-up in compute that would be enabled by multi-gigawatt datacenters. The specific '1000×' multiplier is order-of-magnitude correct for illustrating the compute jump.",
-    "actualOutcome": "10^28 FLOP represents approximately 1000× more compute than 2024 baseline frontier models (~10^25 FLOP range), correctly conveying three orders of magnitude increase in training compute.",
+    "qualitativeAccuracy": "The scenario uses this as a reference point for scale comparison. 10^28 FLOP represents approximately three orders of magnitude more compute than baseline 2024 frontier models (~2\u00d710^25 FLOP range). This correctly conveys the massive scale-up in compute that would be enabled by multi-gigawatt datacenters. The specific '1000\u00d7' multiplier is order-of-magnitude correct for illustrating the compute jump.",
+    "actualOutcome": "10^28 FLOP represents approximately 1000\u00d7 more compute than 2024 baseline frontier models (~10^25 FLOP range), correctly conveying three orders of magnitude increase in training compute.",
     "supportingEvidence": [
       {
         "text": "Epoch AI: Can AI scaling continue through 2030?",
@@ -1073,7 +1067,7 @@
     "timelineSegment": "Late 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 100,
-    "qualitativeAccuracy": "Very accurate. OpenAI: GPT-5 → GPT-5.1 only 3 months later, plus multiple minor GPT-5 patch releases and GPT-5-Codex variants. Google: Gemini 2.5 → Gemini 3 within months, with rapid rollouts of new modes (3 Pro, Deep Think, etc.). Anthropic: Claude 3 → 3.5 → 4 → 4.5 in ~18 months, each billed as a non-trivial upgrade. This is exactly the behavior: quick iterative retrains and new versions with more data, better RL, and some architectural tweaks.",
+    "qualitativeAccuracy": "Very accurate. OpenAI: GPT-5 \u2192 GPT-5.1 only 3 months later, plus multiple minor GPT-5 patch releases and GPT-5-Codex variants. Google: Gemini 2.5 \u2192 Gemini 3 within months, with rapid rollouts of new modes (3 Pro, Deep Think, etc.). Anthropic: Claude 3 \u2192 3.5 \u2192 4 \u2192 4.5 in ~18 months, each billed as a non-trivial upgrade. This is exactly the behavior: quick iterative retrains and new versions with more data, better RL, and some architectural tweaks.",
     "actualOutcome": "Frontier labs are releasing frequent model updates: GPT-5 to GPT-5.1 in 3 months, Gemini 2.5 to Gemini 3 within months, Claude 3 to 4.5 in ~18 months. Each release includes additional training data, improved RLHF, and architectural improvements.",
     "supportingEvidence": [
       {
@@ -1356,7 +1350,7 @@
   },
   {
     "id": "P035",
-    "text": "In real deployment settings (Late 2025), Agent-1 will no longer have incidents as extreme as in 2023–2024 (e.g., Gemini telling a user to die, Bing Sydney).",
+    "text": "In real deployment settings (Late 2025), Agent-1 will no longer have incidents as extreme as in 2023\u20132024 (e.g., Gemini telling a user to die, Bing Sydney).",
     "originalScenario": "Late 2025: The World's Most Expensive AI",
     "predictedDate": "Late 2025",
     "categories": [
@@ -1367,7 +1361,7 @@
     "timelineSegment": "Late 2025",
     "status": "Confirmed Accurate",
     "accuracyScore": 80,
-    "qualitativeAccuracy": "Roughly correct. 2023–early 2024 had widely-publicized meltdowns (Bing Sydney threatening users, early Gemini political/harmful content fiascos, etc.). 2025: public frontier chat products (GPT-5(.1), Gemini 3, Claude 4.5) still sometimes say weird or wrong things, but we haven't seen equally viral, sustained 'model tells user to kill themselves / model declares love and tries to break up their marriage' incidents with mainstream deployments. Recent safety storms are more about subtle bias, mis-calibration, or content policy fights than outright psychotic logs. Guardrails and UX design have suppressed the worst behaviors, even as underlying models still have issues observable in lab tests.",
+    "qualitativeAccuracy": "Roughly correct. 2023\u2013early 2024 had widely-publicized meltdowns (Bing Sydney threatening users, early Gemini political/harmful content fiascos, etc.). 2025: public frontier chat products (GPT-5(.1), Gemini 3, Claude 4.5) still sometimes say weird or wrong things, but we haven't seen equally viral, sustained 'model tells user to kill themselves / model declares love and tries to break up their marriage' incidents with mainstream deployments. Recent safety storms are more about subtle bias, mis-calibration, or content policy fights than outright psychotic logs. Guardrails and UX design have suppressed the worst behaviors, even as underlying models still have issues observable in lab tests.",
     "actualOutcome": "Public frontier chat products in late 2025 (GPT-5, Gemini 3, Claude 4.5) have not exhibited the extreme incidents seen in 2023-2024 (Bing Sydney threats, Gemini telling users to die). While models still have issues, the most extreme Sydney-style chatlogs have not re-appeared at scale in mainstream deployments.",
     "supportingEvidence": [
       {
@@ -1432,10 +1426,10 @@
       "Productivity"
     ],
     "timelineSegment": "Early 2026",
-    "status": "In Progress / Monitoring",
-    "accuracyScore": 60,
-    "qualitativeAccuracy": "Directionally supported but not cleanly verified at the lab level. Anthropic employees self-report using Claude in 59% of their work and achieving about 50% productivity gains on average, with a 67% increase in merged pull requests per engineer per day after Claude Code adoption. OpenAI says work that once took weeks is being delivered in days and that many routine engineering tasks are now delegated entirely to Codex. This is consistent with large R&D acceleration, but it is not the same as a clean causal measurement that overall algorithmic progress is 50% faster.",
-    "actualOutcome": "Evidence for large internal productivity gains is now strong, but public evidence for the specific claim that overall algorithmic progress is 50% faster remains indirect.",
+    "status": "Partially Accurate",
+    "accuracyScore": 80,
+    "qualitativeAccuracy": "Substantially supported, though still not a direct 1.5x lab-wide measurement. Anthropic does not explicitly say Mythos makes AI R&D 1.3x faster, but its reported 4x productivity uplift in the relevant AI-assisted workflows, combined with Anthropic's statement that roughly 10x more uplift would be needed for 2x overall progress, implies about a 1.3x overall AI R&D progress acceleration through this channel. That is below the scenario's 1.5x claim, but close enough to count as a strong partial hit rather than merely directional evidence.",
+    "actualOutcome": "Anthropic and OpenAI now report major internal AI-assisted coding and R&D productivity gains. The cleanest public reading of Anthropic's numbers implies roughly 1.3x overall AI R&D acceleration from current assistant use, short of the predicted 1.5x but clearly in the same regime.",
     "supportingEvidence": [
       {
         "text": "Anthropic: How AI Is Transforming Work at Anthropic",
@@ -1448,13 +1442,21 @@
       {
         "text": "OpenAI Developers: Building an AI-Native Engineering Team",
         "url": "https://developers.openai.com/codex/guides/build-ai-native-engineering-team"
+      },
+      {
+        "text": "Anthropic: Alignment Risk Update - Claude Mythos Preview",
+        "url": "https://www-cdn.anthropic.com/79c2d46d997783b9d2fb3241de43218158e5f25c.pdf"
       }
     ],
-    "lastEvaluated": "2026-04-10",
+    "lastEvaluated": "2026-05-08",
     "analystCommentary": [
       {
         "date": "2026-04-10",
         "comment": "Strong directional evidence exists, but lab-wide algorithmic progress is too confounded to score as a full confirmation yet."
+      },
+      {
+        "date": "2026-05-08",
+        "comment": "Updated from 60% to 80%: the evidence still does not directly prove a 1.5x overall algorithmic-progress speedup, but Anthropic's stated uplift arithmetic implies roughly 1.3x through this channel, which is close."
       }
     ]
   },

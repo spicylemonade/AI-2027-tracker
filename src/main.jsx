@@ -486,6 +486,8 @@ const MetrProgressChart = () => {
   const [showDanielCurve, setShowDanielCurve] = useState(true);
   const [showPublishedMetr, setShowPublishedMetr] = useState(true);
   const [showEciExtrapolations, setShowEciExtrapolations] = useState(true);
+  const chartSvgRef = useRef(null);
+  const dragStateRef = useRef(null);
 
   const c = useMemo(() => ({
     bg: isDarkMode ? '#0a0a0a' : '#fafafa',
@@ -505,19 +507,169 @@ const MetrProgressChart = () => {
   const iW = W - pad.l - pad.r;
   const iH = H - pad.t - pad.b;
 
-  const xMin = parseUtcDate(METR_PROGRESS_DOMAIN.startDate);
-  const xMax = parseUtcDate(METR_PROGRESS_DOMAIN.endDate);
-  const yMinLog = Math.log10(METR_PROGRESS_DOMAIN.minHours);
-  const yMaxLog = Math.log10(METR_PROGRESS_DOMAIN.maxHours);
+  const fullXMin = parseUtcDate(METR_PROGRESS_DOMAIN.startDate);
+  const fullXMax = parseUtcDate(METR_PROGRESS_DOMAIN.endDate);
+  const fullYMinLog = Math.log10(METR_PROGRESS_DOMAIN.minHours);
+  const fullYMaxLog = Math.log10(METR_PROGRESS_DOMAIN.maxHours);
+  const fullViewBounds = useMemo(() => ({
+    xMin: fullXMin,
+    xMax: fullXMax,
+    yMinLog: fullYMinLog,
+    yMaxLog: fullYMaxLog,
+  }), [fullXMin, fullXMax, fullYMinLog, fullYMaxLog]);
+  const [viewBounds, setViewBounds] = useState(fullViewBounds);
+
+  const clampViewBounds = (bounds) => {
+    const fullXRange = fullXMax - fullXMin;
+    const fullYRange = fullYMaxLog - fullYMinLog;
+    const minXRange = fullXRange * 0.08;
+    const minYRange = fullYRange * 0.16;
+    let xRange = Math.min(Math.max(bounds.xMax - bounds.xMin, minXRange), fullXRange);
+    let yRange = Math.min(Math.max(bounds.yMaxLog - bounds.yMinLog, minYRange), fullYRange);
+    let xMin = bounds.xMin;
+    let xMax = bounds.xMax;
+    let yMinLog = bounds.yMinLog;
+    let yMaxLog = bounds.yMaxLog;
+
+    if (xRange === fullXRange) {
+      xMin = fullXMin;
+      xMax = fullXMax;
+    } else {
+      const xCenter = (xMin + xMax) / 2;
+      xMin = xCenter - (xRange / 2);
+      xMax = xCenter + (xRange / 2);
+      if (xMin < fullXMin) {
+        xMin = fullXMin;
+        xMax = fullXMin + xRange;
+      }
+      if (xMax > fullXMax) {
+        xMax = fullXMax;
+        xMin = fullXMax - xRange;
+      }
+    }
+
+    if (yRange === fullYRange) {
+      yMinLog = fullYMinLog;
+      yMaxLog = fullYMaxLog;
+    } else {
+      const yCenter = (yMinLog + yMaxLog) / 2;
+      yMinLog = yCenter - (yRange / 2);
+      yMaxLog = yCenter + (yRange / 2);
+      if (yMinLog < fullYMinLog) {
+        yMinLog = fullYMinLog;
+        yMaxLog = fullYMinLog + yRange;
+      }
+      if (yMaxLog > fullYMaxLog) {
+        yMaxLog = fullYMaxLog;
+        yMinLog = fullYMaxLog - yRange;
+      }
+    }
+
+    return { xMin, xMax, yMinLog, yMaxLog };
+  };
+
+  const getSvgPoint = (event) => {
+    const rect = chartSvgRef.current?.getBoundingClientRect();
+    if (!rect) return null;
+
+    return {
+      x: ((event.clientX - rect.left) / rect.width) * W,
+      y: ((event.clientY - rect.top) / rect.height) * H,
+    };
+  };
+
+  const xMin = viewBounds.xMin;
+  const xMax = viewBounds.xMax;
+  const yMinLog = viewBounds.yMinLog;
+  const yMaxLog = viewBounds.yMaxLog;
 
   const sx = (d) => pad.l + (((parseUtcDate(d) - xMin) / (xMax - xMin)) * iW);
   const sy = (h) => pad.t + ((1 - ((Math.log10(h) - yMinLog) / (yMaxLog - yMinLog))) * iH);
   const linePath = (pts) => pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${sx(p.releaseDate)},${sy(p.hours)}`).join(' ');
 
-  const yTicks = [8 / 3600, 30 / 3600, 5 / 60, 0.5, 2, 8, 24, 96, 192];
+  const yTicks = [
+    { hours: 8 / 3600, label: '8 sec' },
+    { hours: 30 / 3600, label: '30 sec' },
+    { hours: 2 / 60, label: '2 min' },
+    { hours: 8 / 60, label: '8 min' },
+    { hours: 0.5, label: '30 min' },
+    { hours: 2, label: '2 h' },
+    { hours: 8, label: '8 h' },
+    { hours: 40, label: '1 week' },
+    { hours: 160, label: '1 month' },
+    { hours: 640, label: '4 months' },
+    { hours: 2560, label: '16 months' },
+    { hours: 9600, label: '5 years' },
+  ];
   const xTicks = ['2021-01-01', '2022-01-01', '2023-01-01', '2024-01-01', '2025-01-01', '2026-01-01', '2027-01-01'];
   const todayX = sx(TODAY_REFERENCE_DATE);
   const danielCurveTodayY = sy(METR_PROGRESS_SNAPSHOT.danielCurveToday.hours);
+  const isZoomed = viewBounds.xMin !== fullViewBounds.xMin
+    || viewBounds.xMax !== fullViewBounds.xMax
+    || viewBounds.yMinLog !== fullViewBounds.yMinLog
+    || viewBounds.yMaxLog !== fullViewBounds.yMaxLog;
+
+  const handleWheel = (event) => {
+    event.preventDefault();
+    const point = getSvgPoint(event);
+    if (!point) return;
+
+    const plotX = Math.min(Math.max((point.x - pad.l) / iW, 0), 1);
+    const plotY = Math.min(Math.max((point.y - pad.t) / iH, 0), 1);
+    const zoomFactor = Math.exp(event.deltaY * 0.0014);
+    const xRange = xMax - xMin;
+    const yRange = yMaxLog - yMinLog;
+    const anchorX = xMin + (plotX * xRange);
+    const anchorYLog = yMaxLog - (plotY * yRange);
+    const nextXRange = xRange * zoomFactor;
+    const nextYRange = yRange * zoomFactor;
+
+    setViewBounds(clampViewBounds({
+      xMin: anchorX - (plotX * nextXRange),
+      xMax: anchorX + ((1 - plotX) * nextXRange),
+      yMinLog: anchorYLog - ((1 - plotY) * nextYRange),
+      yMaxLog: anchorYLog + (plotY * nextYRange),
+    }));
+  };
+
+  const handlePointerDown = (event) => {
+    const point = getSvgPoint(event);
+    if (!point) return;
+    event.currentTarget.setPointerCapture(event.pointerId);
+    dragStateRef.current = {
+      pointerId: event.pointerId,
+      startPoint: point,
+      startBounds: viewBounds,
+    };
+  };
+
+  const handlePointerMove = (event) => {
+    const drag = dragStateRef.current;
+    if (!drag || drag.pointerId !== event.pointerId) return;
+    const point = getSvgPoint(event);
+    if (!point) return;
+
+    const dx = point.x - drag.startPoint.x;
+    const dy = point.y - drag.startPoint.y;
+    const xRange = drag.startBounds.xMax - drag.startBounds.xMin;
+    const yRange = drag.startBounds.yMaxLog - drag.startBounds.yMinLog;
+    const xShift = -(dx / iW) * xRange;
+    const yShift = (dy / iH) * yRange;
+
+    setViewBounds(clampViewBounds({
+      xMin: drag.startBounds.xMin + xShift,
+      xMax: drag.startBounds.xMax + xShift,
+      yMinLog: drag.startBounds.yMinLog + yShift,
+      yMaxLog: drag.startBounds.yMaxLog + yShift,
+    }));
+  };
+
+  const handlePointerEnd = (event) => {
+    const drag = dragStateRef.current;
+    if (drag?.pointerId === event.pointerId) {
+      dragStateRef.current = null;
+    }
+  };
 
   const toggles = [
     { id: 'daniel', label: "Daniel's curve", color: c.curve, active: showDanielCurve, toggle: () => setShowDanielCurve(v => !v) },
@@ -563,16 +715,41 @@ const MetrProgressChart = () => {
             {t.label}
           </button>
         ))}
+        <button
+          type="button"
+          onClick={() => setViewBounds(fullViewBounds)}
+          disabled={!isZoomed}
+          className={`inline-flex items-center rounded-full border px-3 py-1 text-[12px] font-medium transition-all duration-200 ${
+            isZoomed ? activeColors.textPrimary : activeColors.textSecondary
+          }`}
+          style={{
+            borderColor: isDarkMode ? '#38383d' : '#d2d2d7',
+            opacity: isZoomed ? 1 : 0.45,
+          }}
+        >
+          Reset view
+        </button>
       </div>
 
       <div className="overflow-hidden rounded-2xl" style={{ border: `1px solid ${isDarkMode ? '#38383d' : '#d2d2d7'}` }}>
-        <svg viewBox={`0 0 ${W} ${H}`} className="block h-auto w-full" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif' }}>
+        <svg
+          ref={chartSvgRef}
+          viewBox={`0 0 ${W} ${H}`}
+          className="block h-auto w-full select-none"
+          onWheel={handleWheel}
+          style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif', touchAction: 'none' }}
+        >
           <rect width={W} height={H} fill={c.bg} />
+          <defs>
+            <clipPath id="metr-chart-clip">
+              <rect x={pad.l} y={pad.t} width={iW} height={iH} />
+            </clipPath>
+          </defs>
 
           {yTicks.map((tick) => (
-            <g key={tick}>
-              <line x1={pad.l} y1={sy(tick)} x2={W - pad.r} y2={sy(tick)} stroke={c.grid} strokeWidth="1" />
-              <text x={pad.l - 8} y={sy(tick) + 4} fill={c.label} fontSize="10" textAnchor="end" fontWeight="500">{formatCompactMetrHours(tick)}</text>
+            <g key={tick.label}>
+              <line x1={pad.l} y1={sy(tick.hours)} x2={W - pad.r} y2={sy(tick.hours)} stroke={c.grid} strokeWidth="1" />
+              <text x={pad.l - 8} y={sy(tick.hours) + 4} fill={c.label} fontSize="10" textAnchor="end" fontWeight="500">{tick.label}</text>
             </g>
           ))}
 
@@ -583,55 +760,73 @@ const MetrProgressChart = () => {
             </g>
           ))}
 
-          <line x1={todayX} y1={pad.t} x2={todayX} y2={H - pad.b} stroke={c.today} strokeWidth="1" strokeDasharray="3 4" />
+          <g clipPath="url(#metr-chart-clip)">
+            <line x1={todayX} y1={pad.t} x2={todayX} y2={H - pad.b} stroke={c.today} strokeWidth="1" strokeDasharray="3 4" />
+
+            {showDanielCurve && (
+              <>
+                <path d={linePath(DANIEL_CURVE_P80_SERIES)} fill="none" stroke={c.curve} strokeWidth="2.5" strokeLinecap="round" opacity="0.85" />
+                <circle cx={todayX} cy={danielCurveTodayY} r="4" fill={c.curve} />
+                <text
+                  x={Math.min(todayX + 10, W - pad.r - 72)}
+                  y={danielCurveTodayY - 10}
+                  fill={c.curve}
+                  fontSize="9"
+                  fontWeight="600"
+                  opacity="0.85"
+                >
+                  Daniel&apos;s curve
+                </text>
+              </>
+            )}
+
+            {showPublishedMetr && (
+              <>
+                {PUBLISHED_METR_P80_POINTS.map((p) => (
+                  <circle key={p.id} cx={sx(p.releaseDate)} cy={sy(p.hours)} r={p.showLabel ? 3.5 : 2.5} fill={c.published} opacity={p.showLabel ? 0.9 : 0.5} />
+                ))}
+                {PUBLISHED_METR_P80_POINTS.filter((p) => p.showLabel).map((p) => (
+                  <text key={`${p.id}-l`} x={sx(p.releaseDate) + (p.labelDx || 0)} y={sy(p.hours) + (p.labelDy || 0)} fill={c.published} fontSize="9" fontWeight="600" opacity="0.85">{p.label}</text>
+                ))}
+              </>
+            )}
+
+            {showEciExtrapolations && ECI_EXTRAPOLATED_P80_POINTS.map((p) => {
+              const px = sx(p.releaseDate), py = sy(p.hours);
+              return (
+                <g key={p.id}>
+                  <polygon points={`${px},${py - 5.5} ${px + 5.5},${py} ${px},${py + 5.5} ${px - 5.5},${py}`} fill={c.extrapolated} opacity="0.9" />
+                  <text x={px + (p.labelDx || 0)} y={py + (p.labelDy || 0)} fill={c.extrapolated} fontSize="9" fontWeight="600" opacity="0.85">{p.label}</text>
+                </g>
+              );
+            })}
+          </g>
+
           <text x={todayX} y={H - pad.b + 34} fill={c.label} fontSize="9" textAnchor="middle" fontWeight="600">TODAY</text>
-
-          {showDanielCurve && (
-            <>
-              <path d={linePath(DANIEL_CURVE_P80_SERIES)} fill="none" stroke={c.curve} strokeWidth="2.5" strokeLinecap="round" opacity="0.85" />
-              <circle cx={todayX} cy={danielCurveTodayY} r="4" fill={c.curve} />
-              <text
-                x={Math.min(todayX + 10, W - pad.r - 72)}
-                y={danielCurveTodayY - 10}
-                fill={c.curve}
-                fontSize="9"
-                fontWeight="600"
-                opacity="0.85"
-              >
-                Daniel&apos;s curve
-              </text>
-            </>
-          )}
-
-          {showPublishedMetr && (
-            <>
-              {PUBLISHED_METR_P80_POINTS.map((p) => (
-                <circle key={p.id} cx={sx(p.releaseDate)} cy={sy(p.hours)} r={p.showLabel ? 3.5 : 2.5} fill={c.published} opacity={p.showLabel ? 0.9 : 0.5} />
-              ))}
-              {PUBLISHED_METR_P80_POINTS.filter((p) => p.showLabel).map((p) => (
-                <text key={`${p.id}-l`} x={sx(p.releaseDate) + (p.labelDx || 0)} y={sy(p.hours) + (p.labelDy || 0)} fill={c.published} fontSize="9" fontWeight="600" opacity="0.85">{p.label}</text>
-              ))}
-            </>
-          )}
-
-          {showEciExtrapolations && ECI_EXTRAPOLATED_P80_POINTS.map((p) => {
-            const px = sx(p.releaseDate), py = sy(p.hours);
-            return (
-              <g key={p.id}>
-                <polygon points={`${px},${py - 5.5} ${px + 5.5},${py} ${px},${py + 5.5} ${px - 5.5},${py}`} fill={c.extrapolated} opacity="0.9" />
-                <text x={px + (p.labelDx || 0)} y={py + (p.labelDy || 0)} fill={c.extrapolated} fontSize="9" fontWeight="600" opacity="0.85">{p.label}</text>
-              </g>
-            );
-          })}
-
           <text x={W / 2} y={H - 6} fill={c.label} fontSize="10" textAnchor="middle" fontWeight="500">Release date</text>
-          <text transform={`translate(14 ${H / 2}) rotate(-90)`} fill={c.label} fontSize="10" textAnchor="middle" fontWeight="500">p80 horizon (hours, log)</text>
+          <text transform={`translate(14 ${H / 2}) rotate(-90)`} fill={c.label} fontSize="10" textAnchor="middle" fontWeight="500">p80 human task horizon (log)</text>
+          <rect
+            x={pad.l}
+            y={pad.t}
+            width={iW}
+            height={iH}
+            fill="transparent"
+            className="cursor-grab active:cursor-grabbing"
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={handlePointerEnd}
+            onPointerCancel={handlePointerEnd}
+            onDoubleClick={() => setViewBounds(fullViewBounds)}
+          />
         </svg>
       </div>
+      <p className={`-mt-4 text-[11px] ${activeColors.textSecondary}`}>
+        Drag to pan, scroll to zoom, double-click to reset.
+      </p>
 
       <div className="grid grid-cols-3 gap-4">
         <StatBlock label="Daniel curve" value={formatCompactMetrHours(METR_PROGRESS_SNAPSHOT.danielCurveToday.hours)} sub={`${formatMonthYear(TODAY_REFERENCE_DATE)} level`} />
-        <StatBlock label="Best published" value={formatCompactMetrHours(METR_PROGRESS_SNAPSHOT.bestPublished.hours)} sub={METR_PROGRESS_SNAPSHOT.bestPublished.label} />
+        <StatBlock label="Best METR" value={formatCompactMetrHours(METR_PROGRESS_SNAPSHOT.bestPublished.hours)} sub={METR_PROGRESS_SNAPSHOT.bestPublished.label} />
         <StatBlock label="ECI extrap." value={formatCompactMetrHours(METR_PROGRESS_SNAPSHOT.mythosExtrapolation.hours)} sub={`${METR_PROGRESS_SNAPSHOT.mythosExtrapolation.label} · ECI ${METR_PROGRESS_SNAPSHOT.mythosExtrapolation.eci}`} />
       </div>
 

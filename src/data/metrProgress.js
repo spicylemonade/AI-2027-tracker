@@ -1,5 +1,5 @@
 const HOURS_FROM_EIGHT_SECONDS = 8 / 3600;
-const DANIEL_CURVE_PIVOT_YEAR = 2025.2468;
+const HOURS_FROM_SECONDS = 1 / 3600;
 
 const toDecimalYear = (dateString) => {
   const year = Number(dateString.slice(0, 4));
@@ -11,13 +11,17 @@ const toDecimalYear = (dateString) => {
 };
 
 export const danielCurveHoursFromDecimalYear = (decimalYear) => {
-  const tau = decimalYear - DANIEL_CURVE_PIVOT_YEAR;
+  const u = decimalYear - 2025;
+  const logSeconds = 6.36588017
+    + (1.75547434 * u)
+    + (0.350855496 * (u ** 2))
+    + (0.0462100721 * (u ** 3))
+    + (0.0144760767 * (u ** 4))
+    + (0.0194798378 * (u ** 5))
+    + (0.00743193880 * (u ** 6))
+    + (0.000851343348 * (u ** 7));
 
-  const g = tau <= 0
-    ? 6.935959 + (2.362717 * tau) + (0.196760 * (tau ** 2))
-    : 6.935959 + (3.053947 * tau) + (0.154071 * (Math.exp(1.904861 * tau) - 1));
-
-  return (2 ** g) / 450;
+  return Math.exp(logSeconds) * HOURS_FROM_SECONDS;
 };
 
 export const danielCurveHoursForDate = (dateString) =>
@@ -42,10 +46,10 @@ const buildDanielCurveSeries = (startDate, endDate, steps = 216) => {
 export const TODAY_REFERENCE_DATE = '2026-04-10';
 
 export const METR_PROGRESS_DOMAIN = {
-  startDate: '2021-01-01',
-  endDate: '2027-01-01',
+  startDate: '2021-01-30',
+  endDate: '2027-04-27',
   minHours: HOURS_FROM_EIGHT_SECONDS,
-  maxHours: 256,
+  maxHours: 9600,
 };
 
 // Published METR points use p80 horizons from METR Horizon v1.1, converted from minutes to hours.
@@ -71,6 +75,7 @@ export const PUBLISHED_METR_P80_POINTS = [
   { id: 'claude-opus-4-6', label: 'Claude Opus 4.6', releaseDate: '2026-02-05', hours: 1.1646, showLabel: true, labelDx: 8, labelDy: -10 },
   { id: 'gpt-5-3-codex', label: 'GPT-5.3 Codex', releaseDate: '2026-02-05', hours: 0.9123 },
   { id: 'gpt-5-4', label: 'GPT-5.4', releaseDate: '2026-03-05', hours: 0.898, showLabel: true, labelDx: 8, labelDy: 16 },
+  { id: 'claude-mythos-preview-early', label: 'Mythos official', releaseDate: '2026-04-07', hours: 3.0985, showLabel: true, labelDx: 8, labelDy: -10 },
 ];
 
 export const ECI_EXTRAPOLATED_P80_POINTS = [
@@ -107,8 +112,8 @@ export const METR_PROGRESS_SNAPSHOT = {
     hours: danielCurveHoursForDate(TODAY_REFERENCE_DATE),
   },
   bestPublished: {
-    label: 'Claude Opus 4.6',
-    hours: 1.1646,
+    label: 'Claude Mythos Preview',
+    hours: 3.0985,
   },
   gpt54Actual: {
     label: 'GPT-5.4',
