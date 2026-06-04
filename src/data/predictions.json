@@ -1545,29 +1545,37 @@
       "Strategy"
     ],
     "timelineSegment": "Early 2026",
-    "status": "In Progress / Monitoring",
-    "accuracyScore": 40,
-    "qualitativeAccuracy": "Not yet accurate. OpenAI clearly responded to competition by shipping GPT-5.4, and Anthropic publicly shipped Opus 4.6, but the narrower Agent-1 bar from the scenario still looks unreleased publicly. If Agent-1 means something around a 4-hour METR p80-equivalent together with strong OSWorld, cyber, and AI-R&D results, the closest current match is Mythos Preview, and Mythos is being held to restricted or defender-facing access rather than broadly released. The competition response happened; the clean public Agent-1 launch still looks pending.",
-    "actualOutcome": "The competitive release cycle is real, but the public Agent-1 release itself has not clearly happened yet. The strongest Agent-1-like system is still gated rather than generally available.",
+    "status": "Partially Accurate",
+    "accuracyScore": 80,
+    "qualitativeAccuracy": "Largely accurate as of late April 2026, though still not perfectly clean. OpenAI publicly released GPT-5.5 into ChatGPT, Codex, and the API after a tight competitive release cycle with Anthropic, Google, and open-weights labs. GPT-5.5 looks plausibly Agent-1-class on agentic coding, OSWorld, BrowseComp, FrontierMath, and cyber evals, but METR has not yet published a time-horizon measurement for it, and the strongest Anthropic Agent-1 analogue, Mythos Preview, remains restricted rather than generally released.",
+    "actualOutcome": "A public Agent-1-like release has probably arrived in the form of GPT-5.5, but the match is not exact because the scenario implies a cleaner public release of the internally strongest system and because the public frontier remains jagged across labs.",
     "supportingEvidence": [
       {
         "text": "OpenAI: Introducing GPT-5.4",
         "url": "https://openai.com/index/introducing-gpt-5-4/"
       },
       {
-        "text": "Anthropic: Introducing Claude Opus 4.6",
-        "url": "https://www.anthropic.com/research/claude-opus-4-6"
+        "text": "OpenAI: Introducing GPT-5.5",
+        "url": "https://openai.com/index/introducing-gpt-5-5/"
+      },
+      {
+        "text": "Anthropic: Introducing Claude Opus 4.7",
+        "url": "https://www.anthropic.com/news/claude-opus-4-7"
       },
       {
         "text": "Anthropic: Project Glasswing",
         "url": "https://www.anthropic.com/glasswing"
       }
     ],
-    "lastEvaluated": "2026-04-10",
+    "lastEvaluated": "2026-06-04",
     "analystCommentary": [
       {
         "date": "2026-04-10",
         "comment": "I'm treating this as still pending because the strongest current Agent-1 analogue is Mythos, and Mythos is not generally released."
+      },
+      {
+        "date": "2026-06-04",
+        "comment": "Updated after GPT-5.5 and Opus 4.7 releases. GPT-5.5 is close enough to count as a strong partial hit, but not a full confirmation because METR has not measured it yet and Mythos remains gated."
       }
     ]
   },
@@ -1581,33 +1589,37 @@
       "AI Models"
     ],
     "timelineSegment": "Early 2026",
-    "status": "In Progress / Monitoring",
-    "accuracyScore": 20,
-    "qualitativeAccuracy": "Too early to confirm. Because there is not yet a clean publicly released Agent-1, the comparison the scenario asks for is still mostly hypothetical. Public frontier models remain jagged and competitive: GPT-5.4, Opus 4.6, and GLM-5.1 each lead different slices of the frontier, while Mythos Preview may be above them on the Agent-1 bundle but is not generally released. Until a public Agent-1 actually exists, this entry remains unresolved.",
-    "actualOutcome": "We still do not have a clearly released Agent-1 to compare against Agent-0-class competitors, so this prediction cannot yet be judged on its own terms.",
+    "status": "Partially Accurate",
+    "accuracyScore": 80,
+    "qualitativeAccuracy": "Mostly accurate if GPT-5.5 is treated as the public Agent-1 analogue. It is clearly above the Agent-0 tier and leads or nearly leads several public agentic benchmarks, including Terminal-Bench 2.0, OSWorld-Verified, BrowseComp, FrontierMath, and CyberGym. The caveat is that competitors remain highly competitive: Claude Opus 4.7 and GLM-5.1 lead or nearly lead some coding slices, and no public METR measurement has yet put GPT-5.5 on the same time-horizon chart.",
+    "actualOutcome": "The released public frontier is stronger and more reliable than the late-2025 Agent-0 tier, but it is not a single uncontested winner. GPT-5.5, Claude Opus 4.7, Gemini 3.1 Pro, and GLM-5.1 each have strengths across different evals.",
     "supportingEvidence": [
       {
-        "text": "OpenAI: Introducing GPT-5.4",
-        "url": "https://openai.com/index/introducing-gpt-5-4/"
+        "text": "OpenAI: Introducing GPT-5.5",
+        "url": "https://openai.com/index/introducing-gpt-5-5/"
       },
       {
-        "text": "Anthropic: Introducing Claude Opus 4.6",
-        "url": "https://www.anthropic.com/research/claude-opus-4-6"
+        "text": "Anthropic: Introducing Claude Opus 4.7",
+        "url": "https://www.anthropic.com/news/claude-opus-4-7"
       },
       {
-        "text": "Z.AI: GLM-5.1: Towards Long-Horizon Tasks",
-        "url": "https://z.ai/blog/glm-5.1"
+        "text": "Hugging Face: zai-org/GLM-5.1",
+        "url": "https://huggingface.co/zai-org/GLM-5.1"
       },
       {
-        "text": "Anthropic: Project Glasswing",
-        "url": "https://www.anthropic.com/glasswing"
+        "text": "METR: Task-Completion Time Horizons of Frontier AI Models",
+        "url": "https://metr.org/time-horizons/"
       }
     ],
-    "lastEvaluated": "2026-04-10",
+    "lastEvaluated": "2026-06-04",
     "analystCommentary": [
       {
         "date": "2026-04-10",
         "comment": "This stays unresolved for me because the strongest plausible Agent-1 candidate is Mythos, and Mythos still has not been released as a normal public model."
+      },
+      {
+        "date": "2026-06-04",
+        "comment": "Moved from monitoring to partial: GPT-5.5 gives a plausible public Agent-1 analogue, but the benchmark picture is still jagged rather than a clean dominance story."
       }
     ]
   },
@@ -1621,13 +1633,31 @@
       "Knowledge"
     ],
     "timelineSegment": "Early 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Confirmed in the practical sense meant by the scenario. Current frontier systems clearly exceed any one human's factual breadth across benchmarked domains and can combine stored knowledge with browsing, code execution, and document analysis. GPT-5.5, Claude Opus 4.7, Gemini 3.1 Pro, and GLM-5.1 post strong results on broad knowledge and reasoning evals such as BrowseComp, GPQA-Diamond, Humanity's Last Exam, FrontierMath, and tool-augmented work benchmarks.",
+    "actualOutcome": "Frontier models now have broader retrievable knowledge than any individual human in practical use, especially when paired with tools and search.",
+    "supportingEvidence": [
+      {
+        "text": "OpenAI: Introducing GPT-5.5",
+        "url": "https://openai.com/index/introducing-gpt-5-5/"
+      },
+      {
+        "text": "Anthropic: Introducing Claude Opus 4.7",
+        "url": "https://www.anthropic.com/news/claude-opus-4-7"
+      },
+      {
+        "text": "Hugging Face: zai-org/GLM-5.1",
+        "url": "https://huggingface.co/zai-org/GLM-5.1"
+      }
+    ],
+    "lastEvaluated": "2026-06-04",
+    "analystCommentary": [
+      {
+        "date": "2026-06-04",
+        "comment": "Updated to confirmed: interpreted as a practical breadth-of-knowledge claim rather than a literal perfect-factuality claim."
+      }
+    ]
   },
   {
     "id": "P043",
@@ -1639,13 +1669,35 @@
       "Coding"
     ],
     "timelineSegment": "Early 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Confirmed. Frontier coding agents can work across mainstream programming languages and a very large long tail of less common languages. They now solve real repository tasks, terminal tasks, and multi-language code problems at high levels, and GLM-5.1 is openly released with strong SWE-Bench Pro, Terminal-Bench 2.0, CyberGym, and long-horizon agentic claims. The scenario's 'practically every programming language' framing is now a fair description of the practical developer experience.",
+    "actualOutcome": "Frontier models can work in most common programming languages and many uncommon ones, making the practical prediction accurate.",
+    "supportingEvidence": [
+      {
+        "text": "OpenAI: Introducing GPT-5.5",
+        "url": "https://openai.com/index/introducing-gpt-5-5/"
+      },
+      {
+        "text": "Hugging Face: zai-org/GLM-5.1",
+        "url": "https://huggingface.co/zai-org/GLM-5.1"
+      },
+      {
+        "text": "MultiPL-E: A Scalable and Extensible Approach to Benchmarking Neural Code Generation",
+        "url": "https://arxiv.org/abs/2208.08227"
+      },
+      {
+        "text": "CRUXEval-X: A Benchmark for Multilingual Code Reasoning, Understanding and Execution",
+        "url": "https://arxiv.org/abs/2408.13001"
+      }
+    ],
+    "lastEvaluated": "2026-06-04",
+    "analystCommentary": [
+      {
+        "date": "2026-06-04",
+        "comment": "Updated to confirmed: the practical capability across mainstream and long-tail programming languages is now strong enough to meet the scenario claim."
+      }
+    ]
   },
   {
     "id": "P044",
@@ -1699,13 +1751,31 @@
       "Gaming"
     ],
     "timelineSegment": "Early 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Confirmed. TIME's January 2026 reporting on GPT-5.2, Claude Opus 4.5, and Gemini 3 Pro playing Pokemon shows exactly the gap the scenario described: models can know what to do yet bumble long-horizon execution. More recent research on long-horizon agents likewise finds horizon-dependent degradation across GPT-5 and Claude-family systems. Even with better harnesses and occasional successes, the core claim that general-purpose agents remain brittle on unfamiliar long-horizon tasks is accurate.",
+    "actualOutcome": "General-purpose agents remain brittle on open-ended, many-step environments, including games, even as harnesses and newer models improve.",
+    "supportingEvidence": [
+      {
+        "text": "TIME: Why the World's Best AI Systems Are Still So Bad at Pokemon",
+        "url": "https://time.com/7345903/ai-chatgpt-claude-gemini-pokemon/"
+      },
+      {
+        "text": "arXiv: The Long-Horizon Task Mirage?",
+        "url": "https://arxiv.org/abs/2604.11978"
+      },
+      {
+        "text": "METR: Task-Completion Time Horizons of Frontier AI Models",
+        "url": "https://metr.org/time-horizons/"
+      }
+    ],
+    "lastEvaluated": "2026-06-04",
+    "analystCommentary": [
+      {
+        "date": "2026-06-04",
+        "comment": "Updated to confirmed: the Pokemon evidence and long-horizon benchmark results directly match the scenario's limitation claim."
+      }
+    ]
   },
   {
     "id": "P046",
@@ -1756,13 +1826,31 @@
       "China"
     ],
     "timelineSegment": "Early 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Partially Accurate",
+    "accuracyScore": 60,
+    "qualitativeAccuracy": "Plausible but not directly confirmed. Public evidence now supports both halves of the intuition: frontier agentic systems materially speed up AI R&D and software work, and Chinese labs or foreign entities are alleged to be trying to extract those capabilities through distillation. But the specific conditional claim about stealing Agent-1 weights and increasing Chinese research speed by nearly 50% is not publicly measurable, and the reported activity so far is mostly distillation/model extraction rather than confirmed weights theft.",
+    "actualOutcome": "Stolen frontier capabilities would likely be strategically valuable, but no public evidence establishes a weight theft or a clean 50% Chinese AI R&D speedup from such theft.",
+    "supportingEvidence": [
+      {
+        "text": "Anthropic: Detecting and preventing distillation attacks",
+        "url": "https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks"
+      },
+      {
+        "text": "AP: Trump administration targets foreign exploitation of US AI models",
+        "url": "https://apnews.com/article/ai-china-us-model-distillation-kratsios-a5c40346394ef5fa9ae710c5aabdc62c"
+      },
+      {
+        "text": "Anthropic: How AI Is Transforming Work at Anthropic",
+        "url": "https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic"
+      }
+    ],
+    "lastEvaluated": "2026-06-04",
+    "analystCommentary": [
+      {
+        "date": "2026-06-04",
+        "comment": "The strategic logic holds, but this is a counterfactual security claim, so it should stay below the confidence of the directly observed productivity and distillation entries."
+      }
+    ]
   },
   {
     "id": "P048",
@@ -1775,13 +1863,31 @@
       "Corporate"
     ],
     "timelineSegment": "Early 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Partially Accurate",
+    "accuracyScore": 60,
+    "qualitativeAccuracy": "Mixed. The AI 2027 security forecast was broadly consistent with leading labs being around RAND WSL2/early-WSL3 in the 2025-to-early-2026 period, and public evidence still does not prove state-actor-resistant SL4/SL5 security. But OpenAI's May 2026 Frontier Governance Framework now describes controls that go beyond a typical fast-growing tech company, including ISO/SOC programs, protected unreleased weights, multi-party approval, monitoring, insider-threat mitigations, and external assessments. So 'typical SL2' is plausible historically but probably understates the current posture.",
+    "actualOutcome": "Public evidence is most consistent with frontier labs moving from SL2-like security toward SL3-like controls during 2026, rather than remaining ordinary startup-security organizations.",
+    "supportingEvidence": [
+      {
+        "text": "RAND: Securing AI Model Weights",
+        "url": "https://www.rand.org/content/dam/rand/pubs/research_reports/RRA2800/RRA2849-1/RAND_RRA2849-1.pdf"
+      },
+      {
+        "text": "AI 2027: Security Forecast",
+        "url": "https://ai-2027.com/research/security-forecast"
+      },
+      {
+        "text": "OpenAI: Frontier Governance Framework",
+        "url": "https://openai.com/index/openai-frontier-governance-framework/"
+      }
+    ],
+    "lastEvaluated": "2026-06-04",
+    "analystCommentary": [
+      {
+        "date": "2026-06-04",
+        "comment": "Updated as a partial: the early-2026 direction is plausible, but OpenAI's new public governance document makes a plain 'typical startup SL2' label too weak."
+      }
+    ]
   },
   {
     "id": "P049",
@@ -1794,13 +1900,31 @@
       "Strategy"
     ],
     "timelineSegment": "Early 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Confirmed. OpenAI's Frontier Governance Framework explicitly says it protects critical assets including model weights, training data, and customer data through layered controls, encryption, continuous monitoring, access controls, multi-factor authentication, multi-party approval, detailed logging, insider-threat screening/training, restricted egress, and security assurance. Anthropic likewise says it is investing in defenses against distillation and coordinating intelligence sharing. These are directly aligned with moving toward RAND SL3-style protection against insider threats, cybercrime groups, and model extraction.",
+    "actualOutcome": "Frontier labs are publicly documenting and strengthening controls for unreleased weights, model parameters, insider threats, and large-scale extraction attempts.",
+    "supportingEvidence": [
+      {
+        "text": "OpenAI: Frontier Governance Framework",
+        "url": "https://openai.com/index/openai-frontier-governance-framework/"
+      },
+      {
+        "text": "RAND: Securing AI Model Weights",
+        "url": "https://www.rand.org/content/dam/rand/pubs/research_reports/RRA2800/RRA2849-1/RAND_RRA2849-1.pdf"
+      },
+      {
+        "text": "Anthropic: Detecting and preventing distillation attacks",
+        "url": "https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks"
+      }
+    ],
+    "lastEvaluated": "2026-06-04",
+    "analystCommentary": [
+      {
+        "date": "2026-06-04",
+        "comment": "This is now directly supported by public security-framework language and by live anti-distillation work."
+      }
+    ]
   },
   {
     "id": "P050",
@@ -1813,13 +1937,31 @@
       "Geopolitics"
     ],
     "timelineSegment": "Early 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Confirmed. RAND's SL4/SL5 benchmarks require major departures from ordinary commercial security, including dedicated zero-day capability, extreme isolation, extensive personnel and physical controls, and many independent security layers. The January 2026 SL5 standard describes nation-state-level AI security as a 2028/2029 target that requires long-lead-time facility, hardware, and organizational changes. That is exactly 'barely on the horizon' for early 2026.",
+    "actualOutcome": "Public frontier-lab security is moving toward stronger SL3-style controls, while robust SL4/SL5 defense against leading nation-state operations still appears to be a future, multi-year project requiring government-grade measures.",
+    "supportingEvidence": [
+      {
+        "text": "RAND: Securing AI Model Weights",
+        "url": "https://www.rand.org/content/dam/rand/pubs/research_reports/RRA2800/RRA2849-1/RAND_RRA2849-1.pdf"
+      },
+      {
+        "text": "SL5 Standard for AI Security",
+        "url": "https://standard.sl5.org/"
+      },
+      {
+        "text": "AI 2027: Security Forecast",
+        "url": "https://ai-2027.com/research/security-forecast"
+      }
+    ],
+    "lastEvaluated": "2026-06-04",
+    "analystCommentary": [
+      {
+        "date": "2026-06-04",
+        "comment": "Current standards work treats SL5 as something that needs to be built years in advance, not as a normal early-2026 commercial baseline."
+      }
+    ]
   },
   {
     "id": "P051",
