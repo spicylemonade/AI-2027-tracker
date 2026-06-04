@@ -43,7 +43,7 @@ const buildDanielCurveSeries = (startDate, endDate, steps = 216) => {
   });
 };
 
-export const TODAY_REFERENCE_DATE = '2026-04-10';
+export const TODAY_REFERENCE_DATE = '2026-06-04';
 
 export const METR_PROGRESS_DOMAIN = {
   startDate: '2021-01-30',
@@ -74,6 +74,7 @@ export const PUBLISHED_METR_P80_POINTS = [
   { id: 'gpt-5-2', label: 'GPT-5.2', releaseDate: '2025-12-11', hours: 1.1 },
   { id: 'claude-opus-4-6', label: 'Claude Opus 4.6', releaseDate: '2026-02-05', hours: 1.1646, showLabel: true, labelDx: 8, labelDy: -10 },
   { id: 'gpt-5-3-codex', label: 'GPT-5.3 Codex', releaseDate: '2026-02-05', hours: 0.9123 },
+  { id: 'gemini-3-1-pro', label: 'Gemini 3.1 Pro', releaseDate: '2026-02-19', hours: 1.4967 },
   { id: 'gpt-5-4', label: 'GPT-5.4', releaseDate: '2026-03-05', hours: 0.898, showLabel: true, labelDx: 8, labelDy: 16 },
   { id: 'claude-mythos-preview-early', label: 'Mythos official', releaseDate: '2026-04-07', hours: 3.0985, showLabel: true, labelDx: 8, labelDy: -10 },
 ];
