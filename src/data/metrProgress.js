@@ -43,7 +43,7 @@ const buildDanielCurveSeries = (startDate, endDate, steps = 216) => {
   });
 };
 
-export const TODAY_REFERENCE_DATE = '2026-06-04';
+export const TODAY_REFERENCE_DATE = '2026-07-28';
 
 export const METR_PROGRESS_DOMAIN = {
   startDate: '2021-01-30',
@@ -53,6 +53,9 @@ export const METR_PROGRESS_DOMAIN = {
 };
 
 // Published METR points use p80 horizons from METR Horizon v1.1, converted from minutes to hours.
+// Exception: points flagged `derived` have no published p80 and are converted from a published p50
+// using the median p80/p50 ratio (0.1969) across all 26 models in METR-Horizon-v1.1. Per-model ratios
+// range 0.097-0.426, so a derived point carries real slop on top of whatever CI METR published.
 export const PUBLISHED_METR_P80_POINTS = [
   { id: 'gpt-4', label: 'GPT-4', releaseDate: '2023-03-14', hours: 0.0148, showLabel: true, labelDx: 6, labelDy: -6 },
   { id: 'gpt-4-turbo-nov', label: 'GPT-4 Turbo (Nov 2023)', releaseDate: '2023-11-06', hours: 0.0131 },
@@ -72,13 +75,40 @@ export const PUBLISHED_METR_P80_POINTS = [
   { id: 'gpt-5-1-codex-max', label: 'GPT-5.1 Codex Max', releaseDate: '2025-11-19', hours: 0.8439 },
   { id: 'claude-opus-4-5', label: 'Claude Opus 4.5', releaseDate: '2025-11-24', hours: 0.8238 },
   { id: 'gpt-5-2', label: 'GPT-5.2', releaseDate: '2025-12-11', hours: 1.1 },
-  { id: 'claude-opus-4-6', label: 'Claude Opus 4.6', releaseDate: '2026-02-05', hours: 1.1646, showLabel: true, labelDx: 8, labelDy: -10 },
+  { id: 'claude-opus-4-6', label: 'Claude Opus 4.6', releaseDate: '2026-02-05', hours: 1.1646, showLabel: true, labelDx: -84, labelDy: -10 },
   { id: 'gpt-5-3-codex', label: 'GPT-5.3 Codex', releaseDate: '2026-02-05', hours: 0.9123 },
   { id: 'gemini-3-1-pro', label: 'Gemini 3.1 Pro', releaseDate: '2026-02-19', hours: 1.4967 },
   { id: 'gpt-5-4', label: 'GPT-5.4', releaseDate: '2026-03-05', hours: 0.898, showLabel: true, labelDx: 8, labelDy: 16 },
   { id: 'claude-mythos-preview-early', label: 'Mythos official', releaseDate: '2026-04-07', hours: 3.0985, showLabel: true, labelDx: 8, labelDy: -10 },
+  {
+    id: 'gpt-5-6-sol',
+    label: 'GPT-5.6 Sol',
+    releaseDate: '2026-07-09',
+    hours: 13.9804,
+    derived: true,
+    showLabel: true,
+    labelDx: 8,
+    labelDy: -22,
+    note: 'METR published no p80 for GPT-5.6 Sol. Converted from the 71hr p50 variant (cheating attempts discarded) '
+      + 'using the 0.1969 median p80/p50 ratio across METR-Horizon-v1.1. METR states none of its GPT-5.6 Sol numbers '
+      + 'are a robust measurement: standard methodology gives 11.3hr p50 (95% CI 5-40hr), the 71hr variant carries a '
+      + '95% CI of 13-11400hr, and counting cheating as success exceeds 270hr. Detected cheating rate was higher than '
+      + 'any public model METR has evaluated. Note also that METR considers measurements above 16hr unreliable and '
+      + 'excludes p50 > 16hr from its own doubling-time fit; 71hr is 4.4x that threshold, so this point would not '
+      + 'qualify for METR\'s trend line.',
+  },
 ];
 
+// These points mix two capability scales, deliberately. Earlier points use Epoch's published ECI; later Anthropic
+// points use the AECI reported in Anthropic's own system cards. `eciSource` records which.
+//
+// Why the switch: Epoch's ECI is a composite of 50+ benchmarks that are overwhelmingly short-horizon — single-turn
+// QA, math and self-contained coding problems. It carries little long-horizon agentic coding signal, which is
+// precisely the capability a METR p80 horizon measures. So ECI increasingly understates frontier models for this
+// extrapolation, and the gap widens as models improve at exactly the long-horizon work ECI does not test. Epoch
+// scores Opus 5 at 159.38 against Anthropic's AECI of 162.1 — a 2.7-point gap worth ~1.6x in implied p80.
+// AECI is a fork of ECI, so it inherits the same scale, but it is a different measurement; treat cross-scale
+// comparisons on this chart as indicative rather than exact.
 export const ECI_EXTRAPOLATED_P80_POINTS = [
   {
     id: 'gpt-5-4-pro',
@@ -96,9 +126,28 @@ export const ECI_EXTRAPOLATED_P80_POINTS = [
     releaseDate: '2026-04-08',
     hours: 3.9488,
     eci: 161,
-    note: 'Uses an assumed ECI of 161 for Mythos Preview rather than an official Epoch listing.',
+    note: 'Uses an assumed ECI of 161 for Mythos Preview; Epoch has never listed any Mythos model. For reference, '
+      + 'Anthropic later reported an AECI of 161.3 (95% CI 157.3-165.4, n=67) for Claude Mythos 5 — a different, later '
+      + 'model (released 2026-06-09) to which Mythos Preview was the predecessor. The closeness is suggestive but not '
+      + 'evidence; treat the 161 here as an assumption rather than a published figure.',
     labelDx: 8,
     labelDy: 16,
+  },
+  {
+    id: 'claude-opus-5-extrap',
+    label: 'Opus 5 extrap.',
+    releaseDate: '2026-07-24',
+    hours: 4.725,
+    eci: 162.1,
+    eciSource: 'anthropic-aeci',
+    note: 'Uses the AECI point estimate of 162.1 (95% CI 158.0-167.3, n=40) reported in Anthropic\'s Claude Opus 5 '
+      + 'system card, mapped to METR p80 using the published overlap fit. The CI spans roughly 2.4-11.0hr p80. '
+      + 'Anthropic calls this nominally their highest measured score but statistically indistinguishable from Claude '
+      + 'Mythos 5 at 161.3 (95% CI 157.3-165.4, n=67), which is the figure behind the Mythos extrapolation above. '
+      + 'Note that Epoch\'s independent ECI for Opus 5 is lower at 159.38 (95% CI 157.25-162.21), which would imply '
+      + '3.03hr p80 instead.',
+    labelDx: 12,
+    labelDy: 44,
   },
 ];
 
@@ -113,8 +162,9 @@ export const METR_PROGRESS_SNAPSHOT = {
     hours: danielCurveHoursForDate(TODAY_REFERENCE_DATE),
   },
   bestPublished: {
-    label: 'Claude Mythos Preview',
-    hours: 3.0985,
+    label: 'GPT-5.6 Sol',
+    hours: 13.9804,
+    derived: true,
   },
   gpt54Actual: {
     label: 'GPT-5.4',
@@ -128,5 +178,10 @@ export const METR_PROGRESS_SNAPSHOT = {
     label: 'Claude Mythos Preview',
     hours: 3.9488,
     eci: 161,
+  },
+  latestExtrapolation: {
+    label: 'Claude Opus 5',
+    hours: 4.725,
+    eci: 162.1,
   },
 };

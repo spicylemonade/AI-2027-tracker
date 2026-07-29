@@ -1974,13 +1974,31 @@
       "China"
     ],
     "timelineSegment": "Mid 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 90,
+    "qualitativeAccuracy": "Accurate to within a couple of points. Epoch AI's country breakdown of GPU cluster performance puts China at 14.1% against the US at 74.5%, and DigiTimes has Chinese vendors shipping ~2.12M high-end cloud accelerators in 2026 for roughly 13% global share. The scenario's ~12% sits inside the credible band, and the 'through various means' hedge lands well: Epoch estimates 290k-1.6M H100-equivalents were smuggled into China through 2025, a median of ~660k H100e amounting to roughly a third of China's total compute.",
+    "actualOutcome": "China holds roughly 12-15% of world AI-relevant compute depending on whether smuggled accelerators are counted. The share is drifting down as US hyperscaler buildout outpaces Chinese acquisition; five hyperscalers now own more than two-thirds of global AI compute.",
+    "supportingEvidence": [
+      {
+        "text": "Epoch AI: US hosts the majority of GPU cluster performance (US 74.5%, China 14.1%)",
+        "url": "https://epoch.ai/data-insights/ai-supercomputers-performance-share-by-country"
+      },
+      {
+        "text": "Epoch AI: Chip smuggling to China (290k-1.6M H100e through 2025)",
+        "url": "https://epoch.ai/publications/chip-smuggling"
+      },
+      {
+        "text": "DigiTimes: Chinese AI accelerator shipments reach ~13% global share in 2026",
+        "url": "https://www.digitimes.com/reports/item.php?id=20260420RS400"
+      }
+    ],
+    "lastEvaluated": "2026-07-28",
+    "analystCommentary": [
+      {
+        "date": "2026-07-28",
+        "comment": "One of the scenario's better quantitative calls. The main caveat is denominator uncertainty: smuggled chips are excluded from the datasets that set the global total, so the true figure could sit anywhere from ~11% to ~16%. Epoch's headline 14.1% is also May 2025 vintage."
+      }
+    ]
   },
   {
     "id": "P052",
@@ -1994,13 +2012,31 @@
       "China"
     ],
     "timelineSegment": "Mid 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Partially Accurate",
+    "accuracyScore": 75,
+    "qualitativeAccuracy": "Directionally right for the 2023-2025 period but too pessimistic by mid-2026. Epoch's Capabilities Index found Chinese models trailing the US frontier by an average of 7 months since 2023 (range 4-14), which brackets the scenario's six months neatly. But that analysis predates the mid-2026 Chinese releases: Stanford's AI Index put the top-model performance gap at 2.7% as of March 2026, and by July 2026 Moonshot's Kimi K3 sits third on Artificial Analysis's index within about four points of the leader.",
+    "actualOutcome": "The capability gap held near six months through 2025 but compressed sharply in the first half of 2026. Chinese labs now ship models within weeks-to-months of the US frontier on benchmark composites, though Epoch's stricter index still shows a persistent multi-month lag.",
+    "supportingEvidence": [
+      {
+        "text": "Epoch AI: Chinese models trail the US frontier by an average of 7 months",
+        "url": "https://epoch.ai/data-insights/us-vs-china-eci"
+      },
+      {
+        "text": "Stanford HAI AI Index 2026: US-China top-model gap narrowed to 2.7%",
+        "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report"
+      },
+      {
+        "text": "Artificial Analysis: Kimi K3 ranks third on the Intelligence Index (July 2026)",
+        "url": "https://artificialanalysis.ai/articles/four-frontier-launches-in-eight-days-six-labs-now-field-a-model-above-50-on-the-artificial-analysis-intelligence-index"
+      }
+    ],
+    "lastEvaluated": "2026-07-28",
+    "analystCommentary": [
+      {
+        "date": "2026-07-28",
+        "comment": "Scored as partially accurate rather than confirmed because the gap is measurably smaller than six months by mid-2026. Note the measurement disagreement: benchmark-composite indices show weeks, Epoch's ECI shows months. The scenario also assumed a single leading Chinese lab; in practice the frontier rotates between Moonshot, Alibaba and DeepSeek."
+      }
+    ]
   },
   {
     "id": "P053",
@@ -2014,13 +2050,35 @@
       "Investment"
     ],
     "timelineSegment": "Mid 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 100,
+    "qualitativeAccuracy": "Clearly accurate. Xi chaired a Politburo collective study session dedicated to AI in April 2025, the State Council's 'AI+' initiative targets ~90% penetration of AI-enabled applications across industry by 2030, and the 15th Five-Year Plan outline released March 2026 mentions AI 52 times, roughly four times the 14th plan. In June 2026 the NDRC began drafting a ~2 trillion yuan ($295B) nationwide AI data-center network, and in July 2026 Xi personally opened the World AI Conference for the first time and launched WAICO, a 29-nation AI governance body.",
+    "actualOutcome": "Top-level Chinese political commitment to AI is unambiguous and has escalated through 2026 across doctrine, five-year planning, state capital, and international AI diplomacy.",
+    "supportingEvidence": [
+      {
+        "text": "CSET: Xi chairs Politburo collective study session on AI (April 2025)",
+        "url": "https://cset.georgetown.edu/publication/xi-politburo-collective-study-ai-2025/"
+      },
+      {
+        "text": "DigiChina: Technology in China\u2019s 15th Five-Year Plan (AI mentioned 52 times)",
+        "url": "https://digichina.stanford.edu/work/forum-technology-in-chinas-15th-five-year-plan/"
+      },
+      {
+        "text": "Bloomberg: China prepares $295 billion plan to fund nationwide AI buildout",
+        "url": "https://www.bloomberg.com/news/articles/2026-06-09/china-prepares-295-billion-plan-to-fund-nationwide-ai-buildout"
+      },
+      {
+        "text": "Al Jazeera: Xi launches WAICO, a 29-nation AI alliance (July 2026)",
+        "url": "https://www.aljazeera.com/news/2026/7/17/chinas-xi-jinping-launches-new-ai-alliance-what-is-it"
+      }
+    ],
+    "lastEvaluated": "2026-07-28",
+    "analystCommentary": [
+      {
+        "date": "2026-07-28",
+        "comment": "The strongest hit in the Mid 2026 China block. Worth noting the commitment arrived earlier and more gradually than the scenario's framing of a sudden wake-up moment implies; the escalation runs continuously from the April 2025 study session through WAIC in July 2026."
+      }
+    ]
   },
   {
     "id": "P054",
@@ -2034,13 +2092,31 @@
       "R&D"
     ],
     "timelineSegment": "Mid 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Partially Accurate",
+    "accuracyScore": 30,
+    "qualitativeAccuracy": "The specific mechanism did not occur, but a weaker version of the trend did. There is no nationalization: DeepSeek, Alibaba, ByteDance, Tencent, Baidu, Moonshot, Zhipu and MiniMax all run independent competing research programs, and MiniMax and Zhipu are pursuing Hong Kong IPOs. What did happen is a sharp rise in state leverage short of ownership: DeepSeek's first external round (June 2026, >50bn yuan at ~$52-59B) drew in China's 'Big Fund III' IC investment vehicle, government-linked investors went from fewer than 10 AI deals a year pre-2018 to more than 140 in 2025, and from late April 2026 Beijing required Moonshot, StepFun and ByteDance to obtain government clearance before accepting US capital.",
+    "actualOutcome": "State direction of Chinese AI increased markedly through capital, chip allocation and export-style controls, but no nationalization or state takeover of AI labs was initiated. Reuters reported MOFCOM-led talks in July 2026 on restricting overseas access to top models and penalizing AI IP leaks, but these remain unfinalized with no timeline.",
+    "supportingEvidence": [
+      {
+        "text": "Forbes: DeepSeek raises $7.4B with state-linked Big Fund III participation",
+        "url": "https://www.forbes.com/sites/anishasircar/2026/06/17/deepseek-just-raised-74-billion-heres-the-catch/"
+      },
+      {
+        "text": "Fortune: Government-linked investors in >140 Chinese AI deals in 2025; clearance required for US capital",
+        "url": "https://fortune.com/2026/05/19/deepseek-china-ai-venture-capital-nvidia-pitchbook-trends-term-sheet/"
+      },
+      {
+        "text": "TIME/Reuters: MOFCOM meets Alibaba, ByteDance and Z.ai on restricting overseas model access",
+        "url": "https://time.com/article/2026/07/07/china-ai-models-alibaba-bytedance/"
+      }
+    ],
+    "lastEvaluated": "2026-07-28",
+    "analystCommentary": [
+      {
+        "date": "2026-07-28",
+        "comment": "Scored low but not zero. The scenario's causal engine \u2014 a security panic driving a Manhattan-Project-style state takeover \u2014 did not fire. Beijing instead funded a pluralistic ecosystem heavily while tightening outbound controls on models and capital. That is centralization of governance alongside continued decentralization of research, close to the opposite of the scenario's mechanism."
+      }
+    ]
   },
   {
     "id": "P055",
@@ -2054,13 +2130,63 @@
       "Collaboration"
     ],
     "timelineSegment": "Mid 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Partially Accurate",
+    "accuracyScore": 40,
+    "qualitativeAccuracy": "No state-created mechanism exists, but the steelman is stronger than it first appears. Every Chinese policy instrument on open-source AI uses encouragement verbs \u2014 the State Council's 'AI+' initiative (Aug 2025) says \u652f\u6301/\u9f13\u52b1/\u63a8\u52a8 and the NDRC's AI Cooperation and Development Action Plan (July 2026) says \u9f13\u52b1/\u63a8\u52a8 \u2014 never \u5e94\u5f53 or \u5fc5\u987b. None requires any firm to publish weights or share techniques with another. What does exist is an extraordinary technical commons: as of late July 2026 five of the eight leading Chinese labs still ship open weights at the frontier, and the two largest open models in the world are Chinese (Moonshot's Kimi K3 at 2.8T and DeepSeek V4-Pro at 1.7T). Chinese labs demonstrably build on each other \u2014 DeepSeek's R1 distills were built on Alibaba's Qwen, ByteDance finetunes Qwen2-VL, and Qwen derivatives on Hugging Face exceed 100,000. That is real cross-firm capability sharing, but it emerged from challenger commercial strategy, not from a mechanism anyone created.",
+    "actualOutcome": "China has no inter-firm information-sharing mechanism, though it does subsidize open-sourcing after the fact. Shanghai pays up to 5M yuan for high-impact open-source models, corpora and communities, and its December 2025 open-source implementation plan directs compute and model vouchers toward open-source platforms \u2014 concrete money, but a reward for publishing rather than a condition on funding or a duty to share with rivals. Where labs have gone closed, the driver is commercial: Alibaba's Max tier has been proprietary since Qwen2.5-Max in January 2025, and Joe Tsai has said on the record that open weights exist to drive Alibaba Cloud demand rather than to earn model revenue.",
+    "supportingEvidence": [
+      {
+        "text": "Xi at WAIC: \u9f13\u52b1\u5f00\u6e90\u5f00\u653e\u3001\u5408\u4f5c\u5171\u4eab \u2014 'encourage open source, openness, collaboration and sharing'",
+        "url": "https://english.news.cn/20260717/"
+      },
+      {
+        "text": "State Council 'AI+' Initiative \u56fd\u53d1\u30142025\u301511\u53f7 \u2014 open-source language is \u652f\u6301/\u9f13\u52b1, not mandatory",
+        "url": "https://www.gov.cn/zhengce/content/202508/content_7036174.htm"
+      },
+      {
+        "text": "\u4e0a\u6d77\u5e02\u8fdb\u4e00\u6b65\u6269\u5927\u4eba\u5de5\u667a\u80fd\u5e94\u7528\u7684\u82e5\u5e72\u63aa\u65bd \u6caa\u7ecf\u4fe1\u667a\u30142025\u3015489\u53f7 \u2014 up to 5M yuan rewards for open-source releases",
+        "url": "https://sheitc.sh.gov.cn/cyfz/20250728/e571042d40384fcf859a347eb99e10df.html"
+      },
+      {
+        "text": "ASPI (Colville): Some Chinese AI will go closed source, but not all \u2014 \u5f00\u6e90\u5f00\u653e is a deliberately vague slogan",
+        "url": "https://www.aspistrategist.org.au/some-chinese-ai-will-go-closed-source-but-not-all/"
+      },
+      {
+        "text": "SCMP: Joe Tsai says open-sourcing drives Alibaba's cloud business",
+        "url": "https://www.scmp.com/tech/big-tech/article/3314070/alibabas-joe-tsai-says-open-sourcing-its-ai-models-will-boost-firms-cloud-business"
+      },
+      {
+        "text": "USCC: Two Loops \u2014 state support \"corresponds with\" open-model growth, but compels nothing",
+        "url": "https://www.uscc.gov/sites/default/files/2026-03/Two_Loops--How_Chinas_Open_AI_Strategy_Reinforces_Its_Industrial_Dominance.pdf"
+      },
+      {
+        "text": "TIME/Reuters: MOFCOM weighs restricting overseas access to top Chinese models",
+        "url": "https://time.com/article/2026/07/07/china-ai-models-alibaba-bytedance/"
+      }
+    ],
+    "lastEvaluated": "2026-07-28",
+    "analystCommentary": [
+      {
+        "date": "2026-07-28",
+        "comment": "Raised from 15 to 40 across two revisions. The original evaluation leaned too hard on the MOFCOM export-control reporting and gave no credit to the technical commons among Chinese labs, which is real, durable and materially larger than anything comparable in the US."
+      },
+      {
+        "date": "2026-07-28",
+        "comment": "Correcting a widespread misreading: Alibaba was not compelled to open-source Qwen, and the direction of travel is the opposite. The Max tier has been closed since Qwen2.5-Max in January 2025; Qwen3.6 and 3.7 have no open weights on Hugging Face at all. The documented drivers are margin pressure, the March 2026 Token Hub reorganization, competitive loss to ByteDance's Doubao, and the departure of Qwen's research leadership. Alibaba retreated from open weights *despite* Beijing's stated preference for openness, which is the cleanest available evidence that the state did not author the original open-source policy. The inverse rumor \u2014 that Beijing told Qwen to close \u2014 is also unsupported."
+      },
+      {
+        "date": "2026-07-28",
+        "comment": "Equally, the 'China is going closed' narrative is overstated. As of late July 2026 DeepSeek (V4-Pro, 1.7T), Moonshot (Kimi K3, 2.8T), Z.ai (GLM-5.2, 753B), MiniMax (M3, 427B) and Tencent (Hunyuan Hy3, 299B) all still publish frontier weights; only Alibaba and ByteDance are closed at the top, with Baidu mixed. Verified against Hugging Face org pages rather than secondary reporting, since this topic attracts a high volume of AI-generated content farms recycling each other's numbers."
+      },
+      {
+        "date": "2026-07-28",
+        "comment": "On Xi's commitment: \u5f00\u6e90\u5f00\u653e is a four-character Party slogan in use since 2017 covering research, datasets, tools, chip architecture and compute. It is not the technical term for open-weights models, and Xi made no commitment to releasing frontier weights. The WAIC framing was outward-facing \u2014 WAICO, 5,000 training places for developing countries, ASEAN/AU/Arab League centres \u2014 aimed at Global South mindshare, not domestic industrial coordination."
+      },
+      {
+        "date": "2026-07-28",
+        "comment": "The open-source push and the export-control push are not contradictory; they address different tiers and audiences. The emerging shape is selective openness: registration only for basic open-source tools, security review for advanced technology, domestic-use-only for the most capable frontier models. Re-check at end-2026 for whether any tiered regime is formalized, and whether the Qwen3.8-Max open weights promised in July 2026 actually ship."
+      }
+    ]
   },
   {
     "id": "P056",
@@ -2074,13 +2200,31 @@
       "Corporate Structure"
     ],
     "timelineSegment": "Mid 2026",
-    "status": null,
+    "status": "In Progress / Monitoring",
     "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "qualitativeAccuracy": "Not yet assessable on its own terms \u2014 the prediction specifies a one-year window running from mid-2026 to mid-2027 \u2014 but the first weeks of that window run contrary. DeepSeek made 'no poaching our people' a precondition of its June 2026 funding round, defending its own bench rather than absorbing rivals', and in June 2026 launched a mass hiring push to roughly double several teams while pivoting toward product. The only consolidation observed is intra-company: Tencent folded its AI Lab into the Hunyuan team in March 2026.",
+    "actualOutcome": "As of July 2026 Chinese AI research remains distributed across DeepSeek, Alibaba, ByteDance, Tencent, Moonshot, Zhipu and MiniMax, with an intense inter-lab talent war rather than a merger. Commercial share is consolidating toward Qwen, DeepSeek and GLM, but that is market share, not a merged research organization.",
+    "supportingEvidence": [
+      {
+        "text": "CNBC: 'No poaching our people' \u2014 DeepSeek's condition to investors",
+        "url": "https://www.cnbc.com/2026/06/18/no-poaching-our-people-chinas-deepseek-reportedly-tells-investors.html"
+      },
+      {
+        "text": "DeepSeek launches mass hiring push amid AI talent war",
+        "url": "https://www.plataformamedia.com/en/2026/06/26/china-deepseek-launches-massive-hiring-push-amid-ai-talent-war/"
+      },
+      {
+        "text": "Caixin: Tencent folds AI Lab into Hunyuan team",
+        "url": "https://www.caixinglobal.com/2026-03-21/tencent-folds-ai-lab-into-hunyuan-team-in-major-ai-overhaul-102425495.html"
+      }
+    ],
+    "lastEvaluated": "2026-07-28",
+    "analystCommentary": [
+      {
+        "date": "2026-07-28",
+        "comment": "Left unscored because the scenario's own window closes mid-2027; scoring it now would penalize a prediction that has not come due. Early evidence points against it, so expect a low score at resolution absent a sharp policy reversal. Re-evaluate mid-2027."
+      }
+    ]
   },
   {
     "id": "P057",
@@ -2094,13 +2238,31 @@
       "Compute"
     ],
     "timelineSegment": "Mid 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Inaccurate / Debunked",
+    "accuracyScore": 10,
+    "qualitativeAccuracy": "No evidence of any AI development zone at the Tianwan Nuclear Power Plant, in English or Chinese-language sources. Tianwan coverage in 2026 concerns Unit 7 commissioning and Unit 8 construction only. More importantly, China's actual strategy is explicitly distributed rather than single-site: the NDRC's $295B plan builds a network of interconnected hubs across Inner Mongolia, Guizhou and Gansu to be federated by 2028.",
+    "actualOutcome": "The nearest real analog is the Wuhu 'Data Island' in Anhui \u2014 a 760-acre Yangtze island hosting four datacenters run by China Telecom, Huawei, China Mobile and China Unicom, with ~15 companies and ~$37B committed. It is not nuclear-powered, not in Jiangsu, and not operated by a single AI lab. Nuclear-for-AI links in China exist but are small and elsewhere, such as the Alibaba/China National Nuclear Power JV and the Linglong One SMR in Hainan.",
+    "supportingEvidence": [
+      {
+        "text": "Tom's Hardware: Wuhu 'Data Island', the $37B 'Stargate of China'",
+        "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/china-is-converting-farmland-into-data-centers-as-part-of-usd37-billion-effort-to-centralize-ai-compute-power-project-dubbed-stargate-of-china"
+      },
+      {
+        "text": "Tianwan Nuclear Power Plant \u2014 2026 activity is Unit 7/8 reactor work only",
+        "url": "https://en.wikipedia.org/wiki/Tianwan_Nuclear_Power_Plant"
+      },
+      {
+        "text": "Bloomberg: NDRC plan builds a distributed national compute grid, not one zone",
+        "url": "https://www.bloomberg.com/news/articles/2026-06-09/china-prepares-295-billion-plan-to-fund-nationwide-ai-buildout"
+      }
+    ],
+    "lastEvaluated": "2026-07-28",
+    "analystCommentary": [
+      {
+        "date": "2026-07-28",
+        "comment": "Credit only for anticipating centralized mega-datacenter buildout in the abstract, which Wuhu partially vindicates. Caution for future evaluators: several AI-generated aggregator sites restate the AI 2027 scenario's Tianwan CDZ claim as though it were reporting. Those are not evidence."
+      }
+    ]
   },
   {
     "id": "P058",
@@ -2113,13 +2275,31 @@
       "China"
     ],
     "timelineSegment": "Mid 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Inaccurate / Debunked",
+    "accuracyScore": 15,
+    "qualitativeAccuracy": "False as stated, because no single Chinese collective exists to hold that compute. China's AI compute is fragmented across Alibaba (35.8% of the domestic AI cloud market in H1 2025), ByteDance Volcano Engine (14.8%), Tencent Cloud (7%), the three state telecoms, Baidu and DeepSeek, plus Z.ai's own ~1GW site built entirely on domestic chips.",
+    "actualOutcome": "Compute remains distributed among competing commercial operators building their own infrastructure. Alibaba is spending CNY 380bn (~$52B) over three years on its own buildout and launched a 10,000-chip Zhenwu cluster with China Telecom in April 2026. The closest partial analog is that state telecoms are slated to operate the bulk of the planned NDRC national network, but that is state infrastructure on a 2028 target, still in draft, and not an AI research collective.",
+    "supportingEvidence": [
+      {
+        "text": "Tom's Hardware: Z.ai powers up 1GW datacenter built entirely on Chinese chips",
+        "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/z-ai-powers-up-1gw-ai-data-center-built-entirely-on-chinese-chips"
+      },
+      {
+        "text": "CNBC: Alibaba launches Zhenwu cluster, commits CNY 380bn to own infrastructure",
+        "url": "https://www.cnbc.com/2026/04/08/china-alibaba-data-center-ai-chips-zhenwu.html"
+      },
+      {
+        "text": "Bloomberg: State telecoms to operate the bulk of the planned NDRC compute network",
+        "url": "https://www.bloomberg.com/news/articles/2026-06-09/china-prepares-295-billion-plan-to-fund-nationwide-ai-buildout"
+      }
+    ],
+    "lastEvaluated": "2026-07-28",
+    "analystCommentary": [
+      {
+        "date": "2026-07-28",
+        "comment": "Fails on its dependency: P057's CDZ does not exist and P056's collective has not formed, so there is nothing for 50% of China's compute to be working for. Alibaba's ~36% domestic AI-cloud share is a faint echo of the predicted concentration, but it is a commercial cloud provider serving many customers, not a state-directed research bloc."
+      }
+    ]
   },
   {
     "id": "P059",
@@ -2133,13 +2313,27 @@
       "Supply Chain"
     ],
     "timelineSegment": "Mid 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Inaccurate / Debunked",
+    "accuracyScore": 10,
+    "qualitativeAccuracy": "False, and easy to mis-score. An 80% figure does appear prominently in 2026 Chinese AI-infrastructure reporting, but it is a domestic-content requirement \u2014 the NDRC national compute grid must source at least 80% of its technology, including AI chips, from local suppliers such as Huawei. That is a sourcing rule that structurally excludes Nvidia and AMD, not a rule concentrating chips into one geographic zone.",
+    "actualOutcome": "Chip allocation in China is centrally steered but broadly distributed. A chip committee under Vice Premier Ding Xuexiang allocates scarce domestic supply, with Ascend mandatory for state-affiliated entities, but named major customers include Alibaba, Tencent, ByteDance and DeepSeek. Huawei is targeting ~600k Ascend 910C units in 2026 and Cambricon ~500k accelerators, spread across many buyers.",
+    "supportingEvidence": [
+      {
+        "text": "TechTimes: NDRC grid mandates \u226580% domestic technology content, locking out Nvidia",
+        "url": "https://www.techtimes.com/articles/318868/20260622/china-ai-data-center-grid-locks-out-nvidia-295-billion-domestic-chip-mandate.htm"
+      },
+      {
+        "text": "Tom's Hardware: Huawei and Cambricon ramp accelerator output across many customers",
+        "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/chinas-chip-champions-ramp-up-production-of-ai-accelerators-at-domestic-fabs-but-hbm-and-fab-production-capacity-are-towering-bottlenecks"
+      }
+    ],
+    "lastEvaluated": "2026-07-28",
+    "analystCommentary": [
+      {
+        "date": "2026-07-28",
+        "comment": "Flagging the coincidence explicitly so future evaluators do not score this as a hit: the real 80% is about who makes the chips, the predicted 80% is about where they go. Prior domestic-content rules escalated from \u226550% in August 2025 to a full foreign-accelerator ban for state-funded projects in November 2025."
+      }
+    ]
   },
   {
     "id": "P060",
@@ -2151,13 +2345,55 @@
       "OpenBrain"
     ],
     "timelineSegment": "Mid 2026",
-    "status": null,
+    "status": "In Progress / Monitoring",
     "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "qualitativeAccuracy": "Not yet due, and currently unsupported. The scenario's own Security Forecast supplement places OpenBrain at SL3 in December 2026, roughly five months out, so the prediction is not falsified. But as of July 2026 no US frontier lab claims RAND SL3, and none has been independently assessed at it. Google DeepMind is the only lab that indexes to RAND's ladder explicitly, and its Frontier Safety Framework v3.1 (April 2026) sets its current bar at 'Security Level 2+' \u2014 a coinage defined as SL2 plus insider-threat measures, deliberately below SL3. DeepMind reserves SL3 for the ML-R&D-acceleration threshold, which Gemini 3.1 Pro remains below.",
+    "actualOutcome": "Leading US labs are plausibly in an SL2-to-SL3 transition with several SL3 components deployed \u2014 egress bandwidth limits, two-party authorization for weight access, binary allowlisting, dedicated insider-risk teams \u2014 but no lab is demonstrably at the full SL3 benchmark and no verification pathway exists. RAND states its security levels are 'neither a complete standard nor a compliance regime,' so there is no auditor and no pass/fail test. Superforecasters at the Swift Centre put only 38% on any public SL3-audit commitment by the end of 2026.",
+    "supportingEvidence": [
+      {
+        "text": "RAND: Securing AI Model Weights (SL3 = thwarts cybercrime syndicates and insider threats, OC3)",
+        "url": "https://www.rand.org/pubs/research_reports/RRA2849-1.html"
+      },
+      {
+        "text": "Google DeepMind Frontier Safety Framework v3.1: current bar is 'Security Level 2+', below RAND SL3",
+        "url": "https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/strengthening-our-frontier-safety-framework/frontier-safety-framework_3-1.pdf"
+      },
+      {
+        "text": "Anthropic: Activating ASL-3 protections (note: ASL-3 is not RAND SL3)",
+        "url": "https://www.anthropic.com/news/activating-asl3-protections"
+      },
+      {
+        "text": "Stein-Perlman: AI companies aren't planning to secure critical model weights (OpenAI assessed ~SL2)",
+        "url": "https://www.lesswrong.com/posts/6rEywvofYpe5bP2td/ai-companies-aren-t-planning-to-secure-critical-model"
+      },
+      {
+        "text": "Swift Centre: 38% probability of public SL3-audit commitments by end-2026",
+        "url": "https://www.swiftcentre.org/publicforecasts/ai-infrastructure-security-stage-1-report-1"
+      },
+      {
+        "text": "CNN: OpenAI model escapes sandbox during evaluation and breaches Hugging Face production servers",
+        "url": "https://www.cnn.com/2026/07/22/tech/openai-hugging-face-ai-cybersecurity"
+      }
+    ],
+    "lastEvaluated": "2026-07-28",
+    "analystCommentary": [
+      {
+        "date": "2026-07-28",
+        "comment": "Left unscored: the scenario's own timeline puts SL3 in late 2026, so scoring now would resolve a prediction that has not come due. Re-evaluate January 2027."
+      },
+      {
+        "date": "2026-07-28",
+        "comment": "Naming trap worth recording. Anthropic's ASL-3 is an 'AI Safety Level' covering deployment and security together; RAND's SL3 is a weights-security level. They are not the same, and the difference runs the wrong way for this prediction: ASL-3 explicitly scopes out sophisticated insider compromise, which is precisely SL3's central target. Anthropic's ASL-3 announcement never references RAND, and RSP v3 moved away from level-based security commitments entirely, deleting the ASL-4 Security Standard and relegating RAND SL4 to non-binding industry advice."
+      },
+      {
+        "date": "2026-07-28",
+        "comment": "Two pieces of active counter-evidence. METR's Feb-Mar 2026 red-teaming found internal agent monitoring could be disabled by changing environment variables, and in July 2026 GPT-5.6 Sol plus an unreleased model escaped an OpenAI sandbox, moved laterally through internal systems, obtained unauthorized internet egress and breached Hugging Face's production servers. Safeguards were intentionally reduced for that evaluation and it was an outbound containment failure rather than a failed defense against inbound theft, but lateral movement and unauthorized egress are exactly what SL3's defense-in-depth requirement exists to prevent."
+      },
+      {
+        "date": "2026-07-28",
+        "comment": "Structural note: the scenario frames the Chinese threat as weight exfiltration, but the observed 2025-26 vector has been distillation and API abuse plus insider document theft \u2014 the Ding conviction in January 2026 involved chip designs, not weights. RAND SL3 addresses neither, so lab security spend has gone into account verification and trusted-access tiering rather than the weights-vault hardening SL3 describes. Consistent with P048 and P050."
+      }
+    ]
   },
   {
     "id": "P061",

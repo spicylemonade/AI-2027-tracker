@@ -827,12 +827,31 @@ const MetrProgressChart = () => {
       <div className="grid grid-cols-3 gap-4">
         <StatBlock label="Daniel curve" value={formatCompactMetrHours(METR_PROGRESS_SNAPSHOT.danielCurveToday.hours)} sub={`${formatMonthYear(TODAY_REFERENCE_DATE)} level`} />
         <StatBlock label="Best METR" value={formatCompactMetrHours(METR_PROGRESS_SNAPSHOT.bestPublished.hours)} sub={METR_PROGRESS_SNAPSHOT.bestPublished.label} />
-        <StatBlock label="ECI extrap." value={formatCompactMetrHours(METR_PROGRESS_SNAPSHOT.mythosExtrapolation.hours)} sub={`${METR_PROGRESS_SNAPSHOT.mythosExtrapolation.label} · ECI ${METR_PROGRESS_SNAPSHOT.mythosExtrapolation.eci}`} />
+        <StatBlock label="ECI extrap." value={formatCompactMetrHours(METR_PROGRESS_SNAPSHOT.latestExtrapolation.hours)} sub={`${METR_PROGRESS_SNAPSHOT.latestExtrapolation.label} · ECI ${METR_PROGRESS_SNAPSHOT.latestExtrapolation.eci}`} />
       </div>
 
       <p className={`text-[11px] leading-relaxed ${activeColors.textSecondary}`}>
         Published points from <a href="https://metr.org/time-horizons/" target="_blank" rel="noopener noreferrer" className="underline decoration-current/30 hover:decoration-current">METR Time Horizons</a>.
-        Extrapolations via <a href="https://epoch.ai/eci" target="_blank" rel="noopener noreferrer" className="underline decoration-current/30 hover:decoration-current">Epoch ECI</a> overlap fit.
+        Extrapolations map a capability index onto p80 via the overlap fit. Earlier points use
+        {' '}<a href="https://epoch.ai/eci" target="_blank" rel="noopener noreferrer" className="underline decoration-current/30 hover:decoration-current">Epoch&apos;s ECI</a>;
+        later Anthropic points use the AECI from Anthropic&apos;s own system cards. The switch is deliberate: ECI
+        aggregates 50+ benchmarks that are overwhelmingly short-horizon — single-turn QA, math and self-contained
+        coding — and carries little long-horizon agentic coding signal, which is exactly what a METR p80 horizon
+        measures. It therefore understates frontier models for this purpose, and the gap widens as models improve at
+        the long-horizon work ECI does not test. Epoch scores Opus 5 at 159.38 against Anthropic&apos;s 162.1, worth
+        about 1.6× in implied p80. AECI is a fork of ECI and inherits its scale, but the two are different
+        measurements — read cross-scale comparisons here as indicative, not exact.
+      </p>
+      <p className={`-mt-4 text-[11px] leading-relaxed ${activeColors.textSecondary}`}>
+        <strong>GPT-5.6 Sol caveat:</strong> METR published no p80 for it, so the 14.0 h point is converted from their
+        71 h p50 using the 0.197 median p80/p50 ratio across METR-Horizon-v1.1. METR
+        {' '}<a href="https://metr.org/blog/2026-06-26-gpt-5-6-sol/" target="_blank" rel="noopener noreferrer" className="underline decoration-current/30 hover:decoration-current">explicitly states</a>{' '}
+        none of its GPT-5.6 Sol numbers are a robust measurement — its detected cheating rate was higher than any public
+        model they have evaluated. Standard methodology gives 11.3 h p50 (95% CI 5–40 h); the 71 h variant discards
+        cheating attempts and carries a 95% CI of 13–11,400 h; counting cheating as success exceeds 270 h. METR also
+        treats measurements above 16 h as unreliable and excludes them from its own doubling-time fit, so this point
+        would not qualify for METR&apos;s trend line. The ECI-based extrapolations, which all sit well below it, are the
+        more conservative read.
       </p>
     </div>
   );
