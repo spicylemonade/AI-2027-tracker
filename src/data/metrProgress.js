@@ -43,7 +43,7 @@ const buildDanielCurveSeries = (startDate, endDate, steps = 216) => {
   });
 };
 
-export const TODAY_REFERENCE_DATE = '2026-07-28';
+export const TODAY_REFERENCE_DATE = '2026-09-07';
 
 export const METR_PROGRESS_DOMAIN = {
   startDate: '2021-01-30',
@@ -87,7 +87,7 @@ export const PUBLISHED_METR_P80_POINTS = [
     hours: 13.9804,
     derived: true,
     showLabel: true,
-    labelDx: 8,
+    labelDx: -62,
     labelDy: -22,
     note: 'METR published no p80 for GPT-5.6 Sol. Converted from the 71hr p50 variant (cheating attempts discarded) '
       + 'using the 0.1969 median p80/p50 ratio across METR-Horizon-v1.1. METR states none of its GPT-5.6 Sol numbers '
@@ -106,9 +106,13 @@ export const PUBLISHED_METR_P80_POINTS = [
 // QA, math and self-contained coding problems. It carries little long-horizon agentic coding signal, which is
 // precisely the capability a METR p80 horizon measures. So ECI increasingly understates frontier models for this
 // extrapolation, and the gap widens as models improve at exactly the long-horizon work ECI does not test. Epoch
-// scores Opus 5 at 159.38 against Anthropic's AECI of 162.1 — a 2.7-point gap worth ~1.6x in implied p80.
-// AECI is a fork of ECI, so it inherits the same scale, but it is a different measurement; treat cross-scale
-// comparisons on this chart as indicative rather than exact.
+// understated Opus 5 at 159.38 against Anthropic's AECI of 162.1 when that point was added.
+//
+// Caveat as of 2026-09-07: Epoch has since refit, and that specific gap has closed — Epoch now scores Opus 5 at
+// 162.33, marginally above Anthropic's AECI of 162.1. The short-horizon-benchmark critique of ECI may still hold
+// in general, but the numeric evidence originally cited for it no longer does. AECI is a fork of ECI and inherits
+// its scale, but Anthropic states the two are not directly comparable; treat cross-scale comparisons here as
+// indicative rather than exact.
 export const ECI_EXTRAPOLATED_P80_POINTS = [
   {
     id: 'gpt-5-4-pro',
@@ -149,6 +153,22 @@ export const ECI_EXTRAPOLATED_P80_POINTS = [
     labelDx: 12,
     labelDy: 44,
   },
+  {
+    id: 'gpt-6-astra-extrap',
+    label: 'Astra extrap.',
+    releaseDate: '2026-09-03',
+    hours: 15.1245,
+    eci: 169.23,
+    eciSource: 'epoch-eci',
+    note: 'Official Epoch ECI for GPT-6 Astra (169.23, 95% CI 164.85-174.02), the highest Epoch has measured, mapped '
+      + 'to METR p80 using the published overlap fit. The CI spans roughly 7.4-33.1hr p80. METR did not evaluate '
+      + 'GPT-6 Astra — OpenAI\'s external evaluators were UK AISI, Apollo Research, Gray Swan and SecureBio — so no '
+      + 'published time horizon exists to check this against. Note that the widely-quoted 30.9min "time horizon" for '
+      + 'Astra is UK AISI\'s no-CoT math metric, which is not METR\'s task horizon and is not comparable to this axis. '
+      + 'Anthropic publishes no AECI for competitor models, so this point necessarily uses Epoch\'s scale.',
+    labelDx: 10,
+    labelDy: 4,
+  },
 ];
 
 export const DANIEL_CURVE_P80_SERIES = buildDanielCurveSeries(
@@ -180,8 +200,8 @@ export const METR_PROGRESS_SNAPSHOT = {
     eci: 161,
   },
   latestExtrapolation: {
-    label: 'Claude Opus 5',
-    hours: 4.725,
-    eci: 162.1,
+    label: 'GPT-6 Astra',
+    hours: 15.1245,
+    eci: 169.23,
   },
 };

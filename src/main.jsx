@@ -837,10 +837,13 @@ const MetrProgressChart = () => {
         later Anthropic points use the AECI from Anthropic&apos;s own system cards. The switch is deliberate: ECI
         aggregates 50+ benchmarks that are overwhelmingly short-horizon — single-turn QA, math and self-contained
         coding — and carries little long-horizon agentic coding signal, which is exactly what a METR p80 horizon
-        measures. It therefore understates frontier models for this purpose, and the gap widens as models improve at
-        the long-horizon work ECI does not test. Epoch scores Opus 5 at 159.38 against Anthropic&apos;s 162.1, worth
-        about 1.6× in implied p80. AECI is a fork of ECI and inherits its scale, but the two are different
-        measurements — read cross-scale comparisons here as indicative, not exact.
+        measures. When Opus 5 was added, Epoch scored it at 159.38 against Anthropic&apos;s AECI of 162.1 — a gap
+        worth about 1.6× in implied p80. Epoch has since refit and that particular gap has closed: Epoch now puts
+        Opus 5 at 162.33, marginally above Anthropic&apos;s own figure. The short-horizon critique of ECI may still
+        hold in general, but the numbers originally cited for it no longer do. AECI is a fork of ECI and inherits its
+        scale, though Anthropic states the two are not directly comparable — read cross-scale comparisons here as
+        indicative, not exact. GPT-6 Astra uses Epoch&apos;s ECI because Anthropic publishes no AECI for competitor
+        models.
       </p>
       <p className={`-mt-4 text-[11px] leading-relaxed ${activeColors.textSecondary}`}>
         <strong>GPT-5.6 Sol caveat:</strong> METR published no p80 for it, so the 14.0 h point is converted from their
@@ -852,6 +855,14 @@ const MetrProgressChart = () => {
         treats measurements above 16 h as unreliable and excludes them from its own doubling-time fit, so this point
         would not qualify for METR&apos;s trend line. The ECI-based extrapolations, which all sit well below it, are the
         more conservative read.
+      </p>
+      <p className={`-mt-4 text-[11px] leading-relaxed ${activeColors.textSecondary}`}>
+        <strong>GPT-6 Astra caveat:</strong> METR did not evaluate Astra — OpenAI&apos;s external evaluators were
+        UK AISI, Apollo Research, Gray Swan and SecureBio — so the 15.1 h point is an ECI extrapolation with no
+        published time horizon to check it against. Its ECI of 169.23 is the highest Epoch has measured, and the 95%
+        CI (164.85–174.02) spans roughly 7.4–33.1 h in implied p80, so treat the point estimate loosely. The
+        30.9-minute &ldquo;time horizon&rdquo; widely quoted for Astra is UK AISI&apos;s no-CoT math metric, which is
+        a different measurement and does not belong on this axis.
       </p>
     </div>
   );
