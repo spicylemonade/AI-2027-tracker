@@ -384,37 +384,103 @@
       "maxX": 162.35
     },
     "estimates": {
+      "Claude Mythos Preview": {
+        "aeci": 165.65,
+        "date": "2026-04-07",
+        "hours": 5.3788,
+        "low": 2.9122,
+        "high": 9.8951,
+        "scoreSd": [
+          1.2372,
+          1.2372
+        ]
+      },
+      "Claude Mythos 5": {
+        "aeci": 168.63,
+        "date": "2026-06-09",
+        "hours": 8.3377,
+        "low": 4.7154,
+        "high": 14.6563,
+        "scoreSd": [
+          0.5791,
+          0.5791
+        ]
+      },
       "Claude Opus 5": {
         "aeci": 169.33,
+        "date": "2026-07-24",
         "hours": 9.2419,
-        "low": 5.1581,
-        "high": 16.7297
+        "low": 5.2097,
+        "high": 16.4915,
+        "scoreSd": [
+          0.5816,
+          0.5816
+        ]
+      },
+      "Anthropic Model 2 (internal)": {
+        "aeci": 174.04,
+        "date": "2026-08-07",
+        "hours": 18.4771,
+        "low": 7.1205,
+        "high": 66.6896,
+        "scoreSd": [
+          3.1134,
+          4.6397
+        ]
+      },
+      "Claude Mythos 5.1": {
+        "aeci": 172.51,
+        "date": "2026-09-01",
+        "hours": 14.7536,
+        "low": 8.1233,
+        "high": 26.7949,
+        "scoreSd": [
+          0.6582,
+          0.6582
+        ]
       },
       "Claude Opus 5.5": {
         "aeci": 174.56,
+        "date": "2026-09-22",
         "hours": 19.9458,
-        "low": 10.604,
-        "high": 37.4373
+        "low": 10.6392,
+        "high": 37.4193,
+        "scoreSd": [
+          0.8291,
+          0.8291
+        ]
+      },
+      "Anthropic Model 3 (internal)": {
+        "aeci": 176.98,
+        "date": "2026-09-22",
+        "hours": 28.4734,
+        "low": 10.3578,
+        "high": 136.9193,
+        "scoreSd": [
+          3.3767,
+          5.815
+        ]
       },
       "Anthropic Model 4 (internal)": {
         "aeci": 178.6,
+        "date": "2026-09-25",
         "hours": 36.1347,
-        "low": 12.5106,
-        "high": 186.0748
+        "low": 12.6424,
+        "high": 186.4529,
+        "scoreSd": [
+          3.5063,
+          6.1656
+        ]
       }
     },
-    "localSd": 0.8291,
-    "model4Sd": [
-      3.5649,
-      6.1656
-    ],
+    "opus55LocalSd": 0.8291,
     "model4WithFullMetrRange": [
-      11.3651,
-      234.6029
+      11.6324,
+      238.3245
     ],
     "model4UsingOpus55Error": [
-      18.7995,
-      69.6904
+      18.6378,
+      69.6476
     ],
     "acrossFits": {
       "July (Opus 5 system card)": {
@@ -658,7 +724,13 @@
     "lagWeeks": {
       "Mythos Preview (early), measured": -3.0,
       "GPT-6 Astra, ECI": 4.5714,
+      "Claude Mythos Preview, AECI": -10.5714,
+      "Claude Mythos 5, AECI": -6.8571,
+      "Claude Opus 5, AECI": -1.5714,
+      "Anthropic Model 2, AECI": -6.8571,
+      "Claude Mythos 5.1, AECI": -1.0,
       "Claude Opus 5.5, AECI": -1.0,
+      "Anthropic Model 3, AECI": -4.2857,
       "Anthropic Model 4, AECI": -5.8571
     },
     "lagWeeksFromRange": {
@@ -670,9 +742,33 @@
         -2.7143,
         13.8571
       ],
+      "Claude Mythos Preview, AECI": [
+        -17.8571,
+        -2.1429
+      ],
+      "Claude Mythos 5, AECI": [
+        -13.0,
+        0.1429
+      ],
+      "Claude Opus 5, AECI": [
+        -7.7143,
+        5.2857
+      ],
+      "Anthropic Model 2, AECI": [
+        -17.8571,
+        3.4286
+      ],
+      "Claude Mythos 5.1, AECI": [
+        -6.7143,
+        5.4286
+      ],
       "Claude Opus 5.5, AECI": [
         -6.7143,
         5.4286
+      ],
+      "Anthropic Model 3, AECI": [
+        -16.2857,
+        5.7143
       ],
       "Anthropic Model 4, AECI": [
         -17.8571,
@@ -682,7 +778,13 @@
     "lagWeeksWithAuthorsFactor": {
       "Mythos Preview (early), measured": -5.2857,
       "GPT-6 Astra, ECI": 2.7143,
+      "Claude Mythos Preview, AECI": -12.5714,
+      "Claude Mythos 5, AECI": -8.7143,
+      "Claude Opus 5, AECI": -3.4286,
+      "Anthropic Model 2, AECI": -8.4286,
+      "Claude Mythos 5.1, AECI": -2.7143,
       "Claude Opus 5.5, AECI": -2.5714,
+      "Anthropic Model 3, AECI": -5.7143,
       "Anthropic Model 4, AECI": -7.2857
     }
   },
@@ -708,8 +810,8 @@
   },
   "metrSamplingSensitivity": {
     "astraInterval": [
-      2.7313,
-      30.4347
+      2.6722,
+      30.867
     ],
     "alternatives": {
       "Drop tasks under 1 minute": {

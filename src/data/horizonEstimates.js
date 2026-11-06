@@ -10,20 +10,45 @@ export default {
     }
   },
   "aeci": {
+    "Claude Mythos Preview": {
+      "hours": 5.3788,
+      "low": 2.9122,
+      "high": 9.8951
+    },
+    "Claude Mythos 5": {
+      "hours": 8.3377,
+      "low": 4.7154,
+      "high": 14.6563
+    },
     "Claude Opus 5": {
       "hours": 9.2419,
-      "low": 5.1581,
-      "high": 16.7297
+      "low": 5.2097,
+      "high": 16.4915
+    },
+    "Anthropic Model 2 (internal)": {
+      "hours": 18.4771,
+      "low": 7.1205,
+      "high": 66.6896
+    },
+    "Claude Mythos 5.1": {
+      "hours": 14.7536,
+      "low": 8.1233,
+      "high": 26.7949
     },
     "Claude Opus 5.5": {
       "hours": 19.9458,
-      "low": 10.604,
-      "high": 37.4373
+      "low": 10.6392,
+      "high": 37.4193
+    },
+    "Anthropic Model 3 (internal)": {
+      "hours": 28.4734,
+      "low": 10.3578,
+      "high": 136.9193
     },
     "Anthropic Model 4 (internal)": {
       "hours": 36.1347,
-      "low": 12.5106,
-      "high": 186.0748
+      "low": 12.6424,
+      "high": 186.4529
     }
   },
   "backtest": {
@@ -35,7 +60,13 @@ export default {
   "lagWeeks": {
     "Mythos Preview (early), measured": -3.0,
     "GPT-6 Astra, ECI": 4.5714,
+    "Claude Mythos Preview, AECI": -10.5714,
+    "Claude Mythos 5, AECI": -6.8571,
+    "Claude Opus 5, AECI": -1.5714,
+    "Anthropic Model 2, AECI": -6.8571,
+    "Claude Mythos 5.1, AECI": -1.0,
     "Claude Opus 5.5, AECI": -1.0,
+    "Anthropic Model 3, AECI": -4.2857,
     "Anthropic Model 4, AECI": -5.8571
   },
   "lagWeeksFromRange": {
@@ -47,9 +78,33 @@ export default {
       -2.7143,
       13.8571
     ],
+    "Claude Mythos Preview, AECI": [
+      -17.8571,
+      -2.1429
+    ],
+    "Claude Mythos 5, AECI": [
+      -13.0,
+      0.1429
+    ],
+    "Claude Opus 5, AECI": [
+      -7.7143,
+      5.2857
+    ],
+    "Anthropic Model 2, AECI": [
+      -17.8571,
+      3.4286
+    ],
+    "Claude Mythos 5.1, AECI": [
+      -6.7143,
+      5.4286
+    ],
     "Claude Opus 5.5, AECI": [
       -6.7143,
       5.4286
+    ],
+    "Anthropic Model 3, AECI": [
+      -16.2857,
+      5.7143
     ],
     "Anthropic Model 4, AECI": [
       -17.8571,

@@ -12,9 +12,14 @@ export const AECI_CALIBRATION_POINTS = aeci.models.filter(p => p.metrId).map(p =
 export const AECI_FIT = fitLogHorizon(AECI_CALIBRATION_POINTS);
 
 const aeciDisplay = {
-  'Claude Opus 5': { label: 'Opus 5', labelDx: -38, labelDy: -8 },
-  'Claude Opus 5.5': { label: 'Opus 5.5', labelDx: 8, labelDy: 8 },
-  'Anthropic Model 4 (internal)': { label: 'Model 4 (internal)', labelDx: -92, labelDy: -2 },
+  'Claude Mythos Preview': { label: 'Mythos Preview', labelDx: -80, labelDy: -1, note: ' METR measured an earlier snapshot at 3.1 h.' },
+  'Claude Mythos 5': { label: 'Mythos 5', labelDx: -48, labelDy: -2 },
+  'Claude Opus 5': { label: 'Opus 5', labelDx: -22, labelDy: -8 },
+  'Claude Mythos 5.1': { label: 'Mythos 5.1', labelDx: 8, labelDy: 9 },
+  'Anthropic Model 2 (internal)': { label: 'Model 2', labelDx: -43, labelDy: 1 },
+  'Claude Opus 5.5': { label: 'Opus 5.5', labelDx: 10, labelDy: 6 },
+  'Anthropic Model 3 (internal)': { label: 'Model 3', labelDx: -43, labelDy: 2 },
+  'Anthropic Model 4 (internal)': { label: 'Model 4', labelDx: -43, labelDy: -2 },
 };
 export const AECI_EXTRAPOLATED_P80_POINTS = aeci.models.filter(p => aeciDisplay[p.model]).map(p => ({
   ...p,

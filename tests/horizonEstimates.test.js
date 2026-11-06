@@ -18,7 +18,10 @@ test('the JavaScript fits reproduce the Python pipeline', () => {
   close(AECI_FIT.slope, analysis.aeci.fit.slope);
   close(AECI_FIT.intercept, analysis.aeci.fit.intercept);
   for (const p of ECI_EXTRAPOLATED_P80_POINTS) close(p.hours, estimates.eci[p.model].hours);
-  for (const p of AECI_EXTRAPOLATED_P80_POINTS) close(p.hours, estimates.aeci[p.model].hours);
+  for (const p of AECI_EXTRAPOLATED_P80_POINTS) {
+    close(p.hours, estimates.aeci[p.model].hours);
+    assert.equal(p.releaseDate, analysis.aeci.estimates[p.model].date);
+  }
   close(SCENARIO_REBASE_FACTOR, estimates.scenarioRebaseFactor);
   close(METR_PROGRESS_SNAPSHOT.danielCurveToday.hours, analysis.scenario.hoursAsOf);
 });
@@ -42,6 +45,13 @@ test('Model 4 carries more score error than models measured on more benchmarks',
   assert.ok(aeci['Anthropic Model 4 (internal)'].high < analysis.aeci.model4WithFullMetrRange[1]);
 });
 
+test('every AECI point shown has a generated range and a position against the curve', () => {
+  assert.deepEqual(AECI_EXTRAPOLATED_P80_POINTS.map(p => p.model).sort(), Object.keys(estimates.aeci).sort());
+  for (const p of AECI_EXTRAPOLATED_P80_POINTS) {
+    assert.ok(Number.isFinite(estimates.lagWeeks[`${p.model.replace(' (internal)', '')}, AECI`]), p.model);
+  }
+});
+
 test('the scenario curve matches its authors, then moves onto TH1.1', () => {
   const minutesAt = (year) => danielCurveHoursFromDecimalYear(year) * 60;
   assert.ok(Math.abs(danielCurveHoursForDate('2025-04-03') * 60 - 15) < 1);
@@ -53,13 +63,22 @@ test('the scenario curve matches its authors, then moves onto TH1.1', () => {
 // Each of these guards a sentence in the chart's caption, so a refresh that changes it fails here.
 test('caption claims still hold', () => {
   const { scenario, backtest, astraSensitivity: s, aeci, frontierBenchmarkCoverage: coverage, indexComparison } = analysis;
-  for (const label of ['GPT-6 Astra, ECI', 'Claude Opus 5.5, AECI', 'Anthropic Model 4, AECI']) {
+  const estimated = Object.keys(scenario.lagWeeks).filter(label => !/measured/.test(label));
+  for (const label of estimated) {
     const [ahead, behind] = scenario.lagWeeksFromRange[label];
-    assert.ok(ahead < 0 && behind > 0, `${label}'s range should include the curve`);
+    const includesCurve = ahead < 0 && behind > 0;
+    assert.equal(includesCurve, label !== 'Claude Mythos Preview, AECI', `${label}: ${ahead} to ${behind}`);
   }
   assert.equal(Math.round(scenario.lagWeeks['GPT-6 Astra, ECI']), 5);
-  assert.ok(Math.abs(scenario.lagWeeks['Claude Opus 5.5, AECI']) <= 1);
+  const aeciLags = estimated.filter(label => /AECI/.test(label)).map(label => -scenario.lagWeeks[label]);
+  assert.ok(Math.min(...aeciLags) > 0 && Math.min(...aeciLags) <= 1.5);
+  assert.equal(Math.max(...aeciLags), -scenario.lagWeeks['Claude Mythos Preview, AECI']);
+  assert.equal(Math.round(-scenario.lagWeeks['Claude Mythos Preview, AECI']), 11);
   assert.equal(Math.round(-scenario.lagWeeks['Anthropic Model 4, AECI']), 6);
+  const widths = AECI_EXTRAPOLATED_P80_POINTS.map(p => ({ internal: Boolean(p.internal), model: p.model, width: p.high / p.low }));
+  assert.ok(Math.min(...widths.filter(p => p.internal).map(p => p.width)) > Math.max(...widths.filter(p => !p.internal).map(p => p.width)));
+  assert.equal(widths.reduce((a, b) => (b.width > a.width ? b : a)).model, 'Anthropic Model 4 (internal)');
+  close(aeci.measuredMythosEarly, 3.1, 0.01);
   for (const [label, weeks] of Object.entries(scenario.lagWeeksWithAuthorsFactor)) {
     const shift = scenario.lagWeeks[label] - weeks;
     assert.ok(shift > 1.4 && shift < 2.5, `${label} shifted ${shift} weeks`);

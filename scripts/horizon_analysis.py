@@ -10,6 +10,7 @@ import datetime as dt
 import gzip
 import json
 import math
+import zlib
 from pathlib import Path
 
 import numpy as np
@@ -305,37 +306,51 @@ oct_scores = {**oct_fit}
 ax = np.array([oct_scores[m] for m in AECI_METR_IDS] + [MYTHOS_EARLY_AECI])
 ay = np.log([p80_hours(k) for k in AECI_METR_IDS.values()] + [mythos_p80])
 AFIT = ols(ax, ay)
-# Anthropic's "local" 95% range for Opus 5.5 (167.99-171.24) is the model-specific error once the
-# whole frontier's shared movement is removed; refits show that shared movement barely affects p80.
-LOCAL_SD = (171.24 - 167.99) / (2 * 1.96)
+# Anthropic's "local" 95% ranges (Opus 5.5 card) are each model's own error once the whole frontier's
+# shared movement is removed; refits show that shared movement barely affects p80.
+sept_fit = aeci_fits["September (Opus 5.5 system card)"]
+oct_ranges = aeci_fits["October (METR assessment, Haiku 5.5 card fit)"]["globalRanges"]
+AECI_DATES = aeci_fits["October (METR assessment, Haiku 5.5 card fit)"]["dates"]
 
 
-# Model 4 rests on 15 benchmarks against Opus 5.5's 43, so it needs its own error. METR's figure gives
-# only its 95% global range (170.6-192.8). Remove the shared part, taken as Opus 5.5's global range
-# (165.23-177.05) less its local range, one side at a time.
-def own_sd(global_half, opus_global_half, opus_local_half):
-    return math.sqrt(global_half**2 - (opus_global_half**2 - opus_local_half**2)) / 1.96
+def local_sd(model):
+    low, high = sept_fit["localRanges"][model]
+    return (high - low) / (2 * 1.96)
 
 
-MODEL_4_SD = (own_sd(178.6 - 170.6, 169.36 - 165.23, 169.36 - 167.99),
-              own_sd(192.8 - 178.6, 177.05 - 169.36, 171.24 - 169.36))
-MODEL_4_FULL_SD = ((178.6 - 170.6) / 1.96, (192.8 - 178.6) / 1.96)
-SCORE_SD = {"Claude Opus 5": (LOCAL_SD, LOCAL_SD), "Claude Opus 5.5": (LOCAL_SD, LOCAL_SD),
-            "Anthropic Model 4 (internal)": MODEL_4_SD}
+LOCAL_SD = local_sd("Claude Opus 5.5")
 
 
-def aeci_interval(score, sd, k=40000):
-    z = rng.standard_normal(k)
+# Internal models have no local range, and Model 4 rests on 15 benchmarks against Opus 5.5's 43. METR's
+# figure gives only a 95% global range for each. Remove the shared part, taken as Opus 5.5's global
+# range less its local range, one side at a time.
+def internal_sd(model):
+    score, (low, high) = oct_scores[model], oct_ranges[model]
+    opus, (global_low, global_high), (local_low, local_high) = (
+        sept_fit["scores"]["Claude Opus 5.5"], sept_fit["globalRanges"]["Claude Opus 5.5"], sept_fit["localRanges"]["Claude Opus 5.5"])
+    shared_below = (opus - global_low) ** 2 - (opus - local_low) ** 2
+    shared_above = (global_high - opus) ** 2 - (local_high - opus) ** 2
+    return (math.sqrt((score - low) ** 2 - shared_below) / 1.96, math.sqrt((high - score) ** 2 - shared_above) / 1.96)
+
+
+MODEL_4 = "Anthropic Model 4 (internal)"
+SCORE_SD = {m: internal_sd(m) if m in oct_ranges else (local_sd(m), local_sd(m)) for m in AECI_DATES}
+
+
+def aeci_interval(label, score, sd, k=40000):
+    # Each estimate has its own random stream, so adding a model doesn't move the others.
+    gen = np.random.default_rng([SEED, zlib.crc32(label.encode())])
+    z = gen.standard_normal(k)
     xi = score + z * np.where(z > 0, sd[1], sd[0])
-    samples = predict(AFIT, xi) + stats.t.rvs(AFIT["n"] - 2, size=k, random_state=rng) * prediction_se(AFIT, xi)
+    samples = predict(AFIT, xi) + stats.t.rvs(AFIT["n"] - 2, size=k, random_state=gen) * prediction_se(AFIT, xi)
     return np.exp(np.quantile(samples, [(1 - LEVEL) / 2, 1 - (1 - LEVEL) / 2]))
 
 
 aeci_estimates = {}
 for model, sd in SCORE_SD.items():
     x = oct_scores[model]
-    low, high = aeci_interval(x, sd)
-    aeci_estimates[model] = {"aeci": x, "hours": float(np.exp(predict(AFIT, x))), "low": low, "high": high}
+    low, high = aeci_interval(model, x, sd)
+    aeci_estimates[model] = {"aeci": x, "date": AECI_DATES[model], "hours": float(np.exp(predict(AFIT, x))), "low": low, "high": high, "scoreSd": sd}
 across = {}
 for label, fit in aeci_fits.items():
     f = ols([fit["scores"][m] for m in AECI_METR_IDS], np.log([p80_hours(k) for k in AECI_METR_IDS.values()]))
@@ -357,9 +372,10 @@ known = {**oct_scores, "Claude Opus 4.7": a47, "Claude Opus 4.8": a48, "Claude F
 gaps = [{"model": m, "aeci": known[m], "eci": epoch[m]["eci"], "gap": known[m] - epoch[m]["eci"]}
         for m in same7 + ["Claude Opus 4.7", "Claude Opus 4.8", "Claude Opus 5", "Claude Fable 5.1", "Claude Opus 5.5"]]
 results["aeci"] = {
-    "fit": AFIT, "estimates": aeci_estimates, "localSd": LOCAL_SD, "model4Sd": MODEL_4_SD,
-    "model4WithFullMetrRange": aeci_interval(oct_scores["Anthropic Model 4 (internal)"], MODEL_4_FULL_SD),
-    "model4UsingOpus55Error": aeci_interval(oct_scores["Anthropic Model 4 (internal)"], (LOCAL_SD, LOCAL_SD)), "acrossFits": across, "aeciMinusEci": gaps,
+    "fit": AFIT, "estimates": aeci_estimates, "opus55LocalSd": LOCAL_SD,
+    "model4WithFullMetrRange": aeci_interval("Model 4, whole METR range", oct_scores[MODEL_4],
+                                             ((oct_scores[MODEL_4] - oct_ranges[MODEL_4][0]) / 1.96, (oct_ranges[MODEL_4][1] - oct_scores[MODEL_4]) / 1.96)),
+    "model4UsingOpus55Error": aeci_interval("Model 4, Opus 5.5 error", oct_scores[MODEL_4], (LOCAL_SD, LOCAL_SD)), "acrossFits": across, "aeciMinusEci": gaps,
     "predictedMythosEarlyFromEarlierModels": float(np.exp(predict(f7, MYTHOS_EARLY_AECI))), "measuredMythosEarly": mythos_p80,
     "headToHeadSameSevenClaudeModels": {
         "aeci": {"rSquared": f7["rSquared"], "looFactor": loo_factor(a7, y7)},
@@ -392,8 +408,7 @@ lag_points = {
     "Mythos Preview (early), measured": (mythos_p80, v11["claude_mythos_preview_early_inspect"]["metrics"]["p80_horizon_length"]["ci_low"] / 60,
                                          v11["claude_mythos_preview_early_inspect"]["metrics"]["p80_horizon_length"]["ci_high"] / 60, "2026-04-07"),
     "GPT-6 Astra, ECI": (*(estimates["GPT-6 Astra"][k] for k in ("hours", "low", "high")), "2026-09-03"),
-    "Claude Opus 5.5, AECI": (*(aeci_estimates["Claude Opus 5.5"][k] for k in ("hours", "low", "high")), "2026-09-22"),
-    "Anthropic Model 4, AECI": (*(aeci_estimates["Anthropic Model 4 (internal)"][k] for k in ("hours", "low", "high")), "2026-09-25"),
+    **{f"{m.replace(' (internal)', '')}, AECI": (*(e[k] for k in ("hours", "low", "high")), e["date"]) for m, e in aeci_estimates.items()},
 }
 results["scenario"] = {
     "rebaseFactor": factor, "authorsFactor": 2 / 3, "checksAgainstAuthors": checks, "v11OverV10": ratio_rows,

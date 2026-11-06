@@ -89,7 +89,7 @@ const labelOffsets = {
   gpt_4: [6, -8],
   o3_inspect: [-16, -8],
   gpt_5_2025_08_07_inspect: [-14, -8],
-  claude_mythos_preview_early_inspect: [-72, -8],
+  claude_mythos_preview_early_inspect: [-73, 1],
 };
 const chartLabels = {
   gpt_4: 'GPT-4',

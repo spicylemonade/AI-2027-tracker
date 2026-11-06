@@ -503,7 +503,7 @@ const MetrProgressChart = () => {
   }), [isDarkMode]);
 
   const W = 880;
-  const H = 380;
+  const H = 420;
   const pad = { t: 16, r: 20, b: 44, l: 58 };
   const iW = W - pad.l - pad.r;
   const iH = H - pad.t - pad.b;
@@ -640,7 +640,7 @@ const MetrProgressChart = () => {
   const frontierFit = METR_PROGRESS_SNAPSHOT.frontierExtrapolation;
   const { lagWeeks, backtest } = horizonEstimates;
   const aeciOpus55 = AECI_EXTRAPOLATED_P80_POINTS.find(p => p.model === 'Claude Opus 5.5');
-  const aeciModel4 = AECI_EXTRAPOLATED_P80_POINTS.find(p => p.internal);
+  const aeciModel4 = AECI_EXTRAPOLATED_P80_POINTS.find(p => p.model === 'Anthropic Model 4 (internal)');
   const sourceLinkClass = 'underline decoration-current/30 hover:decoration-current';
   const formatBounds = (low, high) => `${formatCompactMetrHours(low)}–${formatCompactMetrHours(high)}`;
   // Estimates this uncertain don't merit three significant figures.
@@ -656,6 +656,9 @@ const MetrProgressChart = () => {
         <p className={`mt-1 text-[13px] leading-relaxed ${activeColors.textSecondary} max-w-2xl`}>
           How long a task, in human time, AI agents can complete with 80% success on METR&apos;s software tasks.
           Data as of {TODAY_REFERENCE_DATE}.
+        </p>
+        <p className={`mt-1 text-[12px] ${activeColors.textSecondary}`}>
+          METR&apos;s time horizon has effectively been discontinued, so it&apos;s been hard to track AECI&lt;&gt;ECI&lt;&gt;METR 😅
         </p>
       </div>
 
@@ -788,9 +791,9 @@ const MetrProgressChart = () => {
             {showAeciExtrapolations && AECI_EXTRAPOLATED_P80_POINTS.map((p) => {
               const px = sx(p.releaseDate), py = sy(p.hours);
               return <g key={p.id}>
-                <title>{`${p.model}: about ${formatCompactMetrHours(p.hours)} p80, 90% range ${formatBounds(p.low, p.high)}. AECI ${p.aeci}.${p.internal ? ' Unreleased; plotted when it reached most Anthropic staff.' : ''}`}</title>
+                <title>{`${p.model}: about ${formatCompactMetrHours(p.hours)} p80, 90% range ${formatBounds(p.low, p.high)}. AECI ${p.aeci}.${p.internal ? ' Unreleased; plotted when it reached most Anthropic staff.' : ''}${p.note || ''}`}</title>
                 {showUncertainty && <UncertaintyBar x={px} low={p.low} high={p.high} color={c.aeci} estimated />}
-                <polygon points={`${px},${py - 5} ${px + 5},${py + 4} ${px - 5},${py + 4}`} fill={c.bg} stroke={c.aeci} strokeWidth="1.5" />
+                <polygon points={`${px},${py - 4.5} ${px + 4.5},${py + 3.5} ${px - 4.5},${py + 3.5}`} fill={p.internal ? c.aeci : c.bg} stroke={c.aeci} strokeWidth="1.5" />
                 <text x={px + p.labelDx} y={py + p.labelDy} fill={c.aeci} fontSize="9" fontWeight="600">{p.label}</text>
               </g>;
             })}
@@ -816,9 +819,10 @@ const MetrProgressChart = () => {
       <p className={`text-[13px] leading-relaxed ${activeColors.textSecondary}`}>
         METR&apos;s last published p80 is Mythos Preview (early), so everything after April 2026 is an estimate from a
         capability index, not a measurement. GPT-6 Astra lands about {Math.round(lagWeeks['GPT-6 Astra, ECI'])} weeks behind the
-        AI 2027 curve, Opus 5.5 about level with it, and Anthropic&apos;s unreleased Model 4 about{' '}
-        {Math.round(-lagWeeks['Anthropic Model 4, AECI'])} weeks ahead, but every 90% range includes the curve. Model 4&apos;s
-        range is the widest, {formatRange(aeciModel4.low, aeciModel4.high)}: its score rests on only 15 benchmarks.
+        AI 2027 curve. Anthropic&apos;s models land from about level with it to {Math.round(-lagWeeks['Claude Mythos Preview, AECI'])} weeks
+        ahead, with Model 4 about {Math.round(-lagWeeks['Anthropic Model 4, AECI'])} weeks ahead. Every 90% range includes the curve
+        except Mythos Preview&apos;s. Unreleased models (filled triangles) have the widest ranges, up to{' '}
+        {formatRange(aeciModel4.low, aeciModel4.high)} for Model 4, whose score rests on only 15 benchmarks.
       </p>
 
       <details className={`text-[12px] leading-relaxed ${activeColors.textSecondary}`}>

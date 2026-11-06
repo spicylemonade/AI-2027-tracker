@@ -9,15 +9,20 @@ The chart plots p80 task horizons: how long a task, in human time, AI agents can
 | Model | Index | Score | p80 estimate | 90% range |
 |---|---|---|---:|---:|
 | GPT-6 Astra | Epoch ECI | 169.07 | 9.0 h | 4.2–18.0 h |
-| Claude Opus 5 | AECI | 169.33 | 9.2 h | 5.2–16.7 h |
+| Claude Mythos Preview | AECI | 165.65 | 5.4 h | 2.9–9.9 h |
+| Claude Mythos 5 | AECI | 168.63 | 8.3 h | 4.7–14.7 h |
+| Claude Opus 5 | AECI | 169.33 | 9.2 h | 5.2–16.5 h |
+| Claude Mythos 5.1 | AECI | 172.51 | 14.8 h | 8.1–26.8 h |
+| Anthropic Model 2 (internal) | AECI | 174.04 | 18.5 h | 7.1–66.7 h |
 | Claude Opus 5.5 | AECI | 174.56 | 19.9 h | 10.6–37.4 h |
-| Anthropic Model 4 (internal) | AECI | 178.6 | 36.1 h | 12.5–186 h |
+| Anthropic Model 3 (internal) | AECI | 176.98 | 28.5 h | 10.4–137 h |
+| Anthropic Model 4 (internal) | AECI | 178.6 | 36.1 h | 12.6–186 h |
 
 The AI 2027 scenario curve is at 36.2 h on the as-of date, on the same TH1.1 scale.
 
 Four conclusions matter most:
 
-1. **Every estimate's range includes the AI 2027 curve.** The central estimates run from about 5 weeks behind it (Astra) to about 6 weeks ahead (Model 4).
+1. **Nearly every estimate's range includes the AI 2027 curve.** The central estimates run from about 5 weeks behind it (Astra) to about 11 weeks ahead (Mythos Preview on AECI), and Mythos Preview's is the one range that stays above the curve. The AECI estimates all share one calibration line, so they aren't independent evidence.
 2. **ECI and AECI disagree only where METR has no data.** They agree within 2 points on the Claude models METR has measured and both score, then split by up to 6.2 points. METR's results can't show which is right, so the chart shows both and names no single headline number.
 3. **ECI's coding coverage is not an obvious weakness.** ECI includes long-running agentic benchmarks, and indexes built only from those benchmarks predicted METR worse than the full ECI.
 4. **The estimates have been checked against held-out results.** The ECI ranges held 11 of 12 forward tests. AECI has too few measured models for a strong test, and 3 of its 5 forward tests fell inside the range.
@@ -30,7 +35,7 @@ ln(p80) = −22.2044 + 0.14433 × ECI, with R² 0.971, residual SD 0.313, and a 
 
 The fit is descriptive, and it depends on one snapshot of Epoch's scores. Epoch refits all scores jointly, so a refresh must replace every row at once.
 
-**Range.** The 90% range is a Monte Carlo predictive interval. Each draw takes one of Epoch's 500 joint posterior score sets, refits the line, and adds model-to-model scatter. METR's own sampling error is left out of the headline range. Adding it, by resampling METR's tasks within task families, widens Astra to 2.7–30.4 h. That reconstruction matches METR's published p80s within 0.04%.
+**Range.** The 90% range is a Monte Carlo predictive interval. Each draw takes one of Epoch's 500 joint posterior score sets, refits the line, and adds model-to-model scatter. METR's own sampling error is left out of the headline range. Adding it, by resampling METR's tasks within task families, widens Astra to 2.7–30.9 h. That reconstruction matches METR's published p80s within 0.04%.
 
 **Backtest.** Each model from o1 onward was predicted using only models released before it.
 
@@ -102,7 +107,7 @@ AECI is Anthropic's fork of ECI, built mostly on internal benchmarks. Anthropic 
 
 ln(p80) = −22.6827 + 0.14709 × AECI, with R² 0.989 and residual SD 0.221.
 
-Scores read from the figure are good to about 0.1 AECI. Three checks on the reading: Claude 3.5 Sonnet reads 129.96 against its anchor of 130, Model 4 reads 178.67 against METR's 178.6, and Opus 5.5 reads 174.67 against the 174.56 in the Haiku 5.5 system card.
+Model 2 and Model 3 are read from the same figure, and their dates from its x-axis, which shows when each reached most Anthropic employees. Scores read from the figure are good to about 0.1 AECI. Three checks on the reading: Claude 3.5 Sonnet reads 129.96 against its anchor of 130, Model 4 reads 178.67 against METR's 178.6, and Opus 5.5 reads 174.67 against the 174.56 in the Haiku 5.5 system card.
 
 **Refits.** Each refit moves the whole scale. Opus 5.5 went from 169.36 to 174.56 between the September and October fits. Never pool scores across fits. But the p80 estimates hold up, because the calibrators move with it:
 
@@ -114,9 +119,9 @@ Scores read from the figure are good to about 0.1 AECI. Three checks on the read
 
 These use the 7 calibrators common to all three fits. The shown estimate for Opus 5.5 is 19.9 h because it also includes Mythos Preview (early).
 
-**Range for Opus 5 and 5.5.** Because shared scale movement is absorbed by the calibration, the score error uses Anthropic's "local" range rather than its "global" one: the Opus 5.5 local 95% range of 167.99–171.24, or SD 0.83. Its global range is 165.23–177.05.
+**Range for public models.** Because shared scale movement is absorbed by the calibration, the score error uses each model's "local" 95% range from the Opus 5.5 system card rather than its "global" one. For Opus 5.5 that is 167.99–171.24, or SD 0.83, against a global range of 165.23–177.05. The others are SD 1.24 for Mythos Preview, 0.58 for Mythos 5, 0.58 for Opus 5, and 0.66 for Mythos 5.1.
 
-**Range for Model 4.** Borrowing Opus 5.5's error would give 18.8–69.7 h, which is too narrow: Model 4's score rests on 15 benchmarks against Opus 5.5's 43, and METR's figure shows a much wider range for it, about 170.6–192.8, read here as 95%. The local range isn't published, so the shared part, measured from Opus 5.5 as global minus local variance, is removed from each side. That leaves SDs of 3.6 below and 6.2 above, and a range of 12.5–186 h. Using METR's whole range gives 11.4–235 h.
+**Range for Models 2 to 4.** Local ranges aren't published for internal models. Borrowing Opus 5.5's error would give Model 4 18.6–69.6 h, which is too narrow: Model 4's score rests on 15 benchmarks against Opus 5.5's 43, and METR's figure shows a much wider range for it, about 170.7–192.8, read here as 95%. So the shared part, measured from Opus 5.5 as global minus local variance, is removed from each side of the range METR's figure shows. For Model 4 that leaves SDs of 3.5 below and 6.2 above, and a range of 12.6–186 h. Using METR's whole range gives 11.6–238 h. Model 2 (166.8–185.8) and Model 3 (169.3–190.6) are handled the same way. METR's figure also shows earlier snapshots of both, which aren't plotted.
 
 **How it compares with ECI.** On the same 7 Claude models, AECI fits METR better (R² 0.985, LOO 1.37) than ECI does (R² 0.972, LOO 1.52). That is a small sample, and AECI is vendor-run. The fit on 7 models predicted Mythos Preview (early) at 3.47 h against a measured 3.10 h. Forward tests are weaker: fitting earlier models and predicting the next, the ratios of actual to predicted were 1.08, 1.01, 0.67, 0.53 and 0.89, and only 3 of 5 fell inside the 90% range.
 
@@ -159,10 +164,18 @@ A constant factor is an approximation. The TH1.1 ÷ TH1.0 ratio across 15 models
 |---|---:|---:|---:|
 | Mythos Preview (early), measured | 3.0 ahead | 13.1 ahead to 7.3 behind | 5.3 ahead |
 | GPT-6 Astra, ECI | 4.6 behind | 2.7 ahead to 13.9 behind | 2.7 behind |
-| Claude Opus 5.5, AECI | 1.0 ahead | 6.7 ahead to 5.4 behind | 2.6 ahead |
+| Mythos Preview, AECI | 10.6 ahead | 17.9 ahead to 2.1 ahead | 12.6 ahead |
+| Mythos 5, AECI | 6.9 ahead | 13.0 ahead to 0.1 behind | 8.7 ahead |
+| Opus 5, AECI | 1.6 ahead | 7.7 ahead to 5.3 behind | 3.4 ahead |
+| Model 2, AECI | 6.9 ahead | 17.9 ahead to 3.4 behind | 8.4 ahead |
+| Mythos 5.1, AECI | 1.0 ahead | 6.7 ahead to 5.4 behind | 2.7 ahead |
+| Opus 5.5, AECI | 1.0 ahead | 6.7 ahead to 5.4 behind | 2.6 ahead |
+| Model 3, AECI | 4.3 ahead | 16.3 ahead to 5.7 behind | 5.7 ahead |
 | Model 4, AECI | 5.9 ahead | 17.9 ahead to 4.0 behind | 7.3 ahead |
 
-Public models plot at their public release date, while Model 4 plots at the date METR shows it reaching most Anthropic employees. Internal models come earlier than public ones, so public points can look further behind the curve than the labs are.
+Mythos Preview's AECI estimate is the one range entirely above the curve, and Mythos 5's only just includes it. Treat the first with some care: METR measured an earlier Mythos Preview snapshot, scoring 3.3 AECI points lower, at 3.1 h against this 5.4 h, and that measured point's range does include the curve.
+
+Public models plot at their public release date, while Models 2 to 4 plot at the date METR shows them reaching most Anthropic employees. Internal models come earlier than public ones, so public points can look further behind the curve than the labs are.
 
 ## Other evidence checked
 
@@ -195,7 +208,7 @@ The audit (commit `453ed64`) was right about the main problems. Where later anal
 - **Benchmark saturation.** METR says Anthropic's internal benchmarks are increasingly saturated: Model 4 scores above 50% on all of those it was tested on. METR finds its acceleration estimate reasonably robust to this, but that is a claim about the trend, not about one model's score. Treat the Model 4 estimate as an indication.
 - **Harness and effort.** Epoch aggregates reasoning settings, so a METR run and an Epoch score may not use the same configuration.
 - **Vendor-run index.** AECI relies mostly on internal benchmarks that outsiders can't inspect.
-- **Assumption behind the AECI ranges.** Treating shared scale movement as absorbed by the calibration rests on three refits. Model 4's own error is derived rather than published.
+- **Assumption behind the AECI ranges.** Treating shared scale movement as absorbed by the calibration rests on three refits. The internal models' own errors are derived rather than published.
 - **Few data points.** There are 12 ECI forward tests and 5 for AECI. Neither can establish calibration precisely.
 
 ## Reproducing
