@@ -657,9 +657,6 @@ const MetrProgressChart = () => {
           How long a task, in human time, AI agents can complete with 80% success on METR&apos;s software tasks.
           Data as of {TODAY_REFERENCE_DATE}.
         </p>
-        <p className={`mt-1 text-[12px] ${activeColors.textSecondary}`}>
-          METR&apos;s time horizon has effectively been discontinued, so it&apos;s been hard to track AECI&lt;&gt;ECI&lt;&gt;METR 😅
-        </p>
       </div>
 
       <div className="flex flex-wrap gap-1.5">
@@ -827,6 +824,9 @@ const MetrProgressChart = () => {
 
       <details className={`text-[12px] leading-relaxed ${activeColors.textSecondary}`}>
         <summary className="cursor-pointer font-medium">How these estimates work</summary>
+        <p className="mt-2">
+          METR&apos;s time horizon has effectively been discontinued, so it&apos;s been hard to track AECI&lt;&gt;ECI&lt;&gt;METR (-_-;)
+        </p>
         <ul className="mt-2 list-disc space-y-2 pl-5">
           <li>
             <strong>Method.</strong> Each estimate regresses METR&apos;s published p80 on a capability index:{' '}
