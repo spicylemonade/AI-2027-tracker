@@ -825,7 +825,8 @@ const MetrProgressChart = () => {
       <details className={`text-[12px] leading-relaxed ${activeColors.textSecondary}`}>
         <summary className="cursor-pointer font-medium">How these estimates work</summary>
         <p className="mt-2">
-          METR&apos;s time horizon has effectively been discontinued, so it&apos;s been hard to track AECI&lt;&gt;ECI&lt;&gt;METR (-_-;)
+          METR&apos;s time horizon has effectively been discontinued, so it&apos;s been hard to track AECI&lt;&gt;ECI&lt;&gt;METR{' '}
+          <span className="whitespace-nowrap">(-_-;)</span>
         </p>
         <ul className="mt-2 list-disc space-y-2 pl-5">
           <li>
