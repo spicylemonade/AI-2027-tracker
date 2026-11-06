@@ -13,26 +13,29 @@ import ablation from '../src/data/eciMetrAblation.js';
 const close = (a, b) => assert.ok(Math.abs(a - b) < 1e-9, `${a} != ${b}`);
 
 test('AECI is calibrated on its own scale, with approximate scores explicitly marked', () => {
-  assert.equal(AECI_CALIBRATION_POINTS.length, 7);
+  assert.equal(AECI_CALIBRATION_POINTS.length, 8);
   assert.ok(AECI_CALIBRATION_POINTS.every(p => p.approximate && p.aeciSource === 'digitized'));
-  assert.ok(!AECI_CALIBRATION_POINTS.some(p => /Mythos/.test(p.model)));
-  close(AECI_FIT.slope, 0.181744461484547);
+  assert.equal(AECI_CALIBRATION_POINTS.filter(p => /Mythos/.test(p.model)).map(p => p.model).join(), 'Claude Mythos Preview (early)');
+  close(AECI_FIT.slope, 0.1470880061494893);
   assert.equal(AECI_SOURCE.ciLevel, 0.95);
 });
 
 test('AECI estimates use only Claude source scores; Astra sensitivity stays on ECI', () => {
   assert.ok(!AECI_SOURCE.models.some(p => p.model === 'GPT-6 Astra'));
-  assert.ok(AECI_EXTRAPOLATED_P80_POINTS.every(p => p.model.startsWith('Claude')));
+  assert.ok(AECI_EXTRAPOLATED_P80_POINTS.every(p => p.model.startsWith('Claude') || p.internal));
   assert.ok(!ASTRA_ESTIMATE_SENSITIVITY.some(p => /AECI/.test(p.label)));
-  close(ASTRA_ESTIMATE_SENSITIVITY[0].hours, 11.560133545302762);
+  close(ASTRA_ESTIMATE_SENSITIVITY[0].hours, 8.999745793830106);
 });
 
 test('reported AECI endpoints differ from absent digitized intervals', () => {
-  const opus = AECI_EXTRAPOLATED_P80_POINTS.find(p => p.model === 'Claude Opus 5');
-  close(opus.hours, 9.220075860190484);
-  assert.equal(opus.approximate, false);
-  assert.ok(opus.inputLowHours < opus.hours && opus.inputHighHours > opus.hours);
-  assert.equal(AECI_EXTRAPOLATED_P80_POINTS.find(p => p.model === 'Claude Mythos Preview').inputLowHours, null);
+  const model4 = AECI_EXTRAPOLATED_P80_POINTS.find(p => p.internal);
+  close(model4.hours, 36.134689632232394);
+  assert.equal(model4.approximate, false);
+  assert.ok(model4.inputLowHours < model4.hours && model4.inputHighHours > model4.hours);
+  const opus55 = AECI_EXTRAPOLATED_P80_POINTS.find(p => p.model === 'Claude Opus 5.5');
+  close(opus55.hours, 19.94578396119229);
+  assert.equal(opus55.inputLowHours, null);
+  assert.equal(AECI_EXTRAPOLATED_P80_POINTS.find(p => p.model === 'Claude Opus 5').inputLowHours, null);
 });
 
 test('METR ablation preserves its original input and reproduces the saved horizon refit', () => {

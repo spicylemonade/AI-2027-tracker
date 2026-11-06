@@ -110,7 +110,7 @@ const labelOffsets = {
   gpt_5_2025_08_07_inspect: [6, -6],
   claude_opus_4_6_inspect: [-84, -10],
   gpt_5_4: [8, 16],
-  claude_mythos_preview_early_inspect: [-118, -30],
+  claude_mythos_preview_early_inspect: [-128, -30],
 };
 const chartLabels = {
   gpt_4: 'GPT-4',
@@ -147,8 +147,13 @@ export const RECENT_ECI_FIT = fitLogHorizon(
 const extrapolationModels = [
   { model: 'GPT-5.4 Pro', label: 'GPT-5.4 Pro extrap.', labelDx: -112, labelDy: -8 },
   { model: 'GPT-5.6 Sol', label: 'Sol ECI extrap.', labelDx: -92, labelDy: 18 },
-  { model: 'Claude Opus 5', label: 'Opus 5 extrap.', labelDx: 8, labelDy: 32 },
-  { model: 'GPT-6 Astra', label: 'Astra extrap.', labelDx: 10, labelDy: -8 },
+  { model: 'Claude Opus 5', label: 'Opus 5 extrap.', labelDx: -60, labelDy: 34 },
+  { model: 'GPT-6 Astra', label: 'Astra extrap.', labelDx: 16, labelDy: 3 },
+  // Too close to Astra to label at the default zoom; the tooltip identifies it.
+  { model: 'Claude Opus 5.5', label: 'Opus 5.5 extrap.', showLabel: false },
+  { model: 'Gemini 4 Argon', label: 'Gemini 4', labelDx: 8, labelDy: 8 },
+  // China's highest ECI, included to show the gap to the US frontier.
+  { model: 'DeepSeek V4.1 Flash 1017', label: 'DeepSeek V4.1', labelDx: -4, labelDy: 12 },
 ];
 
 export const ECI_EXTRAPOLATED_P80_POINTS = extrapolationModels.map(({ model, ...display }) => {
@@ -182,6 +187,6 @@ export const METR_PROGRESS_SNAPSHOT = {
   },
   bestPublished: PUBLISHED_METR_P80_POINTS.reduce((best, point) =>
     point.hours > best.hours ? point : best),
-  latestExtrapolation: ECI_EXTRAPOLATED_P80_POINTS.reduce((latest, point) =>
-    point.releaseDate > latest.releaseDate ? point : latest),
+  frontierExtrapolation: ECI_EXTRAPOLATED_P80_POINTS.reduce((frontier, point) =>
+    point.eci > frontier.eci ? point : frontier),
 };

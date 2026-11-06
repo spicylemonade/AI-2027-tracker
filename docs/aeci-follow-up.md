@@ -1,5 +1,7 @@
 # AECI and Astra: deeper review, 2026-09-07
 
+> Numbers in this document describe the 2026-09-07 snapshot. For current values, see the [November 2026 refresh](november-2026-refresh.md). The chart's AECI series now uses METR's November figure instead of the Opus 5 card figure described below.
+
 Astra uses published Epoch ECI directly: the central p80 estimate is 11.56 h, with transformed 90% ECI endpoints of 5.88–24.23 h. Those input-only bounds omit calibration uncertainty. The [uncertainty audit](uncertainty-audit.md) now makes a broader 3.1–48.3 h index-plus-fit prediction envelope the default. AECI is used only for Claude models with scores in Anthropic's own papers.
 
 The cross-scale Astra experiments below are retained as research history, not adopted forecasts. The ECI→AECI→METR conversion adds an unnecessary vendor-transfer assumption and has been removed from the chart, its sensitivity table, and the calculation code. It should not be used to push Astra's estimate above a desired threshold.

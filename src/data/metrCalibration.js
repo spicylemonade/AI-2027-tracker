@@ -1,6 +1,8 @@
-// Frozen source data for the chart audit. See docs/metr-methodology.md.
+// Frozen source data for the chart audit. See docs/metr-methodology.md and
+// docs/november-2026-refresh.md. METR rows are unchanged since 2026-09-07; Epoch jointly refits its
+// scores, so every Epoch row below was replaced together from one snapshot.
 export default {
-  "asOf": "2026-09-07",
+  "asOf": "2026-11-05",
   "sources": {
     "metr": {
       "url": "https://metr.org/assets/benchmark_results_1_1.yaml",
@@ -11,7 +13,7 @@ export default {
     },
     "epoch": {
       "url": "https://epoch.ai/data/benchmarked_models.csv",
-      "sha256": "68245f26f78826be53585dd03fef4382faed8fa01ee13aca967b1066cce1fb65",
+      "sha256": "ac6280d25ad9749d2f377a2d8d445e6df05409ce6dfc84511558392a8406fa0f",
       "ciLevel": 0.9
     }
   },
@@ -36,6 +38,10 @@ export default {
     {
       "id": "claude_mythos_preview_early_inspect",
       "reason": "No matching Epoch ECI in this snapshot; no substitute version used."
+    },
+    {
+      "id": "gpt_5_3_codex",
+      "reason": "Epoch published no ECI for GPT-5.3 Codex in the 2026-11-05 snapshot; no substitute version used."
     }
   ],
   "measurements": [
@@ -404,8 +410,7 @@ export default {
         "ci_high": 122.058963,
         "ci_low": 22.361504,
         "estimate": 54.739407
-      },
-      "epochModel": "GPT-5.3 Codex"
+      }
     },
     {
       "id": "gemini_3_1_pro",
@@ -459,7 +464,7 @@ export default {
   "epoch": [
     {
       "model": "Claude 3.5 Sonnet",
-      "eci": 130.0,
+      "eci": 130,
       "ciLow": null,
       "ciHigh": null,
       "ciLevel": 0.9,
@@ -467,127 +472,119 @@ export default {
     },
     {
       "model": "Claude 3.5 Sonnet (October 2024)",
-      "eci": 133.57,
-      "ciLow": 128.95,
-      "ciHigh": 137.93,
+      "eci": 133.42,
+      "ciLow": 131.07,
+      "ciHigh": 135.62,
       "ciLevel": 0.9,
       "releaseDate": "2024-10-22"
     },
     {
       "model": "Claude 3.7 Sonnet",
-      "eci": 141.19,
-      "ciLow": 138.87,
-      "ciHigh": 142.7,
+      "eci": 140.99,
+      "ciLow": 139.32,
+      "ciHigh": 142.54,
       "ciLevel": 0.9,
       "releaseDate": "2025-02-24"
     },
     {
       "model": "Claude 3 Opus",
-      "eci": 126.9,
-      "ciLow": 121.5,
-      "ciHigh": 129.74,
+      "eci": 125.63,
+      "ciLow": 122.56,
+      "ciHigh": 128.36,
       "ciLevel": 0.9,
       "releaseDate": "2024-02-29"
     },
     {
       "model": "Claude Opus 4.1",
-      "eci": 144.14,
-      "ciLow": 141.76,
-      "ciHigh": 146.01,
+      "eci": 144.74,
+      "ciLow": 142.89,
+      "ciHigh": 146.51,
       "ciLevel": 0.9,
       "releaseDate": "2025-08-05"
     },
     {
       "model": "Claude Opus 4",
-      "eci": 142.7,
-      "ciLow": 140.41,
-      "ciHigh": 144.18,
+      "eci": 142.83,
+      "ciLow": 141.2,
+      "ciHigh": 144.45,
       "ciLevel": 0.9,
       "releaseDate": "2025-05-22"
     },
     {
       "model": "Claude Opus 4.5",
-      "eci": 150.08,
-      "ciLow": 148.0,
-      "ciHigh": 152.64,
+      "eci": 151.82,
+      "ciLow": 150.21,
+      "ciHigh": 153.41,
       "ciLevel": 0.9,
       "releaseDate": "2025-11-24"
     },
     {
       "model": "Claude Opus 4.6",
-      "eci": 155.25,
-      "ciLow": 153.49,
-      "ciHigh": 157.14,
-      "ciLevel": 0.9,
-      "releaseDate": "2026-02-05"
-    },
-    {
-      "model": "GPT-5.3 Codex",
-      "eci": 156.4,
-      "ciLow": 154.23,
-      "ciHigh": 159.33,
+      "eci": 156.3,
+      "ciLow": 154.58,
+      "ciHigh": 158.15,
       "ciLevel": 0.9,
       "releaseDate": "2026-02-05"
     },
     {
       "model": "Gemini 3 Pro",
-      "eci": 152.94,
-      "ciLow": 151.01,
-      "ciHigh": 154.94,
+      "eci": 152.88,
+      "ciLow": 151.35,
+      "ciHigh": 154.55,
       "ciLevel": 0.9,
       "releaseDate": "2025-11-18"
     },
     {
       "model": "Gemini 3.1 Pro",
-      "eci": 154.9,
-      "ciLow": 152.51,
-      "ciHigh": 157.46,
+      "eci": 156.24,
+      "ciLow": 154.57,
+      "ciHigh": 158.09,
       "ciLevel": 0.9,
       "releaseDate": "2026-02-19"
     },
     {
       "model": "GPT-4 (Mar 2023)",
-      "eci": 125.88,
-      "ciLow": 120.51,
-      "ciHigh": 129.47,
+      "eci": 121.87,
+      "ciLow": 118.02,
+      "ciHigh": 125.22,
       "ciLevel": 0.9,
       "releaseDate": "2023-03-14"
     },
     {
       "model": "GPT-4 Turbo (Nov 2023)",
-      "eci": 126.46,
-      "ciLow": 120.93,
-      "ciHigh": 128.62,
+      "eci": 124.85,
+      "ciLow": 121.59,
+      "ciHigh": 127.85,
       "ciLevel": 0.9,
       "releaseDate": "2024-01-25"
     },
     {
       "model": "GPT-4 Turbo (Apr 2024)",
-      "eci": 127.25,
-      "ciLow": 121.83,
-      "ciHigh": 128.85,
+      "eci": 125.84,
+      "ciLow": 122.67,
+      "ciHigh": 128.65,
       "ciLevel": 0.9,
       "releaseDate": "2024-04-09"
     },
     {
       "model": "GPT-4o (May 2024)",
-      "eci": 128.98,
-      "ciLow": 123.76,
-      "ciHigh": 131.48,
+      "eci": 128.23,
+      "ciLow": 125.49,
+      "ciHigh": 130.76,
       "ciLevel": 0.9,
       "releaseDate": "2024-05-13"
     },
     {
       "model": "GPT-5.2",
-      "eci": 153.43,
-      "ciLow": 151.72,
-      "ciHigh": 155.3,
+      "eci": 154.42,
+      "ciLow": 152.84,
+      "ciHigh": 156.15,
       "ciLevel": 0.9,
       "releaseDate": "2025-12-11"
     },
     {
       "model": "GPT-5",
-      "eci": 150.0,
+      "eci": 150,
       "ciLow": null,
       "ciHigh": null,
       "ciLevel": 0.9,
@@ -595,67 +592,91 @@ export default {
     },
     {
       "model": "GPT-5.4",
-      "eci": 156.77,
-      "ciLow": 155.11,
-      "ciHigh": 158.85,
+      "eci": 157.82,
+      "ciLow": 155.98,
+      "ciHigh": 159.87,
       "ciLevel": 0.9,
       "releaseDate": "2026-03-05"
     },
     {
       "model": "o1",
-      "eci": 141.9,
-      "ciLow": 139.57,
-      "ciHigh": 142.98,
+      "eci": 141.16,
+      "ciLow": 139.47,
+      "ciHigh": 142.81,
       "ciLevel": 0.9,
       "releaseDate": "2024-12-17"
     },
     {
       "model": "o1-preview",
-      "eci": 134.79,
-      "ciLow": 131.08,
-      "ciHigh": 138.5,
+      "eci": 133.86,
+      "ciLow": 131.25,
+      "ciHigh": 136.25,
       "ciLevel": 0.9,
       "releaseDate": "2024-09-12"
     },
     {
       "model": "o3",
-      "eci": 146.91,
-      "ciLow": 145.03,
-      "ciHigh": 148.51,
+      "eci": 146.99,
+      "ciLow": 145.55,
+      "ciHigh": 148.5,
       "ciLevel": 0.9,
       "releaseDate": "2025-04-16"
     },
     {
       "model": "GPT-5.4 Pro",
-      "eci": 158.89,
-      "ciLow": 156.54,
-      "ciHigh": 161.67,
+      "eci": 160.21,
+      "ciLow": 157.71,
+      "ciHigh": 162.95,
       "ciLevel": 0.9,
       "releaseDate": "2026-03-05"
     },
     {
       "model": "Claude Opus 5",
-      "eci": 162.33,
-      "ciLow": 159.75,
-      "ciHigh": 165.78,
+      "eci": 164.45,
+      "ciLow": 162,
+      "ciHigh": 167.17,
       "ciLevel": 0.9,
       "releaseDate": "2026-07-24"
     },
     {
       "model": "GPT-5.6 Sol",
-      "eci": 162.03,
-      "ciLow": 159.66,
-      "ciHigh": 165.0,
+      "eci": 162.99,
+      "ciLow": 160.72,
+      "ciHigh": 165.46,
       "ciLevel": 0.9,
       "releaseDate": "2026-07-09"
     },
     {
       "model": "GPT-6 Astra",
-      "eci": 169.23,
-      "ciLow": 164.85,
-      "ciHigh": 174.02,
+      "eci": 169.07,
+      "ciLow": 166.16,
+      "ciHigh": 172.28,
       "ciLevel": 0.9,
       "releaseDate": "2026-09-03"
+    },
+    {
+      "model": "Claude Opus 5.5",
+      "eci": 168.36,
+      "ciLow": 165.54,
+      "ciHigh": 171.51,
+      "ciLevel": 0.9,
+      "releaseDate": "2026-09-22"
+    },
+    {
+      "model": "Gemini 4 Argon",
+      "eci": 166.45,
+      "ciLow": 163.83,
+      "ciHigh": 169.38,
+      "ciLevel": 0.9,
+      "releaseDate": "2026-09-30"
+    },
+    {
+      "model": "DeepSeek V4.1 Flash 1017",
+      "eci": 159.31,
+      "ciLow": 157.04,
+      "ciHigh": 161.78,
+      "ciLevel": 0.9,
+      "releaseDate": "2026-10-17"
     }
   ]
 };

@@ -30,13 +30,13 @@ test('Astra prediction limits include the new-model term and match SciPy calcula
   const point = ECI_EXTRAPOLATED_P80_POINTS.find(p => p.model === 'GPT-6 Astra');
   const mean = regressionInterval(ECI_FIT, point.eci, { newModel: false });
   const prediction = regressionInterval(ECI_FIT, point.eci);
-  close(prediction.lowHours, 5.96177064);
-  close(prediction.highHours, 22.41560364);
-  close(mean.lowHours, 8.28496109);
-  close(mean.highHours, 16.13003200);
+  close(prediction.lowHours, 4.81403799);
+  close(prediction.highHours, 16.82484112);
+  close(mean.lowHours, 6.58808553);
+  close(mean.highHours, 12.29422781);
   assert.ok(prediction.lowHours < mean.lowHours && prediction.highHours > mean.highHours);
-  close(point.uncertainty.lowHours, 3.0964687804257056);
-  close(point.uncertainty.highHours, 48.266850120194086);
+  close(point.uncertainty.lowHours, 3.20480658876148);
+  close(point.uncertainty.highHours, 27.164439962419113);
   assert.equal(point.uncertainty.overallCoverage, null);
   assert.equal(point.uncertainty.predictionLevel, 0.9);
   assert.equal(point.uncertainty.inputLevel, 0.9);
@@ -64,14 +64,14 @@ test('envelope contains all conditional limits throughout the input interval', (
 });
 
 test('missing AECI input uncertainty stays explicit rather than becoming a zero-width measurement CI', () => {
-  const preview = AECI_EXTRAPOLATED_P80_POINTS.find(p => p.model === 'Claude Mythos Preview');
-  assert.equal(preview.uncertainty.missingInputInterval, true);
-  assert.equal(preview.uncertainty.inputLevel, null);
-  assert.equal(preview.uncertainty.kind, 'conditional-prediction');
-  assert.ok(preview.uncertainty.lowHours < preview.hours && preview.hours < preview.uncertainty.highHours);
   const opus = AECI_EXTRAPOLATED_P80_POINTS.find(p => p.model === 'Claude Opus 5');
-  assert.equal(opus.uncertainty.inputLevel, 0.95);
-  assert.equal(opus.uncertainty.overallCoverage, null);
+  assert.equal(opus.uncertainty.missingInputInterval, true);
+  assert.equal(opus.uncertainty.inputLevel, null);
+  assert.equal(opus.uncertainty.kind, 'conditional-prediction');
+  assert.ok(opus.uncertainty.lowHours < opus.hours && opus.hours < opus.uncertainty.highHours);
+  const model4 = AECI_EXTRAPOLATED_P80_POINTS.find(p => p.internal);
+  assert.equal(model4.uncertainty.inputLevel, 0.95);
+  assert.equal(model4.uncertainty.overallCoverage, null);
 });
 
 test('joint task-bootstrap diagnostic preserves its source and checks every published calibration point', () => {

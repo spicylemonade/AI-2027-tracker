@@ -845,7 +845,7 @@
     "status": "In Progress / Monitoring",
     "accuracyScore": 60,
     "qualitativeAccuracy": "Structurally plausible but not yet realized. Epoch AI argues that 1-5 GW campuses should support training runs in the 10^28-10^29 FLOP range as hardware efficiency improves. OpenAI/Microsoft's Stargate and xAI's Colossus 2 are exactly the sort of 1-5 GW campuses Epoch had in mind. If you saturate these campuses on one training run, 10^28 FLOP is squarely in the plausible design envelope, but no public evidence shows a 10^28 FLOP run has completed yet.",
-    "actualOutcome": "Multi-gigawatt datacenters (Stargate, Colossus 2) are being built with capacity that theoretically supports 10^28 FLOP training runs, but no such run has been publicly confirmed as of Dec 2025.",
+    "actualOutcome": "Sites near 1 GW are now running, including Colossus 2 and Stargate Abilene at about 1 million H100-equivalents each. The largest training run in Epoch's database is GPT-6 Astra at about 9.4e26 FLOP, roughly 10x short of 10^28, and no 10^28 run has been publicly confirmed.",
     "supportingEvidence": [
       {
         "text": "Epoch AI: Can AI scaling continue through 2030?",
@@ -854,13 +854,25 @@
       {
         "text": "OpenAI: Announcing The Stargate Project",
         "url": "https://openai.com/index/announcing-the-stargate-project/"
+      },
+      {
+        "text": "Epoch AI: GPT-6 Astra, training compute 9.4e26 FLOP",
+        "url": "https://epoch.ai/models/gpt-6-astra"
+      },
+      {
+        "text": "Epoch AI: Data on AI data centers",
+        "url": "https://epoch.ai/data/ai-data-centers"
       }
     ],
-    "lastEvaluated": "2025-12-07",
+    "lastEvaluated": "2026-11-05",
     "analystCommentary": [
       {
         "date": "2025-12-07",
         "comment": "The capacity story is basically right - the 'will enable' part is on track, but we don't yet see a concrete 10^28 FLOP model in the wild."
+      },
+      {
+        "date": "2026-11-05",
+        "comment": "Largest known run is now about 1e27 FLOP, the scale AI 2027 assigned to Agent-0 in late 2025, so this looks roughly a year behind. The enabling capacity is arriving at multi-GW campuses planned for 2027."
       }
     ]
   },
@@ -1427,9 +1439,9 @@
     ],
     "timelineSegment": "Early 2026",
     "status": "Partially Accurate",
-    "accuracyScore": 80,
-    "qualitativeAccuracy": "Substantially supported, though still not a direct 1.5x lab-wide measurement. Anthropic does not explicitly say Mythos makes AI R&D 1.3x faster, but its reported 4x productivity uplift in the relevant AI-assisted workflows, combined with Anthropic's statement that roughly 10x more uplift would be needed for 2x overall progress, implies about a 1.3x overall AI R&D progress acceleration through this channel. That is below the scenario's 1.5x claim, but close enough to count as a strong partial hit rather than merely directional evidence.",
-    "actualOutcome": "Anthropic and OpenAI now report major internal AI-assisted coding and R&D productivity gains. The cleanest public reading of Anthropic's numbers implies roughly 1.3x overall AI R&D acceleration from current assistant use, short of the predicted 1.5x but clearly in the same regime.",
+    "accuracyScore": 85,
+    "qualitativeAccuracy": "Now directly supported at one lab, though later than the scenario's early-2026 date. METR's September summary quoted a preliminary estimate of about 1.5x overall acceleration in capabilities due to AI, with perhaps a 30% chance of 2x. Its November 5 assessment concludes that Anthropic is likely improving capabilities on well-specified tasks at around twice its March 2024 to October 2025 rate, with AECI growth at 1.9x (95% CI 1.5 to 2.8x), and guesses that about 80% of the current acceleration is due to AI. That works out to roughly 1.8x from AI by October 2026. METR also says non-AI factors likely influenced the late-2025 acceleration, so 1.5x probably came later than early 2026.",
+    "actualOutcome": "METR estimates roughly 2x overall at Anthropic as of October 2026 and would not be surprised by 1.3x or 3x. Anthropic's August Risk Report found no sustained AI-attributable 2x, and METR says that report understates the acceleration. Across all developers' public models, the acceleration is closer to 1.4x. Anthropic redacted most of the evidence METR found most informative.",
     "supportingEvidence": [
       {
         "text": "Anthropic: How AI Is Transforming Work at Anthropic",
@@ -1446,9 +1458,21 @@
       {
         "text": "Anthropic: Alignment Risk Update - Claude Mythos Preview",
         "url": "https://www-cdn.anthropic.com/79c2d46d997783b9d2fb3241de43218158e5f25c.pdf"
+      },
+      {
+        "text": "METR: Independent assessment of AI R&D acceleration at Anthropic",
+        "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/"
+      },
+      {
+        "text": "METR: Predeployment evaluation of Claude Opus 5.5",
+        "url": "https://metr.org/blog/2026-09-22-claude-opus-5-5/"
+      },
+      {
+        "text": "METR: Review of the automated R&D section of Anthropic's August 2026 Risk Report",
+        "url": "https://metr.org/blog/2026-11-05-rd-section-anthropic-risk-report-august-2026-review/"
       }
     ],
-    "lastEvaluated": "2026-05-08",
+    "lastEvaluated": "2026-11-05",
     "analystCommentary": [
       {
         "date": "2026-04-10",
@@ -1457,6 +1481,10 @@
       {
         "date": "2026-05-08",
         "comment": "Updated from 60% to 80%: the evidence still does not directly prove a 1.5x overall algorithmic-progress speedup, but Anthropic's stated uplift arithmetic implies roughly 1.3x through this channel, which is close."
+      },
+      {
+        "date": "2026-11-05",
+        "comment": "Updated from 80 to 85. This is the first independent, high-access estimate of the number the scenario predicted. The 1.8x is our arithmetic from METR's 2x and 80%. Still partial: it covers one lab, arrives months after the predicted date, measures capabilities rather than algorithmic progress alone, and METR warns the AECI trend could partly reflect benchmark overfitting."
       }
     ]
   },
@@ -1990,13 +2018,25 @@
       {
         "text": "DigiTimes: Chinese AI accelerator shipments reach ~13% global share in 2026",
         "url": "https://www.digitimes.com/reports/item.php?id=20260420RS400"
+      },
+      {
+        "text": "Epoch AI: Where are the world's AI chips? (China about 10%, US 72%)",
+        "url": "https://epoch.ai/latest/introducing-the-ai-chip-imports-explorer"
+      },
+      {
+        "text": "AI Futures Project: 12% still seems reasonable",
+        "url": "https://blog.aifutures.org/p/q25-2026-timelines-update-uplift"
       }
     ],
-    "lastEvaluated": "2026-07-28",
+    "lastEvaluated": "2026-11-05",
     "analystCommentary": [
       {
         "date": "2026-07-28",
         "comment": "One of the scenario's better quantitative calls. The main caveat is denominator uncertainty: smuggled chips are excluded from the datasets that set the global total, so the true figure could sit anywhere from ~11% to ~16%. Epoch's headline 14.1% is also May 2025 vintage."
+      },
+      {
+        "date": "2026-11-05",
+        "comment": "New Epoch customs-based data gives China about 10% of AI compute delivered since 2022, with a range of 1.9M to 4.2M of 27.4M H100-equivalents, or about 7 to 15%. The scenario's 12% sits inside that range. The US share of new compute keeps rising, reaching 78% in the first half of 2026."
       }
     ]
   },
@@ -2012,10 +2052,10 @@
       "China"
     ],
     "timelineSegment": "Mid 2026",
-    "status": "Partially Accurate",
-    "accuracyScore": 75,
-    "qualitativeAccuracy": "Directionally right for the 2023-2025 period but too pessimistic by mid-2026. Epoch's Capabilities Index found Chinese models trailing the US frontier by an average of 7 months since 2023 (range 4-14), which brackets the scenario's six months neatly. But that analysis predates the mid-2026 Chinese releases: Stanford's AI Index put the top-model performance gap at 2.7% as of March 2026, and by July 2026 Moonshot's Kimi K3 sits third on Artificial Analysis's index within about four points of the leader.",
-    "actualOutcome": "The capability gap held near six months through 2025 but compressed sharply in the first half of 2026. Chinese labs now ship models within weeks-to-months of the US frontier on benchmark composites, though Epoch's stricter index still shows a persistent multi-month lag.",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 95,
+    "qualitativeAccuracy": "Accurate. On Epoch's November 2026 scores, each new Chinese record this year matches a US model from about 4 to 8 months earlier, averaging about six months. Qwen3.7-Max (May) trails by 5.2 months, Kimi K3 (July) by 4.4, and DeepSeek V4.1 Flash (October) by 7.4. The scenario's authors read the same index the same way, calling six months basically right.",
+    "actualOutcome": "China's best models have stayed about six months behind the US frontier through 2026. In absolute terms the gap is now about 10 ECI points, with DeepSeek V4.1 Flash at 159.31 against GPT-6 Astra at 169.07.",
     "supportingEvidence": [
       {
         "text": "Epoch AI: Chinese models trail the US frontier by an average of 7 months",
@@ -2028,13 +2068,25 @@
       {
         "text": "Artificial Analysis: Kimi K3 ranks third on the Intelligence Index (July 2026)",
         "url": "https://artificialanalysis.ai/articles/four-frontier-launches-in-eight-days-six-labs-now-field-a-model-above-50-on-the-artificial-analysis-intelligence-index"
+      },
+      {
+        "text": "Epoch AI: Epoch Capabilities Index",
+        "url": "https://epoch.ai/eci"
+      },
+      {
+        "text": "AI Futures Project: Grading of AI 2027's predictions",
+        "url": "https://blog.aifutures.org/p/q25-2026-timelines-update-uplift"
       }
     ],
-    "lastEvaluated": "2026-07-28",
+    "lastEvaluated": "2026-11-05",
     "analystCommentary": [
       {
         "date": "2026-07-28",
         "comment": "Scored as partially accurate rather than confirmed because the gap is measurably smaller than six months by mid-2026. Note the measurement disagreement: benchmark-composite indices show weeks, Epoch's ECI shows months. The scenario also assumed a single leading Chinese lab; in practice the frontier rotates between Moonshot, Alibaba and DeepSeek."
+      },
+      {
+        "date": "2026-11-05",
+        "comment": "Raised from 75 to 95, correcting our July evaluation. That entry said the gap had compressed well below six months, relying on benchmark composites and Stanford's 2.7% figure. Measuring lag directly on Epoch's refit does not support compression. The lag is our calculation: each Chinese record against the first US model at or above that score."
       }
     ]
   },
@@ -2108,13 +2160,33 @@
       {
         "text": "TIME/Reuters: MOFCOM meets Alibaba, ByteDance and Z.ai on restricting overseas model access",
         "url": "https://time.com/article/2026/07/07/china-ai-models-alibaba-bytedance/"
+      },
+      {
+        "text": "ChinaTalk: MOFCOM's new rules and the future of Chinese AI",
+        "url": "https://www.chinatalk.media/p/mofcoms-new-ai-rules"
+      },
+      {
+        "text": "Pillsbury: China proposes expanded technology export restrictions",
+        "url": "https://www.pillsburylaw.com/en/news-and-insights/china-technology-export-restrictions-controls.html"
+      },
+      {
+        "text": "Celeste Li: Beijing doesn't need fewer AI labs",
+        "url": "https://lambheart.substack.com/p/beijing-doesnt-need-fewer-ai-labs"
+      },
+      {
+        "text": "AI Futures Project: China Wakes Up has not yet happened",
+        "url": "https://blog.aifutures.org/p/q25-2026-timelines-update-uplift"
       }
     ],
-    "lastEvaluated": "2026-07-28",
+    "lastEvaluated": "2026-11-05",
     "analystCommentary": [
       {
         "date": "2026-07-28",
         "comment": "Scored low but not zero. The scenario's causal engine \u2014 a security panic driving a Manhattan-Project-style state takeover \u2014 did not fire. Beijing instead funded a pluralistic ecosystem heavily while tightening outbound controls on models and capital. That is centralization of governance alongside continued decentralization of research, close to the opposite of the scenario's mechanism."
+      },
+      {
+        "date": "2026-11-05",
+        "comment": "State control grew again without nationalization. MOFCOM's Announcement No. 48 of October 16, 2026 proposes export licensing for frontier model weights and core technology, with comments open until November 15. It governs what leaves China and does not take over any lab. The scenario's authors say they would probably have heard by now if the CCP had consolidated China's AI projects."
       }
     ]
   },
@@ -2132,16 +2204,16 @@
     "timelineSegment": "Mid 2026",
     "status": "Partially Accurate",
     "accuracyScore": 40,
-    "qualitativeAccuracy": "No state-created mechanism exists, but the steelman is stronger than it first appears. Every Chinese policy instrument on open-source AI uses encouragement verbs \u2014 the State Council's 'AI+' initiative (Aug 2025) says \u652f\u6301/\u9f13\u52b1/\u63a8\u52a8 and the NDRC's AI Cooperation and Development Action Plan (July 2026) says \u9f13\u52b1/\u63a8\u52a8 \u2014 never \u5e94\u5f53 or \u5fc5\u987b. None requires any firm to publish weights or share techniques with another. What does exist is an extraordinary technical commons: as of late July 2026 five of the eight leading Chinese labs still ship open weights at the frontier, and the two largest open models in the world are Chinese (Moonshot's Kimi K3 at 2.8T and DeepSeek V4-Pro at 1.7T). Chinese labs demonstrably build on each other \u2014 DeepSeek's R1 distills were built on Alibaba's Qwen, ByteDance finetunes Qwen2-VL, and Qwen derivatives on Hugging Face exceed 100,000. That is real cross-firm capability sharing, but it emerged from challenger commercial strategy, not from a mechanism anyone created.",
-    "actualOutcome": "China has no inter-firm information-sharing mechanism, though it does subsidize open-sourcing after the fact. Shanghai pays up to 5M yuan for high-impact open-source models, corpora and communities, and its December 2025 open-source implementation plan directs compute and model vouchers toward open-source platforms \u2014 concrete money, but a reward for publishing rather than a condition on funding or a duty to share with rivals. Where labs have gone closed, the driver is commercial: Alibaba's Max tier has been proprietary since Qwen2.5-Max in January 2025, and Joe Tsai has said on the record that open weights exist to drive Alibaba Cloud demand rather than to earn model revenue.",
+    "qualitativeAccuracy": "No state-created mechanism exists, but there is a real steelman. Every Chinese policy instrument on open-source AI uses encouragement verbs: the State Council's AI+ initiative says \u652f\u6301/\u9f13\u52b1/\u63a8\u52a8 and the NDRC's July 2026 action plan says \u9f13\u52b1/\u63a8\u52a8, never \u5e94\u5f53 or \u5fc5\u987b. None requires a firm to publish weights or share techniques with another. What exists is an unusually deep technical commons. Most leading Chinese labs still ship open weights, Chinese labs build on each other's models, and Qwen derivatives on Hugging Face exceed 100,000. That sharing emerged from commercial catch-up strategy rather than a mechanism anyone created.",
+    "actualOutcome": "China has no inter-firm information-sharing mechanism, though it does reward publishing: Shanghai pays up to 5M yuan for high-impact open-source releases. Alibaba published the weights of a Max-class model for the first time on August 8, 2026, three weeks after Xi's WAIC speech, and we found no reporting of a directive. MOFCOM's October draft would put future frontier open-source releases under an automatic export license, which is a state checkpoint rather than a sharing channel.",
     "supportingEvidence": [
       {
-        "text": "Xi at WAIC: \u9f13\u52b1\u5f00\u6e90\u5f00\u653e\u3001\u5408\u4f5c\u5171\u4eab \u2014 'encourage open source, openness, collaboration and sharing'",
-        "url": "https://english.news.cn/20260717/"
+        "text": "CGTN: Full text of Xi's keynote at the 2026 World AI Conference",
+        "url": "https://news.cgtn.com/news/2026-07-17/Full-text-Xi-s-keynote-speech-at-the-2026-WAIC-opening-ceremony-1OQSfeoRvUs/p.html"
       },
       {
-        "text": "State Council 'AI+' Initiative \u56fd\u53d1\u30142025\u301511\u53f7 \u2014 open-source language is \u652f\u6301/\u9f13\u52b1, not mandatory",
-        "url": "https://www.gov.cn/zhengce/content/202508/content_7036174.htm"
+        "text": "State Council 'AI+' Initiative \u56fd\u53d1\u30142025\u301511\u53f7: open-source language is \u652f\u6301/\u9f13\u52b1, not mandatory",
+        "url": "https://www.gov.cn/zhengce/content/202508/content_7037861.htm"
       },
       {
         "text": "\u4e0a\u6d77\u5e02\u8fdb\u4e00\u6b65\u6269\u5927\u4eba\u5de5\u667a\u80fd\u5e94\u7528\u7684\u82e5\u5e72\u63aa\u65bd \u6caa\u7ecf\u4fe1\u667a\u30142025\u3015489\u53f7 \u2014 up to 5M yuan rewards for open-source releases",
@@ -2162,9 +2234,21 @@
       {
         "text": "TIME/Reuters: MOFCOM weighs restricting overseas access to top Chinese models",
         "url": "https://time.com/article/2026/07/07/china-ai-models-alibaba-bytedance/"
+      },
+      {
+        "text": "Hugging Face: Qwen3.8-2.4T-A95B, first open Max-class Qwen weights",
+        "url": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+      },
+      {
+        "text": "ChinaTalk: MOFCOM's new rules and open-source licensing",
+        "url": "https://www.chinatalk.media/p/mofcoms-new-ai-rules"
+      },
+      {
+        "text": "DigiChina: Forum on Xi's World AI Conference speech",
+        "url": "https://digichina.stanford.edu/work/forum-xi-jinping-headlines-world-ai-conference/"
       }
     ],
-    "lastEvaluated": "2026-07-28",
+    "lastEvaluated": "2026-11-05",
     "analystCommentary": [
       {
         "date": "2026-07-28",
@@ -2185,6 +2269,10 @@
       {
         "date": "2026-07-28",
         "comment": "The open-source push and the export-control push are not contradictory; they address different tiers and audiences. The emerging shape is selective openness: registration only for basic open-source tools, security review for advanced technology, domestic-use-only for the most capable frontier models. Re-check at end-2026 for whether any tiered regime is formalized, and whether the Qwen3.8-Max open weights promised in July 2026 actually ship."
+      },
+      {
+        "date": "2026-11-05",
+        "comment": "Correction to the July notes. They said Alibaba's direction of travel was toward closing Qwen. That was overtaken on August 8, when it published Max-class weights three weeks after Xi's speech. Soft political influence now looks more plausible than we allowed, though no reporting shows a directive, and the weights came with a custom license and without some features of the hosted model. Score unchanged at 40: open weights are sharing with everyone, not the mechanism for AI companies that the scenario describes."
       }
     ]
   },
@@ -2216,13 +2304,25 @@
       {
         "text": "Caixin: Tencent folds AI Lab into Hunyuan team",
         "url": "https://www.caixinglobal.com/2026-03-21/tencent-folds-ai-lab-into-hunyuan-team-in-major-ai-overhaul-102425495.html"
+      },
+      {
+        "text": "Celeste Li: Beijing doesn't need fewer AI labs",
+        "url": "https://lambheart.substack.com/p/beijing-doesnt-need-fewer-ai-labs"
+      },
+      {
+        "text": "AI Futures Project: No sign the CCP has consolidated China's AI projects",
+        "url": "https://blog.aifutures.org/p/q25-2026-timelines-update-uplift"
       }
     ],
-    "lastEvaluated": "2026-07-28",
+    "lastEvaluated": "2026-11-05",
     "analystCommentary": [
       {
         "date": "2026-07-28",
         "comment": "Left unscored because the scenario's own window closes mid-2027; scoring it now would penalize a prediction that has not come due. Early evidence points against it, so expect a low score at resolution absent a sharp policy reversal. Re-evaluate mid-2027."
+      },
+      {
+        "date": "2026-11-05",
+        "comment": "Still unscored because the window runs to mid-2027, but still no movement toward a merger. Chinese AI research remains spread across competing labs, and Beijing is regulating them through campaigns and export rules without consolidating them."
       }
     ]
   },
@@ -2240,7 +2340,7 @@
     "timelineSegment": "Mid 2026",
     "status": "Inaccurate / Debunked",
     "accuracyScore": 10,
-    "qualitativeAccuracy": "No evidence of any AI development zone at the Tianwan Nuclear Power Plant, in English or Chinese-language sources. Tianwan coverage in 2026 concerns Unit 7 commissioning and Unit 8 construction only. More importantly, China's actual strategy is explicitly distributed rather than single-site: the NDRC's $295B plan builds a network of interconnected hubs across Inner Mongolia, Guizhou and Gansu to be federated by 2028.",
+    "qualitativeAccuracy": "No evidence of any AI development zone at the Tianwan Nuclear Power Plant, in English or Chinese-language sources. Tianwan coverage in 2026 concerns Unit 7 commissioning and Unit 8 construction only. More importantly, China's actual strategy is explicitly distributed rather than single-site: the NDRC's draft $295B plan would build a network of interconnected hubs across Inner Mongolia, Guizhou and Gansu.",
     "actualOutcome": "The nearest real analog is the Wuhu 'Data Island' in Anhui \u2014 a 760-acre Yangtze island hosting four datacenters run by China Telecom, Huawei, China Mobile and China Unicom, with ~15 companies and ~$37B committed. It is not nuclear-powered, not in Jiangsu, and not operated by a single AI lab. Nuclear-for-AI links in China exist but are small and elsewhere, such as the Alibaba/China National Nuclear Power JV and the Linglong One SMR in Hainan.",
     "supportingEvidence": [
       {
@@ -2256,11 +2356,15 @@
         "url": "https://www.bloomberg.com/news/articles/2026-06-09/china-prepares-295-billion-plan-to-fund-nationwide-ai-buildout"
       }
     ],
-    "lastEvaluated": "2026-07-28",
+    "lastEvaluated": "2026-11-05",
     "analystCommentary": [
       {
         "date": "2026-07-28",
         "comment": "Credit only for anticipating centralized mega-datacenter buildout in the abstract, which Wuhu partially vindicates. Caution for future evaluators: several AI-generated aggregator sites restate the AI 2027 scenario's Tianwan CDZ claim as though it were reporting. Those are not evidence."
+      },
+      {
+        "date": "2026-11-05",
+        "comment": "Wording corrected: Reuters describes the NDRC plan as still in early discussions, so we no longer describe it as settled."
       }
     ]
   },
@@ -2315,23 +2419,27 @@
     "timelineSegment": "Mid 2026",
     "status": "Inaccurate / Debunked",
     "accuracyScore": 10,
-    "qualitativeAccuracy": "False, and easy to mis-score. An 80% figure does appear prominently in 2026 Chinese AI-infrastructure reporting, but it is a domestic-content requirement \u2014 the NDRC national compute grid must source at least 80% of its technology, including AI chips, from local suppliers such as Huawei. That is a sourcing rule that structurally excludes Nvidia and AMD, not a rule concentrating chips into one geographic zone.",
+    "qualitativeAccuracy": "False, and easy to mis-score. An 80% figure does appear prominently in 2026 Chinese AI-infrastructure reporting, but it is a domestic-content target. The NDRC's draft national compute plan would rely on local suppliers such as Huawei for at least 80% of technology, including AI chips. That is a sourcing goal that would squeeze out Nvidia and AMD, not a rule concentrating chips into one geographic zone.",
     "actualOutcome": "Chip allocation in China is centrally steered but broadly distributed. A chip committee under Vice Premier Ding Xuexiang allocates scarce domestic supply, with Ascend mandatory for state-affiliated entities, but named major customers include Alibaba, Tencent, ByteDance and DeepSeek. Huawei is targeting ~600k Ascend 910C units in 2026 and Cambricon ~500k accelerators, spread across many buyers.",
     "supportingEvidence": [
       {
-        "text": "TechTimes: NDRC grid mandates \u226580% domestic technology content, locking out Nvidia",
-        "url": "https://www.techtimes.com/articles/318868/20260622/china-ai-data-center-grid-locks-out-nvidia-295-billion-domestic-chip-mandate.htm"
+        "text": "Tom's Hardware: China's draft plan targets 80% domestic chips",
+        "url": "https://www.tomshardware.com/tech-industry/china-drafts-295-billion-plan-to-build-a-national-ai-data-center-grid-running-on-80-percent-domestic-chips"
       },
       {
         "text": "Tom's Hardware: Huawei and Cambricon ramp accelerator output across many customers",
         "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/chinas-chip-champions-ramp-up-production-of-ai-accelerators-at-domestic-fabs-but-hbm-and-fab-production-capacity-are-towering-bottlenecks"
       }
     ],
-    "lastEvaluated": "2026-07-28",
+    "lastEvaluated": "2026-11-05",
     "analystCommentary": [
       {
         "date": "2026-07-28",
         "comment": "Flagging the coincidence explicitly so future evaluators do not score this as a hit: the real 80% is about who makes the chips, the predicted 80% is about where they go. Prior domestic-content rules escalated from \u226550% in August 2025 to a full foreign-accelerator ban for state-funded projects in November 2025."
+      },
+      {
+        "date": "2026-11-05",
+        "comment": "Corrected to say the 80% is a target in a draft plan, not a settled mandate, and replaced a weaker source. Score unchanged."
       }
     ]
   },
@@ -2373,9 +2481,25 @@
       {
         "text": "CNN: OpenAI model escapes sandbox during evaluation and breaches Hugging Face production servers",
         "url": "https://www.cnn.com/2026/07/22/tech/openai-hugging-face-ai-cybersecurity"
+      },
+      {
+        "text": "RAND: Achieving AI Model Weight Security Level 3 (August 2026)",
+        "url": "https://www.rand.org/pubs/research_reports/RRA4704-1.html"
+      },
+      {
+        "text": "AI Futures Project: Labs don't deserve the SL3 designation yet",
+        "url": "https://blog.aifutures.org/p/q25-2026-timelines-update-uplift"
+      },
+      {
+        "text": "The Next Web: Lawmaker asks five AI firms how they guard weights from China",
+        "url": "https://thenextweb.com/news/ai-firms-chinese-model-weight-theft"
+      },
+      {
+        "text": "Nextgov: OpenAI bugging case highlights AI's insider threat problem",
+        "url": "https://www.nextgov.com/artificial-intelligence/2026/10/openai-bugging-case-highlights-ais-insider-threat-problem/416596/"
       }
     ],
-    "lastEvaluated": "2026-07-28",
+    "lastEvaluated": "2026-11-05",
     "analystCommentary": [
       {
         "date": "2026-07-28",
@@ -2392,6 +2516,10 @@
       {
         "date": "2026-07-28",
         "comment": "Structural note: the scenario frames the Chinese threat as weight exfiltration, but the observed 2025-26 vector has been distillation and API abuse plus insider document theft \u2014 the Ding conviction in January 2026 involved chip designs, not weights. RAND SL3 addresses neither, so lab security spend has gone into account verification and trusted-access tiering rather than the weights-vault hardening SL3 describes. Consistent with P048 and P050."
+      },
+      {
+        "date": "2026-11-05",
+        "comment": "Still not due, and still no lab claims SL3. RAND published a concrete SL3 standard of 262 controls in August, designed to be implemented in 6 to 12 months. The scenario's authors now say Anthropic and OpenAI do not deserve the SL3 label because they are not secure against current AI agents, though weights alone may look better. Rep. Ro Khanna wrote to five labs in October asking about attempted weight theft. Re-evaluate in January 2027."
       }
     ]
   },
@@ -2406,13 +2534,35 @@
       "Product Release"
     ],
     "timelineSegment": "Late 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 95,
+    "qualitativeAccuracy": "Accurate, and close to the predicted shape. On October 26, 2026 OpenAI released GPT-6.1 Terra at a tenth of GPT-6 Astra's list price, and Epoch scores it at ECI 167.82 against Astra's 169.07. Anthropic made a similar move with Claude Haiku 5.5 on October 7. The part that did not happen is OpenBrain blowing away the competition: several labs shipped cheap, near-frontier models within weeks of each other.",
+    "actualOutcome": "Leading labs now sell much cheaper models close to their flagships. GPT-6.1 Terra sits about 1.3 ECI points below Astra; GPT-6 Luna and Claude Haiku 5.5 go lower still at $0.10/$0.50 per million tokens.",
+    "supportingEvidence": [
+      {
+        "text": "OpenAI: Introducing GPT-6.1 Terra",
+        "url": "https://openai.com/index/introducing-gpt-6-1-terra/"
+      },
+      {
+        "text": "Epoch AI: GPT-6.1 Terra (ECI, $1/$5 pricing)",
+        "url": "https://epoch.ai/models/gpt-6-1-terra"
+      },
+      {
+        "text": "Epoch AI: GPT-6 Astra (ECI, $10/$50 pricing)",
+        "url": "https://epoch.ai/models/gpt-6-astra"
+      },
+      {
+        "text": "Epoch AI: Claude Haiku 5.5 (ECI, $0.10/$0.50 pricing)",
+        "url": "https://epoch.ai/models/claude-haiku-5-5"
+      }
+    ],
+    "lastEvaluated": "2026-11-05",
+    "analystCommentary": [
+      {
+        "date": "2026-11-05",
+        "comment": "Mapping Agent-1-mini onto GPT-6.1 Terra is our judgment; no lab uses that framing. Terra is the closest match because it pairs a 10x price cut with almost no capability loss."
+      }
+    ]
   },
   {
     "id": "P062",
@@ -2425,13 +2575,35 @@
       "Pricing"
     ],
     "timelineSegment": "Late 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 95,
+    "qualitativeAccuracy": "Accurate under the Terra mapping. GPT-6.1 Terra lists at $1/$5 per million tokens against $10/$50 for GPT-6 Astra, which is exactly 10x. The price ladder goes further than predicted: GPT-6 Luna is 100x cheaper than Astra, and Claude Haiku 5.5 is 40x cheaper than Claude Opus 5.5.",
+    "actualOutcome": "A 10x price gap between a flagship and its near-frontier sibling now exists at list prices, with even cheaper tiers below it.",
+    "supportingEvidence": [
+      {
+        "text": "Epoch AI: GPT-6.1 Terra pricing",
+        "url": "https://epoch.ai/models/gpt-6-1-terra"
+      },
+      {
+        "text": "Epoch AI: GPT-6 Astra pricing",
+        "url": "https://epoch.ai/models/gpt-6-astra"
+      },
+      {
+        "text": "Epoch AI: Claude Opus 5.5 pricing",
+        "url": "https://epoch.ai/models/claude-opus-5-5"
+      },
+      {
+        "text": "Epoch AI: Claude Haiku 5.5 pricing",
+        "url": "https://epoch.ai/models/claude-haiku-5-5"
+      }
+    ],
+    "lastEvaluated": "2026-11-05",
+    "analystCommentary": [
+      {
+        "date": "2026-11-05",
+        "comment": "List prices only. Astra costs more on very long prompts, and real costs depend on caching and how many tokens each model uses per task."
+      }
+    ]
   },
   {
     "id": "P063",
@@ -2443,17 +2615,75 @@
       "Agent Capabilities"
     ],
     "timelineSegment": "Late 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Inaccurate / Debunked",
+    "accuracyScore": 20,
+    "qualitativeAccuracy": "Mostly wrong, and the trend runs the other way. OpenAI is winding down self-serve fine-tuning: new organizations lost access on May 7, 2026, and remaining customers cannot start new jobs after January 6, 2027. No GPT-6 model is listed as tunable. On Amazon Bedrock, the only Claude model listed for fine-tuning is Claude 3 Haiku.",
+    "actualOutcome": "Labs moved customization toward prompts, tools and cheap base models rather than retraining. Fine-tuning is mainly alive on open-weight models such as Qwen3.8-27B, released under Apache 2.0.",
+    "supportingEvidence": [
+      {
+        "text": "OpenAI: API deprecations, self-serve fine-tuning schedule",
+        "url": "https://developers.openai.com/api/docs/deprecations"
+      },
+      {
+        "text": "OpenAI: Fine-tuning guide says the platform is winding down",
+        "url": "https://platform.openai.com/docs/guides/supervised-fine-tuning"
+      },
+      {
+        "text": "AWS: Bedrock models that support fine-tuning",
+        "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/custom-model-fine-tuning.html"
+      },
+      {
+        "text": "Hugging Face: Qwen3.8-27B (Apache 2.0)",
+        "url": "https://huggingface.co/Qwen/Qwen3.8-27B"
+      }
+    ],
+    "lastEvaluated": "2026-11-05",
+    "analystCommentary": [
+      {
+        "date": "2026-11-05",
+        "comment": "Partial credit only because the need the scenario describes, adapting cheap models to specific applications, is real and is being met by other means."
+      }
+    ]
   },
   {
     "id": "P064",
-    "text": "The mainstream narrative around AI changes from \"maybe the hype will blow over\" to \"guess this is the next big thing.\""
+    "text": "The mainstream narrative around AI changes from \"maybe the hype will blow over\" to \"guess this is the next big thing.\"",
+    "status": "Confirmed Accurate",
+    "accuracyScore": 90,
+    "originalScenario": "Late 2026: AI Takes Some Jobs",
+    "predictedDate": "Late 2026",
+    "timelineSegment": "Late 2026",
+    "qualitativeAccuracy": "Accurate. AI is now treated as a defining economic story rather than a passing hype cycle. Gartner expects AI providers to spend nearly $1 trillion on infrastructure in 2026, Anthropic has filed to go public, and 79% of Americans in Gallup's latest survey expect AI to reduce US jobs over the next decade, up from 73% in 2025. As the scenario says, people still disagree about how big it is, and a market selloff on November 5 shows that the doubts have not gone away.",
+    "actualOutcome": "The debate has moved from whether AI matters to how much, and how to feel about it. Public attitudes have cooled even as the technology's importance became widely accepted.",
+    "supportingEvidence": [
+      {
+        "text": "Gallup: Americans cool toward AI; 79% expect fewer US jobs",
+        "url": "https://news.gallup.com/poll/712751/americans-cool-toward.aspx"
+      },
+      {
+        "text": "Pew: 71% expect AI to mean fewer US jobs over 20 years",
+        "url": "https://www.pewresearch.org/short-reads/2026/08/18/young-adults-in-the-us-are-increasingly-wary-of-ai-concerned-it-will-take-jobs/"
+      },
+      {
+        "text": "TechWire Asia: Gartner on nearly $1 trillion of 2026 AI infrastructure spending",
+        "url": "https://techwireasia.com/2026/10/gartner-ai-infrastructure-spending-risk/"
+      },
+      {
+        "text": "AI Futures Project: public salience was their biggest quantitative miss",
+        "url": "https://blog.aifutures.org/p/q25-2026-timelines-update-uplift"
+      }
+    ],
+    "analystCommentary": [
+      {
+        "date": "2026-11-05",
+        "comment": "Accepting AI as the next big thing does not mean liking it. The scenario's authors say the survey they used for public salience has barely moved, though they think AI is clearly more salient than a year ago."
+      }
+    ],
+    "lastEvaluated": "2026-11-05",
+    "categories": [
+      "Public Opinion",
+      "Market Impact"
+    ]
   },
   {
     "id": "P065",
@@ -2465,13 +2695,31 @@
       "Economics"
     ],
     "timelineSegment": "Late 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Inaccurate / Debunked",
+    "accuracyScore": 25,
+    "qualitativeAccuracy": "Well short so far. After a 4.36% drop on November 5, the S&P 500 closed at 7,353.73, up about 7.4% for 2026 (roughly 8.3% with dividends). The Nasdaq Composite is in correction, more than 10% below its October record. Even at its October 6 record the S&P was only up about 14%. Reaching 30% would now take another 21% in eight weeks.",
+    "actualOutcome": "The market is up in 2026, but by about a quarter of the predicted amount, and it sold off sharply on AI demand worries in early November.",
+    "supportingEvidence": [
+      {
+        "text": "Motley Fool: November 5 closes (S&P 500 7,353.73; Nasdaq 24,315.00)",
+        "url": "https://www.fool.com/coverage/stock-market-today/2026/11/05/stock-market-today-nov-5-nvidia-slides-on-ai-chip-selloff-as-election-uncertainty-weighs/"
+      },
+      {
+        "text": "Yahoo Finance: Nasdaq enters correction in AI trade meltdown",
+        "url": "https://ca.finance.yahoo.com/news/live/stock-market-today-thursday-november-5-dow-sp-500-nasdaq-plunge-chip-stocks-melt-down-193726491.html"
+      },
+      {
+        "text": "ChartRow: S&P 500 total return year to date",
+        "url": "https://chartrow.com/sp500/ytd"
+      }
+    ],
+    "lastEvaluated": "2026-11-05",
+    "analystCommentary": [
+      {
+        "date": "2026-11-05",
+        "comment": "Provisional, measured against the December 31, 2025 close of 6,845.50. Re-score at year end. The scenario does not name an index; we use the S&P 500 and check the Nasdaq."
+      }
+    ]
   },
   {
     "id": "P066",
@@ -2484,13 +2732,31 @@
       "Corporate Performance"
     ],
     "timelineSegment": "Late 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Partially Accurate",
+    "accuracyScore": 30,
+    "qualitativeAccuracy": "AI-linked hardware did produce many of the biggest winners, but the scenario's named leaders mostly did not lead. As of November 5, Sandisk (+240%), Dell (+154%), Micron (+130%) and AMD (+89%) are far ahead of the index. Nvidia is down about 2% for the year, after falling 9% on November 5. OpenBrain's real-world analogs are not listed: Anthropic filed to go public in October and OpenAI remains private. We found no sign that AI integrators led as a group; software names such as ServiceNow (-33%), Adobe (-30%) and Salesforce (-16%) are down.",
+    "actualOutcome": "Leadership came from memory, storage, chips and servers plus energy, which is the best-performing sector on average. The top S&P 500 stock overall is Moderna, which has nothing to do with the AI trade.",
+    "supportingEvidence": [
+      {
+        "text": "ChartRow: S&P 500 stock performance, year to date",
+        "url": "https://chartrow.com/sp500/stock-performance"
+      },
+      {
+        "text": "Motley Fool: Nvidia closes at $181.60, down 9.26%, on November 5",
+        "url": "https://www.fool.com/coverage/stock-market-today/2026/11/05/stock-market-today-nov-5-nvidia-slides-on-ai-chip-selloff-as-election-uncertainty-weighs/"
+      },
+      {
+        "text": "CNBC: Anthropic's amended S-1 ahead of a planned listing",
+        "url": "https://www.cnbc.com/2026/11/02/anthropic-ant-s-1-quarter-financials.html"
+      }
+    ],
+    "lastEvaluated": "2026-11-05",
+    "analystCommentary": [
+      {
+        "date": "2026-11-05",
+        "comment": "Provisional. Year-to-date rankings moved sharply on November 5 alone, when Micron fell 17% and Sandisk 22%, so expect these to shift again by year end. ChartRow's figures are its own estimates."
+      }
+    ]
   },
   {
     "id": "P067",
@@ -2503,13 +2769,31 @@
       "Software Engineering"
     ],
     "timelineSegment": "Late 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 95,
+    "qualitativeAccuracy": "Accurate. Stanford's August 2026 update finds workers aged 22 to 25 in highly AI-exposed jobs now 19% below where they would be had they tracked less-exposed peers, up from 15% a year earlier. Indeed reports that only 4.5% of software development postings were entry-level in Q1 2026, the lowest of any sector, while 69.3% were senior.",
+    "actualOutcome": "Entry-level software hiring has shrunk sharply while senior hiring recovers. Stanford's authors still see no widespread job displacement across the economy, and they do not claim AI is the only cause.",
+    "supportingEvidence": [
+      {
+        "text": "Stanford Digital Economy Lab: AI employment gap for young workers widens to 19%",
+        "url": "https://digitaleconomy.stanford.edu/news/canariesaug26/"
+      },
+      {
+        "text": "Indeed Hiring Lab: The labor market is tilting toward seniority",
+        "url": "https://hiringlab.indeed.com/2026/07/23/the-labor-market-is-tilting-toward-seniority/"
+      },
+      {
+        "text": "New York Fed: Labor market for recent college graduates",
+        "url": "https://www.newyorkfed.org/research/college-labor-market/index.html"
+      }
+    ],
+    "lastEvaluated": "2026-11-05",
+    "analystCommentary": [
+      {
+        "date": "2026-11-05",
+        "comment": "The turmoil is well documented. How much of it AI causes is still debated, since interest rates, post-pandemic over-hiring and tighter budgets all point the same way."
+      }
+    ]
   },
   {
     "id": "P068",
@@ -2521,13 +2805,31 @@
       "Education Impact"
     ],
     "timelineSegment": "Late 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 90,
+    "qualitativeAccuracy": "Accurate for coursework-style problems. Claude Opus 5 scored a perfect 42/42 on the 2026 International Math Olympiad and 96% on SWE-bench Verified, and METR notes that long-open Millennium Prize Problems are now being resolved. Well-specified computer science is within reach of frontier models.",
+    "actualOutcome": "Frontier models can complete the kind of work a CS degree teaches. They remain weaker at open-ended research judgment: METR says Claude Opus 5.5 still has qualitative weaknesses an expert human is unlikely to show on hard, long tasks.",
+    "supportingEvidence": [
+      {
+        "text": "Anthropic: Claude Opus 5 System Card (IMO 2026, SWE-bench Verified)",
+        "url": "https://www-cdn.anthropic.com/c5fbac3f0b1280a933ebd26d3cb8bb9f5bdeaf48/Claude%20Opus%205%20System%20Card.pdf"
+      },
+      {
+        "text": "METR: Assessment of AI R&D acceleration at Anthropic",
+        "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/"
+      },
+      {
+        "text": "METR: Predeployment evaluation of Claude Opus 5.5",
+        "url": "https://metr.org/blog/2026-09-22-claude-opus-5-5/"
+      }
+    ],
+    "lastEvaluated": "2026-11-05",
+    "analystCommentary": [
+      {
+        "date": "2026-11-05",
+        "comment": "Nobody has literally run models through a whole CS curriculum, so this is inferred from benchmarks and competitions well above that level."
+      }
+    ]
   },
   {
     "id": "P069",
@@ -2540,13 +2842,31 @@
       "New Roles"
     ],
     "timelineSegment": "Late 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Partially Accurate",
+    "accuracyScore": 70,
+    "qualitativeAccuracy": "Directionally right, but this specific group is poorly measured. PwC's 2026 barometer finds a 62% average advertised wage premium for AI skills, up from 57%. Indeed finds software hiring tilting toward senior roles. Advertised pay for agent-focused engineering roles centers around $213k. None of these isolates people who manage and quality-check teams of AIs.",
+    "actualOutcome": "Experienced engineers who work well with AI are in demand and well paid. Evidence that managing AIs is itself a distinct, highly paid skill is thinner, and advertised premiums may overstate what employers actually pay.",
+    "supportingEvidence": [
+      {
+        "text": "PwC: 2026 Global AI Jobs Barometer (62% premium)",
+        "url": "https://www.prnewswire.com/news-releases/ai-reshapes-global-labour-market-into-two-distinct-paths-rewarding-human-skills-pwc-2026-global-ai-jobs-barometer-302798987.html"
+      },
+      {
+        "text": "Indeed Hiring Lab: The labor market is tilting toward seniority",
+        "url": "https://hiringlab.indeed.com/2026/07/23/the-labor-market-is-tilting-toward-seniority/"
+      },
+      {
+        "text": "Agentic Engineering Jobs: analysis of 1,135 agentic job listings",
+        "url": "https://agentic-engineering-jobs.com/ai-agent-frameworks-job-market-2026"
+      }
+    ],
+    "lastEvaluated": "2026-11-05",
+    "analystCommentary": [
+      {
+        "date": "2026-11-05",
+        "comment": "Scored below confirmed because these are proxies. The strongest figures are advertised pay, and the job-listing analysis comes from a small job board."
+      }
+    ]
   },
   {
     "id": "P070",
@@ -2559,13 +2879,27 @@
       "Public Discourse"
     ],
     "timelineSegment": "Late 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 90,
+    "qualitativeAccuracy": "Accurate. In NACE's spring 2026 survey, employers said more than one-third of entry-level jobs require AI skills, nearly triple the share six months earlier. LinkedIn's Skills on the Rise rankings place AI literacy and AI engineering at or near the top. Career advice now routinely treats AI familiarity as a core credential.",
+    "actualOutcome": "AI skills have become standard career advice and a growing formal requirement, including for entry-level roles.",
+    "supportingEvidence": [
+      {
+        "text": "NACE: Employer expectations for AI skills meet student skepticism",
+        "url": "https://www.naceweb.org/about-us/press/2026/ready-or-reluctant-employer-expectations-for-ai-skills-meet-student-skepticism"
+      },
+      {
+        "text": "HR Dive: AI literacy among most-needed skills, per LinkedIn",
+        "url": "https://www.hrdive.com/news/ai-literacy-and-change-management-top-HR-skills/813370/"
+      }
+    ],
+    "lastEvaluated": "2026-11-05",
+    "analystCommentary": [
+      {
+        "date": "2026-11-05",
+        "comment": "Scored 90 because 'the most important skill' is a strong claim. Rankings differ by list and many still put communication or judgment alongside AI."
+      }
+    ]
   },
   {
     "id": "P071",
@@ -2578,13 +2912,35 @@
       "Activism"
     ],
     "timelineSegment": "Late 2026",
-    "status": null,
+    "status": "In Progress / Monitoring",
     "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "qualitativeAccuracy": "Not met so far. The largest US anti-AI march we can find drew about 350 to 400 people in San Francisco. In Washington, 13 people were arrested at OpenAI's lobbying office in August and there was a protest outside the State Department in September. A March for an AI Treaty is set for Washington and other cities on November 14. A 10,000-person turnout would be about 25 times anything seen so far in the US.",
+    "actualOutcome": "Anti-AI protest is real and growing, and job fears are high in polls, but turnout is still in the hundreds rather than the thousands.",
+    "supportingEvidence": [
+      {
+        "text": "AI Treaty March: November 14 events in Washington, DC and other cities",
+        "url": "https://aitreatymarch.org/"
+      },
+      {
+        "text": "Daily Californian: About 350 march in San Francisco, the largest US AI protest to date",
+        "url": "https://www.dailycal.org/news/nations-1st-major-anti-ai-protest-sees-hundreds-march-on-downtown-san-francisco/article_8253b059-e793-4de4-a012-cc20ddc5ad69.html"
+      },
+      {
+        "text": "Futurism: Protesters arrested at OpenAI's DC lobbying office",
+        "url": "https://futurism.com/artificial-intelligence/protesters-arrested-protest-openai-washington-dc"
+      },
+      {
+        "text": "MIT Technology Review: One of the biggest anti-AI protests yet, in London",
+        "url": "https://www.technologyreview.com/2026/03/02/1133814/i-checked-out-londons-biggest-ever-anti-ai-protest/"
+      }
+    ],
+    "lastEvaluated": "2026-11-05",
+    "analystCommentary": [
+      {
+        "date": "2026-11-05",
+        "comment": "Left unscored until after the November 14 march. We found no published turnout target for it. Re-evaluate at year end if nothing larger happens."
+      }
+    ]
   },
   {
     "id": "P072",
@@ -2598,13 +2954,35 @@
       "Contracts"
     ],
     "timelineSegment": "Late 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 95,
+    "qualitativeAccuracy": "Accurate, and mostly on the predicted terms. The Pentagon signed prototype contracts worth up to $200 million each with OpenAI, Anthropic, Google and xAI in July 2025, covering areas including intelligence analysis and cybersecurity. The terms became public only through a FOIA lawsuit. Classified-network agreements followed in 2026, and ChatGPT went live on GenAI.mil in August 2026.",
+    "actualOutcome": "Frontier labs now contract directly with the Department of Defense. It stopped being quiet in February 2026, when Anthropic was labeled a supply chain risk after a dispute over usage limits and OpenAI announced its own deal within hours.",
+    "supportingEvidence": [
+      {
+        "text": "The Intercept: Contract documents obtained through a FOIA lawsuit",
+        "url": "https://theintercept.com/2026/09/08/military-ai-weapons-contracts-openai-anthropic-google/"
+      },
+      {
+        "text": "NPR: OpenAI announces Pentagon deal after Anthropic is blacklisted",
+        "url": "https://www.npr.org/2026/02/27/nx-s1-5729118/trump-anthropic-pentagon-openai-ai-weapons-ban"
+      },
+      {
+        "text": "Military Times: ChatGPT is live on GenAI.mil",
+        "url": "https://www.militarytimes.com/industry/techwatch/2026/08/31/the-militarys-chatgpt-is-now-live-via-the-pentagons-genai-platform/"
+      },
+      {
+        "text": "Defense One: GenAI.mil passes 2 million users in one week",
+        "url": "https://www.defenseone.com/technology/2026/09/genaimil-saw-more-2-million-users-one-week-top-dod-official-says/416186/"
+      }
+    ],
+    "lastEvaluated": "2026-11-05",
+    "analystCommentary": [
+      {
+        "date": "2026-11-05",
+        "comment": "The scenario also expected slow integration. Adoption of unclassified tools has been faster than that, though how deeply classified workflows are integrated is not public."
+      }
+    ]
   },
   {
     "id": "P073",
@@ -2617,13 +2995,31 @@
       "Investment"
     ],
     "timelineSegment": "Late 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 95,
+    "qualitativeAccuracy": "Accurate. Gartner expects AI providers to spend nearly $1 trillion on AI infrastructure in 2026. Its wider count of all AI infrastructure buyers is $1.48 trillion.",
+    "actualOutcome": "Global AI infrastructure spending in 2026 is on the order of $1 trillion, depending on scope.",
+    "supportingEvidence": [
+      {
+        "text": "Gartner: Over $3.5 trillion of AI infrastructure spending could face impairment",
+        "url": "https://www.gartner.com/en/newsroom/press-releases/2026-10-14-gartner-says-over-us-dollars-three-and-a-half-trillion-of-artificial-intelligence-infrastructure-spending-could-be-exposed-to-impairment-by-the-end-of-2030"
+      },
+      {
+        "text": "TechWire Asia: Gartner on nearly $1 trillion in 2026",
+        "url": "https://techwireasia.com/2026/10/gartner-ai-infrastructure-spending-risk/"
+      },
+      {
+        "text": "Gartner: Worldwide AI spending to reach $2.7 trillion in 2026",
+        "url": "https://www.gartner.com/en/newsroom/press-releases/2026-09-16-gartner-forecasts-worldwide-ai-spending-to-grow-49-point-5-percent-in-2026"
+      }
+    ],
+    "lastEvaluated": "2026-11-05",
+    "analystCommentary": [
+      {
+        "date": "2026-11-05",
+        "comment": "The scenario's metric is the cost of owning active compute, which is not quite the same as annual spending. The match is close, but the definitions differ."
+      }
+    ]
   },
   {
     "id": "P074",
@@ -2635,13 +3031,31 @@
       "Energy Consumption"
     ],
     "timelineSegment": "Late 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 90,
+    "qualitativeAccuracy": "Accurate on our estimate. Epoch's June 2026 count of 13.3 GW of IT power covered an estimated 46% of deployed AI compute, which implies about 29 GW of IT power worldwide. Epoch puts facility power at roughly 1.3x IT power, giving about 38 GW at mid-2026. Epoch's separate January estimate was already around 30 GW of total capacity.",
+    "actualOutcome": "Global AI power capacity reached about the predicted level by mid-2026 and is still rising, so the year-end figure is likely higher.",
+    "supportingEvidence": [
+      {
+        "text": "Epoch AI: Data on AI data centers (15.1 GW IT, 19.6 GW facility)",
+        "url": "https://epoch.ai/data/ai-data-centers"
+      },
+      {
+        "text": "Crypto Briefing: Epoch's tracker covers 46% of global compute with 13.3 GW",
+        "url": "https://cryptobriefing.com/epoch-ai-data-center-research-global-compute/"
+      },
+      {
+        "text": "Epoch AI on X: AI data centers total around 30 GW (January 2026)",
+        "url": "https://x.com/EpochAIResearch/status/2012303496465498490"
+      }
+    ],
+    "lastEvaluated": "2026-11-05",
+    "analystCommentary": [
+      {
+        "date": "2026-11-05",
+        "comment": "The 38 GW is our arithmetic, not Epoch's published total, and the 46% coverage figure has a wide 90% interval of 26% to 79%. Treat the exact match as partly luck."
+      }
+    ]
   },
   {
     "id": "P075",
@@ -2654,13 +3068,31 @@
       "Revenue"
     ],
     "timelineSegment": "Late 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 90,
+    "qualitativeAccuracy": "Accurate, with the two leading labs bracketing the number. Anthropic's amended S-1 reports $33.24 billion of revenue for the first nine months of 2026, including about $17 billion in Q3, so a full year above $50 billion looks likely. OpenAI told investors its annualized revenue was about $50 billion at the end of September, and we estimate its 2026 revenue at roughly $35 to 40 billion.",
+    "actualOutcome": "$45B sits between the two leading labs' likely 2026 revenue. The scenario underestimated how close the race would be, and which lab would be ahead.",
+    "supportingEvidence": [
+      {
+        "text": "SEC: Anthropic, PBC amended S-1",
+        "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026068676/anthropicpbc-sx1ax1.htm"
+      },
+      {
+        "text": "CNBC: Anthropic reports $17 billion in Q3 revenue",
+        "url": "https://www.cnbc.com/2026/11/02/anthropic-ant-s-1-quarter-financials.html"
+      },
+      {
+        "text": "TechCrunch: OpenAI's annualized revenue is approaching $50 billion",
+        "url": "https://techcrunch.com/2026/10/08/openais-revenue-is-reportedly-20-billion-less-than-previously-projected/"
+      }
+    ],
+    "lastEvaluated": "2026-11-05",
+    "analystCommentary": [
+      {
+        "date": "2026-11-05",
+        "comment": "Provisional until full-year results. The labs count differently: Anthropic books gross revenue from cloud partners and OpenAI books its net share, which explains why OpenAI's run rate was also reported near $70 billion. The OpenAI full-year range is our estimate."
+      }
+    ]
   },
   {
     "id": "P076",
@@ -2673,13 +3105,27 @@
       "Compute Costs"
     ],
     "timelineSegment": "Late 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 85,
+    "qualitativeAccuracy": "Close. OpenAI's Greg Brockman testified in May that OpenAI expects to spend $50 billion on computing in 2026, about 25% above the prediction. Anthropic spent about $9 billion on compute in the first half of 2026 and is growing fast, so its year will likely come in below $40 billion.",
+    "actualOutcome": "The two leading labs bracket the $40B figure, with OpenAI above it and Anthropic likely below it.",
+    "supportingEvidence": [
+      {
+        "text": "Yahoo Finance: OpenAI to spend $50 billion on computing in 2026, Brockman says",
+        "url": "https://finance.yahoo.com/sectors/technology/articles/openai-spend-50-billion-computing-191336356.html"
+      },
+      {
+        "text": "Yahoo Finance: Anthropic's S-1 discloses first-half results",
+        "url": "https://finance.yahoo.com/technology/live/anthropic-ipo-live-updates-frontier-ai-lab-discloses-revenue-and-risks-in-highly-anticipated-s-1-filing-141702607.html"
+      }
+    ],
+    "lastEvaluated": "2026-11-05",
+    "analystCommentary": [
+      {
+        "date": "2026-11-05",
+        "comment": "OpenAI's figure was a forecast given under oath, not a reported total, and it may not be defined the same way as Anthropic's compute costs."
+      }
+    ]
   },
   {
     "id": "P077",
@@ -2692,13 +3138,27 @@
       "Energy Consumption"
     ],
     "timelineSegment": "Late 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 85,
+    "qualitativeAccuracy": "Accurate on the best available estimates. SemiAnalysis's Dylan Patel projected in March that Anthropic would reach five or six gigawatts by the end of 2026, with OpenAI a little higher. In early November he put the two labs together at about 10 GW for the end of 2026.",
+    "actualOutcome": "Each leading lab is expected to end 2026 at around 5 to 6 GW, which matches the prediction.",
+    "supportingEvidence": [
+      {
+        "text": "Dwarkesh Podcast: Dylan Patel on compute bottlenecks",
+        "url": "https://www.dwarkesh.com/p/dylan-patel"
+      },
+      {
+        "text": "FourWeekMBA: Patel's Runtime 2026 estimates for OpenAI and Anthropic",
+        "url": "https://fourweekmba.com/ai-openai-anthropic-to-buy-30-of-worlds-new-compute-in-2027/"
+      }
+    ],
+    "lastEvaluated": "2026-11-05",
+    "analystCommentary": [
+      {
+        "date": "2026-11-05",
+        "comment": "These are one analyst firm's projections, not company disclosures, and they may mix IT and facility power. Neither lab publishes a figure for capacity actually running."
+      }
+    ]
   },
   {
     "id": "P078",
@@ -2711,13 +3171,31 @@
       "US Infrastructure"
     ],
     "timelineSegment": "Late 2026",
-    "status": null,
-    "accuracyScore": null,
-    "qualitativeAccuracy": null,
-    "actualOutcome": null,
-    "supportingEvidence": [],
-    "lastEvaluated": null,
-    "analystCommentary": []
+    "status": "Confirmed Accurate",
+    "accuracyScore": 80,
+    "qualitativeAccuracy": "About right on our estimate. Epoch finds that 72% of AI compute delivered since 2022 went to the US, rising to 78% in the first half of 2026. Applied to about 38 GW worldwide at mid-2026, that gives roughly 27 to 30 GW in the US, and capacity is still being added quickly, so about 33 GW by year end is plausible. That is about 2.5% of 1.34 TW.",
+    "actualOutcome": "US AI power is likely about 2 to 3% of national generating capacity by the end of 2026, in line with the prediction.",
+    "supportingEvidence": [
+      {
+        "text": "Epoch AI: Where are the world's AI chips?",
+        "url": "https://epoch.ai/latest/introducing-the-ai-chip-imports-explorer"
+      },
+      {
+        "text": "Epoch AI: Data on AI data centers",
+        "url": "https://epoch.ai/data/ai-data-centers"
+      },
+      {
+        "text": "Dwarkesh Podcast: Dylan Patel estimates 20 GW added in the US in 2026",
+        "url": "https://www.dwarkesh.com/p/dylan-patel"
+      }
+    ],
+    "lastEvaluated": "2026-11-05",
+    "analystCommentary": [
+      {
+        "date": "2026-11-05",
+        "comment": "This is derived, not measured. We found no published figure for US AI power specifically. Estimates of all US data centers, at about 4 to 5% of electricity use, are a different and broader measure."
+      }
+    ]
   },
   {
     "id": "P079",

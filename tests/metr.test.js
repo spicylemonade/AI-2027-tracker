@@ -40,8 +40,9 @@ test('published p80 preserves source units and contains no converted Sol result'
 });
 
 test('calibration uses unique, explicit model matches from a single Epoch snapshot', () => {
-  assert.equal(ECI_CALIBRATION_POINTS.length, 21);
-  assert.equal(new Set(ECI_CALIBRATION_POINTS.map(p => p.epochModel)).size, 21);
+  assert.equal(ECI_CALIBRATION_POINTS.length, 20);
+  assert.equal(new Set(ECI_CALIBRATION_POINTS.map(p => p.epochModel)).size, 20);
+  assert.ok(calibration.excludedFromCalibration.some(p => p.id === 'gpt_5_3_codex'));
   assert.ok(!ECI_CALIBRATION_POINTS.some(p => /Mythos|Sol|Codex Max/.test(p.label)));
   for (const p of ECI_CALIBRATION_POINTS) {
     assert.equal(p.eci, calibration.epoch.find(row => row.model === p.epochModel).eci);
@@ -50,17 +51,17 @@ test('calibration uses unique, explicit model matches from a single Epoch snapsh
 });
 
 test('current fit matches an independent Python calculation and exposes sensitivity', () => {
-  close(ECI_FIT.slope, 0.15449956686718874);
-  close(ECI_FIT.intercept, -23.698399285395016);
-  close(ECI_FIT.rSquared, 0.9670648815494046);
+  close(ECI_FIT.slope, 0.14432843914462962);
+  close(ECI_FIT.intercept, -22.204412874375198);
+  close(ECI_FIT.rSquared, 0.9707683271894857);
   const astra = ECI_EXTRAPOLATED_P80_POINTS.find(p => p.model === 'GPT-6 Astra');
-  close(astra.hours, 11.560133545302763);
-  close(astra.eciInputLowHours, 5.875871048772135);
-  close(astra.eciInputHighHours, 24.230576826360657);
-  close(astra.recentFitHours, 4.413001340499184);
+  close(astra.hours, 8.999745793830106);
+  close(astra.eciInputLowHours, 5.913279437585213);
+  close(astra.eciInputHighHours, 14.303304885837715);
+  close(astra.recentFitHours, 4.234995082357844);
   assert.equal(astra.ciLevel, 0.90);
-  assert.equal(RECENT_ECI_FIT.n, 12);
-  assert.equal(METR_PROGRESS_SNAPSHOT.latestExtrapolation, astra);
+  assert.equal(RECENT_ECI_FIT.n, 11);
+  assert.equal(METR_PROGRESS_SNAPSHOT.frontierExtrapolation, astra);
   assert.ok(astra.eci > ECI_FIT.maxEci);
 });
 

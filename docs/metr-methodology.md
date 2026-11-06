@@ -1,5 +1,7 @@
 # Task-horizon audit — 2026-09-07
 
+> Numbers in this document describe the 2026-09-07 snapshot. For current values, see the [November 2026 refresh](november-2026-refresh.md).
+
 Follow-up: [AECI and Astra: deeper review](aeci-follow-up.md) adds a separately calibrated AECI series and measures the effect of removing METR from ECI. It supersedes the initial blanket exclusion of AECI. Astra stays on Epoch ECI directly; AECI is used only for Claude models. The [uncertainty audit](uncertainty-audit.md) now expands the default bounds to a 3.1–48.3 h index-plus-fit prediction envelope next to Astra’s 11.6 h central estimate. The old 5.9–24.2 h input-only range remains available for comparison.
 
 The previous chart was not statistically rigorous. The revised chart is reproducible, but its ECI predictions remain exploratory. In particular, they do not establish a lower bound on Astra's capabilities or independently confirm the AI 2027 scenario.

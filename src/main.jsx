@@ -635,8 +635,11 @@ const MetrProgressChart = () => {
     ? { low: point.uncertainty.lowHours, high: point.uncertainty.highHours }
     : { low: isAeci ? point.inputLowHours : point.eciInputLowHours,
       high: isAeci ? point.inputHighHours : point.eciInputHighHours };
-  const latestFit = METR_PROGRESS_SNAPSHOT.latestExtrapolation;
-  const fitBounds = estimateBounds(latestFit);
+  const frontierFit = METR_PROGRESS_SNAPSHOT.frontierExtrapolation;
+  const fitBounds = estimateBounds(frontierFit);
+  const aeciOpus55 = AECI_EXTRAPOLATED_P80_POINTS.find(p => p.model === 'Claude Opus 5.5');
+  const aeciModel4 = AECI_EXTRAPOLATED_P80_POINTS.find(p => p.internal);
+  const sourceLinkClass = 'underline decoration-current/30 hover:decoration-current';
   const formatBounds = (low, high) => `${formatCompactMetrHours(low)}–${formatCompactMetrHours(high)}`;
 
   return (
@@ -781,7 +784,7 @@ const MetrProgressChart = () => {
                   <title>{`${p.model}: ${formatCompactMetrHours(p.hours)} estimated p80; ECI ${p.eci}. ${uncertaintyMode === 'prediction' ? 'Index + regression prediction envelope' : 'Index-only range'} ${formatBounds(bounds.low, bounds.high)}; not a complete horizon confidence interval.`}</title>
                   {showUncertainty && <UncertaintyBar x={px} low={bounds.low} high={bounds.high} color={c.extrapolated} inputOnly />}
                   <polygon points={`${px},${py - 5.5} ${px + 5.5},${py} ${px},${py + 5.5} ${px - 5.5},${py}`} fill={c.extrapolated} opacity="0.9" />
-                  <text x={px + (p.labelDx || 0)} y={py + (p.labelDy || 0)} fill={c.extrapolated} fontSize="9" fontWeight="600" opacity="0.85">{p.label}</text>
+                  {p.showLabel !== false && <text x={px + (p.labelDx || 0)} y={py + (p.labelDy || 0)} fill={c.extrapolated} fontSize="9" fontWeight="600" opacity="0.85">{p.label}</text>}
                 </g>
               );
             })}
@@ -790,10 +793,10 @@ const MetrProgressChart = () => {
               const px = sx(p.releaseDate), py = sy(p.hours);
               const bounds = estimateBounds(p, true);
               return <g key={p.id}>
-                <title>{`${p.model}: approximately ${formatCompactMetrHours(p.hours)} p80. AECI ${p.aeci}${p.approximate ? ' (digitized)' : ''}. ${uncertaintyMode === 'prediction' ? `Regression prediction limits ${formatBounds(bounds.low, bounds.high)}${p.uncertainty.missingInputInterval ? '; input uncertainty missing, index held fixed' : '; includes AECI endpoint variation'}. No complete confidence interval claimed.` : p.inputIntervalLabel}`}</title>
+                <title>{`${p.model}: approximately ${formatCompactMetrHours(p.hours)} p80. AECI ${p.aeci}${p.approximate ? ' (digitized)' : ''}.${p.internal ? ' Unreleased; plotted at internal availability.' : ''} ${uncertaintyMode === 'prediction' ? `Regression prediction limits ${formatBounds(bounds.low, bounds.high)}${p.uncertainty.missingInputInterval ? '; input uncertainty missing, index held fixed' : '; includes AECI endpoint variation'}. No complete confidence interval claimed.` : p.inputIntervalLabel}`}</title>
                 {showUncertainty && bounds.low !== null && <UncertaintyBar x={px} low={bounds.low} high={bounds.high} color={c.aeci} inputOnly />}
                 <polygon points={`${px},${py - 5} ${px + 5},${py + 4} ${px - 5},${py + 4}`} fill={c.bg} stroke={c.aeci} strokeWidth="1.5" />
-                <text x={px + p.labelDx} y={py + p.labelDy} fill={c.aeci} fontSize="9" fontWeight="600">{p.label}</text>
+                {p.showLabel !== false && <text x={px + p.labelDx} y={py + p.labelDy} fill={c.aeci} fontSize="9" fontWeight="600">{p.label}</text>}
               </g>;
             })}
           </g>
@@ -807,16 +810,43 @@ const MetrProgressChart = () => {
         Drag to pan, scroll to zoom, Shift+scroll through dates. Double-click to reset.
       </p>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <StatBlock label="Scenario" value={formatCompactMetrHours(METR_PROGRESS_SNAPSHOT.danielCurveToday.hours)} sub={`${formatMonthYear(TODAY_REFERENCE_DATE)} level`} />
-        <StatBlock label="p80 fit" value={`≈${formatCompactMetrHours(latestFit.hours)}`}
-          sub={`${latestFit.model} · bounds ${fitBounds.low.toFixed(1)}–${fitBounds.high.toFixed(1)} h`} />
+        <StatBlock label="Epoch ECI fit" value={`≈${formatCompactMetrHours(frontierFit.hours)}`}
+          sub={`${frontierFit.model} · bounds ${fitBounds.low.toFixed(1)}–${fitBounds.high.toFixed(1)} h`} />
+        <StatBlock label="AECI fit" value={`≈${formatCompactMetrHours(aeciOpus55.hours)}`}
+          sub={`Opus 5.5 · internal Model 4 ≈${formatCompactMetrHours(aeciModel4.hours)}`} />
       </div>
 
       <p className={`text-[11px] leading-relaxed ${activeColors.textSecondary}`}>
         p80 measures human task duration at 80% success. Blue bars are published METR intervals;
         green and purple bars are estimated bounds. These bounds do not capture all uncertainty
         and are not complete confidence intervals.
+      </p>
+      <p className={`-mt-4 text-[11px] leading-relaxed ${activeColors.textSecondary}`}>
+        <strong>Nothing after April 2026 is a measurement.</strong> The last published p80 is Mythos Preview (early).{' '}
+        <a href="https://metr.org/time-horizons/" target="_blank" rel="noopener noreferrer" className={sourceLinkClass}>METR</a>{' '}
+        stopped updating its time-horizon page on September 8, 2026, and cautions that its task suite is unreliable above 16 h.
+        Every later point is an estimate from a capability index.
+      </p>
+      <p className={`-mt-4 text-[11px] leading-relaxed ${activeColors.textSecondary}`}>
+        <strong>Why green and purple disagree.</strong> Green maps{' '}
+        <a href="https://epoch.ai/eci" target="_blank" rel="noopener noreferrer" className={sourceLinkClass}>Epoch&apos;s ECI</a>{' '}
+        onto p80 for any developer. Purple maps AECI, Anthropic&apos;s own version of the index, for Claude models only, using
+        scores from one METR figure. AECI adds internal benchmarks and spends far more per task, about 10M input tokens on
+        agentic coding benchmarks against about 1M on Epoch&apos;s SWE-bench runs, by METR&apos;s loose comparison, so it may pick up
+        long-horizon coding that public benchmarks miss. That is why it runs ahead for the same model: Opus 5.5 is 174.6 on AECI and 168.4 on ECI. But
+        it is vendor-run and moves with each refit (Opus 5.5 was 169.4 in September), and Anthropic says the two scales are not
+        directly comparable. Read them as separate lenses.
+      </p>
+      <p className={`-mt-4 text-[11px] leading-relaxed ${activeColors.textSecondary}`}>
+        <strong>What METR found.</strong> In its{' '}
+        <a href="https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/" target="_blank" rel="noopener noreferrer" className={sourceLinkClass}>November 5 assessment</a>,
+        Anthropic&apos;s AECI has grown about 1.9× as fast since October 2025 as before it (95% CI 1.5–2.8×), or about 1.4× when other
+        developers&apos; public models are included. METR guesses roughly 80% of the current speedup is due to AI, and says Anthropic
+        redacted most of the evidence it found most informative. Model 4 is an unreleased Anthropic model at AECI 178.6. Its estimate
+        sits 16 points beyond any model with a measured p80, and METR warns that its benchmarks are saturating, so treat it as an
+        indication rather than a measurement.
       </p>
     </div>
   );

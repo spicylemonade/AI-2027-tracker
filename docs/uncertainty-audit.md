@@ -1,5 +1,7 @@
 # Uncertainty audit — 2026-09-07
 
+> Numbers in this document describe the 2026-09-07 snapshot. For current values, see the [November 2026 refresh](november-2026-refresh.md).
+
 The old 5.9–24.2 h Astra range was too narrow to serve as the main uncertainty readout. It propagated only Astra's ECI endpoints through a fixed regression. It did not include uncertainty in that regression or variation between models. The default chart now shows a **3.1–48.3 h index-plus-fit prediction envelope**, with the central estimate still **11.56 h**, using Epoch directly. This is broader but still not an end-to-end confidence interval. “Index uncertainty only” remains available as a comparison mode.
 
 ## Exact calculation before this audit

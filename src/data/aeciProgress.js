@@ -16,9 +16,12 @@ export const AECI_CALIBRATION_POINTS = aeci.models.filter(p => p.metrId).map(p =
 export const AECI_FIT = fitLogHorizon(AECI_CALIBRATION_POINTS);
 
 const aeciDisplay = {
-  'Claude Mythos Preview': { label: 'Mythos AECI', labelDx: 8, labelDy: 14 },
-  'Claude Mythos 5': { label: 'Mythos 5 AECI', labelDx: -104, labelDy: -18 },
-  'Claude Opus 5': { label: 'Opus 5 AECI', labelDx: 8, labelDy: 8 },
+  // Too close to its neighbors to label at the default zoom; the tooltip identifies it.
+  'Claude Mythos Preview': { label: 'Mythos AECI', showLabel: false },
+  'Claude Mythos 5': { label: 'Mythos 5 AECI', labelDx: -82, labelDy: -12 },
+  'Claude Opus 5': { label: 'Opus 5 AECI', labelDx: -29, labelDy: -6 },
+  'Claude Opus 5.5': { label: 'Opus 5.5 AECI', labelDx: 8, labelDy: 8 },
+  'Anthropic Model 4 (internal)': { label: 'Model 4 (internal)', labelDx: -88, labelDy: -2 },
 };
 export const AECI_EXTRAPOLATED_P80_POINTS = aeci.models.filter(p => aeciDisplay[p.model]).map(p => ({
   ...p,
@@ -32,7 +35,7 @@ export const AECI_EXTRAPOLATED_P80_POINTS = aeci.models.filter(p => aeciDisplay[
   inputHighHours: p.ciHigh === undefined ? null : predictHorizon(AECI_FIT, p.ciHigh),
   inputIntervalLabel: p.ciLow === undefined
     ? 'No input interval digitized for this approximate point'
-    : 'Reported 95% AECI endpoints only; calibration error omitted',
+    : '95% AECI endpoints read from METR\'s figure; calibration error omitted',
 }));
 
 const astra = ECI_EXTRAPOLATED_P80_POINTS.find(p => p.model === 'GPT-6 Astra');
@@ -54,9 +57,9 @@ const fitSensitivity = (label, fit, assumption) => ({
 
 export const ASTRA_ESTIMATE_SENSITIVITY = [
   fitSensitivity('Pooled Epoch → p80', ECI_FIT, `${ECI_FIT.n} matched models; chart baseline`),
-  { label: 'Epoch refitted without METR', hours: predictHorizon(ECI_WITHOUT_METR_FIT, ablation.astraWithoutMetrEci), assumption: 'All 36 METR observations removed before the full IRT refit' },
-  fitSensitivity('Epoch, 2025+ models', RECENT_ECI_FIT, '12 recent models; smaller score range'),
-  fitSensitivity('Epoch, OpenAI models only', fitLogHorizon(ECI_CALIBRATION_POINTS.filter(p => !p.label.startsWith('Claude') && !p.label.startsWith('Gemini'))), '11 OpenAI models'),
-  fitSensitivity('Epoch, Claude models only', fitLogHorizon(ECI_CALIBRATION_POINTS.filter(p => p.label.startsWith('Claude'))), '8 Claude models; assumes transfer to OpenAI'),
+  { label: 'Epoch refitted without METR', hours: predictHorizon(ECI_WITHOUT_METR_FIT, ablation.astraWithoutMetrEci), assumption: 'All 36 METR observations removed before the full IRT refit; frozen at the 2026-09-07 Epoch snapshot' },
+  fitSensitivity('Epoch, 2025+ models', RECENT_ECI_FIT, `${RECENT_ECI_FIT.n} recent models; smaller score range`),
+  fitSensitivity('Epoch, OpenAI models only', fitLogHorizon(ECI_CALIBRATION_POINTS.filter(p => !p.label.startsWith('Claude') && !p.label.startsWith('Gemini'))), 'OpenAI models'),
+  fitSensitivity('Epoch, Claude models only', fitLogHorizon(ECI_CALIBRATION_POINTS.filter(p => p.label.startsWith('Claude'))), 'Claude models; assumes transfer to OpenAI'),
   { label: 'GPT-4 → o3 slope continued', hours: o3.hours * Math.exp(twoAnchorSlope * (astra.eci - o3.eci)), assumption: 'Two chosen anchors; does not use the other observations' },
 ];

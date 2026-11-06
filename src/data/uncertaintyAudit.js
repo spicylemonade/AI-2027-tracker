@@ -26,7 +26,7 @@ export const ASTRA_UNCERTAINTY_COMPONENTS = [
     interpretation: 'Envelope of conditional 90% prediction limits over the 90% ECI input range; no joint coverage claimed',
   },
   {
-    label: 'METR task-bootstrap diagnostic',
+    label: 'METR task-bootstrap diagnostic (2026-09-07 ECI snapshot)',
     lowHours: taskBootstrap.astraRegressionHours.low, highHours: taskBootstrap.astraRegressionHours.high,
     interpretation: '5th–95th percentiles across joint task resamples; ECI fixed, no new-model residual added',
   },
