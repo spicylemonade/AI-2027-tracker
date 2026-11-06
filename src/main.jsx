@@ -5,13 +5,15 @@ import { BrowserRouter, Routes, Route, useNavigate, useParams, useLocation } fro
 import predictionsData from './data/predictions.json';
 import blogPostsData from './data/blogPosts.json';
 import {
-  DANIEL_CURVE_P80_SERIES,
+  buildDanielCurveForViewport,
   ECI_EXTRAPOLATED_P80_POINTS,
   METR_PROGRESS_DOMAIN,
   METR_PROGRESS_SNAPSHOT,
   PUBLISHED_METR_P80_POINTS,
   TODAY_REFERENCE_DATE,
 } from './data/metrProgress';
+import { AECI_EXTRAPOLATED_P80_POINTS } from './data/aeciProgress';
+import { buildDateTicks, buildHorizonTicks, panViewport, wheelViewport, zoomViewport } from './data/chartViewport';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -75,23 +77,16 @@ const formatCompactMetrHours = (hours) => {
     return `${minutes >= 10 ? minutes.toFixed(0) : minutes.toFixed(1)} min`;
   }
 
-  if (hours < 24) {
+  if (hours < 100) {
     return `${hours >= 10 ? hours.toFixed(1) : hours.toFixed(2).replace(/\.00$/, '').replace(/(\.\d)0$/, '$1')} h`;
   }
 
-  const days = hours / 24;
-  return `${days >= 10 ? days.toFixed(1) : days.toFixed(2).replace(/\.00$/, '').replace(/(\.\d)0$/, '$1')} d`;
+  return `${Math.round(hours).toLocaleString('en-US')} h`;
 };
 
 const formatMonthYear = (dateString) =>
   new Date(`${dateString}T00:00:00Z`).toLocaleDateString('en-US', {
     month: 'short',
-    year: 'numeric',
-    timeZone: 'UTC',
-  });
-
-const formatYear = (dateString) =>
-  new Date(`${dateString}T00:00:00Z`).toLocaleDateString('en-US', {
     year: 'numeric',
     timeZone: 'UTC',
   });
@@ -486,6 +481,9 @@ const MetrProgressChart = () => {
   const [showDanielCurve, setShowDanielCurve] = useState(true);
   const [showPublishedMetr, setShowPublishedMetr] = useState(true);
   const [showEciExtrapolations, setShowEciExtrapolations] = useState(true);
+  const [showAeciExtrapolations, setShowAeciExtrapolations] = useState(true);
+  const [showUncertainty, setShowUncertainty] = useState(true);
+  const [uncertaintyMode, setUncertaintyMode] = useState('prediction');
   const chartSvgRef = useRef(null);
   const dragStateRef = useRef(null);
 
@@ -496,6 +494,7 @@ const MetrProgressChart = () => {
     curve: isDarkMode ? '#ff453a' : '#e63329',
     published: isDarkMode ? '#64d2ff' : '#0071e3',
     extrapolated: isDarkMode ? '#30d158' : '#28a745',
+    aeci: isDarkMode ? '#bf8cff' : '#8050b0',
     label: isDarkMode ? '#86868b' : '#86868b',
     text: isDarkMode ? '#f5f5f7' : '#1d1d1f',
     today: isDarkMode ? '#48484a' : '#c7c7cc',
@@ -519,55 +518,6 @@ const MetrProgressChart = () => {
   }), [fullXMin, fullXMax, fullYMinLog, fullYMaxLog]);
   const [viewBounds, setViewBounds] = useState(fullViewBounds);
 
-  const clampViewBounds = (bounds) => {
-    const fullXRange = fullXMax - fullXMin;
-    const fullYRange = fullYMaxLog - fullYMinLog;
-    const minXRange = fullXRange * 0.08;
-    const minYRange = fullYRange * 0.16;
-    let xRange = Math.min(Math.max(bounds.xMax - bounds.xMin, minXRange), fullXRange);
-    let yRange = Math.min(Math.max(bounds.yMaxLog - bounds.yMinLog, minYRange), fullYRange);
-    let xMin = bounds.xMin;
-    let xMax = bounds.xMax;
-    let yMinLog = bounds.yMinLog;
-    let yMaxLog = bounds.yMaxLog;
-
-    if (xRange === fullXRange) {
-      xMin = fullXMin;
-      xMax = fullXMax;
-    } else {
-      const xCenter = (xMin + xMax) / 2;
-      xMin = xCenter - (xRange / 2);
-      xMax = xCenter + (xRange / 2);
-      if (xMin < fullXMin) {
-        xMin = fullXMin;
-        xMax = fullXMin + xRange;
-      }
-      if (xMax > fullXMax) {
-        xMax = fullXMax;
-        xMin = fullXMax - xRange;
-      }
-    }
-
-    if (yRange === fullYRange) {
-      yMinLog = fullYMinLog;
-      yMaxLog = fullYMaxLog;
-    } else {
-      const yCenter = (yMinLog + yMaxLog) / 2;
-      yMinLog = yCenter - (yRange / 2);
-      yMaxLog = yCenter + (yRange / 2);
-      if (yMinLog < fullYMinLog) {
-        yMinLog = fullYMinLog;
-        yMaxLog = fullYMinLog + yRange;
-      }
-      if (yMaxLog > fullYMaxLog) {
-        yMaxLog = fullYMaxLog;
-        yMinLog = fullYMaxLog - yRange;
-      }
-    }
-
-    return { xMin, xMax, yMinLog, yMaxLog };
-  };
-
   const getSvgPoint = (event) => {
     const rect = chartSvgRef.current?.getBoundingClientRect();
     if (!rect) return null;
@@ -583,25 +533,16 @@ const MetrProgressChart = () => {
   const yMinLog = viewBounds.yMinLog;
   const yMaxLog = viewBounds.yMaxLog;
 
-  const sx = (d) => pad.l + (((parseUtcDate(d) - xMin) / (xMax - xMin)) * iW);
-  const sy = (h) => pad.t + ((1 - ((Math.log10(h) - yMinLog) / (yMaxLog - yMinLog))) * iH);
-  const linePath = (pts) => pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${sx(p.releaseDate)},${sy(p.hours)}`).join(' ');
+  const sxTimestamp = (value) => pad.l + (((value - xMin) / (xMax - xMin)) * iW);
+  const sx = (d) => sxTimestamp(parseUtcDate(d));
+  const syLog = (logHours) => pad.t + ((1 - ((logHours - yMinLog) / (yMaxLog - yMinLog))) * iH);
+  const sy = (h) => syLog(Math.log10(h));
+  const danielCurve = useMemo(() => buildDanielCurveForViewport(viewBounds), [viewBounds]);
+  const danielCurvePath = danielCurve.map((p, i) =>
+    `${i === 0 ? 'M' : 'L'}${sxTimestamp(p.timestamp)},${syLog(p.logHours)}`).join(' ');
 
-  const yTicks = [
-    { hours: 8 / 3600, label: '8 sec' },
-    { hours: 30 / 3600, label: '30 sec' },
-    { hours: 2 / 60, label: '2 min' },
-    { hours: 8 / 60, label: '8 min' },
-    { hours: 0.5, label: '30 min' },
-    { hours: 2, label: '2 h' },
-    { hours: 8, label: '8 h' },
-    { hours: 40, label: '1 week' },
-    { hours: 160, label: '1 month' },
-    { hours: 640, label: '4 months' },
-    { hours: 2560, label: '16 months' },
-    { hours: 9600, label: '5 years' },
-  ];
-  const xTicks = ['2021-01-01', '2022-01-01', '2023-01-01', '2024-01-01', '2025-01-01', '2026-01-01', '2027-01-01'];
+  const yTicks = buildHorizonTicks(yMinLog, yMaxLog);
+  const xTicks = buildDateTicks(xMin, xMax);
   const todayX = sx(TODAY_REFERENCE_DATE);
   const danielCurveTodayY = sy(METR_PROGRESS_SNAPSHOT.danielCurveToday.hours);
   const isZoomed = viewBounds.xMin !== fullViewBounds.xMin
@@ -609,32 +550,39 @@ const MetrProgressChart = () => {
     || viewBounds.yMinLog !== fullViewBounds.yMinLog
     || viewBounds.yMaxLog !== fullViewBounds.yMaxLog;
 
-  const handleWheel = (event) => {
-    event.preventDefault();
-    const point = getSvgPoint(event);
-    if (!point) return;
+  useEffect(() => {
+    const svg = chartSvgRef.current;
+    if (!svg) return undefined;
+    const onWheel = (event) => {
+      const rect = svg.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * W;
+      const y = ((event.clientY - rect.top) / rect.height) * H;
+      if (x < pad.l || x > pad.l + iW || y < pad.t || y > pad.t + iH) return;
+      event.preventDefault();
+      setViewBounds(previous => wheelViewport(previous, event,
+        { x: (x - pad.l) / iW, y: (y - pad.t) / iH },
+        rect.width * iW / W, rect.height * iH / H));
+    };
+    // React's wheel listeners are passive; a native listener keeps the page
+    // stationary while the graph consumes a wheel / trackpad gesture.
+    svg.addEventListener('wheel', onWheel, { passive: false });
+    return () => svg.removeEventListener('wheel', onWheel);
+  }, [W, H, iW, iH, pad.l, pad.t]);
 
-    const plotX = Math.min(Math.max((point.x - pad.l) / iW, 0), 1);
-    const plotY = Math.min(Math.max((point.y - pad.t) / iH, 0), 1);
-    const zoomFactor = Math.exp(event.deltaY * 0.0014);
-    const xRange = xMax - xMin;
-    const yRange = yMaxLog - yMinLog;
-    const anchorX = xMin + (plotX * xRange);
-    const anchorYLog = yMaxLog - (plotY * yRange);
-    const nextXRange = xRange * zoomFactor;
-    const nextYRange = yRange * zoomFactor;
-
-    setViewBounds(clampViewBounds({
-      xMin: anchorX - (plotX * nextXRange),
-      xMax: anchorX + ((1 - plotX) * nextXRange),
-      yMinLog: anchorYLog - ((1 - plotY) * nextYRange),
-      yMaxLog: anchorYLog + (plotY * nextYRange),
-    }));
+  const handleGraphKey = (event) => {
+    const shifts = { ArrowLeft: [-0.15, 0], ArrowRight: [0.15, 0], ArrowUp: [0, 0.15], ArrowDown: [0, -0.15] };
+    if (shifts[event.key]) {
+      event.preventDefault();
+      setViewBounds(previous => panViewport(previous, ...shifts[event.key]));
+    } else if (['+', '=', '-', 'Home'].includes(event.key)) {
+      event.preventDefault();
+      setViewBounds(previous => event.key === 'Home' ? fullViewBounds : zoomViewport(previous, event.key === '-' ? 1.5 : 1 / 1.5));
+    }
   };
 
   const handlePointerDown = (event) => {
     const point = getSvgPoint(event);
-    if (!point) return;
+    if (!point || point.x < pad.l || point.x > W - pad.r || point.y < pad.t || point.y > H - pad.b) return;
     event.currentTarget.setPointerCapture(event.pointerId);
     dragStateRef.current = {
       pointerId: event.pointerId,
@@ -651,17 +599,7 @@ const MetrProgressChart = () => {
 
     const dx = point.x - drag.startPoint.x;
     const dy = point.y - drag.startPoint.y;
-    const xRange = drag.startBounds.xMax - drag.startBounds.xMin;
-    const yRange = drag.startBounds.yMaxLog - drag.startBounds.yMinLog;
-    const xShift = -(dx / iW) * xRange;
-    const yShift = (dy / iH) * yRange;
-
-    setViewBounds(clampViewBounds({
-      xMin: drag.startBounds.xMin + xShift,
-      xMax: drag.startBounds.xMax + xShift,
-      yMinLog: drag.startBounds.yMinLog + yShift,
-      yMaxLog: drag.startBounds.yMaxLog + yShift,
-    }));
+    setViewBounds(panViewport(drag.startBounds, -dx / iW, dy / iH));
   };
 
   const handlePointerEnd = (event) => {
@@ -675,6 +613,8 @@ const MetrProgressChart = () => {
     { id: 'daniel', label: "Daniel's curve", color: c.curve, active: showDanielCurve, toggle: () => setShowDanielCurve(v => !v) },
     { id: 'published', label: 'Published METR', color: c.published, active: showPublishedMetr, toggle: () => setShowPublishedMetr(v => !v) },
     { id: 'extrapolated', label: 'ECI extrapolated', color: c.extrapolated, active: showEciExtrapolations, toggle: () => setShowEciExtrapolations(v => !v) },
+    { id: 'aeci', label: 'AECI approximation', color: c.aeci, active: showAeciExtrapolations, toggle: () => setShowAeciExtrapolations(v => !v) },
+    { id: 'uncertainty', label: 'Uncertainty bounds', color: c.label, active: showUncertainty, toggle: () => setShowUncertainty(v => !v) },
   ];
 
   const StatBlock = ({ label, value, sub }) => (
@@ -685,6 +625,20 @@ const MetrProgressChart = () => {
     </div>
   );
 
+  const UncertaintyBar = ({ x, low, high, color, inputOnly = false }) => (
+    <g data-uncertainty={inputOnly ? 'index-input' : 'published'} stroke={color} strokeWidth="1.3" opacity="0.7">
+      <line x1={x} x2={x} y1={sy(low)} y2={sy(high)} strokeDasharray={inputOnly ? '3 2' : undefined} />
+      <path d={`M${x - 4},${sy(low)}h8 M${x - 4},${sy(high)}h8`} />
+    </g>
+  );
+  const estimateBounds = (point, isAeci = false) => uncertaintyMode === 'prediction'
+    ? { low: point.uncertainty.lowHours, high: point.uncertainty.highHours }
+    : { low: isAeci ? point.inputLowHours : point.eciInputLowHours,
+      high: isAeci ? point.inputHighHours : point.eciInputHighHours };
+  const latestFit = METR_PROGRESS_SNAPSHOT.latestExtrapolation;
+  const fitBounds = estimateBounds(latestFit);
+  const formatBounds = (low, high) => `${formatCompactMetrHours(low)}–${formatCompactMetrHours(high)}`;
+
   return (
     <div className="space-y-6">
       <div>
@@ -692,7 +646,8 @@ const MetrProgressChart = () => {
           Task-Horizon Progress
         </h3>
         <p className={`mt-1 text-[13px] leading-relaxed ${activeColors.textSecondary} max-w-2xl`}>
-          A general long-horizon progress chart combining published METR p80 results, Daniel&apos;s curve, and ECI-based extrapolations on the same log scale.
+          Human task duration at 80% success on METR&apos;s software task distribution. Published measurements,
+          an approximate scenario curve, and separate exploratory ECI / AECI estimates. Data as of {TODAY_REFERENCE_DATE}.
         </p>
       </div>
 
@@ -715,6 +670,14 @@ const MetrProgressChart = () => {
             {t.label}
           </button>
         ))}
+        <label className={`inline-flex items-center gap-2 text-[12px] ${activeColors.textSecondary}`}>
+          Estimate bounds
+          <select aria-label="Estimate bounds" value={uncertaintyMode} onChange={event => setUncertaintyMode(event.target.value)}
+            className="rounded-full border px-3 py-1" style={{ backgroundColor: c.bg, borderColor: c.axis, color: c.text }}>
+            <option value="prediction">Index + fit envelope</option>
+            <option value="input">Index uncertainty only</option>
+          </select>
+        </label>
         <button
           type="button"
           onClick={() => setViewBounds(fullViewBounds)}
@@ -734,9 +697,21 @@ const MetrProgressChart = () => {
       <div className="overflow-hidden rounded-2xl" style={{ border: `1px solid ${isDarkMode ? '#38383d' : '#d2d2d7'}` }}>
         <svg
           ref={chartSvgRef}
+          role="img"
+          aria-label="Task horizons at 80% success, with published METR uncertainty and separate exploratory ECI and AECI estimates"
           viewBox={`0 0 ${W} ${H}`}
-          className="block h-auto w-full select-none"
-          onWheel={handleWheel}
+          className="block h-auto w-full select-none cursor-grab active:cursor-grabbing"
+          tabIndex={0}
+          onKeyDown={handleGraphKey}
+          data-view-x-min={xMin}
+          data-view-x-max={xMax}
+          data-view-y-min={yMinLog}
+          data-view-y-max={yMaxLog}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerEnd}
+          onPointerCancel={handlePointerEnd}
+          onDoubleClick={() => setViewBounds(fullViewBounds)}
           style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif', touchAction: 'none' }}
         >
           <rect width={W} height={H} fill={c.bg} />
@@ -747,16 +722,16 @@ const MetrProgressChart = () => {
           </defs>
 
           {yTicks.map((tick) => (
-            <g key={tick.label}>
-              <line x1={pad.l} y1={sy(tick.hours)} x2={W - pad.r} y2={sy(tick.hours)} stroke={c.grid} strokeWidth="1" />
-              <text x={pad.l - 8} y={sy(tick.hours) + 4} fill={c.label} fontSize="10" textAnchor="end" fontWeight="500">{tick.label}</text>
+            <g key={tick.logHours}>
+              <line x1={pad.l} y1={syLog(tick.logHours)} x2={W - pad.r} y2={syLog(tick.logHours)} stroke={c.grid} strokeWidth="1" />
+              <text x={pad.l - 8} y={syLog(tick.logHours) + 4} fill={c.label} fontSize="10" textAnchor="end" fontWeight="500">{tick.label}</text>
             </g>
           ))}
 
           {xTicks.map((tick) => (
-            <g key={tick}>
-              <line x1={sx(tick)} y1={pad.t} x2={sx(tick)} y2={H - pad.b} stroke={c.grid} strokeWidth="1" />
-              <text x={sx(tick)} y={H - pad.b + 20} fill={c.label} fontSize="10" textAnchor="middle" fontWeight="500">{formatYear(tick)}</text>
+            <g key={tick.value}>
+              <line x1={sxTimestamp(tick.value)} y1={pad.t} x2={sxTimestamp(tick.value)} y2={H - pad.b} stroke={c.grid} strokeWidth="1" />
+              <text x={sxTimestamp(tick.value)} y={H - pad.b + 20} fill={c.label} fontSize="10" textAnchor="middle" fontWeight="500">{tick.label}</text>
             </g>
           ))}
 
@@ -765,17 +740,20 @@ const MetrProgressChart = () => {
 
             {showDanielCurve && (
               <>
-                <path d={linePath(DANIEL_CURVE_P80_SERIES)} fill="none" stroke={c.curve} strokeWidth="2.5" strokeLinecap="round" opacity="0.85" />
+                <path data-scenario-curve="true" data-start-time={danielCurve[0]?.timestamp}
+                  data-end-time={danielCurve[danielCurve.length - 1]?.timestamp}
+                  d={danielCurvePath} fill="none" stroke={c.curve} strokeWidth="2.5" strokeDasharray="7 4" strokeLinecap="round" opacity="0.85" />
                 <circle cx={todayX} cy={danielCurveTodayY} r="4" fill={c.curve} />
                 <text
-                  x={Math.min(todayX + 10, W - pad.r - 72)}
-                  y={danielCurveTodayY - 10}
+                  x={todayX - 10}
+                  y={danielCurveTodayY - 18}
+                  textAnchor="end"
                   fill={c.curve}
                   fontSize="9"
                   fontWeight="600"
                   opacity="0.85"
                 >
-                  Daniel&apos;s curve
+                  Scenario
                 </text>
               </>
             )}
@@ -783,86 +761,62 @@ const MetrProgressChart = () => {
             {showPublishedMetr && (
               <>
                 {PUBLISHED_METR_P80_POINTS.map((p) => (
-                  <circle key={p.id} cx={sx(p.releaseDate)} cy={sy(p.hours)} r={p.showLabel ? 3.5 : 2.5} fill={c.published} opacity={p.showLabel ? 0.9 : 0.5} />
+                  <g key={p.id}>
+                    <title>{`${p.label}: ${formatCompactMetrHours(p.hours)} p80; published interval ${formatCompactMetrHours(p.ciLowHours)}–${formatCompactMetrHours(p.ciHighHours)}`}</title>
+                    {showUncertainty && <UncertaintyBar x={sx(p.releaseDate)} low={p.ciLowHours} high={p.ciHighHours} color={c.published} />}
+                    <circle cx={sx(p.releaseDate)} cy={sy(p.hours)} r={p.showLabel ? 3.5 : 2.5} fill={c.published} opacity={p.showLabel ? 0.9 : 0.5} />
+                  </g>
                 ))}
                 {PUBLISHED_METR_P80_POINTS.filter((p) => p.showLabel).map((p) => (
-                  <text key={`${p.id}-l`} x={sx(p.releaseDate) + (p.labelDx || 0)} y={sy(p.hours) + (p.labelDy || 0)} fill={c.published} fontSize="9" fontWeight="600" opacity="0.85">{p.label}</text>
+                  <text key={`${p.id}-l`} x={sx(p.releaseDate) + (p.labelDx || 0)} y={sy(p.hours) + (p.labelDy || 0)} fill={c.published} fontSize="9" fontWeight="600" opacity="0.85">{p.chartLabel || p.label}</text>
                 ))}
               </>
             )}
 
             {showEciExtrapolations && ECI_EXTRAPOLATED_P80_POINTS.map((p) => {
               const px = sx(p.releaseDate), py = sy(p.hours);
+              const bounds = estimateBounds(p);
               return (
                 <g key={p.id}>
+                  <title>{`${p.model}: ${formatCompactMetrHours(p.hours)} estimated p80; ECI ${p.eci}. ${uncertaintyMode === 'prediction' ? 'Index + regression prediction envelope' : 'Index-only range'} ${formatBounds(bounds.low, bounds.high)}; not a complete horizon confidence interval.`}</title>
+                  {showUncertainty && <UncertaintyBar x={px} low={bounds.low} high={bounds.high} color={c.extrapolated} inputOnly />}
                   <polygon points={`${px},${py - 5.5} ${px + 5.5},${py} ${px},${py + 5.5} ${px - 5.5},${py}`} fill={c.extrapolated} opacity="0.9" />
                   <text x={px + (p.labelDx || 0)} y={py + (p.labelDy || 0)} fill={c.extrapolated} fontSize="9" fontWeight="600" opacity="0.85">{p.label}</text>
                 </g>
               );
             })}
+
+            {showAeciExtrapolations && AECI_EXTRAPOLATED_P80_POINTS.map((p) => {
+              const px = sx(p.releaseDate), py = sy(p.hours);
+              const bounds = estimateBounds(p, true);
+              return <g key={p.id}>
+                <title>{`${p.model}: approximately ${formatCompactMetrHours(p.hours)} p80. AECI ${p.aeci}${p.approximate ? ' (digitized)' : ''}. ${uncertaintyMode === 'prediction' ? `Regression prediction limits ${formatBounds(bounds.low, bounds.high)}${p.uncertainty.missingInputInterval ? '; input uncertainty missing, index held fixed' : '; includes AECI endpoint variation'}. No complete confidence interval claimed.` : p.inputIntervalLabel}`}</title>
+                {showUncertainty && bounds.low !== null && <UncertaintyBar x={px} low={bounds.low} high={bounds.high} color={c.aeci} inputOnly />}
+                <polygon points={`${px},${py - 5} ${px + 5},${py + 4} ${px - 5},${py + 4}`} fill={c.bg} stroke={c.aeci} strokeWidth="1.5" />
+                <text x={px + p.labelDx} y={py + p.labelDy} fill={c.aeci} fontSize="9" fontWeight="600">{p.label}</text>
+              </g>;
+            })}
           </g>
 
-          <text x={todayX} y={H - pad.b + 34} fill={c.label} fontSize="9" textAnchor="middle" fontWeight="600">TODAY</text>
+          {todayX >= pad.l && todayX <= W - pad.r && <text x={todayX} y={H - pad.b + 34} fill={c.label} fontSize="9" textAnchor="middle" fontWeight="600">AS OF</text>}
           <text x={W / 2} y={H - 6} fill={c.label} fontSize="10" textAnchor="middle" fontWeight="500">Release date</text>
           <text transform={`translate(14 ${H / 2}) rotate(-90)`} fill={c.label} fontSize="10" textAnchor="middle" fontWeight="500">p80 human task horizon (log)</text>
-          <rect
-            x={pad.l}
-            y={pad.t}
-            width={iW}
-            height={iH}
-            fill="transparent"
-            className="cursor-grab active:cursor-grabbing"
-            onPointerDown={handlePointerDown}
-            onPointerMove={handlePointerMove}
-            onPointerUp={handlePointerEnd}
-            onPointerCancel={handlePointerEnd}
-            onDoubleClick={() => setViewBounds(fullViewBounds)}
-          />
         </svg>
       </div>
       <p className={`-mt-4 text-[11px] ${activeColors.textSecondary}`}>
-        Drag to pan, scroll to zoom, double-click to reset.
+        Drag to pan, scroll to zoom, Shift+scroll through dates. Double-click to reset.
       </p>
 
-      <div className="grid grid-cols-3 gap-4">
-        <StatBlock label="Daniel curve" value={formatCompactMetrHours(METR_PROGRESS_SNAPSHOT.danielCurveToday.hours)} sub={`${formatMonthYear(TODAY_REFERENCE_DATE)} level`} />
-        <StatBlock label="Best METR" value={formatCompactMetrHours(METR_PROGRESS_SNAPSHOT.bestPublished.hours)} sub={METR_PROGRESS_SNAPSHOT.bestPublished.label} />
-        <StatBlock label="ECI extrap." value={formatCompactMetrHours(METR_PROGRESS_SNAPSHOT.latestExtrapolation.hours)} sub={`${METR_PROGRESS_SNAPSHOT.latestExtrapolation.label} · ECI ${METR_PROGRESS_SNAPSHOT.latestExtrapolation.eci}`} />
+      <div className="grid grid-cols-2 gap-4">
+        <StatBlock label="Scenario" value={formatCompactMetrHours(METR_PROGRESS_SNAPSHOT.danielCurveToday.hours)} sub={`${formatMonthYear(TODAY_REFERENCE_DATE)} level`} />
+        <StatBlock label="p80 fit" value={`≈${formatCompactMetrHours(latestFit.hours)}`}
+          sub={`${latestFit.model} · bounds ${fitBounds.low.toFixed(1)}–${fitBounds.high.toFixed(1)} h`} />
       </div>
 
       <p className={`text-[11px] leading-relaxed ${activeColors.textSecondary}`}>
-        Published points from <a href="https://metr.org/time-horizons/" target="_blank" rel="noopener noreferrer" className="underline decoration-current/30 hover:decoration-current">METR Time Horizons</a>.
-        Extrapolations map a capability index onto p80 via the overlap fit. Earlier points use
-        {' '}<a href="https://epoch.ai/eci" target="_blank" rel="noopener noreferrer" className="underline decoration-current/30 hover:decoration-current">Epoch&apos;s ECI</a>;
-        later Anthropic points use the AECI from Anthropic&apos;s own system cards. The switch is deliberate: ECI
-        aggregates 50+ benchmarks that are overwhelmingly short-horizon — single-turn QA, math and self-contained
-        coding — and carries little long-horizon agentic coding signal, which is exactly what a METR p80 horizon
-        measures. When Opus 5 was added, Epoch scored it at 159.38 against Anthropic&apos;s AECI of 162.1 — a gap
-        worth about 1.6× in implied p80. Epoch has since refit and that particular gap has closed: Epoch now puts
-        Opus 5 at 162.33, marginally above Anthropic&apos;s own figure. The short-horizon critique of ECI may still
-        hold in general, but the numbers originally cited for it no longer do. AECI is a fork of ECI and inherits its
-        scale, though Anthropic states the two are not directly comparable — read cross-scale comparisons here as
-        indicative, not exact. GPT-6 Astra uses Epoch&apos;s ECI because Anthropic publishes no AECI for competitor
-        models.
-      </p>
-      <p className={`-mt-4 text-[11px] leading-relaxed ${activeColors.textSecondary}`}>
-        <strong>GPT-5.6 Sol caveat:</strong> METR published no p80 for it, so the 14.0 h point is converted from their
-        71 h p50 using the 0.197 median p80/p50 ratio across METR-Horizon-v1.1. METR
-        {' '}<a href="https://metr.org/blog/2026-06-26-gpt-5-6-sol/" target="_blank" rel="noopener noreferrer" className="underline decoration-current/30 hover:decoration-current">explicitly states</a>{' '}
-        none of its GPT-5.6 Sol numbers are a robust measurement — its detected cheating rate was higher than any public
-        model they have evaluated. Standard methodology gives 11.3 h p50 (95% CI 5–40 h); the 71 h variant discards
-        cheating attempts and carries a 95% CI of 13–11,400 h; counting cheating as success exceeds 270 h. METR also
-        treats measurements above 16 h as unreliable and excludes them from its own doubling-time fit, so this point
-        would not qualify for METR&apos;s trend line. The ECI-based extrapolations, which all sit well below it, are the
-        more conservative read.
-      </p>
-      <p className={`-mt-4 text-[11px] leading-relaxed ${activeColors.textSecondary}`}>
-        <strong>GPT-6 Astra caveat:</strong> METR did not evaluate Astra — OpenAI&apos;s external evaluators were
-        UK AISI, Apollo Research, Gray Swan and SecureBio — so the 15.1 h point is an ECI extrapolation with no
-        published time horizon to check it against. Its ECI of 169.23 is the highest Epoch has measured, and the 95%
-        CI (164.85–174.02) spans roughly 7.4–33.1 h in implied p80, so treat the point estimate loosely. The
-        30.9-minute &ldquo;time horizon&rdquo; widely quoted for Astra is UK AISI&apos;s no-CoT math metric, which is
-        a different measurement and does not belong on this axis.
+        p80 measures human task duration at 80% success. Blue bars are published METR intervals;
+        green and purple bars are estimated bounds. These bounds do not capture all uncertainty
+        and are not complete confidence intervals.
       </p>
     </div>
   );

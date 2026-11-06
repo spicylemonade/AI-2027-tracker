@@ -2,6 +2,8 @@
 
 This project is a React application built with Vite to track predictions from the AI 2027 scenario.
 
+The task-horizon chart's sources, calibration, audit findings, and limitations are documented in [docs/metr-methodology.md](docs/metr-methodology.md). The [AECI follow-up](docs/aeci-follow-up.md) compares scale transfers and a full ECI refit without METR. The [uncertainty audit](docs/uncertainty-audit.md) explains the default prediction envelopes and correlated measurement errors. Run `npm run audit:metr` to reproduce its calculations and `npm test` to check numerical and data integrity.
+
 ## Prerequisites
 
 *   Node.js (v18 or higher recommended)
@@ -56,4 +58,4 @@ This project uses the `gh-pages` package to deploy the `dist` folder to the `gh-
 *   `tailwind.config.js`: Tailwind CSS configuration.
 *   `postcss.config.js`: PostCSS configuration.
 *   `package.json`: Project metadata and dependencies.
-*   `.gitignore`: Specifies intentionally untracked files that Git should ignore. 
+*   `.gitignore`: Specifies intentionally untracked files that Git should ignore.

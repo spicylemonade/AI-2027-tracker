@@ -1,0 +1,32 @@
+{
+  "sourceUrl": "https://metr.org/assets/task_results_1_1.yaml",
+  "sourceSha256": "4f85fbf03cbf8b43af102ff17db6bbb4963b3c98784e90f81fb71a146cf26b07",
+  "parsedJsonSha256": "1c65386936f88321090537dfbea4b3f9d887a2d414a761ce5365c3c973319752",
+  "referenceCode": "https://github.com/METR/eval-analysis-public",
+  "referenceCommit": "52cb829c7a2efb2d659285c4b1768d191d97f8d2",
+  "familyMapping": "task_id prefix before /; checked against all available raw task-family assignments; no mismatches.",
+  "modelAliases": {
+    "GPT-4 0314": "gpt_4",
+    "GPT-4 1106 (Inspect)": "gpt_4_1106_inspect",
+    "Claude 3 Opus (Inspect)": "claude_3_opus_inspect",
+    "GPT-4 Turbo (Inspect)": "gpt_4_turbo_inspect",
+    "GPT-4o (Inspect)": "gpt_4o_inspect",
+    "Claude 3.5 Sonnet (Old) (Inspect)": "claude_3_5_sonnet_20240620_inspect",
+    "o1-preview": "o1_preview",
+    "Claude 3.5 Sonnet (New) (Inspect)": "claude_3_5_sonnet_20241022_inspect",
+    "o1 (Inspect)": "o1_inspect",
+    "Claude 3.7 Sonnet (Inspect)": "claude_3_7_sonnet_inspect",
+    "o3 (Inspect)": "o3_inspect",
+    "Claude 4 Opus (Inspect)": "claude_4_opus_inspect",
+    "Claude 4.1 Opus (Inspect)": "claude_4_1_opus_inspect",
+    "GPT-5 (Inspect)": "gpt_5_2025_08_07_inspect",
+    "Gemini 3 Pro": "gemini_3_pro",
+    "GPT-5.1-Codex-Max (Inspect)": "gpt_5_1_codex_max_inspect",
+    "Claude Opus 4.5 (Inspect)": "claude_opus_4_5_inspect",
+    "GPT-5.2": "gpt_5_2",
+    "GPT-5.3-Codex": "gpt_5_3_codex",
+    "Claude Opus 4.6 (Inspect)": "claude_opus_4_6_inspect",
+    "Gemini 3.1 Pro": "gemini_3_1_pro",
+    "GPT-5.4": "gpt_5_4"
+  }
+}
