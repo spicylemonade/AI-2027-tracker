@@ -107,3 +107,5 @@ dist
 
 # Sass SASS cache files
 .sass-cache/ 
+# Python
+.venv

@@ -1,0 +1,726 @@
+{
+  "asOf": "2026-11-05",
+  "level": 0.9,
+  "eci": {
+    "fit": {
+      "n": 20,
+      "intercept": -22.2044,
+      "slope": 0.1443,
+      "rSquared": 0.9708,
+      "residualSd": 0.3128,
+      "meanX": 140.9945,
+      "sxx": 2807.1557,
+      "maxX": 157.82
+    },
+    "estimates": {
+      "GPT-6 Astra": {
+        "eci": 169.07,
+        "date": "2026-09-03",
+        "hours": 8.9997,
+        "low": 4.2358,
+        "high": 17.9654
+      },
+      "Claude Opus 5.5": {
+        "eci": 168.36,
+        "date": "2026-09-22",
+        "hours": 8.1232,
+        "low": 3.8476,
+        "high": 16.1031
+      },
+      "GPT-6.1 Sol": {
+        "eci": 168.94,
+        "date": "2026-09-29",
+        "hours": 8.8325,
+        "low": 4.1543,
+        "high": 17.8333
+      },
+      "GPT-6.1 Terra": {
+        "eci": 167.82,
+        "date": "2026-10-26",
+        "hours": 7.5141,
+        "low": 3.5374,
+        "high": 15.3027
+      },
+      "GPT-5.6 Sol": {
+        "eci": 162.99,
+        "date": "2026-07-09",
+        "hours": 3.7422,
+        "low": 1.8492,
+        "high": 7.2082
+      },
+      "Claude Opus 5": {
+        "eci": 164.45,
+        "date": "2026-07-24",
+        "hours": 4.62,
+        "low": 2.2453,
+        "high": 8.8529
+      }
+    },
+    "looFactor": 1.3964,
+    "calibration": [
+      {
+        "model": "GPT-4 (Mar 2023)",
+        "date": "2023-03-14",
+        "eci": 121.87,
+        "p80Hours": 0.0148
+      },
+      {
+        "model": "GPT-4 Turbo (Nov 2023)",
+        "date": "2023-11-06",
+        "eci": 124.85,
+        "p80Hours": 0.0131
+      },
+      {
+        "model": "Claude 3 Opus",
+        "date": "2024-03-04",
+        "eci": 125.63,
+        "p80Hours": 0.0106
+      },
+      {
+        "model": "GPT-4 Turbo (Apr 2024)",
+        "date": "2024-04-09",
+        "eci": 125.84,
+        "p80Hours": 0.0155
+      },
+      {
+        "model": "GPT-4o (May 2024)",
+        "date": "2024-05-13",
+        "eci": 128.23,
+        "p80Hours": 0.0211
+      },
+      {
+        "model": "Claude 3.5 Sonnet",
+        "date": "2024-06-20",
+        "eci": 130.0,
+        "p80Hours": 0.0279
+      },
+      {
+        "model": "o1-preview",
+        "date": "2024-09-12",
+        "eci": 133.86,
+        "p80Hours": 0.0737
+      },
+      {
+        "model": "Claude 3.5 Sonnet (October 2024)",
+        "date": "2024-10-22",
+        "eci": 133.42,
+        "p80Hours": 0.0433
+      },
+      {
+        "model": "o1",
+        "date": "2024-12-05",
+        "eci": 141.16,
+        "p80Hours": 0.1182
+      },
+      {
+        "model": "Claude 3.7 Sonnet",
+        "date": "2025-02-24",
+        "eci": 140.99,
+        "p80Hours": 0.2015
+      },
+      {
+        "model": "o3",
+        "date": "2025-04-16",
+        "eci": 146.99,
+        "p80Hours": 0.4997
+      },
+      {
+        "model": "Claude Opus 4",
+        "date": "2025-05-22",
+        "eci": 142.83,
+        "p80Hours": 0.3405
+      },
+      {
+        "model": "Claude Opus 4.1",
+        "date": "2025-08-05",
+        "eci": 144.74,
+        "p80Hours": 0.3909
+      },
+      {
+        "model": "GPT-5",
+        "date": "2025-08-07",
+        "eci": 150.0,
+        "p80Hours": 0.6385
+      },
+      {
+        "model": "Gemini 3 Pro",
+        "date": "2025-11-18",
+        "eci": 152.88,
+        "p80Hours": 0.9024
+      },
+      {
+        "model": "Claude Opus 4.5",
+        "date": "2025-11-24",
+        "eci": 151.82,
+        "p80Hours": 0.8238
+      },
+      {
+        "model": "GPT-5.2",
+        "date": "2025-12-11",
+        "eci": 154.42,
+        "p80Hours": 1.1
+      },
+      {
+        "model": "Claude Opus 4.6",
+        "date": "2026-02-05",
+        "eci": 156.3,
+        "p80Hours": 1.1646
+      },
+      {
+        "model": "Gemini 3.1 Pro",
+        "date": "2026-02-19",
+        "eci": 156.24,
+        "p80Hours": 1.4967
+      },
+      {
+        "model": "GPT-5.4",
+        "date": "2026-03-05",
+        "eci": 157.82,
+        "p80Hours": 0.898
+      }
+    ]
+  },
+  "backtest": {
+    "tests": 12,
+    "eci": {
+      "rmseFactor": 1.44,
+      "biasFactor": 0.9324,
+      "coverageClassical": 0.9167,
+      "coverageMonteCarlo": 0.9167
+    },
+    "eciLast10": {
+      "rmseFactor": 1.3862,
+      "biasFactor": 0.9417
+    },
+    "dateOnly": {
+      "rmseFactor": 1.9241,
+      "biasFactor": 1.5003
+    },
+    "anchorLastPlus5PointsPerDoubling": {
+      "rmseFactor": 1.3506,
+      "biasFactor": 0.9713
+    },
+    "perModel": [
+      {
+        "model": "o1",
+        "date": "2024-12-05",
+        "actualOverPredicted": 0.8216,
+        "inside": true
+      },
+      {
+        "model": "Claude 3.7 Sonnet",
+        "date": "2025-02-24",
+        "actualOverPredicted": 1.6133,
+        "inside": true
+      },
+      {
+        "model": "o3",
+        "date": "2025-04-16",
+        "actualOverPredicted": 1.3984,
+        "inside": true
+      },
+      {
+        "model": "Claude Opus 4",
+        "date": "2025-05-22",
+        "actualOverPredicted": 1.5587,
+        "inside": true
+      },
+      {
+        "model": "Claude Opus 4.1",
+        "date": "2025-08-05",
+        "actualOverPredicted": 1.2013,
+        "inside": true
+      },
+      {
+        "model": "GPT-5",
+        "date": "2025-08-07",
+        "actualOverPredicted": 0.8073,
+        "inside": true
+      },
+      {
+        "model": "Gemini 3 Pro",
+        "date": "2025-11-18",
+        "actualOverPredicted": 0.7657,
+        "inside": true
+      },
+      {
+        "model": "Claude Opus 4.5",
+        "date": "2025-11-24",
+        "actualOverPredicted": 0.8841,
+        "inside": true
+      },
+      {
+        "model": "GPT-5.2",
+        "date": "2025-12-11",
+        "actualOverPredicted": 0.8091,
+        "inside": true
+      },
+      {
+        "model": "Claude Opus 4.6",
+        "date": "2026-02-05",
+        "actualOverPredicted": 0.6701,
+        "inside": true
+      },
+      {
+        "model": "Gemini 3.1 Pro",
+        "date": "2026-02-19",
+        "actualOverPredicted": 0.9362,
+        "inside": true
+      },
+      {
+        "model": "GPT-5.4",
+        "date": "2026-03-05",
+        "actualOverPredicted": 0.4484,
+        "inside": false
+      }
+    ],
+    "lastSevenBelowPrediction": 7,
+    "lastSevenGeometricRatio": 0.7425
+  },
+  "astraSensitivity": {
+    "pooledLinear": 8.9997,
+    "quadratic": {
+      "hours": 4.0592,
+      "p": 0.0831
+    },
+    "quadraticWithMythos": {
+      "hours": 6.1044,
+      "p": 0.2588
+    },
+    "vendorInterceptsP": 0.8948,
+    "dateTermP": 0.6334,
+    "withBridgedMythos": {
+      "bridgedEci": 159.1001,
+      "hours": 9.6891,
+      "mythosActualOverPredicted": 1.4516
+    },
+    "last10Models": 3.5865,
+    "theilSen": 12.0207,
+    "openAiOnly": 6.822,
+    "claudeOnly": 13.608,
+    "lastBacktestBiasApplied": 6.682,
+    "fiveEciPointsPerDoublingFromGpt54": 4.2715,
+    "fiveEciPointsPerDoublingFromBridgedMythos": 12.3426
+  },
+  "indexComparison": [
+    {
+      "label": "ECI without METR's benchmark",
+      "n": 20,
+      "rSquared": 0.9703,
+      "looFactor": 1.3939,
+      "publishedEciSameModels": {
+        "rSquared": 0.9708,
+        "looFactor": 1.3964
+      },
+      "astraHours": 9.1005
+    },
+    {
+      "label": "Software engineering benchmarks",
+      "n": 16,
+      "rSquared": 0.9039,
+      "looFactor": 1.6832,
+      "publishedEciSameModels": {
+        "rSquared": 0.9548,
+        "looFactor": 1.4417
+      },
+      "astraHours": 11.4148
+    },
+    {
+      "label": "Agentic benchmarks",
+      "n": 11,
+      "rSquared": 0.8111,
+      "looFactor": 1.8201,
+      "publishedEciSameModels": {
+        "rSquared": 0.9198,
+        "looFactor": 1.5196
+      },
+      "astraHours": 5.6003
+    }
+  ],
+  "frontierBenchmarkCoverage": {
+    "GPT-6 Astra": {
+      "benchmarks": 24,
+      "agentic": [
+        "APEX-Agents",
+        "EBR-bench",
+        "FrontierCode",
+        "FrontierSWE",
+        "GSO-Bench",
+        "MirrorCode",
+        "Remote Labor Index"
+      ],
+      "scoring90PercentOrMore": 9,
+      "harderThanModel": [
+        "Remote Labor Index",
+        "SpireClimb"
+      ]
+    },
+    "Claude Opus 5.5": {
+      "benchmarks": 21,
+      "agentic": [
+        "APEX-Agents",
+        "EBR-bench",
+        "FrontierCode",
+        "FrontierSWE",
+        "MirrorCode",
+        "Remote Labor Index"
+      ],
+      "scoring90PercentOrMore": 8,
+      "harderThanModel": [
+        "Remote Labor Index",
+        "SpireClimb"
+      ]
+    }
+  },
+  "aeci": {
+    "fit": {
+      "n": 8,
+      "intercept": -22.6827,
+      "slope": 0.1471,
+      "rSquared": 0.9894,
+      "residualSd": 0.221,
+      "meanX": 143.2887,
+      "sxx": 1268.2319,
+      "maxX": 162.35
+    },
+    "estimates": {
+      "Claude Opus 5": {
+        "aeci": 169.33,
+        "hours": 9.2419,
+        "low": 5.1581,
+        "high": 16.7297
+      },
+      "Claude Opus 5.5": {
+        "aeci": 174.56,
+        "hours": 19.9458,
+        "low": 10.604,
+        "high": 37.4373
+      },
+      "Anthropic Model 4 (internal)": {
+        "aeci": 178.6,
+        "hours": 36.1347,
+        "low": 12.5106,
+        "high": 186.0748
+      }
+    },
+    "localSd": 0.8291,
+    "model4Sd": [
+      3.5649,
+      6.1656
+    ],
+    "model4WithFullMetrRange": [
+      11.3651,
+      234.6029
+    ],
+    "model4UsingOpus55Error": [
+      18.7995,
+      69.6904
+    ],
+    "acrossFits": {
+      "July (Opus 5 system card)": {
+        "slope": 0.1817,
+        "rSquared": 0.9792,
+        "hours": {
+          "Claude Mythos 5": 7.9724,
+          "Claude Opus 5": 9.2201
+        },
+        "scores": {
+          "Claude Opus 5": 162.1
+        }
+      },
+      "September (Opus 5.5 system card)": {
+        "slope": 0.1679,
+        "rSquared": 0.9835,
+        "hours": {
+          "Claude Mythos 5": 8.9812,
+          "Claude Opus 5": 10.0843,
+          "Claude Opus 5.5": 20.344
+        },
+        "scores": {
+          "Claude Opus 5": 165.18,
+          "Claude Opus 5.5": 169.36
+        }
+      },
+      "October (METR assessment, Haiku 5.5 card fit)": {
+        "slope": 0.1488,
+        "rSquared": 0.9851,
+        "hours": {
+          "Claude Mythos 5": 8.8255,
+          "Claude Opus 5": 9.7942,
+          "Claude Opus 5.5": 21.3253
+        },
+        "scores": {
+          "Claude Opus 5": 169.33,
+          "Claude Opus 5.5": 174.56
+        }
+      }
+    },
+    "aeciMinusEci": [
+      {
+        "model": "Claude 3 Opus",
+        "aeci": 124.71,
+        "eci": 125.63,
+        "gap": -0.92
+      },
+      {
+        "model": "Claude 3.5 Sonnet",
+        "aeci": 130.0,
+        "eci": 130.0,
+        "gap": 0.0
+      },
+      {
+        "model": "Claude 3.5 Sonnet (October 2024)",
+        "aeci": 133.18,
+        "eci": 133.42,
+        "gap": -0.24
+      },
+      {
+        "model": "Claude 3.7 Sonnet",
+        "aeci": 141.73,
+        "eci": 140.99,
+        "gap": 0.74
+      },
+      {
+        "model": "Claude Opus 4",
+        "aeci": 144.78,
+        "eci": 142.83,
+        "gap": 1.95
+      },
+      {
+        "model": "Claude Opus 4.5",
+        "aeci": 152.31,
+        "eci": 151.82,
+        "gap": 0.49
+      },
+      {
+        "model": "Claude Opus 4.6",
+        "aeci": 157.25,
+        "eci": 156.3,
+        "gap": 0.95
+      },
+      {
+        "model": "Claude Opus 4.7",
+        "aeci": 160.27,
+        "eci": 157.55,
+        "gap": 2.72
+      },
+      {
+        "model": "Claude Opus 4.8",
+        "aeci": 163.41,
+        "eci": 159.89,
+        "gap": 3.52
+      },
+      {
+        "model": "Claude Opus 5",
+        "aeci": 169.33,
+        "eci": 164.45,
+        "gap": 4.88
+      },
+      {
+        "model": "Claude Fable 5.1",
+        "aeci": 172.51,
+        "eci": 166.9,
+        "gap": 5.61
+      },
+      {
+        "model": "Claude Opus 5.5",
+        "aeci": 174.56,
+        "eci": 168.36,
+        "gap": 6.2
+      }
+    ],
+    "predictedMythosEarlyFromEarlierModels": 3.4671,
+    "measuredMythosEarly": 3.0985,
+    "headToHeadSameSevenClaudeModels": {
+      "aeci": {
+        "rSquared": 0.9851,
+        "looFactor": 1.3723
+      },
+      "epochEci": {
+        "rSquared": 0.9715,
+        "looFactor": 1.5157,
+        "opus55Hours": 11.1072
+      }
+    },
+    "forwardTests": [
+      {
+        "actualOverPredicted": 1.0772,
+        "inside": true
+      },
+      {
+        "actualOverPredicted": 1.0143,
+        "inside": true
+      },
+      {
+        "actualOverPredicted": 0.6657,
+        "inside": false
+      },
+      {
+        "actualOverPredicted": 0.5348,
+        "inside": false
+      },
+      {
+        "actualOverPredicted": 0.8937,
+        "inside": true
+      }
+    ]
+  },
+  "scenario": {
+    "rebaseFactor": 0.783,
+    "authorsFactor": 0.6667,
+    "checksAgainstAuthors": {
+      "minutesAtPublication": 15.4425,
+      "authorsSayMinutes": 15,
+      "minutesAt2026_3": 221.0114,
+      "authorsPredictedMinutesAt2026_3": 231,
+      "yearCurveReaches279Minutes": 2026.364,
+      "authorsSayYear": 2026.35
+    },
+    "v11OverV10": [
+      {
+        "model": "gpt_4",
+        "date": "2023-03-14",
+        "v11OverV10": 0.6505
+      },
+      {
+        "model": "gpt_4_1106_inspect",
+        "date": "2023-11-06",
+        "v11OverV10": 0.3895
+      },
+      {
+        "model": "claude_3_opus_inspect",
+        "date": "2024-03-04",
+        "v11OverV10": 0.4049
+      },
+      {
+        "model": "gpt_4_turbo_inspect",
+        "date": "2024-04-09",
+        "v11OverV10": 0.3723
+      },
+      {
+        "model": "gpt_4o_inspect",
+        "date": "2024-05-13",
+        "v11OverV10": 0.5336
+      },
+      {
+        "model": "claude_3_5_sonnet_20240620_inspect",
+        "date": "2024-06-20",
+        "v11OverV10": 0.3988
+      },
+      {
+        "model": "o1_preview",
+        "date": "2024-09-12",
+        "v11OverV10": 0.6887
+      },
+      {
+        "model": "claude_3_5_sonnet_20241022_inspect",
+        "date": "2024-10-22",
+        "v11OverV10": 0.4394
+      },
+      {
+        "model": "claude_3_7_sonnet_inspect",
+        "date": "2025-02-24",
+        "v11OverV10": 0.5934
+      },
+      {
+        "model": "o3_inspect",
+        "date": "2025-04-16",
+        "v11OverV10": 1.0982
+      },
+      {
+        "model": "claude_4_opus_inspect",
+        "date": "2025-05-22",
+        "v11OverV10": 0.7598
+      },
+      {
+        "model": "claude_4_1_opus_inspect",
+        "date": "2025-08-05",
+        "v11OverV10": 0.8595
+      },
+      {
+        "model": "gpt_5_2025_08_07_inspect",
+        "date": "2025-08-07",
+        "v11OverV10": 1.1615
+      },
+      {
+        "model": "gpt_5_1_codex_max_inspect",
+        "date": "2025-11-19",
+        "v11OverV10": 1.2646
+      },
+      {
+        "model": "claude_opus_4_5_inspect",
+        "date": "2025-11-24",
+        "v11OverV10": 1.3716
+      }
+    ],
+    "hoursAsOf": 36.1639,
+    "rawHoursAsOf": 46.1851,
+    "lagWeeks": {
+      "Mythos Preview (early), measured": -3.0,
+      "GPT-6 Astra, ECI": 4.5714,
+      "Claude Opus 5.5, AECI": -1.0,
+      "Anthropic Model 4, AECI": -5.8571
+    },
+    "lagWeeksFromRange": {
+      "Mythos Preview (early), measured": [
+        -13.1429,
+        7.2857
+      ],
+      "GPT-6 Astra, ECI": [
+        -2.7143,
+        13.8571
+      ],
+      "Claude Opus 5.5, AECI": [
+        -6.7143,
+        5.4286
+      ],
+      "Anthropic Model 4, AECI": [
+        -17.8571,
+        4.0
+      ]
+    },
+    "lagWeeksWithAuthorsFactor": {
+      "Mythos Preview (early), measured": -5.2857,
+      "GPT-6 Astra, ECI": 2.7143,
+      "Claude Opus 5.5, AECI": -2.5714,
+      "Anthropic Model 4, AECI": -7.2857
+    }
+  },
+  "solCheck": {
+    "predictedP50": 20.8962,
+    "predictedLow": 12.3779,
+    "predictedHigh": 35.2767,
+    "metrStandardP50": 11.3,
+    "metrStandardCi": [
+      5,
+      40
+    ],
+    "metrDiscardCheatingP50": 71,
+    "metrDiscardCheatingCi": [
+      13,
+      11400
+    ],
+    "p80OverP50Median": 0.1912,
+    "p80OverP50Since2025": [
+      0.0972,
+      0.2504
+    ]
+  },
+  "metrSamplingSensitivity": {
+    "astraInterval": [
+      2.7313,
+      30.4347
+    ],
+    "alternatives": {
+      "Drop tasks under 1 minute": {
+        "astraHours": 12.1161,
+        "rSquared": 0.9624
+      },
+      "Drop tasks under 4 minutes": {
+        "astraHours": 9.1507,
+        "rSquared": 0.9532
+      }
+    },
+    "reconstructionMaxError": 0.0004
+  }
+}

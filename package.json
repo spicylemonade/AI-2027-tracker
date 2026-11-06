@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "test": "node --test",
-    "audit:metr": "node scripts/audit-metr.mjs",
+    "analysis": "python3 scripts/horizon_analysis.py",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"

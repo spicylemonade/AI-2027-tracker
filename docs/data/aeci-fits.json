@@ -1,0 +1,17 @@
+{
+  "note": "AECI scores for the same Claude models across three Anthropic fits. Values are read from figures except where a card or METR states them in text. Each refit moves the whole scale, so compare models only within one fit.",
+  "fits": {
+    "July (Opus 5 system card)": {
+      "url": "https://www-cdn.anthropic.com/c5fbac3f0b1280a933ebd26d3cb8bb9f5bdeaf48/Claude%20Opus%205%20System%20Card.pdf",
+      "scores": { "Claude 3 Opus": 126.0, "Claude 3.5 Sonnet": 130.0, "Claude 3.5 Sonnet (October 2024)": 133.4, "Claude 3.7 Sonnet": 139.6, "Claude Opus 4": 142.1, "Claude Opus 4.5": 148.3, "Claude Opus 4.6": 152.8, "Claude Mythos Preview": 159.2, "Claude Mythos 5": 161.3, "Claude Opus 5": 162.1 }
+    },
+    "September (Opus 5.5 system card)": {
+      "url": "https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/Claude%20Opus%205.5%20System%20Card.pdf",
+      "scores": { "Claude 3 Opus": 125.29, "Claude 3.5 Sonnet": 130.0, "Claude 3.5 Sonnet (October 2024)": 133.58, "Claude 3.7 Sonnet": 140.33, "Claude Opus 4": 143.26, "Claude Opus 4.5": 149.83, "Claude Opus 4.6": 154.33, "Claude Mythos Preview": 161.88, "Claude Mythos 5": 164.49, "Claude Opus 5": 165.18, "Claude Mythos 5.1": 168.12, "Claude Opus 5.5": 169.36 }
+    },
+    "October (METR assessment, Haiku 5.5 card fit)": {
+      "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/",
+      "scores": { "Claude 3 Opus": 124.71, "Claude 3.5 Sonnet": 130.0, "Claude 3.5 Sonnet (October 2024)": 133.18, "Claude 3.7 Sonnet": 141.73, "Claude Opus 4": 144.78, "Claude Opus 4.5": 152.31, "Claude Opus 4.6": 157.25, "Claude Mythos Preview": 165.65, "Claude Mythos 5": 168.63, "Claude Opus 5": 169.33, "Claude Mythos 5.1": 172.51, "Claude Opus 5.5": 174.56, "Anthropic Model 4 (internal)": 178.6 }
+    }
+  }
+}

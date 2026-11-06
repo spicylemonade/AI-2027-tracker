@@ -6,13 +6,16 @@ import predictionsData from './data/predictions.json';
 import blogPostsData from './data/blogPosts.json';
 import {
   buildDanielCurveForViewport,
+  SCENARIO_LOG10_OFFSET,
   ECI_EXTRAPOLATED_P80_POINTS,
+  ECI_FIT,
   METR_PROGRESS_DOMAIN,
   METR_PROGRESS_SNAPSHOT,
   PUBLISHED_METR_P80_POINTS,
   TODAY_REFERENCE_DATE,
 } from './data/metrProgress';
-import { AECI_EXTRAPOLATED_P80_POINTS } from './data/aeciProgress';
+import { AECI_EXTRAPOLATED_P80_POINTS, AECI_FIT } from './data/aeciProgress';
+import horizonEstimates from './data/horizonEstimates';
 import { buildDateTicks, buildHorizonTicks, panViewport, wheelViewport, zoomViewport } from './data/chartViewport';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -482,8 +485,7 @@ const MetrProgressChart = () => {
   const [showPublishedMetr, setShowPublishedMetr] = useState(true);
   const [showEciExtrapolations, setShowEciExtrapolations] = useState(true);
   const [showAeciExtrapolations, setShowAeciExtrapolations] = useState(true);
-  const [showUncertainty, setShowUncertainty] = useState(true);
-  const [uncertaintyMode, setUncertaintyMode] = useState('prediction');
+  const [showUncertainty, setShowUncertainty] = useState(false);
   const chartSvgRef = useRef(null);
   const dragStateRef = useRef(null);
 
@@ -537,9 +539,13 @@ const MetrProgressChart = () => {
   const sx = (d) => sxTimestamp(parseUtcDate(d));
   const syLog = (logHours) => pad.t + ((1 - ((logHours - yMinLog) / (yMaxLog - yMinLog))) * iH);
   const sy = (h) => syLog(Math.log10(h));
-  const danielCurve = useMemo(() => buildDanielCurveForViewport(viewBounds), [viewBounds]);
+  const danielCurve = useMemo(() => buildDanielCurveForViewport({
+    ...viewBounds,
+    yMinLog: viewBounds.yMinLog - SCENARIO_LOG10_OFFSET,
+    yMaxLog: viewBounds.yMaxLog - SCENARIO_LOG10_OFFSET,
+  }), [viewBounds]);
   const danielCurvePath = danielCurve.map((p, i) =>
-    `${i === 0 ? 'M' : 'L'}${sxTimestamp(p.timestamp)},${syLog(p.logHours)}`).join(' ');
+    `${i === 0 ? 'M' : 'L'}${sxTimestamp(p.timestamp)},${syLog(p.logHours + SCENARIO_LOG10_OFFSET)}`).join(' ');
 
   const yTicks = buildHorizonTicks(yMinLog, yMaxLog);
   const xTicks = buildDateTicks(xMin, xMax);
@@ -610,11 +616,11 @@ const MetrProgressChart = () => {
   };
 
   const toggles = [
-    { id: 'daniel', label: "Daniel's curve", color: c.curve, active: showDanielCurve, toggle: () => setShowDanielCurve(v => !v) },
-    { id: 'published', label: 'Published METR', color: c.published, active: showPublishedMetr, toggle: () => setShowPublishedMetr(v => !v) },
-    { id: 'extrapolated', label: 'ECI extrapolated', color: c.extrapolated, active: showEciExtrapolations, toggle: () => setShowEciExtrapolations(v => !v) },
-    { id: 'aeci', label: 'AECI approximation', color: c.aeci, active: showAeciExtrapolations, toggle: () => setShowAeciExtrapolations(v => !v) },
-    { id: 'uncertainty', label: 'Uncertainty bounds', color: c.label, active: showUncertainty, toggle: () => setShowUncertainty(v => !v) },
+    { id: 'daniel', label: 'AI 2027 scenario', color: c.curve, active: showDanielCurve, toggle: () => setShowDanielCurve(v => !v) },
+    { id: 'published', label: 'METR published', color: c.published, active: showPublishedMetr, toggle: () => setShowPublishedMetr(v => !v) },
+    { id: 'extrapolated', label: 'ECI estimate', color: c.extrapolated, active: showEciExtrapolations, toggle: () => setShowEciExtrapolations(v => !v) },
+    { id: 'aeci', label: 'AECI estimate', color: c.aeci, active: showAeciExtrapolations, toggle: () => setShowAeciExtrapolations(v => !v) },
+    { id: 'uncertainty', label: 'Uncertainty', color: c.label, active: showUncertainty, toggle: () => setShowUncertainty(v => !v) },
   ];
 
   const StatBlock = ({ label, value, sub }) => (
@@ -625,22 +631,21 @@ const MetrProgressChart = () => {
     </div>
   );
 
-  const UncertaintyBar = ({ x, low, high, color, inputOnly = false }) => (
-    <g data-uncertainty={inputOnly ? 'index-input' : 'published'} stroke={color} strokeWidth="1.3" opacity="0.7">
-      <line x1={x} x2={x} y1={sy(low)} y2={sy(high)} strokeDasharray={inputOnly ? '3 2' : undefined} />
+  const UncertaintyBar = ({ x, low, high, color, estimated = false }) => (
+    <g data-uncertainty={estimated ? 'estimate' : 'published'} stroke={color} strokeWidth="1.3" opacity="0.7">
+      <line x1={x} x2={x} y1={sy(low)} y2={sy(high)} strokeDasharray={estimated ? '3 2' : undefined} />
       <path d={`M${x - 4},${sy(low)}h8 M${x - 4},${sy(high)}h8`} />
     </g>
   );
-  const estimateBounds = (point, isAeci = false) => uncertaintyMode === 'prediction'
-    ? { low: point.uncertainty.lowHours, high: point.uncertainty.highHours }
-    : { low: isAeci ? point.inputLowHours : point.eciInputLowHours,
-      high: isAeci ? point.inputHighHours : point.eciInputHighHours };
   const frontierFit = METR_PROGRESS_SNAPSHOT.frontierExtrapolation;
-  const fitBounds = estimateBounds(frontierFit);
+  const { lagWeeks, backtest } = horizonEstimates;
   const aeciOpus55 = AECI_EXTRAPOLATED_P80_POINTS.find(p => p.model === 'Claude Opus 5.5');
   const aeciModel4 = AECI_EXTRAPOLATED_P80_POINTS.find(p => p.internal);
   const sourceLinkClass = 'underline decoration-current/30 hover:decoration-current';
   const formatBounds = (low, high) => `${formatCompactMetrHours(low)}–${formatCompactMetrHours(high)}`;
+  // Estimates this uncertain don't merit three significant figures.
+  const roundEstimate = (hours) => Number(hours.toFixed(hours < 10 ? 1 : 0));
+  const formatRange = (low, high) => `${roundEstimate(low)}–${roundEstimate(high)} h`;
 
   return (
     <div className="space-y-6">
@@ -649,8 +654,8 @@ const MetrProgressChart = () => {
           Task-Horizon Progress
         </h3>
         <p className={`mt-1 text-[13px] leading-relaxed ${activeColors.textSecondary} max-w-2xl`}>
-          Human task duration at 80% success on METR&apos;s software task distribution. Published measurements,
-          an approximate scenario curve, and separate exploratory ECI / AECI estimates. Data as of {TODAY_REFERENCE_DATE}.
+          How long a task, in human time, AI agents can complete with 80% success on METR&apos;s software tasks.
+          Data as of {TODAY_REFERENCE_DATE}.
         </p>
       </div>
 
@@ -673,14 +678,6 @@ const MetrProgressChart = () => {
             {t.label}
           </button>
         ))}
-        <label className={`inline-flex items-center gap-2 text-[12px] ${activeColors.textSecondary}`}>
-          Estimate bounds
-          <select aria-label="Estimate bounds" value={uncertaintyMode} onChange={event => setUncertaintyMode(event.target.value)}
-            className="rounded-full border px-3 py-1" style={{ backgroundColor: c.bg, borderColor: c.axis, color: c.text }}>
-            <option value="prediction">Index + fit envelope</option>
-            <option value="input">Index uncertainty only</option>
-          </select>
-        </label>
         <button
           type="button"
           onClick={() => setViewBounds(fullViewBounds)}
@@ -756,7 +753,7 @@ const MetrProgressChart = () => {
                   fontWeight="600"
                   opacity="0.85"
                 >
-                  Scenario
+                  AI 2027
                 </text>
               </>
             )}
@@ -778,25 +775,23 @@ const MetrProgressChart = () => {
 
             {showEciExtrapolations && ECI_EXTRAPOLATED_P80_POINTS.map((p) => {
               const px = sx(p.releaseDate), py = sy(p.hours);
-              const bounds = estimateBounds(p);
               return (
                 <g key={p.id}>
-                  <title>{`${p.model}: ${formatCompactMetrHours(p.hours)} estimated p80; ECI ${p.eci}. ${uncertaintyMode === 'prediction' ? 'Index + regression prediction envelope' : 'Index-only range'} ${formatBounds(bounds.low, bounds.high)}; not a complete horizon confidence interval.`}</title>
-                  {showUncertainty && <UncertaintyBar x={px} low={bounds.low} high={bounds.high} color={c.extrapolated} inputOnly />}
+                  <title>{`${p.model}: about ${formatCompactMetrHours(p.hours)} p80, 90% range ${formatBounds(p.low, p.high)}. Epoch ECI ${p.eci}.`}</title>
+                  {showUncertainty && <UncertaintyBar x={px} low={p.low} high={p.high} color={c.extrapolated} estimated />}
                   <polygon points={`${px},${py - 5.5} ${px + 5.5},${py} ${px},${py + 5.5} ${px - 5.5},${py}`} fill={c.extrapolated} opacity="0.9" />
-                  {p.showLabel !== false && <text x={px + (p.labelDx || 0)} y={py + (p.labelDy || 0)} fill={c.extrapolated} fontSize="9" fontWeight="600" opacity="0.85">{p.label}</text>}
+                  <text x={px + (p.labelDx || 0)} y={py + (p.labelDy || 0)} fill={c.extrapolated} fontSize="9" fontWeight="600" opacity="0.85">{p.label}</text>
                 </g>
               );
             })}
 
             {showAeciExtrapolations && AECI_EXTRAPOLATED_P80_POINTS.map((p) => {
               const px = sx(p.releaseDate), py = sy(p.hours);
-              const bounds = estimateBounds(p, true);
               return <g key={p.id}>
-                <title>{`${p.model}: approximately ${formatCompactMetrHours(p.hours)} p80. AECI ${p.aeci}${p.approximate ? ' (digitized)' : ''}.${p.internal ? ' Unreleased; plotted at internal availability.' : ''} ${uncertaintyMode === 'prediction' ? `Regression prediction limits ${formatBounds(bounds.low, bounds.high)}${p.uncertainty.missingInputInterval ? '; input uncertainty missing, index held fixed' : '; includes AECI endpoint variation'}. No complete confidence interval claimed.` : p.inputIntervalLabel}`}</title>
-                {showUncertainty && bounds.low !== null && <UncertaintyBar x={px} low={bounds.low} high={bounds.high} color={c.aeci} inputOnly />}
+                <title>{`${p.model}: about ${formatCompactMetrHours(p.hours)} p80, 90% range ${formatBounds(p.low, p.high)}. AECI ${p.aeci}.${p.internal ? ' Unreleased; plotted when it reached most Anthropic staff.' : ''}`}</title>
+                {showUncertainty && <UncertaintyBar x={px} low={p.low} high={p.high} color={c.aeci} estimated />}
                 <polygon points={`${px},${py - 5} ${px + 5},${py + 4} ${px - 5},${py + 4}`} fill={c.bg} stroke={c.aeci} strokeWidth="1.5" />
-                {p.showLabel !== false && <text x={px + p.labelDx} y={py + p.labelDy} fill={c.aeci} fontSize="9" fontWeight="600">{p.label}</text>}
+                <text x={px + p.labelDx} y={py + p.labelDy} fill={c.aeci} fontSize="9" fontWeight="600">{p.label}</text>
               </g>;
             })}
           </g>
@@ -811,43 +806,63 @@ const MetrProgressChart = () => {
       </p>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <StatBlock label="Scenario" value={formatCompactMetrHours(METR_PROGRESS_SNAPSHOT.danielCurveToday.hours)} sub={`${formatMonthYear(TODAY_REFERENCE_DATE)} level`} />
-        <StatBlock label="Epoch ECI fit" value={`≈${formatCompactMetrHours(frontierFit.hours)}`}
-          sub={`${frontierFit.model} · bounds ${fitBounds.low.toFixed(1)}–${fitBounds.high.toFixed(1)} h`} />
-        <StatBlock label="AECI fit" value={`≈${formatCompactMetrHours(aeciOpus55.hours)}`}
-          sub={`Opus 5.5 · internal Model 4 ≈${formatCompactMetrHours(aeciModel4.hours)}`} />
+        <StatBlock label="AI 2027 scenario" value={`${roundEstimate(METR_PROGRESS_SNAPSHOT.danielCurveToday.hours)} h`} sub={`${formatMonthYear(TODAY_REFERENCE_DATE)} level`} />
+        <StatBlock label="Epoch ECI estimate" value={`≈${roundEstimate(frontierFit.hours)} h`}
+          sub={<>{frontierFit.model}<br />90% range {formatRange(frontierFit.low, frontierFit.high)}</>} />
+        <StatBlock label="AECI estimate" value={`≈${roundEstimate(aeciOpus55.hours)} h`}
+          sub={<>Claude Opus 5.5<br />90% range {formatRange(aeciOpus55.low, aeciOpus55.high)}</>} />
       </div>
 
-      <p className={`text-[11px] leading-relaxed ${activeColors.textSecondary}`}>
-        p80 measures human task duration at 80% success. Blue bars are published METR intervals;
-        green and purple bars are estimated bounds. These bounds do not capture all uncertainty
-        and are not complete confidence intervals.
+      <p className={`text-[13px] leading-relaxed ${activeColors.textSecondary}`}>
+        METR&apos;s last published p80 is Mythos Preview (early), so everything after April 2026 is an estimate from a
+        capability index, not a measurement. GPT-6 Astra lands about {Math.round(lagWeeks['GPT-6 Astra, ECI'])} weeks behind the
+        AI 2027 curve, Opus 5.5 about level with it, and Anthropic&apos;s unreleased Model 4 about{' '}
+        {Math.round(-lagWeeks['Anthropic Model 4, AECI'])} weeks ahead, but every 90% range includes the curve. Model 4&apos;s
+        range is the widest, {formatRange(aeciModel4.low, aeciModel4.high)}: its score rests on only 15 benchmarks.
       </p>
-      <p className={`-mt-4 text-[11px] leading-relaxed ${activeColors.textSecondary}`}>
-        <strong>Nothing after April 2026 is a measurement.</strong> The last published p80 is Mythos Preview (early).{' '}
-        <a href="https://metr.org/time-horizons/" target="_blank" rel="noopener noreferrer" className={sourceLinkClass}>METR</a>{' '}
-        stopped updating its time-horizon page on September 8, 2026, and cautions that its task suite is unreliable above 16 h.
-        Every later point is an estimate from a capability index.
-      </p>
-      <p className={`-mt-4 text-[11px] leading-relaxed ${activeColors.textSecondary}`}>
-        <strong>Why green and purple disagree.</strong> Green maps{' '}
-        <a href="https://epoch.ai/eci" target="_blank" rel="noopener noreferrer" className={sourceLinkClass}>Epoch&apos;s ECI</a>{' '}
-        onto p80 for any developer. Purple maps AECI, Anthropic&apos;s own version of the index, for Claude models only, using
-        scores from one METR figure. AECI adds internal benchmarks and spends far more per task, about 10M input tokens on
-        agentic coding benchmarks against about 1M on Epoch&apos;s SWE-bench runs, by METR&apos;s loose comparison, so it may pick up
-        long-horizon coding that public benchmarks miss. That is why it runs ahead for the same model: Opus 5.5 is 174.6 on AECI and 168.4 on ECI. But
-        it is vendor-run and moves with each refit (Opus 5.5 was 169.4 in September), and Anthropic says the two scales are not
-        directly comparable. Read them as separate lenses.
-      </p>
-      <p className={`-mt-4 text-[11px] leading-relaxed ${activeColors.textSecondary}`}>
-        <strong>What METR found.</strong> In its{' '}
-        <a href="https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/" target="_blank" rel="noopener noreferrer" className={sourceLinkClass}>November 5 assessment</a>,
-        Anthropic&apos;s AECI has grown about 1.9× as fast since October 2025 as before it (95% CI 1.5–2.8×), or about 1.4× when other
-        developers&apos; public models are included. METR guesses roughly 80% of the current speedup is due to AI, and says Anthropic
-        redacted most of the evidence it found most informative. Model 4 is an unreleased Anthropic model at AECI 178.6. Its estimate
-        sits 16 points beyond any model with a measured p80, and METR warns that its benchmarks are saturating, so treat it as an
-        indication rather than a measurement.
-      </p>
+
+      <details className={`text-[12px] leading-relaxed ${activeColors.textSecondary}`}>
+        <summary className="cursor-pointer font-medium">How these estimates work</summary>
+        <ul className="mt-2 list-disc space-y-2 pl-5">
+          <li>
+            <strong>Method.</strong> Each estimate regresses METR&apos;s published p80 on a capability index:{' '}
+            <a href="https://epoch.ai/eci" target="_blank" rel="noopener noreferrer" className={sourceLinkClass}>Epoch&apos;s ECI</a>{' '}
+            across {ECI_FIT.n} models (R² {ECI_FIT.rSquared.toFixed(2)}), and Anthropic&apos;s AECI across {AECI_FIT.n} Claude models
+            from one fit (R² {AECI_FIT.rSquared.toFixed(2)}). Ranges are 90% predictive intervals. METR treats measurements
+            above 16 h as unreliable, so its tasks could not currently confirm the higher estimates.
+          </li>
+          <li>
+            <strong>Testing.</strong> Predicting each model from earlier ones only, the ECI fit was typically off by a factor of
+            about {backtest.rmseFactor.toFixed(1)}, and its ranges held {Math.round(backtest.coverage * backtest.tests)} of {backtest.tests} results.
+            The last 7 came in below prediction, though Mythos Preview (early), which has no Epoch score, came in about 1.45× above
+            on an interpolated one. Other reasonable fits put Astra anywhere from about 4 to 14 h. AECI has fewer measured models,
+            and 3 of its 5 forward tests fell inside the range.
+          </li>
+          <li>
+            <strong>Why ECI and AECI differ.</strong> They agree within 2 points on the Claude models METR has measured and both
+            score, and split by up to 6 points only on later models, so METR&apos;s data can&apos;t show which is right. ECI does
+            include long-running agentic tests: 7 of Astra&apos;s 24 benchmarks, such as MirrorCode and FrontierSWE. Indexes built
+            only from software or agentic benchmarks predicted METR worse than the full ECI. AECI relies mostly on Anthropic&apos;s
+            internal benchmarks and is vendor-run. Its p80 estimates stayed within about 10% across Anthropic&apos;s July, September
+            and October refits, even as raw scores moved several points.
+          </li>
+          <li>
+            <strong>AI 2027 line.</strong> The scenario curve is on METR&apos;s older TH1.0 scale. It is scaled by 0.78 to match
+            TH1.1 at Claude 3.7 Sonnet, the best model when the scenario was published. Its authors make the same adjustment in{' '}
+            <a href="https://blog.aifutures.org/p/q25-2026-timelines-update-uplift" target="_blank" rel="noopener noreferrer" className={sourceLinkClass}>their own grading</a>{' '}
+            using 2/3, which would move every point about 2 weeks further ahead.
+          </li>
+          <li>
+            <strong>Acceleration.</strong>{' '}
+            <a href="https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/" target="_blank" rel="noopener noreferrer" className={sourceLinkClass}>METR estimates</a>{' '}
+            Anthropic&apos;s AECI has grown about 1.9× as fast since October 2025 (95% CI 1.5–2.8×). Its comparison across methods
+            runs from 0.99× to 1.90×, and Anthropic redacted most of the evidence METR found most informative.
+          </li>
+        </ul>
+        <p className="mt-2">
+          <a href="https://github.com/spicylemonade/AI-2027-tracker/blob/master/docs/methodology.md" target="_blank" rel="noopener noreferrer" className={sourceLinkClass}>Full methodology and data</a>
+        </p>
+      </details>
     </div>
   );
 };

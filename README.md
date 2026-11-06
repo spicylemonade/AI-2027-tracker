@@ -2,7 +2,7 @@
 
 This project is a React application built with Vite to track predictions from the AI 2027 scenario.
 
-The task-horizon chart's sources, calibration, audit findings, and limitations are documented in [docs/metr-methodology.md](docs/metr-methodology.md). The [AECI follow-up](docs/aeci-follow-up.md) compares scale transfers and a full ECI refit without METR. The [uncertainty audit](docs/uncertainty-audit.md) explains the default prediction envelopes and correlated measurement errors. The [November 2026 refresh](docs/november-2026-refresh.md) records the current data and estimates. Run `npm run audit:metr` to reproduce its calculations and `npm test` to check numerical and data integrity.
+The task-horizon chart's sources, fits, validation, and limitations are documented in [docs/methodology.md](docs/methodology.md). `scripts/horizon_analysis.py` reproduces its numbers from the frozen inputs in `docs/data`.
 
 ## Prerequisites
 

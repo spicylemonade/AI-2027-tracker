@@ -1,6 +1,5 @@
-// Frozen source data for the chart audit. See docs/metr-methodology.md and
-// docs/november-2026-refresh.md. METR rows are unchanged since 2026-09-07; Epoch jointly refits its
-// scores, so every Epoch row below was replaced together from one snapshot.
+// Frozen source data for the task-horizon chart. See docs/methodology.md. METR rows are unchanged since
+// 2026-09-07; Epoch jointly refits its scores, so every Epoch row below comes from one snapshot.
 export default {
   "asOf": "2026-11-05",
   "sources": {
@@ -623,60 +622,12 @@ export default {
       "releaseDate": "2025-04-16"
     },
     {
-      "model": "GPT-5.4 Pro",
-      "eci": 160.21,
-      "ciLow": 157.71,
-      "ciHigh": 162.95,
-      "ciLevel": 0.9,
-      "releaseDate": "2026-03-05"
-    },
-    {
-      "model": "Claude Opus 5",
-      "eci": 164.45,
-      "ciLow": 162,
-      "ciHigh": 167.17,
-      "ciLevel": 0.9,
-      "releaseDate": "2026-07-24"
-    },
-    {
-      "model": "GPT-5.6 Sol",
-      "eci": 162.99,
-      "ciLow": 160.72,
-      "ciHigh": 165.46,
-      "ciLevel": 0.9,
-      "releaseDate": "2026-07-09"
-    },
-    {
       "model": "GPT-6 Astra",
       "eci": 169.07,
       "ciLow": 166.16,
       "ciHigh": 172.28,
       "ciLevel": 0.9,
       "releaseDate": "2026-09-03"
-    },
-    {
-      "model": "Claude Opus 5.5",
-      "eci": 168.36,
-      "ciLow": 165.54,
-      "ciHigh": 171.51,
-      "ciLevel": 0.9,
-      "releaseDate": "2026-09-22"
-    },
-    {
-      "model": "Gemini 4 Argon",
-      "eci": 166.45,
-      "ciLow": 163.83,
-      "ciHigh": 169.38,
-      "ciLevel": 0.9,
-      "releaseDate": "2026-09-30"
-    },
-    {
-      "model": "DeepSeek V4.1 Flash 1017",
-      "eci": 159.31,
-      "ciLow": 157.04,
-      "ciHigh": 161.78,
-      "ciLevel": 0.9,
-      "releaseDate": "2026-10-17"
     }
   ]
 };

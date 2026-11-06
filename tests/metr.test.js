@@ -4,8 +4,7 @@ import calibration from '../src/data/metrCalibration.js';
 import { fitLogHorizon, predictHorizon } from '../src/data/metrFit.js';
 import {
   ECI_CALIBRATION_POINTS, ECI_EXTRAPOLATED_P80_POINTS, ECI_FIT,
-  METR_PROGRESS_SNAPSHOT, PUBLISHED_METR_P80_POINTS, RECENT_ECI_FIT,
-  DANIEL_CURVE_P80_SERIES, TODAY_REFERENCE_DATE,
+  METR_PROGRESS_SNAPSHOT, PUBLISHED_METR_P80_POINTS, TODAY_REFERENCE_DATE,
 } from '../src/data/metrProgress.js';
 
 const close = (actual, expected, tolerance = 1e-10) =>
@@ -50,26 +49,22 @@ test('calibration uses unique, explicit model matches from a single Epoch snapsh
   assert.equal(TODAY_REFERENCE_DATE, calibration.asOf);
 });
 
-test('current fit matches an independent Python calculation and exposes sensitivity', () => {
+test('current fit matches an independent Python calculation', () => {
   close(ECI_FIT.slope, 0.14432843914462962);
   close(ECI_FIT.intercept, -22.204412874375198);
   close(ECI_FIT.rSquared, 0.9707683271894857);
   const astra = ECI_EXTRAPOLATED_P80_POINTS.find(p => p.model === 'GPT-6 Astra');
   close(astra.hours, 8.999745793830106);
-  close(astra.eciInputLowHours, 5.913279437585213);
-  close(astra.eciInputHighHours, 14.303304885837715);
-  close(astra.recentFitHours, 4.234995082357844);
   assert.equal(astra.ciLevel, 0.90);
-  assert.equal(RECENT_ECI_FIT.n, 11);
   assert.equal(METR_PROGRESS_SNAPSHOT.frontierExtrapolation, astra);
   assert.ok(astra.eci > ECI_FIT.maxEci);
 });
 
-test('published and extrapolated series remain distinct and curve is finite in its displayed domain', () => {
+test('the ECI series shows only the non-Anthropic frontier model, with its range', () => {
+  assert.deepEqual(ECI_EXTRAPOLATED_P80_POINTS.map(p => p.model), ['GPT-6 Astra']);
   for (const p of ECI_EXTRAPOLATED_P80_POINTS) {
     assert.equal(p.eciSource, 'epoch-eci');
-    assert.ok(p.eciInputLowHours < p.hours && p.hours < p.eciInputHighHours);
+    assert.ok(p.low < p.hours && p.hours < p.high);
   }
-  assert.ok(!ECI_EXTRAPOLATED_P80_POINTS.some(p => /Mythos/.test(p.model)));
-  for (const p of DANIEL_CURVE_P80_SERIES) assert.ok(Number.isFinite(p.hours) && p.hours > 0);
+  assert.ok(!calibration.epoch.some(p => /Gemini 4|DeepSeek/.test(p.model)));
 });

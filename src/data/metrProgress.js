@@ -1,8 +1,7 @@
 import calibration from './metrCalibration.js';
+import estimates from './horizonEstimates.js';
 import { fitLogHorizon, predictHorizon } from './metrFit.js';
-import { predictionEnvelope } from './horizonUncertainty.js';
 
-const HOURS_FROM_EIGHT_SECONDS = 8 / 3600;
 const HOURS_FROM_SECONDS = 1 / 3600;
 
 const decimalYearFromTimestamp = (timestamp) => {
@@ -18,10 +17,9 @@ const decimalYearFromTimestamp = (timestamp) => {
   return year + (day + fraction) / (leap ? 366 : 365);
 };
 
-// Legacy reconstruction retained for comparison. The repository does not contain
-// the original source coordinates or a validated fit; this is not a fitted METR trend.
-// The chart continues this formula beyond its original window as a mathematical
-// extrapolation. Evaluate in log space so that enormous horizons stay drawable.
+// AI 2027's timelines trajectory, on METR's older TH1.0 scale. Its authors' grading sheet confirms it:
+// about 15 min at publication, 231 min at 2026.3, and 279 min at 2026.35. See docs/methodology.md.
+// Past that window it is a mathematical continuation. Evaluate in log space so huge horizons stay drawable.
 const danielCurveLogSeconds = (decimalYear) => {
   if (!Number.isFinite(decimalYear)) throw new Error('Curve year must be finite.');
   const u = decimalYear - 2025;
@@ -76,46 +74,25 @@ export const buildDanielCurveForViewport = ({ xMin, xMax, yMinLog, yMaxLog }, st
   });
 };
 
-const buildDanielCurveSeries = (startDate, endDate, steps = 216) => {
-  const startMs = Date.parse(`${startDate}T00:00:00Z`);
-  const endMs = Date.parse(`${endDate}T00:00:00Z`);
-
-  return Array.from({ length: steps + 1 }, (_, index) => {
-    const t = index / steps;
-    const date = new Date(startMs + ((endMs - startMs) * t));
-    const releaseDate = date.toISOString().slice(0, 10);
-
-    return {
-      releaseDate,
-      hours: danielCurveHoursForDate(releaseDate),
-    };
-  });
-};
-
 export const TODAY_REFERENCE_DATE = calibration.asOf;
 
+// Opens on the period that matters; the view can still pan and zoom beyond it.
 export const METR_PROGRESS_DOMAIN = {
-  startDate: '2021-01-30',
+  startDate: '2023-01-01',
   endDate: '2027-04-27',
-  minHours: HOURS_FROM_EIGHT_SECONDS,
-  maxHours: 9600,
+  minHours: 20 * HOURS_FROM_SECONDS,
+  maxHours: 1000,
 };
 
 // Preserve source precision; convert minutes to hours exactly once.
 const labelOffsets = {
-  gpt_4: [6, -6],
-  gpt_4o_inspect: [6, -6],
-  o1_inspect: [6, 14],
-  o3_inspect: [6, -6],
-  gpt_5_2025_08_07_inspect: [6, -6],
-  claude_opus_4_6_inspect: [-84, -10],
-  gpt_5_4: [8, 16],
-  claude_mythos_preview_early_inspect: [-128, -30],
+  gpt_4: [6, -8],
+  o3_inspect: [-16, -8],
+  gpt_5_2025_08_07_inspect: [-14, -8],
+  claude_mythos_preview_early_inspect: [-72, -8],
 };
 const chartLabels = {
   gpt_4: 'GPT-4',
-  gpt_4o_inspect: 'GPT-4o',
-  claude_opus_4_6_inspect: 'Opus 4.6',
   claude_mythos_preview_early_inspect: 'Mythos (early)',
 };
 
@@ -130,6 +107,15 @@ export const PUBLISHED_METR_P80_POINTS = calibration.measurements.map(point => (
   labelDy: labelOffsets[point.id]?.[1],
 }));
 
+// The published points are TH1.1, so put the TH1.0 scenario curve on the same scale. Following its
+// authors, anchor at Claude 3.7 Sonnet, the best model when AI 2027 was published.
+const scenarioAnchor = calibration.measurements.find(point => point.id === 'claude_3_7_sonnet_inspect');
+export const SCENARIO_REBASE_FACTOR = (scenarioAnchor.p80Minutes.estimate / 60)
+  / danielCurveHoursForDate('2025-04-03');
+export const SCENARIO_LOG10_OFFSET = Math.log10(SCENARIO_REBASE_FACTOR);
+export const scenarioHoursForDate = (dateString) =>
+  danielCurveHoursForDate(dateString) * SCENARIO_REBASE_FACTOR;
+
 export const ECI_CALIBRATION_POINTS = PUBLISHED_METR_P80_POINTS
   .filter(point => point.releaseDate >= '2023-01-01' && point.epochModel)
   .map(point => ({
@@ -138,55 +124,32 @@ export const ECI_CALIBRATION_POINTS = PUBLISHED_METR_P80_POINTS
   }));
 
 export const ECI_FIT = fitLogHorizon(ECI_CALIBRATION_POINTS);
-export const RECENT_ECI_FIT = fitLogHorizon(
-  ECI_CALIBRATION_POINTS.filter(point => point.releaseDate >= '2025-01-01'),
-);
 
-// Use one dated Epoch scale for both calibration and extrapolation.
-// AECI and the old assumed Mythos score are not interchangeable inputs.
+// Claude models appear on the AECI series instead, so only the non-Anthropic frontier model is shown here.
 const extrapolationModels = [
-  { model: 'GPT-5.4 Pro', label: 'GPT-5.4 Pro extrap.', labelDx: -112, labelDy: -8 },
-  { model: 'GPT-5.6 Sol', label: 'Sol ECI extrap.', labelDx: -92, labelDy: 18 },
-  { model: 'Claude Opus 5', label: 'Opus 5 extrap.', labelDx: -60, labelDy: 34 },
-  { model: 'GPT-6 Astra', label: 'Astra extrap.', labelDx: 16, labelDy: 3 },
-  // Too close to Astra to label at the default zoom; the tooltip identifies it.
-  { model: 'Claude Opus 5.5', label: 'Opus 5.5 extrap.', showLabel: false },
-  { model: 'Gemini 4 Argon', label: 'Gemini 4', labelDx: 8, labelDy: 8 },
-  // China's highest ECI, included to show the gap to the US frontier.
-  { model: 'DeepSeek V4.1 Flash 1017', label: 'DeepSeek V4.1', labelDx: -4, labelDy: 12 },
+  { model: 'GPT-6 Astra', label: 'GPT-6 Astra', labelDx: 8, labelDy: 14 },
 ];
 
 export const ECI_EXTRAPOLATED_P80_POINTS = extrapolationModels.map(({ model, ...display }) => {
   const row = calibration.epoch.find(point => point.model === model);
+  const { low, high } = estimates.eci[model];
   return {
     ...row,
     ...display,
     id: `${model.toLowerCase().replaceAll(' ', '-')}-extrap`,
     eciSource: 'epoch-eci',
     hours: predictHorizon(ECI_FIT, row.eci),
-    uncertainty: predictionEnvelope(ECI_FIT, row.eci, {
-      low: row.ciLow, high: row.ciHigh, inputLevel: row.ciLevel,
-    }),
-    // These are transformed Epoch 90% ECI endpoints with the fit held fixed.
-    // They omit calibration error and are NOT a horizon confidence interval.
-    eciInputLowHours: predictHorizon(ECI_FIT, row.ciLow),
-    eciInputHighHours: predictHorizon(ECI_FIT, row.ciHigh),
-    recentFitHours: predictHorizon(RECENT_ECI_FIT, row.eci),
+    low,
+    high,
   };
 });
 
-export const DANIEL_CURVE_P80_SERIES = buildDanielCurveSeries(
-  METR_PROGRESS_DOMAIN.startDate,
-  METR_PROGRESS_DOMAIN.endDate,
-);
-
 export const METR_PROGRESS_SNAPSHOT = {
   danielCurveToday: {
-    label: "Daniel's curve (approx.)",
-    hours: danielCurveHoursForDate(TODAY_REFERENCE_DATE),
+    label: 'AI 2027 scenario',
+    hours: scenarioHoursForDate(TODAY_REFERENCE_DATE),
   },
   bestPublished: PUBLISHED_METR_P80_POINTS.reduce((best, point) =>
     point.hours > best.hours ? point : best),
-  frontierExtrapolation: ECI_EXTRAPOLATED_P80_POINTS.reduce((frontier, point) =>
-    point.eci > frontier.eci ? point : frontier),
+  frontierExtrapolation: ECI_EXTRAPOLATED_P80_POINTS[0],
 };

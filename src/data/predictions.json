@@ -843,9 +843,9 @@
     ],
     "timelineSegment": "Late 2025",
     "status": "In Progress / Monitoring",
-    "accuracyScore": 60,
+    "accuracyScore": 70,
     "qualitativeAccuracy": "Structurally plausible but not yet realized. Epoch AI argues that 1-5 GW campuses should support training runs in the 10^28-10^29 FLOP range as hardware efficiency improves. OpenAI/Microsoft's Stargate and xAI's Colossus 2 are exactly the sort of 1-5 GW campuses Epoch had in mind. If you saturate these campuses on one training run, 10^28 FLOP is squarely in the plausible design envelope, but no public evidence shows a 10^28 FLOP run has completed yet.",
-    "actualOutcome": "Sites near 1 GW are now running, including Colossus 2 and Stargate Abilene at about 1 million H100-equivalents each. The largest training run in Epoch's database is GPT-6 Astra at about 9.4e26 FLOP, roughly 10x short of 10^28, and no 10^28 run has been publicly confirmed.",
+    "actualOutcome": "Sites near 1 GW are now running, including Colossus 2 and Stargate Abilene at about 1 million H100-equivalents each. The largest training run in Epoch's database is GPT-6 Astra at about 9.4e26 FLOP, roughly 10x short of 10^28, and no 10^28 run has been publicly confirmed. AI Futures estimates OpenAI's August 2026 capacity at about 1e28 FLOP a month at peak and about 3e27 executed, and puts Claude Mythos 5's total training compute near 1.5e27. Those are estimates, not disclosures.",
     "supportingEvidence": [
       {
         "text": "Epoch AI: Can AI scaling continue through 2030?",
@@ -862,6 +862,10 @@
       {
         "text": "Epoch AI: Data on AI data centers",
         "url": "https://epoch.ai/data/ai-data-centers"
+      },
+      {
+        "text": "AI Futures: grading sheet with compute estimates",
+        "url": "https://docs.google.com/spreadsheets/d/1JfEJRIwGe7fSCIW14eC7q0sEhVWHEdetykVh9g9XnF8/edit?gid=1928509176#gid=1928509176"
       }
     ],
     "lastEvaluated": "2026-11-05",
@@ -872,7 +876,7 @@
       },
       {
         "date": "2026-11-05",
-        "comment": "Largest known run is now about 1e27 FLOP, the scale AI 2027 assigned to Agent-0 in late 2025, so this looks roughly a year behind. The enabling capacity is arriving at multi-GW campuses planned for 2027."
+        "comment": "Updated from 60 to 70. Largest known run is now about 1e27 FLOP, the scale AI 2027 assigned to Agent-0 in late 2025, so the run itself looks roughly a year behind. But the prediction is about what datacenters enable, and AI Futures' estimate of about 1e28 FLOP a month at peak suggests the capacity may already be close. Still unconfirmed, so it stays in progress."
       }
     ]
   },
@@ -1439,9 +1443,9 @@
     ],
     "timelineSegment": "Early 2026",
     "status": "Partially Accurate",
-    "accuracyScore": 85,
-    "qualitativeAccuracy": "Now directly supported at one lab, though later than the scenario's early-2026 date. METR's September summary quoted a preliminary estimate of about 1.5x overall acceleration in capabilities due to AI, with perhaps a 30% chance of 2x. Its November 5 assessment concludes that Anthropic is likely improving capabilities on well-specified tasks at around twice its March 2024 to October 2025 rate, with AECI growth at 1.9x (95% CI 1.5 to 2.8x), and guesses that about 80% of the current acceleration is due to AI. That works out to roughly 1.8x from AI by October 2026. METR also says non-AI factors likely influenced the late-2025 acceleration, so 1.5x probably came later than early 2026.",
-    "actualOutcome": "METR estimates roughly 2x overall at Anthropic as of October 2026 and would not be surprised by 1.3x or 3x. Anthropic's August Risk Report found no sustained AI-attributable 2x, and METR says that report understates the acceleration. Across all developers' public models, the acceleration is closer to 1.4x. Anthropic redacted most of the evidence METR found most informative.",
+    "accuracyScore": 80,
+    "qualitativeAccuracy": "Partly supported at one lab, and later than the scenario's early-2026 date. METR's September summary quoted a preliminary estimate of about 1.5x overall acceleration in capabilities due to AI, with perhaps a 30% chance of 2x. Its November 5 assessment concludes that Anthropic is likely improving capabilities on well-specified tasks at around twice its March 2024 to October 2025 rate, with AECI growth at 1.9x (95% CI 1.5 to 2.8x), and guesses that about 80% of the current acceleration is due to AI. That works out to roughly 1.8x from AI by October 2026. METR also says non-AI factors likely influenced the late-2025 acceleration, so 1.5x probably came later than early 2026. METR's comparison across methods runs from 0.99x to 1.90x, with the top of that range coming from AECI on Anthropic's own models at internal release dates.",
+    "actualOutcome": "METR estimates roughly 2x overall at Anthropic as of October 2026 and would not be surprised by 1.3x or 3x. Anthropic's August Risk Report found no sustained AI-attributable 2x, and METR says that report understates the acceleration. Across all developers' public models, the acceleration is closer to 1.4x. Anthropic redacted most of the evidence METR found most informative. In August, AI Futures estimated overall AI R&D uplift at 1.2 to 1.26x, against the 1.5x its scenario had for the end of April 2026.",
     "supportingEvidence": [
       {
         "text": "Anthropic: How AI Is Transforming Work at Anthropic",
@@ -1470,6 +1474,10 @@
       {
         "text": "METR: Review of the automated R&D section of Anthropic's August 2026 Risk Report",
         "url": "https://metr.org/blog/2026-11-05-rd-section-anthropic-risk-report-august-2026-review/"
+      },
+      {
+        "text": "AI Futures: Q2.5 2026 timelines update, uplift estimates",
+        "url": "https://blog.aifutures.org/p/q25-2026-timelines-update-uplift"
       }
     ],
     "lastEvaluated": "2026-11-05",
@@ -1484,7 +1492,7 @@
       },
       {
         "date": "2026-11-05",
-        "comment": "Updated from 80 to 85. This is the first independent, high-access estimate of the number the scenario predicted. The 1.8x is our arithmetic from METR's 2x and 80%. Still partial: it covers one lab, arrives months after the predicted date, measures capabilities rather than algorithmic progress alone, and METR warns the AECI trend could partly reflect benchmark overfitting."
+        "comment": "Score stays at 80. An earlier version of this entry moved it to 85, which leaned too heavily on the top of METR's range. This is the first independent, high-access estimate of the number the scenario predicted, and the 1.8x is our arithmetic from METR's 2x and 80%. But METR's methods run from 0.99x to 1.90x, AI Futures' own August estimate was 1.2 to 1.26x, and the result covers one lab, arrives months after the predicted date, measures capabilities rather than algorithmic progress alone, and could partly reflect benchmark overfitting."
       }
     ]
   },
@@ -2996,8 +3004,8 @@
     ],
     "timelineSegment": "Late 2026",
     "status": "Confirmed Accurate",
-    "accuracyScore": 95,
-    "qualitativeAccuracy": "Accurate. Gartner expects AI providers to spend nearly $1 trillion on AI infrastructure in 2026. Its wider count of all AI infrastructure buyers is $1.48 trillion.",
+    "accuracyScore": 90,
+    "qualitativeAccuracy": "Accurate. Gartner expects AI providers to spend nearly $1 trillion on AI infrastructure in 2026. Its wider count of all AI infrastructure buyers is $1.48 trillion. AI Futures' narrower bottom-up count is about $820 billion for the full year, running at about $850 billion annualized in August and on course to exit 2026 near $1 trillion a year.",
     "actualOutcome": "Global AI infrastructure spending in 2026 is on the order of $1 trillion, depending on scope.",
     "supportingEvidence": [
       {
@@ -3011,13 +3019,17 @@
       {
         "text": "Gartner: Worldwide AI spending to reach $2.7 trillion in 2026",
         "url": "https://www.gartner.com/en/newsroom/press-releases/2026-09-16-gartner-forecasts-worldwide-ai-spending-to-grow-49-point-5-percent-in-2026"
+      },
+      {
+        "text": "AI Futures: grading sheet with AI datacenter spending estimate",
+        "url": "https://docs.google.com/spreadsheets/d/1JfEJRIwGe7fSCIW14eC7q0sEhVWHEdetykVh9g9XnF8/edit?gid=1928509176#gid=1928509176"
       }
     ],
     "lastEvaluated": "2026-11-05",
     "analystCommentary": [
       {
         "date": "2026-11-05",
-        "comment": "The scenario's metric is the cost of owning active compute, which is not quite the same as annual spending. The match is close, but the definitions differ."
+        "comment": "Updated from 95 to 90. The scenario's metric is the cost of owning active compute, which is not quite the same as annual spending. The match is close, but the definitions differ, and the narrower bottom-up estimate is about 18% short of $1 trillion for the full year."
       }
     ]
   },
