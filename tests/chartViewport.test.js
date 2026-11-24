@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildDateTicks, buildHorizonTicks, panViewport, wheelViewport, zoomViewport } from '../src/data/chartViewport.js';
+import { buildDateTicks, buildHorizonTicks, panViewport, pinchViewport, wheelViewport, zoomViewport } from '../src/data/chartViewport.js';
 import { METR_PROGRESS_DOMAIN } from '../src/data/metrProgress.js';
 
 const initial = {
@@ -31,6 +31,16 @@ test('zoom works beyond both old limits and preserves the point beneath the poin
     close(next.xMin + anchor.x * (next.xMax - next.xMin), initial.xMin + anchor.x * (initial.xMax - initial.xMin), 0.01);
     close(next.yMaxLog - anchor.y * (next.yMaxLog - next.yMinLog), initial.yMaxLog - anchor.y * (initial.yMaxLog - initial.yMinLog));
   }
+});
+
+test('pinch scales and pans around the finger midpoint', () => {
+  const from = { x: 0.3, y: 0.4 };
+  const to = { x: 0.65, y: 0.25 };
+  const next = pinchViewport(initial, 0.5, from, to);
+  close(next.xMax - next.xMin, (initial.xMax - initial.xMin) * 0.5, 0.01);
+  close(next.yMaxLog - next.yMinLog, (initial.yMaxLog - initial.yMinLog) * 0.5);
+  close(next.xMin + to.x * (next.xMax - next.xMin), initial.xMin + from.x * (initial.xMax - initial.xMin), 0.01);
+  close(next.yMaxLog - to.y * (next.yMaxLog - next.yMinLog), initial.yMaxLog - from.y * (initial.yMaxLog - initial.yMinLog));
 });
 
 test('wheel pixels, lines and pages normalize consistently; horizontal scrolling pans', () => {

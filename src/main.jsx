@@ -16,7 +16,7 @@ import {
 } from './data/metrProgress';
 import { AECI_EXTRAPOLATED_P80_POINTS, AECI_FIT } from './data/aeciProgress';
 import horizonEstimates from './data/horizonEstimates';
-import { buildDateTicks, buildHorizonTicks, panViewport, wheelViewport, zoomViewport } from './data/chartViewport';
+import { buildDateTicks, buildHorizonTicks, panViewport, pinchViewport, wheelViewport, zoomViewport } from './data/chartViewport';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -487,6 +487,7 @@ const MetrProgressChart = () => {
   const [showAeciExtrapolations, setShowAeciExtrapolations] = useState(true);
   const [showUncertainty, setShowUncertainty] = useState(false);
   const chartSvgRef = useRef(null);
+  const pointersRef = useRef(new Map());
   const dragStateRef = useRef(null);
 
   const c = useMemo(() => ({
@@ -519,10 +520,12 @@ const MetrProgressChart = () => {
     yMaxLog: fullYMaxLog,
   }), [fullXMin, fullXMax, fullYMinLog, fullYMaxLog]);
   const [viewBounds, setViewBounds] = useState(fullViewBounds);
+  const boundsRef = useRef(viewBounds);
+  boundsRef.current = viewBounds;
 
   const getSvgPoint = (event) => {
     const rect = chartSvgRef.current?.getBoundingClientRect();
-    if (!rect) return null;
+    if (!rect || !rect.width || !rect.height) return null;
 
     return {
       x: ((event.clientX - rect.left) / rect.width) * W,
@@ -569,10 +572,17 @@ const MetrProgressChart = () => {
         { x: (x - pad.l) / iW, y: (y - pad.t) / iH },
         rect.width * iW / W, rect.height * iH / H));
     };
+    const stopGesture = (e) => e.preventDefault();
     // React's wheel listeners are passive; a native listener keeps the page
     // stationary while the graph consumes a wheel / trackpad gesture.
     svg.addEventListener('wheel', onWheel, { passive: false });
-    return () => svg.removeEventListener('wheel', onWheel);
+    svg.addEventListener('gesturestart', stopGesture, { passive: false });
+    svg.addEventListener('gesturechange', stopGesture, { passive: false });
+    return () => {
+      svg.removeEventListener('wheel', onWheel);
+      svg.removeEventListener('gesturestart', stopGesture);
+      svg.removeEventListener('gesturechange', stopGesture);
+    };
   }, [W, H, iW, iH, pad.l, pad.t]);
 
   const handleGraphKey = (event) => {
@@ -586,31 +596,69 @@ const MetrProgressChart = () => {
     }
   };
 
-  const handlePointerDown = (event) => {
-    const point = getSvgPoint(event);
-    if (!point || point.x < pad.l || point.x > W - pad.r || point.y < pad.t || point.y > H - pad.b) return;
-    event.currentTarget.setPointerCapture(event.pointerId);
+  const startPinch = () => {
+    const [[, a], [, b]] = [...pointersRef.current.entries()];
     dragStateRef.current = {
-      pointerId: event.pointerId,
-      startPoint: point,
-      startBounds: viewBounds,
+      type: 'pinch',
+      startDist: Math.hypot(b.x - a.x, b.y - a.y),
+      startMid: { x: ((a.x + b.x) / 2 - pad.l) / iW, y: ((a.y + b.y) / 2 - pad.t) / iH },
+      startBounds: boundsRef.current,
     };
   };
 
-  const handlePointerMove = (event) => {
-    const drag = dragStateRef.current;
-    if (!drag || drag.pointerId !== event.pointerId) return;
+  const handlePointerDown = (event) => {
     const point = getSvgPoint(event);
     if (!point) return;
+    const inPlot = point.x >= pad.l && point.x <= W - pad.r && point.y >= pad.t && point.y <= H - pad.b;
+    if (!inPlot && event.pointerType !== 'touch' && pointersRef.current.size === 0) return;
 
-    const dx = point.x - drag.startPoint.x;
-    const dy = point.y - drag.startPoint.y;
-    setViewBounds(panViewport(drag.startBounds, -dx / iW, dy / iH));
+    event.currentTarget.setPointerCapture(event.pointerId);
+    pointersRef.current.set(event.pointerId, point);
+
+    if (pointersRef.current.size === 1) {
+      dragStateRef.current = {
+        type: 'pan',
+        pointerId: event.pointerId,
+        startPoint: point,
+        startBounds: boundsRef.current,
+      };
+    } else if (pointersRef.current.size === 2) {
+      startPinch();
+    }
+  };
+
+  const handlePointerMove = (event) => {
+    if (!pointersRef.current.has(event.pointerId)) return;
+    const point = getSvgPoint(event);
+    if (!point) return;
+    pointersRef.current.set(event.pointerId, point);
+
+    const drag = dragStateRef.current;
+    if (!drag) return;
+
+    if (drag.type === 'pan' && drag.pointerId === event.pointerId) {
+      const next = panViewport(drag.startBounds, -(point.x - drag.startPoint.x) / iW, (point.y - drag.startPoint.y) / iH);
+      boundsRef.current = next;
+      setViewBounds(next);
+    } else if (drag.type === 'pinch' && pointersRef.current.size >= 2) {
+      const [[, a], [, b]] = [...pointersRef.current.entries()];
+      const dist = Math.hypot(b.x - a.x, b.y - a.y);
+      if (drag.startDist < 1 || dist < 1) return;
+      const mid = { x: ((a.x + b.x) / 2 - pad.l) / iW, y: ((a.y + b.y) / 2 - pad.t) / iH };
+      const next = pinchViewport(drag.startBounds, drag.startDist / dist, drag.startMid, mid);
+      boundsRef.current = next;
+      setViewBounds(next);
+    }
   };
 
   const handlePointerEnd = (event) => {
-    const drag = dragStateRef.current;
-    if (drag?.pointerId === event.pointerId) {
+    if (!pointersRef.current.delete(event.pointerId)) return;
+    if (pointersRef.current.size >= 2) {
+      startPinch();
+    } else if (pointersRef.current.size === 1) {
+      const [[id, point]] = [...pointersRef.current.entries()];
+      dragStateRef.current = { type: 'pan', pointerId: id, startPoint: point, startBounds: boundsRef.current };
+    } else {
       dragStateRef.current = null;
     }
   };
@@ -711,6 +759,7 @@ const MetrProgressChart = () => {
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerEnd}
           onPointerCancel={handlePointerEnd}
+          onLostPointerCapture={handlePointerEnd}
           onDoubleClick={() => setViewBounds(fullViewBounds)}
           style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif', touchAction: 'none' }}
         >
@@ -802,7 +851,7 @@ const MetrProgressChart = () => {
         </svg>
       </div>
       <p className={`-mt-4 text-[11px] ${activeColors.textSecondary}`}>
-        Drag to pan, scroll to zoom, Shift+scroll through dates. Double-click to reset.
+        Drag to pan, scroll or pinch to zoom, Shift+scroll through dates. Double-click to reset.
       </p>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
