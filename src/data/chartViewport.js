@@ -47,6 +47,11 @@ export const zoomViewport = (bounds, factor, anchor = { x: 0.5, y: 0.5 }) => {
   });
 };
 
+export const pinchViewport = (bounds, factor, from, to = from) => {
+  const zoomed = zoomViewport(bounds, factor, from);
+  return panViewport(zoomed, from.x - to.x, to.y - from.y);
+};
+
 export const wheelViewport = (bounds, { deltaX = 0, deltaY = 0, deltaMode = 0, shiftKey = false, ctrlKey = false }, anchor, width, height) => {
   const unit = deltaMode === 1 ? 16 : deltaMode === 2 ? height : 1;
   const dx = deltaX * unit;
